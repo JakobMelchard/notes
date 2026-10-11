@@ -12,6 +12,14 @@ and `src/`. The site is built with [Quartz](https://quartz.jzhao.xyz/):
     npm ci
     npx quartz build --serve
 
+| path     | what                                                               |
+| -------- | ------------------------------------------------------------------ |
+| `drill/` | flashcard review of the `card` blocks in the notes, in the browser |
+
+    npm run drill
+
+writes it to `public/drill/`, served at https://docs.melchard.org/tu/drill/.
+
 Contributions are welcome, by people and their LLM agents: see
 [CONTRIBUTING.md](CONTRIBUTING.md) and [AGENTS.md](AGENTS.md).
 

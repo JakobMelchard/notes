@@ -19,7 +19,9 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx quartz build
+      - run: npm run drill
       - run: python3 scripts/check.py
+      - run: npm test
 
   tests:
     runs-on: ubuntu-latest

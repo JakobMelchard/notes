@@ -1,0 +1,302 @@
+[
+  {
+    "name": "on time",
+    "steps": [
+      {
+        "rating": 3,
+        "at": 1790931600000,
+        "due": 1790932200000,
+        "stability": 3.173,
+        "difficulty": 5.282434422319005,
+        "state": 1,
+        "reps": 1,
+        "lapses": 0
+      },
+      {
+        "rating": 3,
+        "at": 1790932200000,
+        "due": 1791277800000,
+        "stability": 4.466858064362218,
+        "difficulty": 5.272967931287446,
+        "state": 2,
+        "reps": 2,
+        "lapses": 0
+      },
+      {
+        "rating": 3,
+        "at": 1791277800000,
+        "due": 1792487400000,
+        "stability": 14.217284109332127,
+        "difficulty": 5.263544986114631,
+        "state": 2,
+        "reps": 3,
+        "lapses": 0
+      },
+      {
+        "rating": 4,
+        "at": 1792487400000,
+        "due": 1801300200000,
+        "stability": 102.43973430642781,
+        "difficulty": 4.4891320358976445,
+        "state": 2,
+        "reps": 4,
+        "lapses": 0
+      },
+      {
+        "rating": 2,
+        "at": 1801300200000,
+        "due": 1814001000000,
+        "stability": 147.03020928313282,
+        "difficulty": 5.373431452013747,
+        "state": 2,
+        "reps": 5,
+        "lapses": 0
+      },
+      {
+        "rating": 1,
+        "at": 1814001000000,
+        "due": 1814001300000,
+        "stability": 6.8581709849593935,
+        "difficulty": 6.858115299139974,
+        "state": 3,
+        "reps": 6,
+        "lapses": 1
+      },
+      {
+        "rating": 3,
+        "at": 1814001300000,
+        "due": 1814865300000,
+        "stability": 9.654735698374045,
+        "difficulty": 6.841400676075038,
+        "state": 2,
+        "reps": 7,
+        "lapses": 1
+      },
+      {
+        "rating": 3,
+        "at": 1814865300000,
+        "due": 1817111700000,
+        "stability": 25.573819611786877,
+        "difficulty": 6.824762940276201,
+        "state": 2,
+        "reps": 8,
+        "lapses": 1
+      }
+    ]
+  },
+  {
+    "name": "three days late",
+    "steps": [
+      {
+        "rating": 3,
+        "at": 1790931600000,
+        "due": 1790932200000,
+        "stability": 3.173,
+        "difficulty": 5.282434422319005,
+        "state": 1,
+        "reps": 1,
+        "lapses": 0
+      },
+      {
+        "rating": 3,
+        "at": 1791191400000,
+        "due": 1791537000000,
+        "stability": 4.466858064362218,
+        "difficulty": 5.272967931287446,
+        "state": 2,
+        "reps": 2,
+        "lapses": 0
+      },
+      {
+        "rating": 3,
+        "at": 1791796200000,
+        "due": 1793524200000,
+        "stability": 20.44566468325858,
+        "difficulty": 5.263544986114631,
+        "state": 2,
+        "reps": 3,
+        "lapses": 0
+      },
+      {
+        "rating": 4,
+        "at": 1793783400000,
+        "due": 1807348200000,
+        "stability": 157.30787556678567,
+        "difficulty": 4.4891320358976445,
+        "state": 2,
+        "reps": 4,
+        "lapses": 0
+      },
+      {
+        "rating": 2,
+        "at": 1807607400000,
+        "due": 1826961000000,
+        "stability": 223.62441129339575,
+        "difficulty": 5.373431452013747,
+        "state": 2,
+        "reps": 5,
+        "lapses": 0
+      },
+      {
+        "rating": 1,
+        "at": 1827220200000,
+        "due": 1827220500000,
+        "stability": 8.04893492517542,
+        "difficulty": 6.858115299139974,
+        "state": 3,
+        "reps": 6,
+        "lapses": 1
+      },
+      {
+        "rating": 3,
+        "at": 1827479700000,
+        "due": 1828430100000,
+        "stability": 11.331058896957622,
+        "difficulty": 6.841400676075038,
+        "state": 2,
+        "reps": 7,
+        "lapses": 1
+      },
+      {
+        "rating": 3,
+        "at": 1828689300000,
+        "due": 1831540500000,
+        "stability": 32.76861596395196,
+        "difficulty": 6.824762940276201,
+        "state": 2,
+        "reps": 8,
+        "lapses": 1
+      }
+    ]
+  },
+  {
+    "name": "easy first",
+    "steps": [
+      {
+        "rating": 4,
+        "at": 1790931600000,
+        "due": 1792314000000,
+        "stability": 15.69105,
+        "difficulty": 3.2245015893713678,
+        "state": 2,
+        "reps": 1,
+        "lapses": 0
+      },
+      {
+        "rating": 2,
+        "at": 1792339200000,
+        "due": 1794585600000,
+        "stability": 26.112538502231292,
+        "difficulty": 4.318881718775723,
+        "state": 2,
+        "reps": 2,
+        "lapses": 0
+      },
+      {
+        "rating": 1,
+        "at": 1794610800000,
+        "due": 1794611100000,
+        "stability": 3.4290304944580026,
+        "difficulty": 6.149078746683927,
+        "state": 3,
+        "reps": 3,
+        "lapses": 1
+      },
+      {
+        "rating": 1,
+        "at": 1794636300000,
+        "due": 1794636600000,
+        "stability": 1.718042088052829,
+        "difficulty": 7.379629141873715,
+        "state": 3,
+        "reps": 4,
+        "lapses": 1
+      },
+      {
+        "rating": 3,
+        "at": 1794661800000,
+        "due": 1794834600000,
+        "stability": 2.418610197268353,
+        "difficulty": 7.360515555132204,
+        "state": 2,
+        "reps": 5,
+        "lapses": 1
+      },
+      {
+        "rating": 3,
+        "at": 1794859800000,
+        "due": 1795378200000,
+        "stability": 5.775346672018373,
+        "difficulty": 7.3414898908897035,
+        "state": 2,
+        "reps": 6,
+        "lapses": 1
+      }
+    ]
+  },
+  {
+    "name": "again first",
+    "steps": [
+      {
+        "rating": 1,
+        "at": 1790931600000,
+        "due": 1790931660000,
+        "stability": 0.40255,
+        "difficulty": 7.1949,
+        "state": 1,
+        "reps": 1,
+        "lapses": 0
+      },
+      {
+        "rating": 1,
+        "at": 1790937060000,
+        "due": 1790937360000,
+        "stability": 0.20168903241409677,
+        "difficulty": 8.082797017759107,
+        "state": 1,
+        "reps": 2,
+        "lapses": 0
+      },
+      {
+        "rating": 2,
+        "at": 1790942760000,
+        "due": 1790943360000,
+        "stability": 0.16938679418021535,
+        "difficulty": 8.370115944608788,
+        "state": 1,
+        "reps": 3,
+        "lapses": 0
+      },
+      {
+        "rating": 3,
+        "at": 1790948760000,
+        "due": 1791035160000,
+        "stability": 0.23845785300357963,
+        "difficulty": 8.346446118574695,
+        "state": 2,
+        "reps": 4,
+        "lapses": 0
+      },
+      {
+        "rating": 4,
+        "at": 1791040560000,
+        "due": 1791386160000,
+        "stability": 3.85950391756501,
+        "difficulty": 8.055802753959613,
+        "state": 2,
+        "reps": 5,
+        "lapses": 0
+      },
+      {
+        "rating": 3,
+        "at": 1791391560000,
+        "due": 1792169160000,
+        "stability": 8.887980941615366,
+        "difficulty": 8.033578768602506,
+        "state": 2,
+        "reps": 6,
+        "lapses": 0
+      }
+    ]
+  }
+]

@@ -67,8 +67,7 @@ back
 ````
 
 Ids are unique across the repository and stable: the id carries the card's
-review history in [drill](https://github.com/JakobMelchard/drill), so never
-rename or reuse one. Math with `$...$` works.
+review history in the [drill](drill/) page, so never rename or reuse one. Math with `$...$` works.
 
 ## TODO
 
