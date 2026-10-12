@@ -11,4 +11,3 @@ repos:
     rev: v1.0.1
     hooks:
       - id: conventional-commit
-      - id: eslint

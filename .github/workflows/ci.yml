@@ -17,5 +17,3 @@ jobs:
 
   hooks:
     uses: JakobMelchard/.github/.github/workflows/hooks.yml@86ce618fe2528abf23b57f57de9d012f04041b2d # v2.0.1
-    with:
-      skip: eslint   # needs node_modules; node.yml lints
