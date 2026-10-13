@@ -1,10 +1,11 @@
 import { next, Rating } from "./fsrs"
-import { ago, decks, Deck, Entry, merge, Progress } from "./review"
+import { ago, decks, Deck, Entry, merge, pick, Progress } from "./review"
 
 type Card = { id: string; front: string; back: string; path: string; line: number }
 
 const NEW_PER_DAY = 20
 const KEY = "drill-log"
+const COURSE = "drill-course"
 const LABELS = ["Again", "Hard", "Good", "Easy"]
 
 const load = (): Entry[] => {
@@ -27,15 +28,39 @@ const counts = (d: Deck) =>
 
 let cards: Card[] = []
 let log: Entry[] = load()
+let want = ""
+try {
+  want = localStorage.getItem(COURSE) ?? ""
+} catch {}
+// Another tab picked a course: use it on the next render.
+addEventListener("storage", (e) => {
+  if (e.key === COURSE) want = e.newValue ?? ""
+})
 
 function list() {
   const p = new Progress(log)
   const row = (d: Deck, head = false) =>
     `<a class="deck${head ? " head" : ""}${d.due || d.new ? "" : " empty"}" href="#in=${encodeURIComponent(d.in)}"><span class="name">${esc(d.label)}</span>${counts(d)}</a>`
-  const sections = decks(p, cards, Date.now(), NEW_PER_DAY)
-    .map((s) => `<section>${row(s, true)}${s.notes.map((n) => row(n)).join("")}</section>`)
+  const secs = decks(p, cards, Date.now(), NEW_PER_DAY)
+  const sec = pick(secs, want)
+  // All lists the courses, a course lists its notes.
+  const rows = sec.in ? sec.notes : [...secs.slice(1), ...sec.notes]
+  const opts = secs
+    .map(
+      (s) =>
+        `<option value="${esc(s.in)}"${s === sec ? " selected" : ""}>${s.in ? esc(s.label) : "All courses"} (${s.cards})</option>`,
+    )
     .join("")
-  document.body.innerHTML = `<main class="decks"><header><h1>Decks</h1><span class="counts legend"><span class="pill due">due</span><span class="pill new">new</span></span></header>${sections}<footer><button id="export">Export progress</button><label class="btn">Import progress<input id="import" type="file" accept="application/json" hidden></label></footer></main>`
+  document.body.innerHTML = `<main class="decks"><header><h1>Decks</h1><span class="counts legend"><span class="pill due">due</span><span class="pill new">new</span></span></header><select id="course" aria-label="Course">${opts}</select><section>${row(sec, true)}${rows.map((n) => row(n)).join("")}</section><footer><button id="export">Export progress</button><label class="btn">Import progress<input id="import" type="file" accept="application/json" hidden></label></footer></main>`
+  const select = document.getElementById("course") as HTMLSelectElement
+  select.onchange = () => {
+    want = select.value
+    try {
+      localStorage.setItem(COURSE, want)
+    } catch {}
+    list()
+    document.getElementById("course")!.focus()
+  }
   document.getElementById("export")!.onclick = () => {
     const a = document.createElement("a")
     a.href = URL.createObjectURL(new Blob([JSON.stringify(log)], { type: "application/json" }))
@@ -60,7 +85,7 @@ function review(prefix: string) {
   const p = new Progress(log)
   const inDeck = cards.filter((c) => c.path.startsWith(prefix))
   const { due, fresh } = p.queue(inDeck, now, NEW_PER_DAY)
-  const top = `<header class="top"><a class="home" href="#" aria-label="Decks">‹<span>Decks</span></a><span class="name">${esc(prefix || "All")}</span>${counts({ in: prefix, label: "", due: due.length, new: fresh.length })}</header>`
+  const top = `<header class="top"><a class="home" href="#" aria-label="Decks">‹<span>Decks</span></a><span class="name">${esc(prefix || "All")}</span>${counts({ in: prefix, label: "", cards: inDeck.length, due: due.length, new: fresh.length })}</header>`
   const c = [...due, ...fresh][0]
   if (!c) {
     document.body.innerHTML = `${top}<main class="review"><div class="done"><p class="big">Nothing due</p><p>This deck is done for now.</p><a class="btn" href="#">Back to decks</a></div></main>`
