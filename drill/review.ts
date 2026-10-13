@@ -73,7 +73,7 @@ export function title(slug: string): string {
   return w.join(" ")
 }
 
-export type Deck = { in: string; label: string; due: number; new: number }
+export type Deck = { in: string; label: string; cards: number; due: number; new: number }
 export type Section = Deck & { notes: Deck[] }
 
 // "courses/<course>/notes/<note>.md" belongs to the course deck courses/<course>/
@@ -84,12 +84,9 @@ const course = (path: string) =>
 // and new counts.
 export function decks(p: Progress, cards: Item[], now: number, newPerDay: number): Section[] {
   const row = (prefix: string, label: string): Deck => {
-    const { due, fresh } = p.queue(
-      cards.filter((c) => c.path.startsWith(prefix)),
-      now,
-      newPerDay,
-    )
-    return { in: prefix, label, due: due.length, new: fresh.length }
+    const inDeck = cards.filter((c) => c.path.startsWith(prefix))
+    const { due, fresh } = p.queue(inDeck, now, newPerDay)
+    return { in: prefix, label, cards: inDeck.length, due: due.length, new: fresh.length }
   }
   const secs: Section[] = [{ ...row("", "All"), notes: [] }]
   const at = new Map<string, Section>([["", secs[0]]])
@@ -108,3 +105,7 @@ export function decks(p: Progress, cards: Item[], now: number, newPerDay: number
   }
   return secs
 }
+
+// The section picked in the course dropdown, or All when the saved course is gone.
+export const pick = (secs: Section[], want: string): Section =>
+  secs.find((s) => s.in === want) ?? secs[0]

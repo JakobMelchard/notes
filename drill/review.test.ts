@@ -1,6 +1,6 @@
 import test from "node:test"
 import assert from "node:assert/strict"
-import { ago, decks, merge, Progress, title } from "./review"
+import { ago, decks, merge, pick, Progress, title } from "./review"
 
 const t0 = Date.UTC(2026, 9, 2, 9)
 const HOUR = 3_600_000
@@ -74,20 +74,24 @@ test("decks", () => {
   const p = new Progress([{ id: "a", rating: 1, at: t0 - HOUR }])
   const secs = decks(p, cards, t0, 20)
   assert.deepEqual(
-    secs.map((s) => [s.in, s.label, s.due, s.new]),
+    secs.map((s) => [s.in, s.label, s.cards, s.due, s.new]),
     [
-      ["", "All", 1, 4],
-      ["courses/intro-crypto/", "Intro crypto", 1, 2],
-      ["courses/ml/", "ML", 0, 1],
+      ["", "All", 5, 1, 4],
+      ["courses/intro-crypto/", "Intro crypto", 3, 1, 2],
+      ["courses/ml/", "ML", 1, 0, 1],
     ],
   )
   assert.deepEqual(
-    secs.flatMap((s) => s.notes.map((n) => [n.in, n.label, n.due, n.new])),
+    secs.flatMap((s) => s.notes.map((n) => [n.in, n.label, n.cards, n.due, n.new])),
     [
-      ["index.md", "Index", 0, 1],
-      ["courses/intro-crypto/notes/01-ciphers.md", "01 Ciphers", 1, 1],
-      ["courses/intro-crypto/notes/02-otp.md", "02 Otp", 0, 1],
-      ["courses/ml/notes/01-pac.md", "01 Pac", 0, 1],
+      ["index.md", "Index", 1, 0, 1],
+      ["courses/intro-crypto/notes/01-ciphers.md", "01 Ciphers", 2, 1, 1],
+      ["courses/intro-crypto/notes/02-otp.md", "02 Otp", 1, 0, 1],
+      ["courses/ml/notes/01-pac.md", "01 Pac", 1, 0, 1],
     ],
   )
+  assert.equal(pick(secs, "courses/ml/"), secs[2])
+  assert.equal(pick(secs, ""), secs[0])
+  // a saved course that no longer has cards falls back to All
+  assert.equal(pick(secs, "courses/gone/"), secs[0])
 })
