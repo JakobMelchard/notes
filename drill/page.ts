@@ -32,6 +32,10 @@ let want = ""
 try {
   want = localStorage.getItem(COURSE) ?? ""
 } catch {}
+// Another tab picked a course: use it on the next render.
+addEventListener("storage", (e) => {
+  if (e.key === COURSE) want = e.newValue ?? ""
+})
 
 function list() {
   const p = new Progress(log)
