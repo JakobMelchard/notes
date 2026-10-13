@@ -1369,6 +1369,19 @@ wheels = [
 ]
 
 [[package]]
+name = "pylibsparseir"
+version = "0.12.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "numpy" },
+    { name = "scipy" },
+]
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/c7/b4/533b2f08ca735fa25f6fa4978dc9cd7ba1e7b63802675f0a0ba7fa53b0b2/pylibsparseir-0.12.0-cp312-cp312-macosx_15_0_arm64.whl", hash = "sha256:f98bd46f717655691b2af191e057329610ddca1f03cbb61bc9afe70fbc673b1a", size = 6148164, upload-time = "2026-10-07T22:49:12.873Z" },
+    { url = "https://files.pythonhosted.org/packages/df/b5/e7825d628f8a2750aa4c82dd12971f6c2a8fe7c4a354b7efc41f7dde7887/pylibsparseir-0.12.0-cp312-cp312-manylinux_2_28_x86_64.whl", hash = "sha256:671a84ddd00d08ebc3080709247b1421a133c2e1efa1c358bd7b6b1f42ba4444", size = 7236684, upload-time = "2026-10-07T22:49:14.375Z" },
+]
+
+[[package]]
 name = "pyparsing"
 version = "3.3.3"
 source = { registry = "https://pypi.org/simple" }
@@ -1640,6 +1653,20 @@ wheels = [
 ]
 
 [[package]]
+name = "sparse-ir"
+version = "2.1.6"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "numpy" },
+    { name = "pylibsparseir" },
+    { name = "scipy" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/70/49/44fe8baacc6e13b39cbb4c388e7d7ef6f7859b13ea28bbb45269b6501051/sparse_ir-2.1.6.tar.gz", hash = "sha256:4ce381b55c737ffea6de3534aa06825757b21f05f6cb6aadebebf12e5ba2d812", size = 77828, upload-time = "2026-10-08T01:15:18.052Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/89/eb/ef2cd6c42533079696a1fcdd0c2b980dc1e1225b9ebd4dc5abf72a46af00/sparse_ir-2.1.6-py3-none-any.whl", hash = "sha256:cb54000d2a046da892ae48687021f499b084a9df9375890870dd5743e201ba71", size = 51278, upload-time = "2026-10-08T01:15:17.056Z" },
+]
+
+[[package]]
 name = "stack-data"
 version = "0.6.3"
 source = { registry = "https://pypi.org/simple" }
@@ -1822,6 +1849,7 @@ dependencies = [
     { name = "pytest" },
     { name = "scikit-learn" },
     { name = "scipy" },
+    { name = "sparse-ir" },
     { name = "sympy" },
     { name = "torch", version = "2.14.1", source = { registry = "https://pypi.org/simple" }, marker = "sys_platform != 'linux'" },
     { name = "torch", version = "2.14.1+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "sys_platform == 'linux'" },
@@ -1841,6 +1869,7 @@ requires-dist = [
     { name = "pytest" },
     { name = "scikit-learn" },
     { name = "scipy" },
+    { name = "sparse-ir" },
     { name = "sympy" },
     { name = "torch", marker = "sys_platform != 'linux'" },
     { name = "torch", marker = "sys_platform == 'linux'", index = "https://download.pytorch.org/whl/cpu" },
