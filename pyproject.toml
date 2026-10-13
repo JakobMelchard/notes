@@ -4,7 +4,7 @@ version = "0.1.0"
 requires-python = ">=3.12,<3.13"
 dependencies = [
   "numpy", "scipy", "matplotlib", "scikit-learn", "pandas", "sympy", "networkx",
-  "pytest", "jupyter", "pulp", "cryptography", "torch", "torchvision", "sparse-ir",
+  "pytest", "jupyter", "pulp", "cryptography", "torch", "torchvision", "sparse-ir; (sys_platform == 'linux' and platform_machine == 'x86_64') or (sys_platform == 'darwin' and platform_machine == 'arm64')",
 ]
 
 [tool.uv]
