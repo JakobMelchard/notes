@@ -26,6 +26,7 @@ jobs:
           node-version-file: .node-version
           cache: npm
       - run: npm ci
+      - run: scripts/notes.sh
       - run: npx quartz build
       - run: npm run drill
       - uses: actions/upload-pages-artifact@v4

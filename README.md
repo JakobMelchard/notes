@@ -7,9 +7,13 @@ Information Science and Technology), built from public sources only.
 Read it at https://docs.melchard.org/tu/.
 
 Each course lives in `content/courses/<slug>/` with `notes/`, `refs/`, `docs/`
-and `src/`. The site is built with [Quartz](https://quartz.jzhao.xyz/):
+and `src/`. `refs/` and `src/` live here; the Markdown (`index.md`, `notes/`, `docs/`) lives in
+[JakobMelchard/notes](https://github.com/JakobMelchard/notes), which is published from the
+author's notes vault, and `scripts/notes.sh` copies it into `content/`. Edit notes there, not
+here. The site is built with [Quartz](https://quartz.jzhao.xyz/):
 
     npm ci
+    scripts/notes.sh
     npx quartz build --serve
 
 | path     | what                                                               |

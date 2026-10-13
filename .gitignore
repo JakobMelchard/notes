@@ -10,3 +10,9 @@ private/
 replit.nix
 .venv
 __pycache__/
+# from JakobMelchard/notes, copied in by scripts/notes.sh
+.notes/
+content/index.md
+content/courses/*/index.md
+content/courses/*/notes/
+content/courses/*/docs/
