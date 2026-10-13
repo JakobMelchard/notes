@@ -7,9 +7,16 @@
 #   make clean  remove bin/
 CXX      := clang++
 CXXFLAGS := -std=c++17 -O2 -Wall -Wextra
-LIBOMP   ?= /opt/homebrew/opt/libomp
-OMPFLAGS := -Xpreprocessor -fopenmp -I$(LIBOMP)/include
-OMPLIBS  := -L$(LIBOMP)/lib -lomp
+ifeq ($(shell uname -s),Darwin)
+  LIBOMP   ?= /opt/homebrew/opt/libomp
+  OMPFLAGS := -Xpreprocessor -fopenmp -I$(LIBOMP)/include
+  OMPLIBS  := -L$(LIBOMP)/lib -lomp
+  HAVE_OMP := $(wildcard $(LIBOMP)/include/omp.h)
+else
+  OMPFLAGS := -fopenmp
+  OMPLIBS  := -fopenmp
+  HAVE_OMP := yes
+endif
 
 BIN   := bin
 PROGS := stream_triad reduction_scan matmul_tiling stencil_halo spmv_csr_ell atomics_histogram
@@ -17,7 +24,7 @@ TARGETS := $(addprefix $(BIN)/,$(PROGS))
 
 .PHONY: all test bench clean
 # every program includes omp.h (common.hpp): without libomp skip the suite, like ../cuda
-ifeq ($(wildcard $(LIBOMP)/include/omp.h),)
+ifeq ($(HAVE_OMP),)
 all test bench:
 	@echo "SKIP: libomp not found in $(LIBOMP) (brew install libomp) -- CPU mirrors not built"
 else

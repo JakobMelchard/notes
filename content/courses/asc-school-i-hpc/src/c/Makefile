@@ -41,6 +41,7 @@ PROGS = hello_mpi sendrecv deadlock pingpong nonblocking collectives \
 ifeq ($(HAVE_MPI),)
 all test:
 	@echo "SKIP: $(CC)/$(MPIRUN) not found -- MPI programs not built"
+	@test -z "$(CI)"
 else
 all: $(PROGS)
 endif

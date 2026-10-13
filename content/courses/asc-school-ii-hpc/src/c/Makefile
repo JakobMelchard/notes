@@ -66,6 +66,7 @@ RUN = $(MPIRUN) $(MPIRUN_FLAGS) -np $(NP)
 test: all
 	@$(if $(SKIP_HYB),echo "SKIP $(SKIP_HYB): need $(CC)/$(MPIRUN)$(if $(filter Darwin,$(UNAME)), and libomp in $(LIBOMP))")
 	@$(if $(SKIP_MPI),echo "SKIP $(SKIP_MPI): needs $(CC)/$(MPIRUN)")
+	@$(if $(SKIP_HYB)$(SKIP_MPI),test -z "$(CI)")
 ifneq ($(HYBRID),)
 	OMP_NUM_THREADS=2 $(RUN) ./hybrid_pi
 	@echo "--- same N, different P x T: the result must not depend on the decomposition ---"
