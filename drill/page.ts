@@ -79,7 +79,7 @@ function list() {
   input.onchange = async () => {
     try {
       const d = JSON.parse(await input.files![0].text())
-      if (!Array.isArray(d) || !d.every(isEntry)) throw 0
+      if (!Array.isArray(d) || !d.every(isEntry)) throw new Error("invalid progress file")
       add(d)
     } catch {
       alert("Not a drill progress file.")
@@ -119,7 +119,7 @@ function review(prefix: string) {
   })
 }
 
-const prefix = () => {
+const hashPrefix = () => {
   try {
     return location.hash.startsWith("#in=") ? decodeURIComponent(location.hash.slice(4)) : null
   } catch {
@@ -127,7 +127,7 @@ const prefix = () => {
   }
 }
 const route = () => {
-  const p = prefix()
+  const p = hashPrefix()
   if (p === null) list()
   else review(p)
 }
