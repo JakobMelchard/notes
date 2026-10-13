@@ -6,28 +6,11 @@ knowledge, and every change keeps the two in sync. Humans review every change
 through a pull request. Read [CONTRIBUTING.md](CONTRIBUTING.md) as well; its
 rules apply to you.
 
-## Schema
+## Layout
 
-One folder per course, `content/courses/<slug>/`. Copy
-[`templates/course/`](templates/course/) to start one. `index.md`, `notes/` and `docs/` come from
-JakobMelchard/notes (run `scripts/notes.sh`); they are gitignored here and edited in the
-author's vault, so a course-content PR here touches only `refs/` and `src/`.
+Course layout, citations and flashcard format are in [CONTRIBUTING.md](CONTRIBUTING.md). `index.md`, `notes/` and `docs/` come from JakobMelchard/notes and are gitignored here, so a course-content PR touches only `refs/` and `src/`.
 
-| path | role |
-|---|---|
-| `index.md` | course page; frontmatter `title: "<number> <title>"`, `tags: [cse or qist, <semester>]` |
-| `notes/README.md` | ordered index of the notes, one line per note |
-| `notes/00-exam-focus.md` | exam format, past papers, what is asked |
-| `notes/NN-topic.md` | one topic per note, numbered in lecture order |
-| `refs/SOURCES.md` | source register; entries `S1`, `S2`, ... with URL, retrieval date, licence, use |
-| `refs/README.md` | what is in `refs/` and the licence reasoning for vendored files |
-| `refs/fetch-sources.sh` | optional; re-fetches vendored files |
-| `docs/tiss.md` | dated transcription of the public TISS course page, facts in our own words (source: the page and `https://tiss.tuwien.ac.at/api/course/<nr without dot>-<semester>`, XML); do not commit the raw API record, it is TU Wien's prose |
-| `src/py/` | Python reference code; tests in `test_*.py` |
-| `src/c/`, `src/cpp/` | optional; Makefile with a `test` target |
-
-The sources are the ground truth, the notes are derived. Never edit a note in a
-way its cited sources do not support.
+The sources are the ground truth, the notes are derived. Never edit a note in a way its cited sources do not support.
 
 ## Operations
 
@@ -58,24 +41,7 @@ Fix what you find or report it in the pull request.
 
 ## Flashcards
 
-A card is a fenced block inside a note, written by hand:
-
-````
-```card id=<course-prefix>-<topic>
-front
----
-back
-```
-````
-
-Ids are unique across the repository and stable: the id carries the card's
-review history in the [drill](drill/) page, so never rename or reuse one. Math with `$...$` works.
-
-## TODO
-
-- Generate `content/llms.txt` and `content/llms-full.txt` from the course
-  folders at build time. The old hand-exported copies were removed because
-  they pointed at the previous `cse/` and `qist/` layout.
+Card ids are unique across the repository and never renamed or reused: the id carries the card's review history.
 
 ## Rules
 

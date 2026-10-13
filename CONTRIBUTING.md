@@ -79,21 +79,12 @@ When $\Pr[M=m \mid C=c] = \Pr[M=m]$ for all $m$ and $c$.
 
 The id is `<course-prefix>-<topic>`. Ids must be unique across the whole
 repository and must never change: the id carries a card's review history in
-the [drill](https://github.com/JakobMelchard/drill) tool. Math with `$...$`
+the [drill](drill/) page. Math with `$...$`
 works on both sides.
 
 ## Preview and checks
 
-```sh
-npm ci
-npx quartz build --serve                         # preview at http://localhost:8080
-python3 scripts/check.py                         # links, privacy, citations
-uv sync
-uv run pytest content/courses/<slug>/src -q      # tests of one course
-make -C content/courses/<slug>/src/cpp test      # if the course has C/C++ code
-```
-
-CI runs the same checks on every pull request.
+Commands are in the [README](README.md). CI runs the same checks on every pull request.
 
 ## AI-assisted contributions
 
