@@ -1,6 +1,5 @@
 import numpy as np
 import pytest
-import sparse_ir
 
 from ir_toy import (IRBasis, basis_size_vs_lambda, composite_gauss, logistic_kernel, matsubara,
                     rho_coefficients, single_pole)
@@ -111,6 +110,7 @@ def test_particle_hole_symmetric_rho_has_no_odd_coefficients(B):
 
 
 def test_against_sparse_ir():
+    sparse_ir = pytest.importorskip("sparse_ir")
     ref = sparse_ir.FiniteTempBasis("F", BETA, WMAX, eps=1e-8)
     ours = IRBasis(BETA, WMAX, eps=1e-8)
     n = 10
