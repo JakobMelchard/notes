@@ -11,7 +11,7 @@ rules apply to you.
 One folder per course, `content/courses/<slug>/`. Copy
 [`templates/course/`](templates/course/) to start one. `index.md`, `notes/` and `docs/` come from
 JakobMelchard/notes (run `scripts/notes.sh`); they are gitignored here and edited in the
-author's vault, so a PR here changes only `refs/`, `src/` and the site.
+author's vault, so a course-content PR here touches only `refs/` and `src/`.
 
 | path | role |
 |---|---|
