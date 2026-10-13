@@ -133,11 +133,10 @@ def test_write_then_parse(tmp_path):
     assert np.allclose(info["attributes"]["POINT_DATA"]["u"], vals)
 
 
-@pytest.mark.skipif(not CPP_BIN.exists(),
-                    reason="build it with `make -C src/cpp bin/vtk_writer`")
 def test_the_cpp_writer_output_conforms(tmp_path):
     """The real deliverable: cpp/vtk_writer.cpp writes the format by hand, so
     parse its output back against the specification [S12] [S13]."""
+    subprocess.run(["make", "-C", str(CPP_BIN.parents[1]), "bin/vtk_writer"], check=True, capture_output=True)
     subprocess.run([str(CPP_BIN)], cwd=tmp_path, check=True, capture_output=True)
     field = parse((tmp_path / "field.vtk").read_text())
     assert field["dataset"] == "STRUCTURED_POINTS"
