@@ -1,5 +1,5 @@
 import { next, Rating } from "./fsrs"
-import { ago, decks, Deck, Entry, merge, pick, Progress } from "./review"
+import { ago, decks, Deck, Entry, isEntry, merge, pick, Progress } from "./review"
 
 type Card = { id: string; front: string; back: string; path: string; line: number }
 
@@ -10,7 +10,8 @@ const LABELS = ["Again", "Hard", "Good", "Easy"]
 
 const load = (): Entry[] => {
   try {
-    return JSON.parse(localStorage.getItem(KEY) || "[]")
+    const d = JSON.parse(localStorage.getItem(KEY) || "[]")
+    return Array.isArray(d) ? d.filter(isEntry) : []
   } catch {
     return []
   }
@@ -20,6 +21,12 @@ const save = (log: Entry[]) => {
   try {
     localStorage.setItem(KEY, JSON.stringify(log))
   } catch {}
+}
+
+// Another tab may have saved since this page loaded, so fold its reviews in before saving.
+const add = (more: Entry[]) => {
+  log = merge(merge(load(), log), more)
+  save(log)
 }
 
 const esc = (s: string) => s.replace(/[&<>"]/g, (c) => `&#${c.charCodeAt(0)};`)
@@ -71,8 +78,9 @@ function list() {
   const input = document.getElementById("import") as HTMLInputElement
   input.onchange = async () => {
     try {
-      log = merge(log, JSON.parse(await input.files![0].text()))
-      save(log)
+      const d = JSON.parse(await input.files![0].text())
+      if (!Array.isArray(d) || !d.every(isEntry)) throw new Error("invalid progress file")
+      add(d)
     } catch {
       alert("Not a drill progress file.")
     }
@@ -105,15 +113,24 @@ function review(prefix: string) {
   }
   document.querySelectorAll<HTMLButtonElement>(".rate button").forEach((b) => {
     b.onclick = () => {
-      log = [...log, { id: c.id, rating: Number(b.value) as Rating, at: now }]
-      save(log)
+      add([{ id: c.id, rating: Number(b.value) as Rating, at: Date.now() }])
       review(prefix)
     }
   })
 }
 
-const route = () =>
-  location.hash.startsWith("#in=") ? review(decodeURIComponent(location.hash.slice(4))) : list()
+const hashPrefix = () => {
+  try {
+    return location.hash.startsWith("#in=") ? decodeURIComponent(location.hash.slice(4)) : null
+  } catch {
+    return null
+  }
+}
+const route = () => {
+  const p = hashPrefix()
+  if (p === null) list()
+  else review(p)
+}
 addEventListener("hashchange", route)
 // space shows the answer, 1 to 4 rate
 addEventListener("keydown", (e) => {
@@ -131,4 +148,7 @@ fetch("cards.json")
   .then((c: Card[]) => {
     cards = c
     route()
+  })
+  .catch(() => {
+    document.body.textContent = "Could not load the cards."
   })
