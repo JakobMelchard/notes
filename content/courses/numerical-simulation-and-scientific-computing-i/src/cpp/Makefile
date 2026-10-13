@@ -6,15 +6,22 @@
 #   make clean  remove bin/, build/ and generated .vtk files
 CXX      := clang++
 CXXFLAGS := -std=c++17 -O2 -Wall -Wextra
-LIBOMP   ?= /opt/homebrew/opt/libomp
-OMPFLAGS := -Xpreprocessor -fopenmp -I$(LIBOMP)/include
-OMPLIBS  := -L$(LIBOMP)/lib -lomp
+ifeq ($(shell uname -s),Darwin)
+  LIBOMP   ?= /opt/homebrew/opt/libomp
+  OMPFLAGS := -Xpreprocessor -fopenmp -I$(LIBOMP)/include
+  OMPLIBS  := -L$(LIBOMP)/lib -lomp
+  HAVE_OMP := $(wildcard $(LIBOMP)/include/omp.h)
+else
+  OMPFLAGS := -fopenmp
+  OMPLIBS  := -fopenmp
+  HAVE_OMP := yes
+endif
 
 BIN   := bin
 PROGS := cache_bench matmul_opt fd_poisson1d heat2d csr rng_mc omp_examples threads_cpp containers_bench vtk_writer
 BENCH := cache_bench matmul_opt csr rng_mc omp_examples threads_cpp containers_bench
 # without libomp, omp_examples is skipped instead of failing the whole suite
-ifeq ($(wildcard $(LIBOMP)/include/omp.h),)
+ifeq ($(HAVE_OMP),)
   SKIP  := omp_examples
   PROGS := $(filter-out $(SKIP),$(PROGS))
   BENCH := $(filter-out $(SKIP),$(BENCH))

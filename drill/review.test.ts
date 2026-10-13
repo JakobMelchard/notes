@@ -1,6 +1,6 @@
 import test from "node:test"
 import assert from "node:assert/strict"
-import { ago, decks, merge, pick, Progress, title } from "./review"
+import { ago, decks, isEntry, merge, pick, Progress, title } from "./review"
 
 const t0 = Date.UTC(2026, 9, 2, 9)
 const HOUR = 3_600_000
@@ -94,4 +94,18 @@ test("decks", () => {
   assert.equal(pick(secs, ""), secs[0])
   // a saved course that no longer has cards falls back to All
   assert.equal(pick(secs, "courses/gone/"), secs[0])
+})
+
+test("isEntry rejects malformed reviews", () => {
+  assert.ok(isEntry({ id: "a", rating: 4, at: t0 }))
+  for (const bad of [
+    "x",
+    null,
+    {},
+    { id: "a", rating: 5, at: t0 },
+    { id: "a", rating: 2, at: "1" },
+    { id: "a", rating: 2, at: NaN },
+    { rating: 2, at: t0 },
+  ])
+    assert.ok(!isEntry(bad))
 })

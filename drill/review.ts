@@ -41,6 +41,9 @@ export class Progress {
   }
 }
 
+export const isEntry = (e: any): e is Entry =>
+  typeof e?.id === "string" && Number.isFinite(e.at) && [1, 2, 3, 4].includes(e.rating)
+
 // Merges two logs, dropping reviews present in both.
 export function merge(a: Entry[], b: Entry[]): Entry[] {
   const key = (e: Entry) => `${e.id}\n${e.at}\n${e.rating}`

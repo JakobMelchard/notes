@@ -12,8 +12,8 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-node@v5
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
         with:
           node-version-file: .node-version
           cache: npm
@@ -27,8 +27,8 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
-      - uses: astral-sh/setup-uv@v7
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      - uses: astral-sh/setup-uv@37802adc94f370d6bfd71619e3f0bf239e1f3b78 # v7
       - run: uv sync
       - run: scripts/notes.sh
       - name: pytest per course
@@ -42,11 +42,19 @@ jobs:
           done
           exit $fail
       # the C++23 reference code is written against clang 21 + libc++ (Apple clang 21 on
-      # macOS); Ubuntu's clang 18 and libstdc++ lack parts of it, so use LLVM 21 from apt.llvm.org
-      - name: LLVM 21
+      # macOS); Ubuntu's clang 18 and libstdc++ lack parts of it, so use LLVM 21 from apt.llvm.org.
+      # The signing key is checked against its known fingerprints before apt trusts it.
+      - name: LLVM 21, OpenMP and MPI
         run: |
-          wget -qO- https://apt.llvm.org/llvm.sh | sudo bash -s 21
-          sudo apt-get install -y -qq libc++-21-dev libc++abi-21-dev
+          curl -fsSL https://apt.llvm.org/llvm-snapshot.gpg.key -o llvm.key
+          [ "$(gpg --show-keys --with-colons llvm.key | awk -F: '/^fpr/{print $10}' | sort)" = "56E1477F57BAB5ECF37818045B3D8846AF9463CE
+          6084F3CF814B57C1CF12EFD515CF4D18AF4F7421" ]
+          sudo install -d /etc/apt/keyrings
+          sudo gpg --dearmor -o /etc/apt/keyrings/llvm.gpg llvm.key
+          codename=$(lsb_release -cs)
+          echo "deb [signed-by=/etc/apt/keyrings/llvm.gpg] https://apt.llvm.org/$codename/ llvm-toolchain-$codename-21 main" | sudo tee /etc/apt/sources.list.d/llvm.list
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq clang-21 libc++-21-dev libc++abi-21-dev libomp-21-dev openmpi-bin libopenmpi-dev
           mkdir -p "$HOME/bin" && ln -s /usr/bin/clang++-21 "$HOME/bin/clang++" && ln -s /usr/bin/clang-21 "$HOME/bin/clang"
           echo "$HOME/bin" >> "$GITHUB_PATH"
       - name: make test per course
