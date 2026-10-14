@@ -26,11 +26,11 @@ bash 4 features are guarded.
 
 On a cluster, inside a Slurm job: `make test MPIRUN=srun MPIRUN_FLAGS=`.
 
-## c/ — block 3, MPI
+## c/: block 3, MPI
 
 `make` builds, `make test` runs each program with `mpirun --oversubscribe -np 4`,
 `make clean` removes binaries. **Every program checks its own result against a
-closed form and exits non-zero on failure** — no program prints numbers you have
+closed form and exits non-zero on failure**: no program prints numbers you have
 to eyeball.
 
 | Program | What | Note |
@@ -55,7 +55,7 @@ OpenMP flags on macOS (Apple clang): `-Xpreprocessor -fopenmp
 -I/opt/homebrew/opt/libomp/include` and `-L/opt/homebrew/opt/libomp/lib -lomp`;
 on Linux/GCC `-fopenmp`. The Makefile switches on `uname -s`.
 
-## exercises/ — the course's own labs
+## exercises/: the course's own labs
 
 [`exercises/2025w-mpi/`](exercises/2025w-mpi/README.md) describes, in our own
 words, what each of the nine block-3 hands-on labs asks, and points at our
@@ -67,7 +67,7 @@ solution for each. Nothing from the official repository is copied here; see
 | `2025w-mpi/README.md` | the nine labs, what each asks, and the one invariant they all share |
 | `2025w-mpi/ring_variants.c` | the course's ring sum in **seven** mechanisms, each asserting $P(P-1)/2$; run it with an odd `-np` too |
 
-## py/ — the cost models
+## py/: the cost models
 
 Run with the repo venv from `src/`: `python -m pytest py -q`.
 
@@ -76,7 +76,7 @@ Run with the repo venv from `src/`: `python -m pytest py -q`.
 | `mpi_cost.py` | the point-to-point model $\alpha + n\beta$ and $n_{1/2}$; the eleven collective algorithms of Thakur, Rabenseifner & Gropp (2005) with a bisection `crossover()`; Amdahl in the lecturer's **sequential-fraction** convention. `python3 mpi_cost.py` prints the tables the notes quote. |
 | `test_mpi_cost.py` | 28 tests. They check each formula against its closed form, reproduce the published VSC-3 ping-pong latency ladder as a monotonicity statement, and pin the correction this module exists for: a short-message `Allreduce` costs $\lg p\,\alpha$, not $2\lg p\,\alpha$. |
 
-## sh/ — blocks 1 and 2
+## sh/: blocks 1 and 2
 
 | File | What | Note |
 |---|---|---|
@@ -87,7 +87,7 @@ Run with the repo venv from `src/`: `python -m pytest py -q`.
 | `sync_to_cluster.sh` | rsync template, dry run unless `--go`, `--down` to pull results, `--delete` to mirror | [03](../notes/03-environment.md) |
 | `modules_cheatsheet.md` | **Environment Modules** (not Lmod): the commands, the Spack names, the compiler and MPI-wrapper tables | [05](../notes/05-module-environment.md) |
 
-### sh/slurm/ — job templates
+### sh/slurm/: job templates
 
 These follow ASC's own `examples/05_submitting_batch_jobs/` scripts in shape and
 naming, and they all give **both** `--qos` and `--partition`, which ASC requires.
@@ -98,11 +98,11 @@ that has no default and changes per architecture.
 | File | What |
 |---|---|
 | `vsc4_serial.sbatch` / `vsc5_serial.sbatch` | one core on a **shared** node, hence `--mem`; 2 G on VSC-4, 4 G on VSC-5 |
-| `vsc5_devel.sbatch` | the development QoS: 5 nodes, 10 minutes, priority 5 000 000 — where debugging belongs |
+| `vsc5_devel.sbatch` | the development QoS: 5 nodes, 10 minutes, priority 5 000 000: where debugging belongs |
 | `vsc4_mpi.sbatch` / `vsc5_mpi.sbatch` | 2 × 48 = 96 ranks (Skylake) and 2 × 128 = 256 ranks (Zen3), with the pinning recipes |
 | `vsc5_hybrid.sbatch` | 2 nodes × 2 ranks × 64 threads: one rank per ccNUMA domain |
 | `vsc5_array.sbatch` | `--array=1-20:5%2`, i.e. ASC's own array exercise |
-| `vsc5_single_node_many_jobs.sbatch` | fill one node with 128 background tasks — `&` and `wait` are the point |
+| `vsc5_single_node_many_jobs.sbatch` | fill one node with 128 background tasks: `&` and `wait` are the point |
 | `vsc5_gpu.sbatch` | `--gres=gpu:2` on the A100 partition, with the FP32/FP64 argument for choosing A40 instead |
 | `slurm_cheatsheet.md` | commands, the partition/QoS table, ASC-local commands (`sqos`, `lastjobs`, `interactivejobs`), reason codes, reading results |
 

@@ -145,7 +145,7 @@ def test_generator_spawn_gives_independent_streams():
 
 # SciPy
 def test_interp1d_is_legacy_but_still_works():
-    """SciPy marks interp1d legacy: "will no longer receive updates" — but emits
+    """SciPy marks interp1d legacy: "will no longer receive updates", but emits
     no warning in 1.18, which is why note 03 §interpolate has to say so in prose.
     docs.scipy.org/doc/scipy-1.18.0/reference/generated/scipy.interpolate.interp1d.html
     """
@@ -178,7 +178,7 @@ def test_pandas3_chained_assignment_and_settingwithcopywarning():
     """pandas 3.0 removed SettingWithCopyWarning; CoW makes the subset a copy.
 
     https://pandas.pydata.org/pandas-docs/version/3.0/whatsnew/v3.0.0.html
-    (note 04 §7 and its exam Q5 — this is the biggest correction of the pass)
+    (note 04 §7 and its exam Q5: this is the biggest correction of the pass)
     """
     import pandas as pd
 

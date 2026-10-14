@@ -1,6 +1,6 @@
-# Presentation outline — a hard four-minute limit
+# Presentation outline: a hard four-minute limit
 
-Sourced from *Assignment 3 — Deliver* [S14] and the preliminary lecture [S5];
+Sourced from *Assignment 3: Deliver* [S14] and the preliminary lecture [S5];
 see [`../../../notes/00-exam-focus.md`](../../../notes/00-exam-focus.md).
 
 > **Must not be longer than four minutes.** The first two minutes are a quick
@@ -10,7 +10,7 @@ see [`../../../notes/00-exam-focus.md`](../../../notes/00-exam-focus.md).
 
 The limit is enforced because 60–70 students present across three sessions [S5].
 Submit as a PDF or a link to online slides (Canva, Google Slides, PowerPoint
-Online, Prezi). **If you want to demo, record a screencast and embed it** — a
+Online, Prezi). **If you want to demo, record a screencast and embed it**: a
 live demo inside a four-minute slot is not worth the risk.
 
 Everything must be submitted **before the first of the three presentation
@@ -27,12 +27,12 @@ Four minutes is **four to six slides**, not eleven. Budget about 45 s each.
 | 1 | Problem | Task in one sentence, an input→output example, the metric and the target you set | 0:45 |
 | 2 | Data and method | Where the data came from (one figure of samples) and the architecture, one diagram with shapes | 1:15 |
 | 3 | Results | One table: trivial baseline, classical baseline, your model (mean ± std over ≥3 seeds), the number you compared against. Target met or not | 1:00 |
-| — | *(two-minute mark)* | | |
+| - | *(two-minute mark)* | | |
 | 4 | Insights | The two or three things you learned that a colleague could use: what actually moved the metric, what you expected to work and did not, where the time went | 1:00 |
 | 5 | Demo | Embedded screencast of the demo application, 20–30 s, with a still frame as fallback | 0:30 |
 
 Optional slide 6 (backup, not presented): limitations and what you would do
-differently — have it ready for questions.
+differently: have it ready for questions.
 
 ## Checklist
 
@@ -48,7 +48,7 @@ differently — have it ready for questions.
 
 ## What loses points here
 
-- Running over four minutes — you will be stopped, and the insights half is what
+- Running over four minutes: you will be stopped, and the insights half is what
   gets cut.
 - Spending three of the four minutes on the method. The sheet splits the time
   50/50 between *what you did* and *what you learned*; a talk that is all

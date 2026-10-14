@@ -1,4 +1,4 @@
-# Aalto, *Python for Scientific Computing* — adapted practice
+# Aalto, *Python for Scientific Computing*: adapted practice
 
 > **This is not 191.125 material.** It is a different university's course,
 > reworked here. Nothing in this directory came from TU Wien, from Sascha
@@ -9,7 +9,7 @@
 
 | | |
 |---|---|
-| Institution | Aalto University — Aalto Scientific Computing (CodeRefinery/Nordic-e-Infrastructure collaboration) |
+| Institution | Aalto University: Aalto Scientific Computing (CodeRefinery/Nordic-e-Infrastructure collaboration) |
 | Course | *Python for Scientific Computing* (no course code; a recurring 3-day workshop) |
 | Version used | the `master` build of the site, last commit **2025-11-27** |
 | URL | <https://aaltoscicomp.github.io/python-for-scicomp/> · repo <https://github.com/AaltoSciComp/python-for-scicomp> |
@@ -19,7 +19,7 @@
 
 **Nothing is vendored.** CC BY 4.0 would permit it, but the licence statement
 is a single line rather than the licence text, and the material is a living
-site with no tagged release — a copy would be a fork of something that moves.
+site with no tagged release: a copy would be a fork of something that moves.
 Every task below was **restated in our own words and reimplemented** from
 scratch; no sentence and no line of code is copied. Where a task depended on a
 downloaded dataset, it was rebuilt on generated data, because this repo's
@@ -37,7 +37,7 @@ chosen, and it is the largest of the three:
 | The SciPy and NumPy ecosystem | NumPy, Advanced NumPy, SciPy | tasks 1–3, 5 |
 | Data processing and plotting (Matplotlib) | Pandas, Plotting with Matplotlib, Working with Data | task 4 |
 | Parallel processing in Python | Parallel programming (GIL, `multiprocessing`, `mpi4py`, Dask) | task 6 |
-| Reproducible … with IPython/Jupyter | Jupyter, Dependency management, Binder | prose only — see below |
+| Reproducible … with IPython/Jupyter | Jupyter, Dependency management, Binder | prose only: see below |
 | Interfaces to other programming languages | Extending Python with Cython | not used; [S39] covers this better |
 
 ## What it covers that this course does not
@@ -46,7 +46,7 @@ Scope differences matter as much as overlap, and Aalto is a *workshop for
 researchers*, not an examined university course:
 
 - **Xarray, Vega-Altair, Web APIs, Binder, packaging, the "library ecosystem"
-  tour** — none of these are on the TISS list. Skipping them is deliberate.
+  tour**: none of these are on the TISS list. Skipping them is deliberate.
 - **Dask and `mpi4py`** go beyond what a 2 ECTS course examines on paper. Note
   08 names both and stops there; task 6 stays on `multiprocessing.Pool`.
 - **No optimisation chapter at all.** TISS names optimisation as a subject item
@@ -61,7 +61,7 @@ researchers*, not an examined university course:
 
 ## What is here
 
-`aalto_exercises.py` — six tasks, each a function with a docstring saying which
+`aalto_exercises.py`: six tasks, each a function with a docstring saying which
 Aalto exercise it is modelled on and what the point is:
 
 | # | modelled on | TISS item | what it establishes |

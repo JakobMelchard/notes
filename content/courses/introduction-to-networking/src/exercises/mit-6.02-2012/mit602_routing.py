@@ -8,7 +8,7 @@ This is **not** 191.030 material.  191.030 is new in 2026W and has no past
 paper [S2].  MIT 6.02 is a different course at a different institution; these
 tutorials are used only because OCW publishes them **with official solutions**,
 which makes them the one place in this tree where a routing answer can be
-checked against a number somebody else published — the same discipline as
+checked against a number somebody else published: the same discipline as
 `../../py/test_rfc_vectors.py`.
 
 Every problem is **restated in our own words**; none of MIT's prose is copied.
@@ -33,7 +33,7 @@ PUBLISHED_ANSWERS = {
 }
 
 
-# Tutorial 8, problem 2 — store-and-forward latency
+# Tutorial 8, problem 2: store-and-forward latency
 #   "Sender and receiver separated by N links and N-1 switches, each switch
 #    forwarding only after the last bit has arrived."
 # TISS topic: foundations / sources of delay (note 01).
@@ -46,7 +46,7 @@ def store_and_forward_latency(packet_bits, rate_bps, prop_delay_s, links):
     return links * (packet_bits / rate_bps + prop_delay_s)
 
 
-# Tutorial 10, problem 1 — distance-vector convergence on a clock
+# Tutorial 10, problem 1: distance-vector convergence on a clock
 #
 # The sheet's topologies are figures (images), so they are not in the PDF
 # text.  They are *reconstructed* from the published answers and stated here
@@ -159,7 +159,7 @@ def dv_failure_times(links, cut, at, watchers, period=5, rounds=20):
     return out
 
 
-# Tutorial 10, problem 2 — which routing strategies can loop
+# Tutorial 10, problem 2: which routing strategies can loop
 #
 # Four ways of picking a path to a destination.  Three are safe; one is not,
 # and the sheet's counter-example is an equal-cost triangle.

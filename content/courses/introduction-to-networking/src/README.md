@@ -1,4 +1,4 @@
-# Reference implementations — 191.030 Introduction to Networking
+# Reference implementations: 191.030 Introduction to Networking
 
 Pure Python (`struct`, `socket`, `ipaddress`, `hashlib`, `heapq`); `networkx` appears only as a cross-check in three tests (Dijkstra, Bellman-Ford, path-vector hop counts). No network access at test time: the socket tests run client and server on `127.0.0.1` in threads, `dns.py --live` is the only thing that talks to the outside and is never called by tests.
 
@@ -17,13 +17,13 @@ bash src/sh/tools_cheatsheet.sh           # dry run, no root
 `exercises/` is the other half and is **not ours**: worked
 solutions to free practice material from **other institutions**, because
 191.030 publishes none of its own [S1], [S2]. See
-[`exercises/README.md`](exercises/README.md) — and note that every file there
+[`exercises/README.md`](exercises/README.md): and note that every file there
 names the institution, course, year and licence it came from.
 
 | directory | source | licence | tests |
 |---|---|---|---|
 | `exercises/mit-6.02-2012/` | MIT 6.02 *Introduction to EECS II*, Fall 2012, OCW [S34] | CC BY-NC-SA 4.0 | 16, each asserting against a number **MIT published** |
-| `exercises/uclouvain-cnp3-2019/` | CNP3, Bonaventure, UCLouvain [S35] | CC BY-SA 3.0 | 11 — CNP3 publishes no answers, so these check the mechanism |
+| `exercises/uclouvain-cnp3-2019/` | CNP3, Bonaventure, UCLouvain [S35] | CC BY-SA 3.0 | 11: CNP3 publishes no answers, so these check the mechanism |
 
 | File | Note | What |
 |---|---|---|
@@ -38,7 +38,7 @@ names the institution, course, year and licence it came from.
 | `py/tcp_fsm.py` | 05, 11 | RFC 9293 §3.3.2 Figure 5 as a table (`TRANSITIONS`, plus notes 1–3 in `RST_EDGES`), two-peer `Endpoint` walks; `Segment` prints the RFC's `<SEQ=…><ACK=…><CTL=…>` notation; tests replay Figures 6, 7, 8, 12, 13 and note 05's scenario 1 |
 | `py/ospf.py` | 07 | RFC 2328 made concrete: Appendix B architectural constants, Appendix C.3 **sample** values (and why they are not defaults), the §10.5 Hello-parameter match, and §13.1 "which LSA instance is newer" with the database that only accepts newer ones |
 | `py/bgp_decision.py` | 06, 07 | RFC 4271 as specification: §9.1.1 degree of preference, the seven §9.1.2.2 tie-breaks applied in the mandated order with MED's same-neighbour-AS restriction, and every §10 timer default |
-| `py/dnssec.py` | 08 | RFC 4034 key tag (App. B) and DS digest (§5.1.4) — the course's one published test vector |
+| `py/dnssec.py` | 08 | RFC 4034 key tag (App. B) and DS digest (§5.1.4): the course's one published test vector |
 | `py/dns.py` | 08 | RFC 1035 messages: `encode_name` with §2.3.4 limits and §4.1.4 suffix compression, query (EDNS0 DO), response, parser for A/AAAA/NS/CNAME/MX/TXT/OPT; tests rebuild §4.1.4's figure and a hand-written packet; `--live` sends a real query |
 | `py/sockets_echo.py` | 10 | TCP and UDP echo server/client with 16-bit length-prefixed framing; `recv_exact`; loopback only |
 | `py/telnet_client_sketch.py` | 08, 10 | Telnet IAC stream parsing (WILL/WONT/DO/DONT, SB…SE, IAC IAC), RFC 1143 §7 `QOption` state machine, refuse-by-default `Negotiator`/`negotiate` |
@@ -67,4 +67,4 @@ worked problems there is now a second one, from outside the course:
 `exercises/mit-6.02-2012/` reproduces the answers
 MIT printed for its own routing and transport tutorials, and
 [`../notes/12-substitute-practice-set.md`](../notes/12-substitute-practice-set.md)
-collects the whole practice set — 22 problems, each tagged with whose it is.
+collects the whole practice set: 22 problems, each tagged with whose it is.

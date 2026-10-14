@@ -1,4 +1,4 @@
-# Reference implementations — 192.043
+# Reference implementations: 192.043
 
 Pure implementations first, library call as a cross-check in the test. Every
 module runs standalone as a small demo. Conventions in
@@ -29,7 +29,7 @@ cpp/                     the four algorithms where the C++/Python comparison tea
 exercises/               Egly's sheets + three substitute folders (see exercises/README.md)
 ```
 
-### `py/algorithmics` — block A
+### `py/algorithmics`: block A
 
 | module | note | what |
 |---|---|---|
@@ -41,7 +41,7 @@ exercises/               Egly's sheets + three substitute folders (see exercises
 | `approx.py` | A07 | vertex cover 2-approximation, greedy set cover, load balancing (greedy and LPT), knapsack FPTAS, measured approximation ratios |
 | `lp_ilp.py` | A08 | simplex on small instances, duality checks, ILP via `pulp`, integrality gaps |
 
-### `py/complexity` — block B
+### `py/complexity`: block B
 
 | module | note | what |
 |---|---|---|
@@ -50,7 +50,7 @@ exercises/               Egly's sheets + three substitute folders (see exercises
 | `bpp_amplify.py` | B05 | majority amplification and the Chernoff bound, empirically |
 | `query_complexity.py` | B06 | deterministic, randomised and quantum query complexity of small Boolean functions |
 
-### `py/quantum` — block C (and B06)
+### `py/quantum`: block C (and B06)
 
 | module | note | what |
 |---|---|---|

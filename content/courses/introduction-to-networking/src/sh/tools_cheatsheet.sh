@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# tools_cheatsheet.sh — annotated networking command cheat sheet (note 11).
+# tools_cheatsheet.sh: annotated networking command cheat sheet (note 11).
 #
 # Default is --dry-run: every command is printed, nothing is executed, no root
 # needed.  `./tools_cheatsheet.sh --run <section>` executes the commands of one
@@ -11,7 +11,7 @@ set -euo pipefail
 
 MODE="${1:---dry-run}"
 SECTION="${2:-all}"
-IFACE="${IFACE:-en0}"          # Linux: eth0/wlan0 — `ip link` lists them
+IFACE="${IFACE:-en0}"          # Linux: eth0/wlan0: `ip link` lists them
 TARGET="${TARGET:-tuwien.ac.at}"
 
 run() {                        # run "explanation" command args...

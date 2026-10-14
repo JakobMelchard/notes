@@ -1,4 +1,4 @@
-# Software Carpentry, *Programming with Python* — adapted practice
+# Software Carpentry, *Programming with Python*: adapted practice
 
 > **This is not 191.125 material.** It is The Carpentries' workshop lesson,
 > reworked here. Nothing in this directory came from TU Wien, from Sascha
@@ -9,7 +9,7 @@
 | | |
 |---|---|
 | Organisation | The Carpentries (Software Carpentry) |
-| Lesson | *Programming with Python* — repository `swcarpentry/python-novice-inflammation` |
+| Lesson | *Programming with Python*: repository `swcarpentry/python-novice-inflammation` |
 | Version used | the published `main` build; most recent commit at retrieval **2026-09-22** (the lesson is continuously maintained and has no release tags) |
 | URL | <https://swcarpentry.github.io/python-novice-inflammation/> · repo <https://github.com/swcarpentry/python-novice-inflammation> |
 | Retrieved | 2026-09-22 |
@@ -43,7 +43,7 @@ treatment found that is written as *exercises* rather than as API reference.
 - **It teaches `assert`, not `pytest`.** The lesson's testing is assertions and
   test-driven development by hand; there are no fixtures, no `parametrize`, no
   `approx`. That half of TISS's "Code testing" item is note 05's and
-  [`../../py/test_testing_examples.py`](../../py/test_testing_examples.py)'s —
+  [`../../py/test_testing_examples.py`](../../py/test_testing_examples.py)'s:
   it has no free-course substitute and did not need one, because pytest's own
   documentation [S18] is the primary source and is already cited.
 - **No SciPy, no optimisation, no parallelism, no interfaces, no Jupyter.** Five
@@ -53,7 +53,7 @@ treatment found that is written as *exercises* rather than as API reference.
 
 ## What is here
 
-`swc_exercises.py` — five tasks:
+`swc_exercises.py`: five tasks:
 
 | # | modelled on | TISS item | what it establishes |
 |---|---|---|---|
@@ -61,10 +61,10 @@ treatment found that is written as *exercises* rather than as API reference.
 | 2 | ep. 10, the pre/post-condition exercise | Code testing | assertions as a contract: what must hold before, what must hold after |
 | 3 | ep. 10, the test-driven-development exercise | Code testing | written test-first; ranges that only *touch* have no overlap, and that case decides the design |
 | 4 | ep. 9 "Errors and Exceptions" | Language | `else` runs only without an exception, `finally` always; `except` matches subclasses |
-| 5 | ours (the consequence ep. 10 states in prose) | Code testing | `python -O` deletes every `assert` — so an assertion is not input validation. Measured by running a child interpreter |
+| 5 | ours (the consequence ep. 10 states in prose) | Code testing | `python -O` deletes every `assert`: so an assertion is not input validation. Measured by running a child interpreter |
 
 `test_swc_exercises.py` covers all five. Task 3's three tests are grouped and
-marked in the file, because they were fixed before `range_overlap` had a body —
+marked in the file, because they were fixed before `range_overlap` had a body:
 that is the exercise.
 
 ```sh
@@ -75,5 +75,5 @@ uv run pytest src/exercises -q
 
 Attribution, as CC BY 4.0 requires if you reuse anything from the lesson itself:
 Software Carpentry, *Programming with Python*,
-<https://swcarpentry.github.io/python-novice-inflammation/> — CC BY 4.0,
+<https://swcarpentry.github.io/python-novice-inflammation/>: CC BY 4.0,
 Copyright (c) The Carpentries.

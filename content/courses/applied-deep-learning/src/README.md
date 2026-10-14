@@ -23,7 +23,7 @@ Device: `common.get_device()` picks `mps` on Apple Silicon, else `cuda`, else `c
 | `gnn_gcn.py` | 07 | dense GCN vs feature-only MLP on a stochastic block model, 10 % labels | test accuracy on unlabelled nodes |
 | `xai_saliency.py` | 08 | saliency, integrated gradients (completeness check), Grad-CAM on the shape CNN | attribution mass on the shape |
 | `llm_finetune_sketch.py` | 09 | pretrain tiny LM on addition, freeze, LoRA adapters fine-tuned on subtraction, merge | trainable fraction, bits/char before/after |
-| `shape_formulas.py` | 02, 03, 06 | nothing — it *verifies*: conv/transposed-conv output size, parameter counts for conv/RNN/LSTM/GRU/attention/transformer blocks, receptive field, attention memory, each checked against torch over a sweep | number of checks, then the tables printed from the verified formulas |
+| `shape_formulas.py` | 02, 03, 06 | nothing: it *verifies*: conv/transposed-conv output size, parameter counts for conv/RNN/LSTM/GRU/attention/transformer blocks, receptive field, attention memory, each checked against torch over a sweep | number of checks, then the tables printed from the verified formulas |
 | `ctc_loss.py` | 03 | the CTC forward algorithm in log space, from scratch; then a frame classifier trained with it on unaligned targets | agreement with `torch.nn.CTCLoss` and with brute force; greedy-decode exact match |
 | `set_prediction.py` | 06 | GIoU, the DETR matching cost, Hungarian vs greedy vs brute-force matching, the set criterion, and a query-based toy detector | matching optimality, mean IoU of matched boxes |
 | `deploy_optimize.py` | 12 | affine int8 quantisation from scratch; float formats read out of `torch.finfo` | float-format table, quantisation SNR against its analytic bound |
@@ -37,14 +37,14 @@ The highest-value tests are the ones that reproduce a number someone else publis
 
 | test | reproduces |
 |---|---|
-| `test_ctc_loss.py::test_matches_torch_ctc_loss` | `torch.nn.CTCLoss`, the reference implementation of Graves et al. 2006 [S48] — exact agreement to `1e-4` on three configurations |
+| `test_ctc_loss.py::test_matches_torch_ctc_loss` | `torch.nn.CTCLoss`, the reference implementation of Graves et al. 2006 [S48]: exact agreement to `1e-4` on three configurations |
 | `test_ctc_loss.py::test_matches_brute_force_enumeration` | exhaustive enumeration of all $C^T$ paths and the collapse rule, i.e. CTC's *definition* rather than another implementation of its dynamic program |
 | `test_ctc_loss.py::test_closed_forms` | two hand-computable cases, including the three paths of $l=[1]$ over two frames |
 | `test_set_prediction.py::test_hungarian_is_optimal_and_greedy_is_not` | exhaustive enumeration of every injection, over 100 random cost matrices; greedy loses on more than 10 of them |
 | `test_set_prediction.py::test_iou_and_giou_axioms` | the defining properties of GIoU: $1$ for identical boxes, $\to -1$ as boxes separate, and equal to IoU when the enclosing box is the union |
 | `test_deploy_optimize.py::test_quantisation_matches_torch` | `torch.quantize_per_tensor` on every entry of three tensors spanning four orders of magnitude |
 | `test_deploy_optimize.py::test_quantisation_error_respects_the_half_step_bound` | the analytic $s/2$ bound and the $s/\sqrt{12}$ uniform-error RMS |
-| `test_deploy_optimize.py::test_float_format_facts` | `torch.finfo` — the float-format table in note 12 is generated, never typed |
+| `test_deploy_optimize.py::test_float_format_facts` | `torch.finfo`: the float-format table in note 12 is generated, never typed |
 | `test_shape_formulas.py` (10 tests) | every worked number in notes 02, 03 and 06, plus 936 conv configurations and a *measured* receptive field (gradient support, not a recomputation of the same recursion) |
 
 `test_pruning.py::test_lottery_ticket_runs_and_is_reported_honestly` is the opposite case and is deliberate: the lottery-ticket effect [S84] does **not** reproduce on this toy, and the test pins that so an apparent future "reproduction" is noticed. See [`../notes/12-serving-and-deployment.md`](../notes/12-serving-and-deployment.md).

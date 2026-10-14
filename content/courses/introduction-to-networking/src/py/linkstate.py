@@ -48,7 +48,7 @@ def path(prev, target):
 
 
 def routing_table(graph, source):
-    """{destination: (next_hop, cost)} — first hop of the shortest path."""
+    """{destination: (next_hop, cost)}: first hop of the shortest path."""
     dist, prev = dijkstra(graph, source)
     table = {}
     for dst in dist:

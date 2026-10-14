@@ -18,7 +18,7 @@ worked here.
 | `2020-06-25` | 25.06.2020 | E20b | 2020S | **1R** with precision and accuracy, and **LOOCV** for 1-NN vs 3-NN |
 | `2020-09-09` | 09.09.2020 | E20c | 2019W/2020S re-take | where **convolution and max pooling** first appear; naive Bayes **with** Laplace |
 | `2022-06-30` | 30.06.2022 | E22b | 2022S | the format break: first all-MC paper, first **$k$-armed bandit**, one **gradient-descent step** |
-| `2026-01-27` | 27.01.2026 | E26a | 2025W main | **the most recent paper and the closest model for 2026W** — all four section-2 calculations plus the section-3 lists |
+| `2026-01-27` | 27.01.2026 | E26a | 2025W main | **the most recent paper and the closest model for 2026W**: all four section-2 calculations plus the section-3 lists |
 
 Together they cover **all five recurring hand calculations**: naive Bayes, the
 bandit trace, convolution/pooling, 1R, and a regression error or gradient step.
@@ -27,8 +27,8 @@ bandit trace, convolution/pooling, 1R, and a regression error or gradient step.
 
 Every one of these transcripts is a student's recollection, and **none of them
 reproduces the paper's data tables**. So each `solution.py` works a table of the
-*stated shape* — the right number of rows, the right attribute types, the right
-question — with our own implementations from [`../py`](../README.md). The
+*stated shape* (the right number of rows, the right attribute types, the right
+question) with our own implementations from [`../py`](../README.md). The
 **method** is what transfers; the numbers are ours. Where a transcript does
 record a specific outcome (the 1/3 initial AdaBoost weights, 1R splitting on
 `age` and scoring 1.0, the $3\times3$ output of a $7\times7$/$3\times3$/stride-2

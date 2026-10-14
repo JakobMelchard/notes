@@ -1,4 +1,4 @@
-# Exam 25.06.2020 — label **E20b** (2020S)
+# Exam 25.06.2020: label **E20b** (2020S)
 
 Source: [S11], VoWi page `Exam 2020-06-25`. A student's transcript, described
 here in our own words; the paper is not reproduced. **90 minutes.**
@@ -23,7 +23,7 @@ here in our own words; the paper is not reproduced. **90 minutes.**
 7. **1R and a Bayesian network.** Thirteen samples, four categorical variables
    (age, education, income, marital status) and a yes/no target (purchase).
    (a) Compute 1R on samples 1–8 and then precision and accuracy on samples
-   9–13 — the transcript notes, with some surprise, that 1R split on **age** and
+   9–13: the transcript notes, with some surprise, that 1R split on **age** and
    achieved 1.0 on both. (b) Propose a Bayesian network for the full data set,
    argue for the structure, and compute some conditional probabilities in it.
 
@@ -34,23 +34,23 @@ The paper's data is not public, so both calculations run on tables of the
 LOOCV question, and a 13-row nominal table with the four named attributes for
 1R.
 
-- **LOOCV (exercise 6)** — the whole point of the question is that 1-NN is *not*
+- **LOOCV (exercise 6)**: the whole point of the question is that 1-NN is *not*
   error-free under LOOCV, because a point cannot be its own neighbour. On our
   layout 1-NN scores 0.2 error and 3-NN 0.1: the single intruding point drags
   its nearest neighbour down with it under $k = 1$, while $k = 3$ outvotes it.
   The resubstitution error of 1-NN is still exactly 0, which is the separate
   true/false item "the error of a 1-NN classifier on the training set is 0"
   (**true**, E22a) [S12].
-- **1R (exercise 7a)** — the per-attribute error table is the part an exam
+- **1R (exercise 7a)**: the per-attribute error table is the part an exam
   answer has to show: age 1 error, income 1, education 2, marital 2 out of the
   eight training rows; age wins the tie by index. The resulting three rules
   (`young → no`, `middle → yes`, `old → yes`) get all five held-out rows right,
   so accuracy = precision = recall = 1.0 against a 0R baseline of 0.4. That
   reproduces the transcript's observation on a table of the same shape.
-- **Boosting (exercise 2)** — initial weights $1/3$ [S12]; the best stump errs
+- **Boosting (exercise 2)**: initial weights $1/3$ [S12]; the best stump errs
   on one of the two outer points, $\epsilon = 1/3$, $\alpha = \tfrac12\ln 2$,
   and the weights become $(0.5, 0.25, 0.25)$ or $(0.25, 0.25, 0.5)$ depending on
-  which side the split falls. **Either is a correct answer** — the paper asks
+  which side the split falls. **Either is a correct answer**: the paper asks
   which point gains weight *given your own boundary*.
 
 Exercise 7(b), the Bayesian network, is a design question with no unique answer;
