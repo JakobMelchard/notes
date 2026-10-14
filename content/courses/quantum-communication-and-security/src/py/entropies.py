@@ -75,7 +75,7 @@ def holevo_chi(probs, states) -> float:
     return von_neumann(avg) - sum(p * von_neumann(r) for p, r in zip(probs, states))
 
 
-# ---------------------------------------------------------------- one-shot entropies
+# one-shot entropies
 def min_entropy_classical(p) -> float:
     return -math.log2(float(np.max(p)))
 
@@ -125,7 +125,7 @@ def min_entropy_pure(psi: np.ndarray, da: int, db: int) -> float:
     return -2.0 * math.log2(float(s.sum()))
 
 
-# ---------------------------------------------------------------- BB84 as an EB protocol
+# BB84 as an EB protocol
 PHI_P = np.array([1, 0, 0, 1]) / math.sqrt(2)
 PHI_M = np.array([1, 0, 0, -1]) / math.sqrt(2)
 PSI_P = np.array([0, 1, 1, 0]) / math.sqrt(2)

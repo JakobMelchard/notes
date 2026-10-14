@@ -20,10 +20,8 @@ Run `python3 mit602_routing.py` for a demo.
 """
 from itertools import permutations
 
-# --------------------------------------------------------------------------
 # The answers MIT published, keyed by tutorial and problem.  Quoting a result
 # is not quoting the sheet: these are the numbers the solution PDFs print.
-# --------------------------------------------------------------------------
 PUBLISHED_ANSWERS = {
     ("t08", "2A"): 30e-6,          # seconds, one switch / two links
     ("t08", "2B"): 60e-6,          # seconds, three switches / four links
@@ -35,12 +33,10 @@ PUBLISHED_ANSWERS = {
 }
 
 
-# --------------------------------------------------------------------------
 # Tutorial 8, problem 2 — store-and-forward latency
 #   "Sender and receiver separated by N links and N-1 switches, each switch
 #    forwarding only after the last bit has arrived."
 # TISS topic: foundations / sources of delay (note 01).
-# --------------------------------------------------------------------------
 def store_and_forward_latency(packet_bits, rate_bps, prop_delay_s, links):
     """First bit sent to last bit received across `links` links in series,
     every intermediate node storing the whole packet before forwarding.
@@ -50,7 +46,6 @@ def store_and_forward_latency(packet_bits, rate_bps, prop_delay_s, links):
     return links * (packet_bits / rate_bps + prop_delay_s)
 
 
-# --------------------------------------------------------------------------
 # Tutorial 10, problem 1 — distance-vector convergence on a clock
 #
 # The sheet's topologies are figures (images), so they are not in the PDF
@@ -65,7 +60,6 @@ def store_and_forward_latency(packet_bits, rate_bps, prop_delay_s, links):
 #
 # TISS topic: routing and forwarding, as the contrast that motivates link
 # state and path vector (note 07 keeps distance vector for exactly that).
-# --------------------------------------------------------------------------
 NETWORK_I = [("A", "B"), ("B", "C")]
 NETWORK_II = [("D", "E"), ("E", "F"), ("F", "D")]
 
@@ -165,12 +159,10 @@ def dv_failure_times(links, cut, at, watchers, period=5, rounds=20):
     return out
 
 
-# --------------------------------------------------------------------------
 # Tutorial 10, problem 2 — which routing strategies can loop
 #
 # Four ways of picking a path to a destination.  Three are safe; one is not,
 # and the sheet's counter-example is an equal-cost triangle.
-# --------------------------------------------------------------------------
 TRIANGLE = {"A": {"B": 1, "D": 1}, "B": {"A": 1, "D": 1}, "D": {"A": 1, "B": 1}}
 
 

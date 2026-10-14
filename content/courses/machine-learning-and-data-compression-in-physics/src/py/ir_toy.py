@@ -81,7 +81,7 @@ class IRBasis:
         self._U = U[:, :self.size + 1]
         self._V = Vt[:self.size + 1].T
 
-    # --- basis functions (Nystrom extension of the discrete singular vectors) ---
+    # basis functions (Nystrom extension of the discrete singular vectors)
     def u(self, tau, extra: bool = False) -> np.ndarray:
         """u_l(tau), shape (L, len(tau)); int_0^beta u_l u_m dtau = delta_lm."""
         L = self.size + int(extra)
@@ -104,7 +104,7 @@ class IRBasis:
         Khat = 1.0 / (self.w[None, :] - 1j * nu[:, None])
         return ((Khat * np.sqrt(self.ww)) @ self._V[:, :L] / self.s[:L]).T
 
-    # --- sparse sampling ---
+    # sparse sampling
     def tau_sampling_points(self, rule: str = "roots") -> np.ndarray:
         """L sampling times.
 

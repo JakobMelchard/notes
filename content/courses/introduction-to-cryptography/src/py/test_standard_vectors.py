@@ -48,7 +48,7 @@ NIST_PLAIN = [h("6bc1bee22e409f96e93d7e117393172a"),
               h("f69f2445df4f9b17ad2b417be66c3710")]
 
 
-# ------------------------------------------------------------ AES, FIPS 197
+# AES, FIPS 197
 @CIPHERS
 def test_fips197_appendix_b_cipher_example(make):
     """FIPS 197 appendix B [S21]: the worked AES-128 encryption whose
@@ -69,7 +69,7 @@ def test_aes_is_a_permutation_not_a_random_function():
     assert len(set(cts)) == len(cts)
 
 
-# ------------------------------------------------- modes, SP 800-38A app. F
+# modes, SP 800-38A app. F
 @CIPHERS
 def test_sp800_38a_f1_ecb_aes128(make):
     """SP 800-38A F.1.1/F.1.2 [S25].  ECB encrypts each block independently,
@@ -124,7 +124,7 @@ def test_sp800_38a_f5_ctr_aes128(make):
     assert xor(b"".join(NIST_PLAIN), ks).hex() == "".join(ciphertext)
 
 
-# ------------------------------------------------------- SHA-256, RFC 6234
+# SHA-256, RFC 6234
 @pytest.mark.parametrize("msg,repeat,digest", [
     (b"abc", 1,
      "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"),
@@ -149,7 +149,7 @@ def test_sha256_empty_string():
         "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
 
 
-# --------------------------------------------------------- HMAC, RFC 4231
+# HMAC, RFC 4231
 RFC4231 = [
     # (test case, key, data, HMAC-SHA-256)
     (1, h("0b" * 20), b"Hi There",
@@ -187,7 +187,7 @@ def test_rfc4231_tc5_truncated_output():
     assert tag[:16].hex() == "a3b6167473100ee06e0c796c2955552b"
 
 
-# ------------------------------------------------- DH group, RFC 3526
+# DH group, RFC 3526
 # RFC 3526 sec. 3, the 2048-bit MODP group (group 14).  p = 2^2048 - 2^1984
 # - 1 + 2^64 * (floor(2^1918 pi) + 124476), generator 2.
 MODP2048 = int("""

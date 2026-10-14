@@ -16,7 +16,7 @@ import math
 from itertools import product
 
 
-# ------------------------------------------------ NL: guess the path step by step
+# NL: guess the path step by step
 def nl_reachable(g, s, t):
     """Nondeterministic log-space machine for PATH, run over ALL branches.
 
@@ -36,7 +36,7 @@ def nl_reachable(g, s, t):
     return branch(s, 0)
 
 
-# ------------------------------------------------ Savitch: halve the path length
+# Savitch: halve the path length
 def savitch_reach(g, u, v, k, trace=None):
     """reach(u, v, k): is there a walk u -> v of length <= 2^k?
 
@@ -60,7 +60,7 @@ def reachable_savitch(g, s, t):
     return savitch_reach(g, s, t, k)
 
 
-# ------------------------------------------------ 2SAT via implication graph + SCC
+# 2SAT via implication graph + SCC
 def kosaraju_scc(g):
     """Returns dict vertex -> component id (ids are in reverse topological order)."""
     order, seen = [], set()
@@ -129,7 +129,7 @@ def two_sat_brute(cnf, n):
     return None
 
 
-# ------------------------------------------------ Immerman-Szelepcsenyi
+# Immerman-Szelepcsenyi
 def nl_reachable_bounded(g, s, t, d):
     if s == t:
         return True

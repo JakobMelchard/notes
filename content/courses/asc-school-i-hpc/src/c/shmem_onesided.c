@@ -38,7 +38,7 @@ int main(int argc, char **argv)
     MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
     MPI_Comm_size(MPI_COMM_WORLD, &world_size);
 
-    /* ---- 1. the shared-memory communicator ------------------------------- */
+    /* 1. the shared-memory communicator */
     MPI_Comm comm_sm;
     int rank_sm, size_sm;
     MPI_Comm_split_type(MPI_COMM_WORLD, MPI_COMM_TYPE_SHARED, 0, MPI_INFO_NULL, &comm_sm);
@@ -50,7 +50,7 @@ int main(int argc, char **argv)
                size_sm == world_size ? "one shared-memory region"
                                      : "split into 2 or more shared-memory islands");
 
-    /* ---- 2. the ring, with a store instead of an MPI_Put ------------------ */
+    /* 2. the ring, with a store instead of an MPI_Put */
     {
         int *rcv_ptr;
         MPI_Win win;
@@ -87,7 +87,7 @@ int main(int argc, char **argv)
         MPI_Win_free(&win);
     }
 
-    /* ---- 3. one copy of a table per node --------------------------------- */
+    /* 3. one copy of a table per node */
     {
         /* rank_sm == 0 allocates the whole table; everybody else contributes 0
            bytes and then reads it through the shared window. */
@@ -123,7 +123,7 @@ int main(int argc, char **argv)
         MPI_Win_free(&win);
     }
 
-    /* ---- 4. the two-level pattern: node leaders talk to each other -------- */
+    /* 4. the two-level pattern: node leaders talk to each other */
     {
         MPI_Comm leaders;
         MPI_Comm_split(MPI_COMM_WORLD, rank_sm == 0 ? 0 : MPI_UNDEFINED, world_rank, &leaders);

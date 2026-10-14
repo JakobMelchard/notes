@@ -11,7 +11,7 @@ import numpy as np
 from numpy.lib.stride_tricks import as_strided, sliding_window_view
 
 
-# ---------------------------------------------------------------- memory layout
+# memory layout
 def describe(a: np.ndarray) -> dict:
     """The facts that determine how a[i, j] is found in memory:
     address = base + sum_k i_k * strides[k]   (strides in BYTES)."""
@@ -82,7 +82,7 @@ def as_strided_windows(x: np.ndarray, w: int) -> np.ndarray:
     return as_strided(x, shape=(n, w), strides=(s, s), writeable=False)
 
 
-# ---------------------------------------------------------------- dtypes
+# dtypes
 def dtype_pitfalls() -> dict:
     """Integer overflow wraps silently; float32 has ~7 digits; mixing
     int64 and float64 upcasts; assigning a float into an int array truncates."""
@@ -99,7 +99,7 @@ def dtype_pitfalls() -> dict:
     }
 
 
-# ---------------------------------------------------------------- broadcasting
+# broadcasting
 def broadcast_shape(*shapes: tuple[int, ...]) -> tuple[int, ...]:
     """Pure implementation of the broadcasting rule: align shapes on the
     RIGHT, pad missing leading axes with 1, and for each axis the extents
@@ -127,7 +127,7 @@ def standardise_columns(X: np.ndarray) -> np.ndarray:
     return (X - mu) / sd
 
 
-# ---------------------------------------------------------------- indexing
+# indexing
 def fancy_indexing_demo() -> dict:
     a = np.arange(20).reshape(4, 5)
     rows, cols = np.array([0, 2]), np.array([1, 3])
@@ -150,7 +150,7 @@ def assign_with_fancy_index_pitfall() -> list[int]:
     return a.tolist() + b.tolist()
 
 
-# ---------------------------------------------------------------- vectorisation
+# vectorisation
 def pairwise_dist_loop(P: np.ndarray) -> np.ndarray:
     n = len(P)
     D = np.empty((n, n))
@@ -174,7 +174,7 @@ def pairwise_dist_gram(P: np.ndarray) -> np.ndarray:
     return np.sqrt(np.clip(D2, 0, None))
 
 
-# ---------------------------------------------------------------- ufuncs
+# ufuncs
 def ufunc_demo() -> dict:
     x = np.arange(1, 6, dtype=float)
     out = np.empty_like(x)
@@ -189,7 +189,7 @@ def ufunc_demo() -> dict:
     }
 
 
-# ---------------------------------------------------------------- einsum
+# einsum
 def einsum_demo(A: np.ndarray, B: np.ndarray, v: np.ndarray) -> dict:
     """Index notation: repeated index = summed, output indices after ->."""
     return {
@@ -210,7 +210,7 @@ def batched_matvec(As: np.ndarray, vs: np.ndarray) -> np.ndarray:
     return np.einsum("bij,bj->bi", As, vs)
 
 
-# ---------------------------------------------------------------- linalg
+# linalg
 def linalg_demo(rng: np.random.Generator) -> dict:
     A = rng.standard_normal((5, 5))
     S = A @ A.T + 5 * np.eye(5)             # SPD
@@ -229,7 +229,7 @@ def linalg_demo(rng: np.random.Generator) -> dict:
     }
 
 
-# ---------------------------------------------------------------- random
+# random
 def random_demo(seed: int = 0) -> dict:
     """Generator API: default_rng(seed) -> PCG64; reproducible streams,
     independent child streams via spawn.  Prefer over np.random.seed."""
@@ -246,7 +246,7 @@ def random_demo(seed: int = 0) -> dict:
     }
 
 
-# ---------------------------------------------------------------- pitfalls
+# pitfalls
 def grow_by_append(n: int) -> np.ndarray:
     """O(n^2): np.append copies the whole array every call."""
     a = np.empty(0)

@@ -16,7 +16,7 @@ def rank_deficient(m, n, r, seed=0):
     return rr.standard_normal((m, r)) @ rr.standard_normal((r, n))
 
 
-# ---------------------------------------------- [S4] Ex. 5.6, the headline
+# [S4] Ex. 5.6, the headline
 def test_s4_example_5_6_normal_equations_lose_digits():
     """[S4] Ex. 5.6.  MATLAB prints 1.011235955056180 / 0.988764044943820 for
     the normal equations and (1, 1) to 16 digits for the QR route."""
@@ -44,7 +44,7 @@ def test_kappa_of_the_gram_matrix_is_kappa_squared():
         assert np.linalg.cond(A) ** 2 == pytest.approx(exact, rel=1e-4)
 
 
-# ------------------------------------------------------------ reduced SVD
+# reduced SVD
 def test_reduced_svd_reconstructs_and_is_orthonormal():
     for (m, n, r) in [(6, 4, 3), (8, 3, 3), (5, 5, 2)]:
         A = rank_deficient(m, n, r, seed=m + n)
@@ -65,7 +65,7 @@ def test_numerical_rank_needs_a_cut_off():
     assert numerical_rank(A, tol=s[0] * 0.5) == 1        # a coarse cut-off sees rank 1
 
 
-# ------------------------------------------------------------ pseudoinverse
+# pseudoinverse
 def test_penrose_identities():
     """[S4] sec. 5.3.6: A A^+ A = A, (A^+)^+ = A, plus the two symmetry ones."""
     for (m, n, r) in [(6, 4, 3), (4, 6, 3), (5, 5, 5), (7, 2, 2)]:
@@ -92,7 +92,7 @@ def test_norm_of_the_pseudoinverse():
     assert np.linalg.norm(pinv(A), 2) == pytest.approx(1.0 / s[3], rel=1e-8)
 
 
-# ------------------------------------------------- minimum-norm solutions
+# minimum-norm solutions
 def test_min_norm_solution_is_a_solution_and_is_minimal():
     """[S4] sec. 5.3.2."""
     A = RNG.standard_normal((3, 7))
@@ -141,7 +141,7 @@ def test_lstsq_svd_handles_rank_deficiency():
         assert np.linalg.norm(cand) >= np.linalg.norm(x) - 1e-9
 
 
-# ----------------------------------------- the symmetric embedding of 5.3.6
+# the symmetric embedding of 5.3.6
 def test_svd_via_symmetric_embedding():
     """[S4] sec. 5.3.6: [[0, A^T], [A, 0]] has eigenvalues +- sigma_i."""
     for (m, n) in [(6, 4), (4, 6), (5, 5)]:
@@ -162,7 +162,7 @@ def test_symmetric_embedding_spectrum_is_plus_minus_sigma():
     np.testing.assert_allclose(ev[:3], -np.sort(s)[::-1], atol=1e-10)
 
 
-# ------------------------------------------------------------- exam items
+# exam items
 def test_s2a_rectangle_least_squares():
     """S2a 2.3b, 2024W: a ~ 15, b ~ 21, a + b ~ 39."""
     A = np.array([[1.0, 0.0], [0.0, 1.0], [1.0, 1.0]])

@@ -9,7 +9,7 @@
 set -euo pipefail          # -e exit on error, -u unset var is an error, pipefail: pipe fails if any part fails
 IFS=$'\n\t'                # word splitting only on newline/tab, not on spaces in filenames
 
-# ---------------------------------------------------------------- functions
+# functions
 usage() {                                   # here-doc: multi-line text; <<- strips leading TABS only
     cat <<USAGE
 usage: $(basename "$0") [-v] [-n NAME] [-r REPS] [-h] [files...]
@@ -39,7 +39,7 @@ cleanup() {                                 # EXIT trap: runs on normal exit, er
 trap cleanup EXIT
 trap 'printf "failed at line %d: %s\n" "$LINENO" "$BASH_COMMAND" >&2' ERR   # tell me WHERE set -e fired
 
-# ---------------------------------------------------------------- getopts
+# getopts
 VERBOSE=0; NAME=${USER:-nobody}; REPS=3
 while getopts ':vn:r:h' opt; do             # leading ':' = silent mode, we report errors ourselves
     case $opt in
@@ -54,7 +54,7 @@ done
 shift $((OPTIND - 1))                       # drop the parsed options, "$@" is now the positional rest
 is_int "$REPS" || die "-r wants an integer, got '$REPS'"
 
-# ---------------------------------------------------------------- variables & quoting
+# variables & quoting
 SCRATCH=$(mktemp -d)
 log "scratch dir $SCRATCH"
 greeting="hello, $NAME"                     # double quotes: expand $var, $( ), \n stays literal
@@ -65,13 +65,13 @@ path="/home/user/data/run_07.tar.gz"
 echo "basename: ${path##*/}  dirname: ${path%/*}  without .tar.gz: ${path%%.tar*}  run no: ${path:20:2}"
 echo "uppercase via tr: $(echo "$NAME" | tr '[:lower:]' '[:upper:]')  length: ${#NAME}"
 
-# ---------------------------------------------------------------- arithmetic
+# arithmetic
 n=7
 (( n += 3 ))                                # integer arithmetic only
 echo "n=$n  n**2=$(( n ** 2 ))  n/3=$(( n / 3 )) (integer division)  n%3=$(( n % 3 ))"
 echo "floats need bc or awk: $(awk "BEGIN { printf \"%.3f\", $n / 3 }")"
 
-# ---------------------------------------------------------------- conditionals
+# conditionals
 file=$SCRATCH/a.txt; echo "some text" > "$file"
 if [[ -f $file && -s $file ]]; then echo "$file exists and is non-empty"; fi   # -d dir, -r readable, -x executable
 if [[ $n -gt 5 ]]; then echo "n > 5"; elif [[ $n -eq 5 ]]; then echo "n == 5"; else echo "n < 5"; fi
@@ -83,7 +83,7 @@ case $REPS in
     *) echo "many repetitions ($REPS)" ;;
 esac
 
-# ---------------------------------------------------------------- loops
+# loops
 for (( i = 1; i <= REPS; i++ )); do printf 'rep %d: %s\n' "$i" "$greeting"; done
 for f in "$SCRATCH"/*.txt; do echo "glob hit: ${f##*/}"; done       # never parse `ls` output
 for host in node{01..03}; do echo "brace expansion: $host"; done
@@ -92,7 +92,7 @@ while IFS= read -r line; do (( count += 1 )); done < "$file"       # read a file
 echo "lines in $file: $count"
 i=0; until [[ $i -ge 2 ]]; do (( i += 1 )); done; echo "until loop ran $i times"
 
-# ---------------------------------------------------------------- arrays
+# arrays
 nodes=(n01 n02 "node with space" n04)      # indexed array
 nodes+=(n05)                               # append
 echo "${#nodes[@]} nodes; second: ${nodes[1]}; all: $(IFS=' '; echo "${nodes[*]}")"   # [*] joins with IFS[0]
@@ -108,7 +108,7 @@ else
     echo "(associative arrays need bash >= 4, this is ${BASH_VERSION})"
 fi
 
-# ---------------------------------------------------------------- exit codes
+# exit codes
 grep -q "text" "$file"; echo "grep found it: status $?"        # $? = status of the last command, 0 = success
 if ! grep -q "missing" "$file"; then echo "grep did not find 'missing' (status 1, fine inside if)"; fi
 false || echo "'false || cmd' runs cmd because false failed"   # without || this would kill the script (set -e)
@@ -116,6 +116,6 @@ false || echo "'false || cmd' runs cmd because false failed"   # without || this
 rc=0; ls /definitely/not/here 2>/dev/null || rc=$?              # capture a failure without tripping set -e / ERR
 echo "ls of a missing path returned $rc"
 
-# ---------------------------------------------------------------- positional args
+# positional args
 for f in "$@"; do [[ -e $f ]] && echo "arg exists: $f" || echo "arg missing: $f"; done
 echo "done (the EXIT trap removes $SCRATCH)"

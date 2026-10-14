@@ -16,7 +16,7 @@ except ImportError:                       # pragma: no cover
     pulp = None
 
 
-# ---------------------------------------------------------------- unconstrained
+# unconstrained
 def himmelblau(p):
     x, y = p
     return (x**2 + y - 11) ** 2 + (x + y**2 - 7) ** 2
@@ -44,7 +44,7 @@ def minimise_all_methods(x0=(0.0, 0.0)) -> dict[str, optimize.OptimizeResult]:
     return out
 
 
-# ---------------------------------------------------------------- constrained
+# constrained
 def constrained_demo():
     """min (x-2)^2 + (y-1)^2  s.t.  x + y <= 2 (linear),  x^2 + y^2 <= 4
     (nonlinear), 0 <= x, y <= 1.5.  SLSQP takes dict constraints; trust-constr
@@ -61,7 +61,7 @@ def constrained_demo():
     return slsqp, tc
 
 
-# ---------------------------------------------------------------- least squares
+# least squares
 def fit_decay_with_outliers(rng: np.random.Generator):
     """least_squares takes the RESIDUAL vector (not its sum of squares) so
     it can exploit the Jacobian structure (Gauss-Newton / LM / trust region
@@ -81,7 +81,7 @@ def fit_decay_with_outliers(rng: np.random.Generator):
     return plain, robust, true
 
 
-# ---------------------------------------------------------------- root finding
+# root finding
 def root_system():
     """Nonlinear system: x^2 + y^2 = 4, e^x + y = 1.  root() with 'hybr'
     (MINPACK Powell hybrid); providing jac speeds it up."""
@@ -95,7 +95,7 @@ def root_system():
     return optimize.root(F, [1.0, -1.0], jac=J, method="hybr")
 
 
-# ---------------------------------------------------------------- linprog
+# linprog
 def diet_linprog():
     """min cost c.x  s.t.  A_ub x <= b_ub, A_eq x = b_eq, bounds.
     Two foods (cost 2, 3), need >= 10 protein and >= 8 fibre:
@@ -106,7 +106,7 @@ def diet_linprog():
     return optimize.linprog(c, A_ub=A_ub, b_ub=b_ub, bounds=[(0, None)] * 2, method="highs")
 
 
-# ---------------------------------------------------------------- PuLP
+# PuLP
 #
 # PuLP 4.0 removed what 3.3 deprecated (note 07 §7): LpVariable(name, ...),
 # prob.constraints as a dict, PULP_CBC_CMD, LpStatus/prob.status, and the

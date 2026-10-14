@@ -26,7 +26,7 @@ import os
 
 import numpy as np
 
-# ------------------------------------------------------------------- NumPy
+# NumPy
 # Task 1 (after Aalto "NumPy, Exercises 3"): a slice is a view, so writing
 # through it changes the original.
 
@@ -86,7 +86,7 @@ def without_temporaries(x: np.ndarray) -> dict[str, bool]:
     }
 
 
-# ------------------------------------------------------- pandas / data
+# pandas / data
 # Task 4 (after Aalto's pandas exercises, which use the Titanic and Nobel CSVs;
 # generated data is used instead so the suite stays offline).
 
@@ -125,7 +125,7 @@ def group_statistics(df) -> dict[str, object]:
     }
 
 
-# -------------------------------------------------------------------- SciPy
+# SciPy
 # Task 5 (after Aalto "SciPy": one integration exercise and one sparse exercise).
 
 
@@ -158,7 +158,7 @@ def sparse_tridiagonal(n: int = 500) -> dict[str, object]:
     }
 
 
-# --------------------------------------------------------- parallel processing
+# parallel processing
 # Task 6 (after Aalto "Parallel-1" and "Parallel-2"): Monte Carlo pi on a Pool,
 # and where the worker count comes from.
 

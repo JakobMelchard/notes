@@ -86,7 +86,7 @@ def split(records: list, n: int) -> list[list]:
     return [records[i:i + size] for i in range(0, len(records), size)]
 
 
-# --- word count ----------------------------------------------------------
+# word count
 def wc_map(line: str):
     for w in line.lower().split():
         yield w.strip(".,;:!?\"'()"), 1
@@ -106,7 +106,7 @@ def word_count(lines: list[str], n_maps: int = 3, combine: bool = True, **kw):
     return dict(out), st
 
 
-# --- inverted index ------------------------------------------------------
+# inverted index
 def inverted_index(docs: list[tuple[str, str]], n_maps: int = 2):
     def m(doc):
         doc_id, text = doc
@@ -119,7 +119,7 @@ def inverted_index(docs: list[tuple[str, str]], n_maps: int = 2):
     return dict(out), st
 
 
-# --- averages: the combiner pitfall --------------------------------------
+# averages: the combiner pitfall
 def mean_by_key(pairs: list[tuple], n_maps: int = 3, mode: str = "sum_count"):
     """mode 'none': no combiner. 'wrong': combiner averages (mean of means is not
     the mean). 'sum_count': map emits (x, 1), combiner adds componentwise."""
@@ -139,7 +139,7 @@ def mean_by_key(pairs: list[tuple], n_maps: int = 3, mode: str = "sum_count"):
     return dict(out), st
 
 
-# --- joins ---------------------------------------------------------------
+# joins
 def reduce_side_join(R: list[tuple], S: list[tuple], r_key: int = 1, s_key: int = 0,
                      n_maps: int = 2):
     """R(a, b) join S(b, c) on R.b = S.b. Map tags each tuple with its relation;

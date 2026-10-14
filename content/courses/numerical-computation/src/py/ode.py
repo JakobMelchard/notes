@@ -9,7 +9,7 @@ step), [S4 §9.3.1] Heun and classical RK4, and the stability function R(z) of
 import numpy as np
 
 
-# ---------------------------------------------------------------- fixed step
+# fixed step
 def euler(f, t0, y0, h, n):
     """y_{k+1} = y_k + h f(t_k, y_k).  Local error O(h^2), global O(h)."""
     ts = t0 + h * np.arange(n + 1)
@@ -69,7 +69,7 @@ def rk4(f, t0, y0, h, n):
     return ts, ys
 
 
-# ---------------------------------------------------------------- stability
+# stability
 def stability_function(method, z):
     """R(z) for y' = lambda y, z = h lambda: y_{k+1} = R(z) y_k.  The method is
     stable at z iff |R(z)| <= 1.  Explicit RK of order p: truncated exp."""
@@ -95,7 +95,7 @@ def real_stability_interval(method, zmax=-6.0, npts=60001):
     return z[idx]
 
 
-# ---------------------------------------------------------------- adaptive
+# adaptive
 # Dormand-Prince 5(4) tableau
 _DP_C = np.array([0, 1 / 5, 3 / 10, 4 / 5, 8 / 9, 1, 1])
 _DP_A = [

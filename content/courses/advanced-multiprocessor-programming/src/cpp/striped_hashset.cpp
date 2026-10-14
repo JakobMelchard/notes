@@ -106,7 +106,7 @@ class StripedHashSet {
     }
 };
 
-// ---------------------------------------------------------------- split order
+// split order
 static uint32_t rev32(uint32_t x) {
     uint32_t r = 0;
     for (int i = 0; i < 32; ++i) r = (r << 1) | ((x >> i) & 1);

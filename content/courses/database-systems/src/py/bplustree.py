@@ -42,7 +42,7 @@ class BPlusTree:
         self.accesses = 0
         self.splits = 0
 
-    # ---- search -------------------------------------------------------
+    # search
     def _leaf_for(self, key):
         node, self.accesses = self.root, 1
         while not node.leaf:
@@ -70,7 +70,7 @@ class BPlusTree:
                 self.accesses += 1
         return out
 
-    # ---- insert -------------------------------------------------------
+    # insert
     def insert(self, key, val=None):
         split = self._insert(self.root, key, val)
         if split:
@@ -113,7 +113,7 @@ class BPlusTree:
         node.keys, node.kids = node.keys[:keep - 1], node.kids[:keep]
         return up, right
 
-    # ---- inspection ---------------------------------------------------
+    # inspection
     def height(self):
         h, node = 1, self.root
         while not node.leaf:

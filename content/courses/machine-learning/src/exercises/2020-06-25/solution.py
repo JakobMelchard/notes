@@ -30,7 +30,7 @@ from metrics import accuracy, precision_recall_f1                # noqa: E402
 from rules import OneR, ZeroR                                     # noqa: E402
 
 
-# --- Exercise 17: LOOCV error of 1-NN and 3-NN on ten 2-D points ---------------
+# Exercise 17: LOOCV error of 1-NN and 3-NN on ten 2-D points
 # The paper sketches a 10-point layout with two well-separated groups and one
 # point of each class placed among the other class.  This is that layout.
 POINTS = np.array([
@@ -66,7 +66,7 @@ def exercise_17_loocv():
     return out
 
 
-# --- Exercise 18: 1R on rows 1-8, then precision and accuracy on rows 9-13 ------
+# Exercise 18: 1R on rows 1-8, then precision and accuracy on rows 9-13
 # 13 rows, four nominal attributes (age, education, income, marital status),
 # target "purchase" yes/no.  The transcript records that 1R split on *age* and
 # then scored 1.0 accuracy and precision; our table is built to that shape.
@@ -111,7 +111,7 @@ def exercise_18_one_rule():
     )
 
 
-# --- Exercise 13: AdaBoost weights on three points -----------------------------
+# Exercise 13: AdaBoost weights on three points
 def exercise_13_boosting():
     """Identical to E19b exercise 5: weights start at 1/n; after one stump the
     misclassified point carries half the mass."""
@@ -126,7 +126,7 @@ def exercise_13_boosting():
                 weights=w2.tolist(), heaviest=int(np.argmax(w2)))
 
 
-# --- Exercise 15/16: short recall answers --------------------------------------
+# Exercise 15/16: short recall answers
 def exercises_15_16_short_answers():
     """"Name three hyperparameter-optimisation methods" and "name two ways to
     compute the coefficients of a linear regression" [S12]."""
@@ -136,7 +136,7 @@ def exercises_15_16_short_answers():
     )
 
 
-# --- The twelve true/false items the transcript recalls ------------------------
+# The twelve true/false items the transcript recalls
 def true_false_block():
     """Answers as the course marks them [S12]; see notes/00-exam-focus.md."""
     return {

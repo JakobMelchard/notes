@@ -38,7 +38,7 @@ from bandits import bandit_random_action_analysis                 # noqa: E402
 from rules import OneR                                            # noqa: E402
 
 
-# --- Section 2, question 1: MAE of the model yhat = 3 + 2*F1 + F2 ---------------
+# Section 2, question 1: MAE of the model yhat = 3 + 2*F1 + F2
 REG_FEATURES = np.array([[1.0, 2.0], [2.0, 0.0], [0.0, 1.0], [3.0, 1.0]])
 REG_TARGET = np.array([9.0, 6.0, 5.0, 8.0])
 
@@ -58,7 +58,7 @@ def section2_q1_mae():
                      "and 2.5 is exactly the kind of number that appears as a distractor")
 
 
-# --- Section 2, question 2: the k-armed bandit ----------------------------------
+# Section 2, question 2: the k-armed bandit
 BANDIT_ACTIONS_1BASED = [1, 2, 3, 3, 3, 1, 3, 3]
 BANDIT_REWARDS = [1.0, 2.0, 5.0, 4.0, 3.0, 0.0, 6.0, 2.0]
 
@@ -75,7 +75,7 @@ def section2_q2_bandit():
     )
 
 
-# --- Section 2, question 3: which feature does 1R take? -------------------------
+# Section 2, question 3: which feature does 1R take?
 ONER_TABLE = np.array([
     ["hot",  "high",   "sunny"],
     ["hot",  "high",   "rain"],
@@ -107,7 +107,7 @@ def section2_q3_one_rule():
     )
 
 
-# --- Section 2, question 4: naive Bayes without Laplace correction --------------
+# Section 2, question 4: naive Bayes without Laplace correction
 NB_TABLE = np.array([
     ["yes", "high",   "young"],
     ["yes", "low",    "old"],
@@ -140,7 +140,7 @@ def section2_q4_naive_bayes():
     )
 
 
-# --- Section 3: the multiple-correct lists (all-or-nothing marking) -------------
+# Section 3: the multiple-correct lists (all-or-nothing marking)
 def section3_lists():
     """The four lists E26a asked for, with the answers [S11, S12, S26] support."""
     return {

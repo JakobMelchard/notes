@@ -25,7 +25,7 @@ tests.
 import ipaddress
 
 
-# ---------------------------------------------------------------- CIDR maths
+# CIDR maths
 def mask_from_prefix(prefix, bits=32):
     """/24 -> 0xFFFFFF00: `prefix` ones followed by zeros."""
     return ((1 << prefix) - 1) << (bits - prefix) if prefix else 0
@@ -117,7 +117,7 @@ def summarize_prefixes(cidrs):
     return [str(cls((a, p))) for a, p in sorted(s)]
 
 
-# ---------------------------------------------------------------- IPv6 text forms
+# IPv6 text forms
 def parse_ipv6(text):
     """RFC 4291 section 2.2 -> 128-bit int: eight hex groups, at most one `::`,
     optionally a dotted IPv4 tail (form 3).  Case-insensitive."""
@@ -195,7 +195,7 @@ def multicast_mac(group):
     return ":".join(f"{(mac >> s) & 0xFF:02x}" for s in range(40, -1, -8))
 
 
-# ---------------------------------------------------------------- forwarding table
+# forwarding table
 class ForwardingTable:
     """Longest-prefix-match lookup.  Entries are (network_int, prefix, next_hop, iface).
     Lookup is linear over prefixes sorted longest-first; real routers use a

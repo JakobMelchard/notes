@@ -78,9 +78,7 @@ class Network:
         return cls(alpha=latency_us * 1e-6, beta=beta, gamma=gamma)
 
 
-# --------------------------------------------------------------------------
 # point to point
-# --------------------------------------------------------------------------
 
 def pt2pt_time(net: Network, n_bytes: float) -> float:
     """One-way time for a message of n_bytes: t = alpha + n*beta."""
@@ -96,9 +94,7 @@ def n_half(net: Network) -> float:
     return net.alpha / net.beta
 
 
-# --------------------------------------------------------------------------
 # collectives - Thakur, Rabenseifner & Gropp (2005), sections 4 and 5
-# --------------------------------------------------------------------------
 
 def _lg(p: int) -> float:
     return math.log2(p)
@@ -203,9 +199,7 @@ def crossover(short, long_, net: Network, p: int,
     return 0.5 * (lo + hi)
 
 
-# --------------------------------------------------------------------------
 # scaling - Amdahl in the lecturer's convention
-# --------------------------------------------------------------------------
 
 def amdahl(f: float, p: int) -> float:
     """Speedup with f the SEQUENTIAL fraction: S_p = 1 / (f + (1-f)/p).
@@ -228,8 +222,6 @@ def amdahl_limit(f: float) -> float:
         return math.inf
     return 1.0 / f
 
-
-# --------------------------------------------------------------------------
 
 def _demo() -> None:
     # A plausible cluster: 1.5 us latency, 12 GB/s, reduction at 5 GB/s.

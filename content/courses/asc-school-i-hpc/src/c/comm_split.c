@@ -37,7 +37,7 @@ int main(int argc, char **argv)
     MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
     MPI_Comm_size(MPI_COMM_WORLD, &world_size);
 
-    /* ---- 1. the same reduction on two different communicators ------------ */
+    /* 1. the same reduction on two different communicators */
     int world_sum;
     MPI_Allreduce(&world_rank, &world_sum, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD);
     check(world_rank, "world sum", world_sum, (long)world_size * (world_size - 1) / 2);
@@ -69,7 +69,7 @@ int main(int argc, char **argv)
            world_rank, world_size, colour, sub_rank, sub_size, world_sum, sub_sum);
     fflush(stdout);
 
-    /* ---- 2. building a communicator from an explicit group --------------- */
+    /* 2. building a communicator from an explicit group */
     MPI_Group world_grp, even_grp;
     MPI_Comm_group(MPI_COMM_WORLD, &world_grp);
 
@@ -107,7 +107,7 @@ int main(int argc, char **argv)
     MPI_Group_free(&world_grp);
     free(even);
 
-    /* ---- 3. who shares memory with me? ----------------------------------- */
+    /* 3. who shares memory with me? */
     MPI_Comm comm_sm;
     int sm_rank, sm_size;
     MPI_Comm_split_type(MPI_COMM_WORLD, MPI_COMM_TYPE_SHARED, 0, MPI_INFO_NULL, &comm_sm);

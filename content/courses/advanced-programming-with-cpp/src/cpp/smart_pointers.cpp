@@ -28,7 +28,7 @@ struct Node {
     ~Node() { --alive; }
 };
 
-// --- a minimal unique_ptr: move-only, deleter stored with [[no_unique_address]]
+// a minimal unique_ptr: move-only, deleter stored with [[no_unique_address]]
 namespace my {
 template <class T> struct default_delete { void operator()(T* p) const noexcept { delete p; } };
 template <class T, class D = default_delete<T>> class unique_ptr {

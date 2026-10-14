@@ -11,7 +11,7 @@ from scipy import fft, integrate, interpolate, linalg, optimize, signal, sparse,
 from scipy.sparse.linalg import spsolve
 
 
-# ---------------------------------------------------------------- integrate
+# integrate
 def quad_gaussian() -> tuple[float, float, float]:
     """quad = adaptive Gauss-Kronrod (QUADPACK); returns value and error
     estimate.  Handles infinite limits by variable transformation."""
@@ -39,7 +39,7 @@ def trapezoid_vs_simpson(n: int = 21):
     return integrate.trapezoid(y, x), integrate.simpson(y, x=x), 2.0
 
 
-# ---------------------------------------------------------------- optimize
+# optimize
 def minimize_rosenbrock(method: str = "BFGS"):
     """f = (1-x)^2 + 100 (y-x^2)^2, minimum at (1,1).  Gradient given, so
     BFGS uses it; Nelder-Mead would ignore jac."""
@@ -68,7 +68,7 @@ def curve_fit_decay(rng: np.random.Generator):
     return popt, np.sqrt(np.diag(pcov)), true
 
 
-# ---------------------------------------------------------------- interpolate
+# interpolate
 def interpolation_demo():
     """CubicSpline: C^2 piecewise cubic through the data (natural / not-a-knot
     end conditions).  interp1d(kind='linear') for the cheap version.
@@ -84,7 +84,7 @@ def interpolation_demo():
     return errs, spline
 
 
-# ---------------------------------------------------------------- sparse
+# sparse
 def laplacian_1d(n: int, h: float = 1.0) -> sparse.csr_matrix:
     """Tridiagonal -u'' stencil (2,-1,-1)/h^2.  Build in a construction
     format (diags/COO/LIL), convert to CSR/CSC for arithmetic and solves."""
@@ -106,7 +106,7 @@ def poisson_solve(n: int = 200):
     return u_sparse, u_dense, np.sin(np.pi * x), A.nnz
 
 
-# ---------------------------------------------------------------- linalg
+# linalg
 def linalg_demo(rng: np.random.Generator):
     """scipy.linalg is a superset of numpy.linalg: decompositions (lu, qr,
     cholesky, schur), expm, solve with assume_a='pos' picks Cholesky."""
@@ -128,7 +128,7 @@ def linalg_demo(rng: np.random.Generator):
     }
 
 
-# ---------------------------------------------------------------- fft
+# fft
 def fft_peaks(fs: float = 1000.0, n: int = 2000, freqs=(50.0, 120.0)):
     """rfft of a real signal: bins k correspond to k*fs/n Hz up to fs/2
     (Nyquist).  Returns the frequencies of the two largest spectral peaks."""
@@ -150,7 +150,7 @@ def convolution_theorem(rng: np.random.Generator, n: int = 64):
     return np.abs(direct - via_fft).max()
 
 
-# ---------------------------------------------------------------- stats
+# stats
 def stats_demo(rng: np.random.Generator):
     """Distributions are frozen objects with pdf/cdf/ppf/rvs; fit() gives
     MLE; ttest_ind and ks tests return (statistic, p-value)."""
@@ -163,7 +163,7 @@ def stats_demo(rng: np.random.Generator):
             "q95": stats.norm.ppf(0.95), "cdf_of_ppf": stats.norm.cdf(stats.norm.ppf(0.3))}
 
 
-# ---------------------------------------------------------------- signal
+# signal
 def lowpass_demo(fs: float = 1000.0, cutoff: float = 40.0):
     """Butterworth IIR designed in SOS form (numerically safer than (b,a));
     sosfiltfilt is zero-phase (filters forward and backward).  A 20 Hz

@@ -14,7 +14,7 @@ from dataclasses import dataclass, field
 from typing import Callable, Iterable, Iterator
 
 
-# ---------------------------------------------------------------- data model
+# data model
 def append_bad(x, acc=[]):           # noqa: B006 - deliberate pitfall
     """Mutable default: `acc` is created ONCE at def time and shared between
     calls, so the list grows across calls."""
@@ -42,7 +42,7 @@ def rebinding_vs_mutation():
     return alias_a, alias_b          # [1,2,3], [1,2,3,4]
 
 
-# ---------------------------------------------------------------- comprehensions
+# comprehensions
 def primes_below(n: int) -> list[int]:
     """Sieve written with comprehensions; set for O(1) membership."""
     composite = {m for p in range(2, int(n**0.5) + 1) for m in range(p * p, n, p)}
@@ -53,7 +53,7 @@ def transpose(rows: list[list[float]]) -> list[list[float]]:
     return [list(col) for col in zip(*rows)]
 
 
-# ---------------------------------------------------------------- iterators & generators
+# iterators & generators
 class Countdown:
     """The iterator protocol by hand: __iter__ returns an object with __next__
     that raises StopIteration when exhausted.  A for loop does exactly this."""
@@ -98,7 +98,7 @@ def running_mean(xs: Iterable[float]) -> Iterator[float]:
         yield total / count
 
 
-# ---------------------------------------------------------------- closures
+# closures
 def make_counter() -> Callable[[], int]:
     """Closure over `count`; `nonlocal` is needed to rebind, not to read."""
     count = 0
@@ -124,7 +124,7 @@ def late_binding_good() -> list[int]:
     return [f() for f in fs]          # [0, 1, 2]
 
 
-# ---------------------------------------------------------------- decorators
+# decorators
 def timed(fn):
     """Decorator = function taking a function and returning a wrapper.
     functools.wraps copies __name__/__doc__ so introspection still works."""
@@ -170,7 +170,7 @@ def repeat(times: int):
     return deco
 
 
-# ---------------------------------------------------------------- classes
+# classes
 class Vector:
     """Minimal numeric class: dunder methods hook into operators; __slots__
     removes the per-instance __dict__ (less memory, no new attributes)."""
@@ -215,7 +215,7 @@ class Measurement:
     tags: tuple[str, ...] = field(default=(), compare=False)
 
 
-# ---------------------------------------------------------------- exceptions
+# exceptions
 class ConvergenceError(RuntimeError):
     def __init__(self, iterations: int, residual: float):
         super().__init__(f"no convergence after {iterations} iterations, residual {residual:.3g}")
@@ -244,7 +244,7 @@ def parse_float_or_default(s: str, default: float) -> float:
         return default
 
 
-# ---------------------------------------------------------------- context managers
+# context managers
 class Timer:
     """__enter__/__exit__: __exit__ always runs, even on exceptions; returning
     False (None) re-raises the exception, True would swallow it."""

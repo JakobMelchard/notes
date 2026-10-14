@@ -30,7 +30,7 @@ import sat as S                                                   # noqa: E402
 from sim import Register                                          # noqa: E402
 
 
-# --- 1. The polynomial hierarchy (B02; AB ch. 5) ------------------------------
+# 1. The polynomial hierarchy (B02; AB ch. 5)
 def eval_qbf(prefix, cnf, n, negate=False):
     """Evaluate Q_1 x_1 ... Q_n x_n phi with prefix a string over {'E','A'}.
 
@@ -93,7 +93,7 @@ def pt1_polynomial_hierarchy(n=4, trials=200, seed=7):
             "workspace": "assignment + stack = O(n) bits, hence PH subseteq PSPACE"}
 
 
-# --- 2. Circuit complexity and P/poly (B04; AB ch. 6) -------------------------
+# 2. Circuit complexity and P/poly (B04; AB ch. 6)
 def circuits_of_size_at_most(n, s):
     """Upper bound on the number of fan-in-2 circuits with s gates over n inputs.
 
@@ -138,7 +138,7 @@ def pt2_ppoly_contains_undecidable(max_n=8, seed=11):
                      "non-uniformity is the whole difference"}
 
 
-# --- 3. Adleman: BPP subseteq P/poly (B05; AB ch. 7) --------------------------
+# 3. Adleman: BPP subseteq P/poly (B05; AB ch. 7)
 def pt3_adleman(n=6, pool=400, p=2 / 3, alpha=1.0, seed=3, max_draws=200):
     """Amplify, then fix one random string that works for *every* input.
 
@@ -166,7 +166,7 @@ def pt3_adleman(n=6, pool=400, p=2 / 3, alpha=1.0, seed=3, max_draws=200):
     raise AssertionError("no advice string found; raise max_draws or t")
 
 
-# --- 4. BQP by the Feynman path sum (B06; AB ch. 10) -------------------------
+# 4. BQP by the Feynman path sum (B06; AB ch. 10)
 # CONVENTION.  Arora & Barak write a basis state as |x_1 ... x_n> with x_1 the
 # leftmost tensor factor, which is also Egly's convention: leftmost symbol =
 # first factor = most significant bit [S16, S20].  Qiskit reverses it [S17].

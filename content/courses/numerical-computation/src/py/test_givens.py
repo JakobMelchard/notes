@@ -14,7 +14,7 @@ def hessenberg_matrix(n, seed=0):
     return np.triu(r.standard_normal((n, n)), -1)
 
 
-# ------------------------------------------------------- rotation itself
+# rotation itself
 def test_rotation_zeroes_the_second_entry():
     for a, b in [(3.0, 4.0), (-1.0, 2.0), (5.0, 0.0), (0.0, 7.0)]:
         c, s = givens_rotation(a, b)
@@ -35,7 +35,7 @@ def test_rotation_touches_only_two_rows_or_columns():
         np.testing.assert_allclose(R[:, k], A[:, k])
 
 
-# ------------------------------------------------------------ dense QR
+# dense QR
 @pytest.mark.parametrize("n", [3, 5, 8])
 def test_givens_qr_matches_numpy(n):
     A = RNG.standard_normal((n, n))
@@ -54,7 +54,7 @@ def test_dense_givens_qr_needs_quadratically_many_rotations():
         assert givens_qr(A, count_rotations=True)[2] == n * (n - 1) // 2
 
 
-# ------------------------------------------------------- Hessenberg QR
+# Hessenberg QR
 def test_s4_example_4_54():
     """[S4] Ex. 4.54: A = [[1,1,1],[1,0,1],[0,1,1]] needs two rotations."""
     A = np.array([[1.0, 1, 1], [1, 0, 1], [0, 1, 1]])
@@ -109,7 +109,7 @@ def test_tridiagonal_case_is_linear():
     assert hessenberg_qr(T, count_rotations=True)[2] == n - 1
 
 
-# ------------------------------------------------- QR with column pivoting
+# QR with column pivoting
 def test_column_pivoting_orders_the_diagonal_and_reveals_the_rank():
     """[S4] sec. 4.7.4."""
     B = RNG.standard_normal((10, 4))

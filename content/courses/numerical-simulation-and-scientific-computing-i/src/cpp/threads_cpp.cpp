@@ -24,10 +24,8 @@
 
 #include "common.hpp"
 
-// ---------------------------------------------------------------------------
 // A persistent worker pool. Creating a std::thread costs ~10-50 us, so a pool
 // that is started once is the difference between OpenMP-like cost and none.
-// ---------------------------------------------------------------------------
 class TaskManager {
   public:
     explicit TaskManager(int extra_threads) {
@@ -95,9 +93,7 @@ class TaskManager {
     std::size_t epoch_ = 0;
 };
 
-// ---------------------------------------------------------------------------
 // The four ways to accumulate across threads, and what each costs.
-// ---------------------------------------------------------------------------
 struct CounterResult {
     long racy, atomic_, locked, reduced;
     double ns_racy, ns_atomic, ns_locked, ns_reduced;

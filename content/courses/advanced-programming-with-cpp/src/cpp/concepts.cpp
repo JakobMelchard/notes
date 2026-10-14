@@ -10,13 +10,13 @@
 #include <vector>
 #include "check.hpp"
 
-// --- the C++11/17 way: SFINAE with enable_if (the constraint hides in a default argument)
+// the C++11/17 way: SFINAE with enable_if (the constraint hides in a default argument)
 template <class T, std::enable_if_t<std::is_integral_v<T>, int> = 0>
 constexpr const char* kind_sfinae(T) { return "integral"; }
 template <class T, std::enable_if_t<std::is_floating_point_v<T>, int> = 0>
 constexpr const char* kind_sfinae(T) { return "floating"; }
 
-// --- the C++20 way: requires clauses and named concepts
+// the C++20 way: requires clauses and named concepts
 template <class T> requires std::integral<T> constexpr const char* kind(T) { return "integral"; }
 constexpr const char* kind(std::floating_point auto) { return "floating"; }   // abbreviated template
 
@@ -30,7 +30,7 @@ template <class T> requires(std::is_integral_v<T> && std::is_signed_v<T>) conste
 template <class T> concept raw_callable = requires(T t) { raw(t); };
 static_assert(raw_callable<unsigned> && !raw_callable<int>);   // int: ambiguous
 
-// --- designing a concept: what a numerical "scalar" must support
+// designing a concept: what a numerical "scalar" must support
 template <class T> concept Scalar = std::regular<T> && requires(T a, T b) {
     { a + b } -> std::convertible_to<T>;
     { a - b } -> std::convertible_to<T>;
@@ -60,7 +60,7 @@ constexpr auto mean(const C& c) {
     return s / static_cast<typename C::value_type>(c.size());
 }
 
-// --- variadic templates and folds [temp.variadic], [expr.prim.fold]
+// variadic templates and folds [temp.variadic], [expr.prim.fold]
 template <class... Ts> constexpr auto sum(Ts... xs) { return (xs + ... + 0); }       // binary right fold
 template <class... Ts> constexpr bool all_positive(Ts... xs) { return ((xs > 0) && ...); }  // empty pack -> true
 template <class... Ts> constexpr std::size_t count_args(Ts...) { return sizeof...(Ts); }

@@ -8,7 +8,7 @@ The plain Newton methods live in nonlinear.py.
 import numpy as np
 
 
-# ------------------------------------------------------------- Armijo rule
+# Armijo rule
 def armijo(g, grad_g, x, d, sigma=1e-4, q=0.5, kmax=60):
     """Largest step q^k with g(x + q^k d) < g(x) + sigma (grad g . d) q^k.
 
@@ -64,7 +64,7 @@ def gradient_descent_quadratic(Q, c, gamma, x0, iters=200, tol=1e-12, history=Fa
     return (x, np.array(hist)) if history else x
 
 
-# ------------------------------------------------------ globalised Newton
+# globalised Newton
 def globalized_newton(f, jac, x0, mu=0.5, q=0.5, tol=1e-12, iters=100,
                       history=False):
     """[S4] Alg. 15 verbatim.
@@ -100,7 +100,7 @@ def globalized_newton(f, jac, x0, mu=0.5, q=0.5, tol=1e-12, iters=100,
     return (x, np.array(hist), np.array(lams)) if history else x
 
 
-# ---------------------------------------------------------- Gauss-Newton
+# Gauss-Newton
 def gauss_newton(F, JF, x0, iters=100, tol=1e-12, history=False):
     """Nonlinear least squares min ||F(x)||_2,  [S4] (6.18)-(6.19).
 
@@ -123,7 +123,7 @@ def gauss_newton(F, JF, x0, iters=100, tol=1e-12, history=False):
     return (x, np.array(hist)) if history else x
 
 
-# --------------------------------------------------------------- Broyden
+# Broyden
 def sherman_morrison(Ainv, u, v):
     """(A + u v^T)^{-1} = A^{-1} - A^{-1} u v^T A^{-1} / (1 + v^T A^{-1} u).
 

@@ -40,7 +40,7 @@ static int verify(const int *r, int n) {
     return 1;
 }
 
-/* --- unsafe ------------------------------------------------------------ */
+/* unsafe */
 static void recv_first(int *s, int *r, int n) {          /* everybody waits for a send that never comes */
     MPI_Recv(r, n, MPI_INT, left, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
     MPI_Send(s, n, MPI_INT, right, 0, MPI_COMM_WORLD);
@@ -50,7 +50,7 @@ static void send_first(int *s, int *r, int n) {          /* works only while MPI
     MPI_Recv(r, n, MPI_INT, left, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
 }
 
-/* --- safe -------------------------------------------------------------- */
+/* safe */
 static void ordered(int *s, int *r, int n) {             /* break the symmetry */
     if (rank % 2 == 0) {
         MPI_Send(s, n, MPI_INT, right, 0, MPI_COMM_WORLD);

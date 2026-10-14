@@ -22,7 +22,7 @@ import numpy as np
 import pytest
 
 
-# --- Ridgeless asymptotics: S36 Thm 1 ---------------------------------------
+# Ridgeless asymptotics: S36 Thm 1
 
 def ridgeless_risk(gamma, r2, sigma2):
     """S36 Thm 1, isotropic well-specified case."""

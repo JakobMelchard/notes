@@ -20,7 +20,7 @@ Run `python rl.py` for the 4x4 grid-world demo of note 14.
 import numpy as np
 
 
-# --------------------------------------------------- MDPs and Monte Carlo
+# MDPs and Monte Carlo
 class GridWorld:
     """A tiny episodic MDP: walk to the terminal corner, -1 per step ([S21] 3).
 

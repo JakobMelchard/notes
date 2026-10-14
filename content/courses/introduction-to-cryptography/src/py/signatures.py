@@ -29,7 +29,7 @@ from dh import DHParams
 from numtheory import modexp, modinv
 
 
-# ------------------------------------------------- textbook RSA signatures
+# textbook RSA signatures
 def rsa_sign_textbook(priv: dict, m: int) -> int:
     """sigma = m^d mod n. No hashing: this is the INSECURE scheme, kept only
     to exhibit the forgeries below."""
@@ -53,7 +53,7 @@ def rsa_homomorphic_forgery(pub: dict, m1: int, s1: int, m2: int, s2: int) -> tu
     return m1 * m2 % pub["n"], s1 * s2 % pub["n"]
 
 
-# --------------------------------------------------------- RSA-FDH (secure)
+# RSA-FDH (secure)
 def _fdh(m: bytes, n: int) -> int:
     """Full-domain hash: map m into Z_n. Emulated by hashing counter blocks
     and reducing mod n. In the ROM this H behaves as a random oracle, which
@@ -76,7 +76,7 @@ def fdh_verify(pub: dict, m: bytes, sigma: int) -> bool:
     return modexp(sigma, pub["e"], pub["n"]) == _fdh(m, pub["n"])
 
 
-# ------------------------------------- RSASSA-PKCS1-v1_5, RFC 8017 sec. 8.2
+# RSASSA-PKCS1-v1_5, RFC 8017 sec. 8.2
 SHA256_DIGEST_INFO = bytes.fromhex("3031300d060960864801650304020105000420")   # sec. 9.2 note 1
 
 
@@ -107,7 +107,7 @@ def rsassa_pkcs1_v15_verify(pub: dict, msg: bytes, sig: bytes) -> bool:
     return rsa.encrypt(pub, s).to_bytes(k, "big") == emsa_pkcs1_v15_encode(msg, k)
 
 
-# ----------------------------------------------- Schnorr identification / signature
+# Schnorr identification / signature
 class SchnorrParams(DHParams):
     """(p, q, g) with g of prime order q: a DH group, as for ElGamal."""
 

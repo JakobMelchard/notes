@@ -26,7 +26,7 @@ import hashlib
 import rng
 
 
-# ------------------------------------------------------------ LCG (bad PRG)
+# LCG (bad PRG)
 class LCG:
     """x_{i+1} = a*x_i + c mod m. Fine for Monte Carlo, useless as a PRG:
     the state is the output, so the next output is a public function of
@@ -68,7 +68,7 @@ def lcg_advantage(trials: int = 200, m: int = 2 ** 31 - 1) -> float:
     return abs(hits_prg - hits_rand) / trials
 
 
-# ----------------------------------------------------------- toy PRF / PRG
+# toy PRF / PRG
 BLOCK = 32   # bytes: output length of the toy PRF
 
 
@@ -119,7 +119,7 @@ def prg_distinguisher_test(prg_output: bytes, sample_fn, trials: int = 500) -> f
     return abs(mean_prg - mean_rnd) / 255
 
 
-# ------------------------------------------------------ ChaCha20, RFC 8439
+# ChaCha20, RFC 8439
 _M32 = 0xFFFFFFFF
 
 

@@ -18,7 +18,7 @@ import secrets
 
 import numpy as np
 
-# --- Regev's cryptosystem [S15 sec. 5] ----------------------------------------
+# Regev's cryptosystem [S15 sec. 5]
 
 REGEV_N = 32
 REGEV_Q = 1031  # prime in [n^2, 2 n^2] as in [S15 sec. 5]
@@ -95,7 +95,7 @@ def solve_mod_q(A, b, q=REGEV_Q):
     return np.array([A[i][n] for i in range(n)])
 
 
-# --- a toy Kyber-shaped module-LWE KEM [S16] ----------------------------------
+# a toy Kyber-shaped module-LWE KEM [S16]
 
 Q, N, K_DIM, ETA1, ETA2, DU, DV = 3329, 16, 2, 3, 2, 10, 4   # ML-KEM-512 minus N
 

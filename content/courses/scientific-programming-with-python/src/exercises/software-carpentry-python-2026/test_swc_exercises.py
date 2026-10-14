@@ -52,7 +52,7 @@ def test_normalise_rectangle_preconditions_fire(bad) -> None:
         ex.normalise_rectangle(bad)
 
 
-# --- Task 3, written first --------------------------------------------------
+# Task 3, written first
 def test_range_overlap_single_range_is_itself() -> None:
     assert ex.range_overlap([(0.0, 1.0)]) == (0.0, 1.0)
 
@@ -68,7 +68,6 @@ def test_range_overlap_returns_none_when_there_is_no_width() -> None:
     assert ex.range_overlap([(0.0, 1.0), (1.0, 2.0)]) is None
     assert ex.range_overlap([(0.0, 1.0), (5.0, 6.0)]) is None
     assert ex.range_overlap([]) is None
-# ----------------------------------------------------------------------------
 
 
 def test_else_runs_only_without_an_exception() -> None:

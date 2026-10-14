@@ -10,7 +10,7 @@
 #include <vector>
 #include "check.hpp"
 
-// --- integral promotion: arithmetic on small types happens in int [conv.prom]
+// integral promotion: arithmetic on small types happens in int [conv.prom]
 unsigned char uc = 200;
 static_assert(std::is_same_v<decltype(uc + uc), int>);
 static_assert(std::is_same_v<decltype('a' + 1), int>);
@@ -18,7 +18,7 @@ static_assert(std::is_same_v<decltype(1u + 1L), long>);        // long can hold 
 static_assert(std::is_same_v<decltype(1u + 1), unsigned>);     // int -> unsigned: the classic trap
 static_assert(std::is_same_v<decltype(1.0f + 1), float>);
 
-// --- narrowing: forbidden inside braces [dcl.init.list]; detect it with a concept
+// narrowing: forbidden inside braces [dcl.init.list]; detect it with a concept
 template <class To, class From> concept brace_convertible = requires(From f) { To{f}; };
 static_assert(brace_convertible<long, int>);          // widening: fine
 static_assert(brace_convertible<double, float>);
@@ -30,7 +30,7 @@ constexpr int small = 3;
 constexpr double ok{small};                            // constant whose value fits: NOT narrowing
 static_assert(ok == 3.0);
 
-// --- overload ranking [over.ics.rank]: exact > promotion > conversion > user-defined
+// overload ranking [over.ics.rank]: exact > promotion > conversion > user-defined
 constexpr int f(int) { return 1; }
 constexpr int f(double) { return 2; }
 static_assert(f('a') == 1);     // char -> int is a promotion
@@ -39,7 +39,7 @@ template <class T> concept f_callable = requires(T t) { f(t); };
 static_assert(!f_callable<long>);          // long -> int and long -> double: both conversions, ambiguous
 static_assert(!f_callable<unsigned>);      // same
 
-// --- user-defined conversions [class.conv]
+// user-defined conversions [class.conv]
 struct Meters {
     double v;
     explicit Meters(double x) : v(x) {}            // explicit: no silent double -> Meters

@@ -40,7 +40,7 @@ class RandomOracle:
         self.table[x] = y % self.mod
 
 
-# --- Bellare-Rogaway 1993 sec. 3: E(m) = f(r) || G(r) xor m [S8] ------------
+# Bellare-Rogaway 1993 sec. 3: E(m) = f(r) || G(r) xor m [S8]
 
 TOY_RSA_P, TOY_RSA_Q, TOY_RSA_E = 1000003, 1000033, 65537
 TOY_RSA_N = TOY_RSA_P * TOY_RSA_Q
@@ -74,7 +74,7 @@ def ow_inverter_from_log(y_star: int, log) -> int | None:
     return None
 
 
-# --- Schnorr signatures in the ROM ------------------------------------------
+# Schnorr signatures in the ROM
 
 def sign(G: SchnorrGroup, H: RandomOracle, x: int, m: str):
     y = G.exp(G.g, x)
@@ -99,7 +99,7 @@ def simulated_sign(G: SchnorrGroup, H: RandomOracle, y: int, m: str):
     return t, s
 
 
-# --- general forking lemma [S27 Lemma 1] -------------------------------------
+# general forking lemma [S27 Lemma 1]
 
 def toy_forger(G: SchnorrGroup, x_secret: int, acc: float, q: int):
     """A black-box 'forger' A(pk, h_1..h_q; rho) in the format of [S27]:

@@ -84,7 +84,7 @@ def malleability_demo(params: ElGamalParams, ct: tuple[int, int], factor: int) -
     return c1, c2 * factor % params.p
 
 
-# ------------------------------------------- hybrid encryption (KEM/DEM)
+# hybrid encryption (KEM/DEM)
 def _kdf(params: ElGamalParams, *group_elements: int) -> tuple[bytes, bytes]:
     """Derive independent DEM keys (encryption, MAC) from group elements with
     HKDF (RFC 5869).  The DEM key depends on *everything* hashed, which is
@@ -132,7 +132,7 @@ def hybrid_cca_attack(params: ElGamalParams, h: int, ct, dec_oracle) -> bytes:
     return dec_oracle((rerandomize(params, h, kem), dem))
 
 
-# ------------------------------------------------------------- DHIES/ECIES
+# DHIES/ECIES
 def dhies_encrypt(params: ElGamalParams, h: int, msg: bytes,
                   y: int | None = None) -> tuple[int, tuple[bytes, bytes]]:
     """DHIES (lecture 12; ECIES when the group is an elliptic curve).  The

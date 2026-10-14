@@ -94,7 +94,7 @@ class Cache:
         return {ln for ways in self._sets.values() for ln in ways}
 
 
-# --------------------------------------------------------------------- E1
+# E1
 def three_row_trace(n_iter: int = 512, row_words: int = 8192) -> list[int]:
     """`for i < n_iter: a[2][i] = (a[0][i] + a[1][i])/2` as byte addresses."""
     return [WORD * (r * row_words + i) for i in range(n_iter) for r in (0, 1, 2)]
@@ -118,7 +118,7 @@ def e1_index_bits(n_sets: int = 2048, line_bytes: int = 32) -> dict:
     return out
 
 
-# --------------------------------------------------------------------- E2
+# E2
 def occupancy_trial(n_entries: int, assoc: int, rng: random.Random,
                     addr_bits: int = 16) -> int:
     """Throw `n_entries` distinct random addresses in; how many survive?"""
@@ -149,7 +149,7 @@ def expected_occupancy_direct_mapped(n: int) -> float:
     return n * (1.0 - (1.0 - 1.0 / n) ** n)
 
 
-# --------------------------------------------------------------------- E3
+# E3
 def linear_sum_trace(n: int) -> list[int]:
     """`for i: sum += x[i]` -- one unit-stride pass over n doubles."""
     return [WORD * i for i in range(n)]

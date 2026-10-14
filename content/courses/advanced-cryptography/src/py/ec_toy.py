@@ -164,13 +164,13 @@ def ecdsa_nonce_reuse(m1, sig1, m2, sig2, n=TOY_N) -> int:
     return (s1 * k - h1) * pow(r, -1, n) % n
 
 
-# --- secp256k1, parameters from SEC 2 sec. 2.4.1 [S21] ---------------------
+# secp256k1, parameters from SEC 2 sec. 2.4.1 [S21]
 SECP256K1 = Curve(p=2**256 - 2**32 - 977, a=0, b=7)
 SECP256K1_G = (0x79BE667EF9DCBBAC55A06295CE870B07029BFCDB2DCE28D959F2815B16F81798,
                0x483ADA7726A3C4655DA4FBFC0E1108A8FD17B448A68554199C47D08FFB10D4B8)
 SECP256K1_N = 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141
 
-# --- Curve25519 / X25519, RFC 7748 sec. 5 [S22] ----------------------------
+# Curve25519 / X25519, RFC 7748 sec. 5 [S22]
 P25519 = 2**255 - 19
 
 
@@ -203,7 +203,7 @@ def x25519(k: bytes, u: bytes) -> bytes:
     return (x2 * pow(z2, p - 2, p) % p).to_bytes(32, "little")
 
 
-# --- Ed25519, RFC 8032 sec. 5.1 [S23] --------------------------------------
+# Ed25519, RFC 8032 sec. 5.1 [S23]
 ED_D = -121665 * pow(121666, -1, P25519) % P25519
 ED_L = 2**252 + 27742317777372353535851937790883648493
 _SQRT_M1 = pow(2, (P25519 - 1) // 4, P25519)

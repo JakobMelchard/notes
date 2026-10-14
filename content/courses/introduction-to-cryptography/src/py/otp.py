@@ -41,7 +41,7 @@ def encrypt(key: bytes, msg: bytes) -> bytes:
 decrypt = encrypt          # Dec_k(c) = c xor k = m; the pad is an involution
 
 
-# ---------------------------------------------------------- two-time pad
+# two-time pad
 def two_time_pad_leak(c1: bytes, c2: bytes) -> bytes:
     """If c1 = m1 xor k and c2 = m2 xor k, then c1 xor c2 = m1 xor m2:
     the key cancels and the attacker gets the XOR of the two plaintexts."""

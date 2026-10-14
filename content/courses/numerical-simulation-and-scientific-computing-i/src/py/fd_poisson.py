@@ -18,7 +18,7 @@ import scipy.sparse as sp
 import scipy.sparse.linalg as spla
 
 
-# ---------------------------------------------------------------- derivatives / quadrature
+# derivatives / quadrature
 def fd_derivative(f, x, h, scheme="central"):
     """First derivative: forward O(h), backward O(h), central O(h^2)."""
     if scheme == "forward":
@@ -47,7 +47,7 @@ def quad_composite(f, a, b, n, rule="simpson"):
     return h / 3 * (y[0] + 4 * y[1:-1:2].sum() + 2 * y[2:-1:2].sum() + y[-1])
 
 
-# ---------------------------------------------------------------- 1D
+# 1D
 def thomas(sub, diag, sup, rhs):
     """Solve a tridiagonal system in O(n). sub[0] and sup[-1] are ignored."""
     n = len(diag)
@@ -83,7 +83,7 @@ def poisson1d_matrix(N):
     return sp.diags([-1.0, 2.0, -1.0], [-1, 0, 1], shape=(m, m), format="csr") / h**2
 
 
-# ---------------------------------------------------------------- 2D
+# 2D
 def poisson2d_matrix(N):
     """5-point Laplacian on the (N-1)^2 interior unknowns, row-major (i, j) -> (i-1)*(N-1)+(j-1)."""
     m = N - 1

@@ -56,7 +56,7 @@ def test_regression():
     assert m.r2(yt, yp) == pytest.approx(skm.r2_score(yt, yp))
 
 
-# ---- the WEKA relative-error family of the course formula sheet [S13, S22] ----
+# the WEKA relative-error family of the course formula sheet [S13, S22]
 def test_rse_is_one_minus_r2():
     """RSE = sum (p-a)^2 / sum (mean(a)-a)^2, so R^2 = 1 - RSE [S13]."""
     a = rng.normal(size=200)

@@ -35,7 +35,7 @@ int main(int argc, char **argv)
 
     const long ring_answer = (long)size * (size - 1) / 2;
 
-    /* ---- 1. the ring with MPI_Put ---------------------------------------- */
+    /* 1. the ring with MPI_Put */
     {
         int rcv_buf = -1, snd_buf = rank, sum = 0;
         int right = (rank + 1) % size;
@@ -63,7 +63,7 @@ int main(int argc, char **argv)
         MPI_Win_free(&win);
     }
 
-    /* ---- 2. MPI_Get: pull everybody's contribution ----------------------- */
+    /* 2. MPI_Get: pull everybody's contribution */
     {
         int mine = 10 * rank + 1;
         int *all = malloc((size_t)size * sizeof *all);
@@ -81,7 +81,7 @@ int main(int argc, char **argv)
         free(all);
     }
 
-    /* ---- 3. MPI_Accumulate: concurrent updates of one location ----------- */
+    /* 3. MPI_Accumulate: concurrent updates of one location */
     {
         int counter = 0;                     /* only rank 0's copy is used */
         MPI_Win win;
@@ -106,7 +106,7 @@ int main(int argc, char **argv)
         MPI_Win_free(&win);
     }
 
-    /* ---- 4. passive target: a distributed counter ------------------------ */
+    /* 4. passive target: a distributed counter */
     {
         /* rank 0 owns a counter; every rank fetches-and-adds 1 exactly once, so
            the P values handed out are a permutation of 0 .. P-1 and the final

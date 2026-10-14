@@ -48,7 +48,7 @@ class DecisionTree(BaseEstimator):
         self.min_samples_split, self.min_samples_leaf = min_samples_split, min_samples_leaf
         self.max_features, self.ccp_alpha, self.rng = max_features, ccp_alpha, rng
 
-    # ------------------------------------------------------------- impurities
+    # impurities
     def _impurity_from_stats(self, s, n):
         """s: class-weight sums (classification, shape ... x K) or (sum, sumsq) (regression)."""
         if self.criterion == "mse":
@@ -63,7 +63,7 @@ class DecisionTree(BaseEstimator):
     def _stats(self, Y, w):
         return (w[:, None] * Y) if self.criterion != "mse" else np.column_stack([w * Y, w * Y ** 2])
 
-    # ---------------------------------------------------------------- fitting
+    # fitting
     def fit(self, X, y, sample_weight=None):
         X, y = np.asarray(X, float), np.asarray(y)
         w = np.ones(len(y)) if sample_weight is None else np.asarray(sample_weight, float)
@@ -130,7 +130,7 @@ class DecisionTree(BaseEstimator):
                 best_gain, best = gain, (j, (xs[i] + xs[i + 1]) / 2)
         return best
 
-    # ---------------------------------------------------------------- pruning
+    # pruning
     def _prune(self, alpha):
         """Weakest-link pruning: collapse the subtree with the smallest
         g(t) = (R(t) - R(T_t)) / (|leaves(T_t)| - 1) while g(t) <= alpha."""
@@ -163,7 +163,7 @@ class DecisionTree(BaseEstimator):
                 walk(node.left); walk(node.right)
         walk(self.root_)
 
-    # ------------------------------------------------------------- prediction
+    # prediction
     def _leaf(self, x):
         node = self.root_
         while not node.is_leaf:

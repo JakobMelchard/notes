@@ -72,7 +72,7 @@ def test_singular_raises(n):
         inverse(np.ones((n, n)))
 
 
-# ================= [S4] sec. 3.2-3.3: the script's own examples ==============
+# [S4] sec. 3.2-3.3: the script's own examples
 
 
 def test_s4_example_3_5_log_one_plus_x():

@@ -114,7 +114,7 @@ def test_cg_convergence_bound():
         assert np.sqrt(e @ A @ e) <= 2 * rate ** k * e0 * (1 + 1e-10)
 
 
-# ============================ [S4] §8.1: CG directions =====================
+# [S4] §8.1: CG directions
 def test_cg_search_directions_are_a_orthogonal():
     """[S4] Lem. 8.3: the CG directions are conjugate, (d_i, d_j)_A = 0."""
     A = poisson_1d(15)

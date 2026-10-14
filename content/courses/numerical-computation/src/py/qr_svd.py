@@ -9,7 +9,7 @@ Thm 5.15).  The one-sided Jacobi SVD is background, not in [S4].
 import numpy as np
 
 
-# ---------------------------------------------------------------- Gram-Schmidt
+# Gram-Schmidt
 def gram_schmidt_classical(A):
     """q_j = a_j - sum_{i<j} (q_i^T a_j) q_i, normalised.  All projections use
     the ORIGINAL a_j, so rounding errors are not removed: loss of
@@ -43,7 +43,7 @@ def gram_schmidt_modified(A):
     return Q, R
 
 
-# ---------------------------------------------------------------- Householder
+# Householder
 def householder_vector(x):
     """v such that H = I - 2 v v^T / (v^T v) maps x to -sign(x_0) ||x|| e_1.
     The sign choice avoids cancellation in v_0 = x_0 + sign(x_0)||x||."""
@@ -83,7 +83,7 @@ def qr_solve(A, b):
     return back_substitution(R[:n, :n], (Q.T @ b)[:n])
 
 
-# ---------------------------------------------------------------- eigenvalues
+# eigenvalues
 def power_method(A, iters=1000, tol=1e-12):
     """Dominant eigenpair; converges like |lambda_2/lambda_1|^k."""
     A = np.asarray(A, float)
@@ -113,7 +113,7 @@ def qr_algorithm(A, iters=500, tol=1e-12):
     return np.sort(np.diag(Ak))[::-1]
 
 
-# ---------------------------------------------------------------- SVD
+# SVD
 def jacobi_svd(A, tol=1e-15, sweeps=60):
     """One-sided Jacobi (Hestenes): rotate column pairs (i, j) of A from the
     right until all columns are mutually orthogonal, U Sigma = A V.

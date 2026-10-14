@@ -16,7 +16,7 @@ def test_monomial_integrals():
     assert monomial_integral_triangle(1, 1) == pytest.approx(1 / 24)
 
 
-# ------------------------------------------------------------------ square
+# square
 @pytest.mark.parametrize("n", [1, 2, 3, 4])
 def test_tensor_gauss_is_exact_on_the_tensor_space(n):
     """[S4] Exercise 2.21: exact on span{x^i y^j : i, j <= 2n-1}."""
@@ -47,7 +47,7 @@ def test_composite_midpoint_and_trapezoid_on_the_square():
         assert val == pytest.approx(0.25, abs=1e-3)
 
 
-# ---------------------------------------------------------------- triangle
+# triangle
 def test_barycentre_rule_is_exact_on_degree_one():
     """[S4] Exercise 2.22: weight |T| = 1/2 at (1/3, 1/3), exact on P_1."""
     assert barycentre_triangle(lambda x, y: 1.0 + 0 * x) == pytest.approx(0.5)

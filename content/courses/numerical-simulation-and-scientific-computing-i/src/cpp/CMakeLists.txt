@@ -28,7 +28,6 @@ endif()
 
 add_compile_options(-Wall -Wextra)
 
-# ---------------------------------------------------------------------------
 # OpenMP.
 #
 # `find_package(OpenMP REQUIRED)` on its own FAILS with Apple's clang: Xcode's
@@ -36,7 +35,6 @@ add_compile_options(-Wall -Wextra)
 # keg. Point it at the keg with OpenMP_ROOT, which FindOpenMP honours through
 # CMake's <PackageName>_ROOT search rule [S36]. On Linux with gcc or with a
 # Homebrew llvm this block is a no-op.
-# ---------------------------------------------------------------------------
 if(APPLE)
     execute_process(COMMAND brew --prefix libomp
                     OUTPUT_VARIABLE BREW_LIBOMP
@@ -56,9 +54,7 @@ endif()
 
 find_package(Threads REQUIRED)
 
-# ---------------------------------------------------------------------------
 # Programs. Each one runs as a demo, as `--test` and (some) as `--bench`.
-# ---------------------------------------------------------------------------
 set(PROGRAMS
     cache_bench
     matmul_opt
@@ -83,10 +79,8 @@ if(OpenMP_CXX_FOUND)
     list(APPEND PROGRAMS omp_examples)
 endif()
 
-# ---------------------------------------------------------------------------
 # Tests. `add_test(COMMAND <target>)` resolves the target to its built binary,
 # so no path is needed. vtk_writer writes files, so give it its own directory.
-# ---------------------------------------------------------------------------
 enable_testing()
 foreach(prog IN LISTS PROGRAMS)
     add_test(NAME ${prog} COMMAND ${prog} --test)

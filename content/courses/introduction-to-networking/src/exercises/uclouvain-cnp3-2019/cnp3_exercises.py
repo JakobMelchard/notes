@@ -19,12 +19,10 @@ Run `python3 cnp3_exercises.py` for a demo.
 """
 import ipaddress
 
-# ==========================================================================
 # 1. Transparent bridging: what a switch learns, and why a cycle is fatal
 #    CNP3 "Building a network" open questions 2-3 (flat addresses, port
 #    forwarding tables) and "Local Area Networks" exercises 1-2.
 #    TISS topic: Layer 2 (Ethernet), note 02.
-# ==========================================================================
 #
 # Restated topology (CNP3's figure, described rather than copied): three
 # switches in a line, host A on the first, hosts B and C on the third.
@@ -104,11 +102,9 @@ class LearningSwitchNetwork:
         return {s: len(t) for s, t in self.tables.items()}
 
 
-# ==========================================================================
 # 2. Inter-domain routing policy: valley-free path selection
 #    CNP3 "Inter-domain routing" exercises 1-2.
 #    TISS topic: path-vector routing, AS relationships (notes 06, 07).
-# ==========================================================================
 #
 # Restated topology (CNP3's figure, described rather than copied):
 #   AS1 is a customer of AS2 and of AS3
@@ -187,12 +183,10 @@ def best_path(graph, source, origin):
     return kind, paths
 
 
-# ==========================================================================
 # 3. Hierarchical versus flat addressing
 #    CNP3 "Building a network" open question 1.
 #    TISS topic: IPv4/IPv6 addressing, forwarding and longest-prefix match
 #    (notes 03, 04, 06).
-# ==========================================================================
 def flat_table_size(addresses):
     """Flat addresses carry no structure, so a forwarding table needs one
     entry per reachable address.  This is why switched networks do not

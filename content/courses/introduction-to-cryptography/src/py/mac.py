@@ -29,7 +29,7 @@ from prg import toy_prf
 from private_key import FeistelPRP, _blocks, xor
 
 
-# ------------------------------------------------------------- PRF MAC
+# PRF MAC
 def prf_mac(key: bytes, msg: bytes) -> bytes:
     """Fixed-length MAC: t = F_k(m). A PRF is a secure MAC because forging a
     tag means predicting F_k on a fresh input, i.e. distinguishing F from
@@ -43,7 +43,7 @@ def prf_mac_verify(key: bytes, msg: bytes, tag: bytes) -> bool:
     return std_hmac.compare_digest(prf_mac(key, msg), tag)   # constant-time compare
 
 
-# ------------------------------------------------------------- CBC-MAC
+# CBC-MAC
 def cbc_mac(key: bytes, msg: bytes, cipher=None) -> bytes:
     """Basic CBC-MAC: run CBC with a zero IV, output the last block.
     Secure ONLY for fixed-length messages. No IV, no last-block encryption,
@@ -76,7 +76,7 @@ def cbc_mac_forgery(key: bytes, cipher=None):
     return forged_msg, forged_tag, (m1, m2)
 
 
-# --------------------------------------------------------------- HMAC
+# HMAC
 def hmac(key: bytes, msg: bytes, hash_fn=hashlib.sha256) -> bytes:
     """RFC 2104 sec. 2: H((K xor opad) || H((K xor ipad) || m)), with the key
     hashed first if longer than the block (64 bytes for SHA-1/-256, 128 for
@@ -95,7 +95,7 @@ def hmac_sha256(key: bytes, msg: bytes) -> bytes:
     return hmac(key, msg, hashlib.sha256)
 
 
-# --------------------------------------------------------------- HKDF
+# HKDF
 def hkdf_extract(salt: bytes, ikm: bytes, hash_fn=hashlib.sha256) -> bytes:
     """RFC 5869 sec. 2.2: PRK = HMAC-Hash(salt, IKM); an absent salt is
     HashLen zero bytes.  Concentrates the entropy of, say, a DH shared value
@@ -120,7 +120,7 @@ def hkdf(ikm: bytes, length: int, salt: bytes = b"", info: bytes = b"",
     return hkdf_expand(hkdf_extract(salt, ikm, hash_fn), info, length, hash_fn)
 
 
-# ---------------------------------------------------- encrypt-then-MAC
+# encrypt-then-MAC
 def encrypt_then_mac(k_enc: bytes, k_mac: bytes, msg: bytes) -> tuple[bytes, bytes]:
     """The composition with a security proof: encrypt, then MAC the
     ciphertext. Ciphertext integrity implies CCA security. Keys MUST be

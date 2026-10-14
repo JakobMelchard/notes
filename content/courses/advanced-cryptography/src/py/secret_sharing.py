@@ -62,7 +62,7 @@ def degree(shares, p: int = P) -> int:
     return d
 
 
-# --- BGW gates on share vectors (index k = party k+1) --------------------------
+# BGW gates on share vectors (index k = party k+1)
 
 def add(a, b):
     """Local: (f + g)(i) = f(i) + g(i). No communication."""
@@ -134,7 +134,7 @@ def mul_beaver(x, y, triple):
     return add_const(d * e, add(C, add(scal(d, B), scal(e, A))))
 
 
-# --- an n-party computation ----------------------------------------------------
+# an n-party computation
 
 def mpc_eval(inputs: list[int], t: int, circuit, mul=mul_resharing, rng=None) -> int:
     """Each party j shares input j; the circuit is a list of

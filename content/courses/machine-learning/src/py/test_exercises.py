@@ -46,7 +46,7 @@ def test_every_paper_passes_its_own_check(papers, folder):
     mod.check(mod.solve())
 
 
-# ------------------------------------------------------- E19b, 18.10.2019
+# E19b, 18.10.2019
 def test_2019_10_18(papers):
     r = papers["2019-10-18"].solve()
 
@@ -78,7 +78,7 @@ def test_2019_10_18(papers):
     assert any(0.0 in row.values() for row in d["nb_likelihoods"])
 
 
-# ------------------------------------------------------- E20b, 25.06.2020
+# E20b, 25.06.2020
 def test_2020_06_25(papers):
     r = papers["2020-06-25"].solve()
 
@@ -107,7 +107,7 @@ def test_2020_06_25(papers):
     assert r["tf"]["Random forests use bootstrapping"] is True
 
 
-# ------------------------------------------------------- E20c, 09.09.2020
+# E20c, 09.09.2020
 def test_2020_09_09(papers):
     r = papers["2020-09-09"].solve()
 
@@ -130,7 +130,7 @@ def test_2020_09_09(papers):
     assert r["tf"]["Kernels can only be used with SVMs"] is False
 
 
-# ------------------------------------------------------- E22b, 30.06.2022
+# E22b, 30.06.2022
 def test_2022_06_30(papers):
     r = papers["2022-06-30"].solve()
 
@@ -152,7 +152,7 @@ def test_2022_06_30(papers):
     assert r["2b"]["diverges"]                            # alpha = 0.5 on unscaled features
 
 
-# ------------------------------------------------------- E26a, 27.01.2026
+# E26a, 27.01.2026
 def test_2026_01_27(papers):
     r = papers["2026-01-27"].solve()
 

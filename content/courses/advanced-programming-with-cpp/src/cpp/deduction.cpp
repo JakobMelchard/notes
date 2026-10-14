@@ -12,7 +12,7 @@
 
 using std::is_same_v;
 
-// --- auto: same rules as template deduction by value, T in `template<class T> f(T)`
+// auto: same rules as template deduction by value, T in `template<class T> f(T)`
 const int ci = 1;
 const int& cr = ci;
 int arr[3] = {1, 2, 3};
@@ -31,7 +31,7 @@ static_assert(is_same_v<decltype(a5), int (&)[3]>);
 static_assert(is_same_v<decltype(a6), std::initializer_list<int>>);
 static_assert(is_same_v<decltype(a7), int>);
 
-// --- decltype: of a name = declared type; of an expression = type + value category
+// decltype: of a name = declared type; of an expression = type + value category
 int x = 0;
 static_assert(is_same_v<decltype(x), int>);          // unparenthesised id-expression
 static_assert(is_same_v<decltype((x)), int&>);       // lvalue expression -> T&
@@ -44,7 +44,7 @@ decltype(auto) by_expr() { return (x); }      // int&  -- a reference to the glo
 static_assert(is_same_v<decltype(by_name()), int>);
 static_assert(is_same_v<decltype(by_expr()), int&>);
 
-// --- function template deduction [temp.deduct.call]
+// function template deduction [temp.deduct.call]
 template <class T> constexpr auto by_value(T) { return std::type_identity<T>{}; }
 template <class T> constexpr auto by_lref(T&) { return std::type_identity<T>{}; }
 template <class T> constexpr auto by_fwd(T&&) { return std::type_identity<T>{}; }
@@ -69,7 +69,7 @@ template <class A> concept max_deducible = requires(A a) { my_max(a, 2.0); };
 static_assert(max_deducible<double> && !max_deducible<int>);
 static_assert(my_max<double>(1, 2.5) == 2.5);
 
-// --- CTAD [over.match.class.deduct]
+// CTAD [over.match.class.deduct]
 template <class T> struct Stats {
     T mean{};
     std::size_t n = 0;

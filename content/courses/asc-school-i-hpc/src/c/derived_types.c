@@ -43,7 +43,7 @@ int main(int argc, char **argv)
     MPI_Comm_size(MPI_COMM_WORLD, &size);
     if (size < 2) { fprintf(stderr, "need at least 2 ranks\n"); MPI_Abort(MPI_COMM_WORLD, 1); }
 
-    /* ---- 1. a column of a row-major matrix ------------------------------- */
+    /* 1. a column of a row-major matrix */
     double A[N][N];
     for (int i = 0; i < N; i++)
         for (int j = 0; j < N; j++) A[i][j] = 10.0 * i + j;      /* A[i][j] = i*10 + j */
@@ -80,7 +80,7 @@ int main(int argc, char **argv)
         printf("rank 1 received column 2 as %g %g %g %g\n", got[0], got[1], got[2], got[3]);
     }
 
-    /* ---- 2. why count > 1 needs MPI_Type_create_resized ------------------- */
+    /* 2. why count > 1 needs MPI_Type_create_resized */
     MPI_Datatype col_resized;
     MPI_Type_create_resized(col, 0, (MPI_Aint)sizeof(double), &col_resized);
     MPI_Type_commit(&col_resized);
@@ -99,7 +99,7 @@ int main(int argc, char **argv)
         }
     }
 
-    /* ---- 3. a struct, with the compiler's own offsets --------------------- */
+    /* 3. a struct, with the compiler's own offsets */
     MPI_Datatype ptype;
     {
         Particle probe = {0, {0.0, 0.0, 0.0}, 0};
@@ -154,7 +154,7 @@ int main(int argc, char **argv)
         }
     }
 
-    /* ---- 4. a halo face with MPI_Type_create_subarray --------------------- */
+    /* 4. a halo face with MPI_Type_create_subarray */
     {
         /* a (N+2)^2 array with one ghost layer; the face is one interior row */
         int sizes[2]    = {N + 2, N + 2};

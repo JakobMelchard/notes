@@ -11,7 +11,7 @@
 #include <vector>
 #include "check.hpp"
 
-// --- rule of five: a class that owns a raw resource must define all five
+// rule of five: a class that owns a raw resource must define all five
 class Buffer {
     std::size_t n_ = 0;
     double* data_ = nullptr;
@@ -28,14 +28,14 @@ public:
     const double* data() const { return data_; }
 };
 
-// --- rule of zero: members manage themselves, write none of the five
+// rule of zero: members manage themselves, write none of the five
 struct Grid {
     std::vector<double> values;
     std::string label;
 };
 static_assert(std::is_nothrow_move_constructible_v<Grid> && std::is_copy_constructible_v<Grid>);
 
-// --- declaring a destructor silently removes the implicit move operations
+// declaring a destructor silently removes the implicit move operations
 int grid_copies = 0;
 struct Tracked { Tracked() = default; Tracked(const Tracked&) { ++grid_copies; } Tracked(Tracked&&) noexcept = default; };
 struct LoggingGrid {
@@ -44,7 +44,7 @@ struct LoggingGrid {
 };
 struct QuietGrid { Tracked t; };
 
-// --- runtime polymorphism
+// runtime polymorphism
 struct Shape {
     virtual ~Shape() = default;             // deleting through Shape* must reach the derived dtor
     virtual double area() const = 0;        // pure virtual: Shape is abstract
@@ -69,7 +69,7 @@ struct Derived : Base { int id() const override { return 1; } };
 int id_by_value(Base b) { return b.id(); }        // copies only the Base part
 int id_by_ref(const Base& b) { return b.id(); }
 
-// --- static polymorphism: CRTP, no vtable, calls resolved at compile time
+// static polymorphism: CRTP, no vtable, calls resolved at compile time
 template <class D> struct Integrator {
     double run(double a, double b, int n) const {       // D supplies weight(i, n)
         const auto& d = static_cast<const D&>(*this);

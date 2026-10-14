@@ -47,7 +47,7 @@ def to_text(nums: list[int]) -> str:
     return "".join(chr(A + n % N) for n in nums)
 
 
-# --------------------------------------------------------------- scytale
+# scytale
 # Gen: a circumference k, the number of letters once round the rod.  Enc:
 # write along the rod, so the message fills k rows of n/k letters; unwinding
 # the strip reads the grid column by column:
@@ -77,7 +77,7 @@ def scytale_break(ct: str, is_plaintext) -> int:
     raise ValueError("no key found")
 
 
-# ----------------------------------------------------------- shift cipher
+# shift cipher
 def shift_encrypt(msg: str, k: int) -> str:
     return to_text([(m + k) % N for m in to_nums(msg)])
 
@@ -108,7 +108,7 @@ def shift_break_by_frequency(ct: str) -> int:
     return best
 
 
-# ------------------------------------------ monoalphabetic substitution
+# monoalphabetic substitution
 def random_substitution() -> list[int]:
     """Key = a permutation pi of Sigma.  |K| = 26! ~ 2^88, so brute force is
     out -- and yet the cipher is trivially broken, because the key space
@@ -157,7 +157,7 @@ def substitution_break_by_frequency(ct: str) -> list[int]:
     return guess
 
 
-# ---------------------------------------- polyalphabetic substitution
+# polyalphabetic substitution
 def poly_encrypt(msg: str, perms: list[list[int]]) -> str:
     """Key = (pi_1, ..., pi_L); position i uses pi_{i mod L}.  Frequency
     analysis on the whole ciphertext is defeated -- but only because it is
@@ -182,7 +182,7 @@ def vigenere_key_to_perms(key: str) -> list[list[int]]:
     return [[(x + k) % N for x in range(N)] for k in to_nums(key)]
 
 
-# -------------------------------------------------------- Vernam over Z_26
+# Vernam over Z_26
 def vernam_keygen(length: int) -> list[int]:
     return [rng.randbelow(N) for _ in range(length)]
 

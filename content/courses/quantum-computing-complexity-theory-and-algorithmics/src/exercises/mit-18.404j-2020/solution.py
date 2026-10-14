@@ -20,7 +20,7 @@ import reachability as rch                                        # noqa: E402
 import sat as S                                                   # noqa: E402
 
 
-# --- Q1: the true/false/open block (B02, B03) ---------------------------------
+# Q1: the true/false/open block (B02, B03)
 def q1_true_false():
     """Sixteen one-line claims about classes.  Only the settled ones can be
     *checked*; the point of the question is knowing which are settled.
@@ -69,7 +69,7 @@ def q1_true_false():
             "open": len(open_questions), "refuted": refuted}
 
 
-# --- Q3: NP-completeness of a stone-removal puzzle, with both directions ------
+# Q3: NP-completeness of a stone-removal puzzle, with both directions
 # A board is a list of rows; board[r][c] is "", "B" or "R".
 # A *solution* keeps, in every column, stones of at most one colour, and leaves
 # at least one stone in every row.  (Restated in our own words from [S59] Q3;
@@ -138,7 +138,7 @@ def q3_reduction_correctness(max_vars=3, max_clauses=4):
             "certificate length": "one bit per column"}
 
 
-# --- Q5: log-space reductions and why one direction is hopeless (B03) ---------
+# Q5: log-space reductions and why one direction is hopeless (B03)
 def q5_logspace_reductions():
     """ODD-PARITY is in L; PATH is NL-complete.  So ODD-PARITY <=_L PATH holds
     (everything in L reduces to an NL-complete problem), while PATH <=_L
@@ -172,7 +172,7 @@ def q5_logspace_reductions():
             "other direction": "PATH <=_L ODD-PARITY would give L = NL"}
 
 
-# --- Q6: BPP is contained in PSPACE (B05) ------------------------------------
+# Q6: BPP is contained in PSPACE (B05)
 def q6_bpp_in_pspace(n=4):
     """A BPP machine using r coin tosses is simulated by *enumerating* the 2^r
     coin sequences one at a time and counting acceptances: exponential time,

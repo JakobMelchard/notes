@@ -36,7 +36,7 @@ def xor(a: bytes, b: bytes) -> bytes:
     return bytes(x ^ y for x, y in zip(a, b))
 
 
-# ---------------------------------------------- PRF-based CPA-secure scheme
+# PRF-based CPA-secure scheme
 def prf_encrypt(key: bytes, msg: bytes) -> tuple[bytes, bytes]:
     """Enc_k(m) = (r, F_k(r) xor m) with r uniform. Randomised, so encrypting
     the same m twice gives different ciphertexts (necessary for CPA)."""
@@ -51,7 +51,7 @@ def prf_decrypt(key: bytes, ct: tuple[bytes, bytes]) -> bytes:
     return xor(toy_prf(key, r), c)
 
 
-# ---------------------------------------------------------- block ciphers
+# block ciphers
 class FeistelPRP:
     """4-round Feistel network on 8-byte blocks with round function
     f_i(x) = SHA-256(k || i || x)[:4]. Luby-Rackoff: 3 rounds give a PRP,
@@ -95,7 +95,7 @@ class AESBlock:
         return d.update(block) + d.finalize()
 
 
-# -------------------------------------------------------------- padding
+# padding
 def pad(msg: bytes, bs: int) -> bytes:
     """PKCS#7: append n bytes of value n, 1 <= n <= bs (always at least one)."""
     n = bs - len(msg) % bs
@@ -115,7 +115,7 @@ def _blocks(data: bytes, bs: int) -> list[bytes]:
     return [data[i:i + bs] for i in range(0, len(data), bs)]
 
 
-# ----------------------------------------------------------------- modes
+# modes
 def ecb_encrypt(cipher, msg: bytes) -> bytes:
     """Deterministic, stateless: equal plaintext blocks give equal ciphertext
     blocks, so ECB is not even EAV-secure."""
@@ -191,7 +191,7 @@ def ctr_decrypt(cipher, ct: bytes) -> bytes:
     return xor(body, ks[:len(body)])           # XOR keystream is its own inverse
 
 
-# ----------------------------------------------------------- ECB leakage
+# ECB leakage
 def structured_image(width: int = 16, height: int = 12, bs: int = 16) -> bytes:
     """A 'bitmap': each pixel is one block, background is 0x00-blocks, a
     filled rectangle is 0xff-blocks. Under ECB the shape survives encryption
@@ -213,7 +213,7 @@ def block_pattern(ct: bytes, bs: int, width: int) -> list[str]:
     return ["".join(labels[i:i + width]) for i in range(0, len(labels), width)]
 
 
-# ------------------------------------------------------ padding oracle
+# padding oracle
 def make_padding_oracle(cipher) -> Callable[[bytes], bool]:
     """Models a server that decrypts a CBC ciphertext and only reveals whether
     the PKCS#7 padding was valid. That single leaked bit is the whole

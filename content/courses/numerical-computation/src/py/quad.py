@@ -10,7 +10,7 @@ Adaptive Simpson is background.
 import numpy as np
 
 
-# ---------------------------------------------------------------- Newton-Cotes
+# Newton-Cotes
 def newton_cotes_weights(n):
     """Closed Newton-Cotes weights on n+1 equispaced nodes of [0, 1]:
     integrate the Lagrange basis exactly by solving the moment equations
@@ -28,7 +28,7 @@ def newton_cotes(f, a, b, n):
     return (b - a) * (w @ f(x))
 
 
-# ---------------------------------------------------------------- composite
+# composite
 def midpoint(f, a, b, n):
     """Composite midpoint, error (b-a) h^2 f''/24."""
     h = (b - a) / n
@@ -55,7 +55,7 @@ def simpson(f, a, b, n):
     return h / 3 * (fx[0] + 4 * fx[1:-1:2].sum() + 2 * fx[2:-1:2].sum() + fx[-1])
 
 
-# ---------------------------------------------------------------- Gauss
+# Gauss
 def legendre(n, x):
     """P_n(x) and P_n'(x) by the three-term recurrence
     (k+1) P_{k+1} = (2k+1) x P_k - k P_{k-1}."""
@@ -91,7 +91,7 @@ def gauss_quad(f, a, b, n):
     return 0.5 * (b - a) * (w @ f(t))
 
 
-# ---------------------------------------------------------------- Romberg
+# Romberg
 def romberg(f, a, b, levels=6):
     """Richardson extrapolation of the trapezoid rule (error expansion in h^2
     by Euler-Maclaurin):  T[i,j] = T[i,j-1] + (T[i,j-1] - T[i-1,j-1]) / (4^j - 1).
@@ -110,7 +110,7 @@ def romberg(f, a, b, levels=6):
     return T
 
 
-# ---------------------------------------------------------------- adaptive
+# adaptive
 def adaptive_simpson(f, a, b, tol=1e-10, maxdepth=50):
     """Recursive Simpson: accept S(a,m) + S(m,b) when
     |S_left + S_right - S_whole| < 15 tol (the 1/15 comes from the h^4 error
@@ -137,7 +137,7 @@ def adaptive_simpson(f, a, b, tol=1e-10, maxdepth=50):
 
 
 
-# ------------------------------------------- [S4] sec. 2.3 and 2.7 additions
+# [S4] sec. 2.3 and 2.7 additions
 def adaptive_trapezoid(f, a, b, tau, rho=0.5, hmin=1e-10):
     """[S4] Alg. 5 verbatim: estimate the trapezoidal error with Simpson.
 

@@ -35,7 +35,7 @@ def build_library() -> Path:
     return LIB_PATH
 
 
-# ---------------------------------------------------------------- ctypes
+# ctypes
 @functools.cache
 def load_ctypes() -> ctypes.CDLL:
     """ctypes ships with Python and needs no compiler at call time.  Every
@@ -91,7 +91,7 @@ def count_primes_py(n: int) -> int:
     return c
 
 
-# ---------------------------------------------------------------- cffi (ABI mode)
+# cffi (ABI mode)
 @functools.cache
 def load_cffi():
     """cffi ABI mode: the C prototypes as text (cdef), then dlopen.  cdef
@@ -115,7 +115,7 @@ def dot_cffi(x: np.ndarray, y: np.ndarray) -> float:
     return lib.vec_dot(px, py, x.size)
 
 
-# ---------------------------------------------------------------- subprocess
+# subprocess
 def run_external(args: list[str], stdin_text: str | None = None) -> tuple[int, str]:
     """subprocess.run with a list (no shell parsing), captured text output
     and a timeout; check=True would raise CalledProcessError on failure."""
@@ -127,7 +127,7 @@ def python_version_via_subprocess() -> str:
     return run_external([sys.executable, "-c", "import sys; print(sys.version_info[0])"])[1].strip()
 
 
-# ---------------------------------------------------------------- concepts (no code run)
+# concepts (no code run)
 F2PY_IDEA = """
 Fortran: `python -m numpy.f2py -c -m fmod vecops.f90` compiles a module whose
 functions take numpy arrays directly; intent(in/out) comments in the

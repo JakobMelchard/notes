@@ -16,7 +16,7 @@ from cnp3_exercises import (
 )
 
 
-# ---------------------------------------------------------------- bridging
+# bridging
 def test_first_frame_floods_and_later_ones_do_not():
     net = LearningSwitchNetwork(LINE_TOPOLOGY)
     hops = net.send("C", "B")
@@ -52,7 +52,7 @@ def test_a_cycle_makes_flooding_non_terminating():
     assert not LearningSwitchNetwork(LINE_TOPOLOGY).has_cycle()
 
 
-# -------------------------------------------------------- routing policy
+# routing policy
 def test_customer_routes_reach_everyone():
     """AS2 and AS3 both hear AS4's prefix, AS2 as a customer route and AS3 as
     a peer route."""
@@ -94,7 +94,7 @@ def test_no_selected_path_has_a_valley():
                 assert kind == "self" or kind in kinds
 
 
-# ------------------------------------------------------------- addressing
+# addressing
 def test_hierarchy_replaces_a_table_entry_per_host_with_one_per_prefix():
     cidrs = ["203.0.113.0/26", "203.0.113.64/26",
              "203.0.113.128/26", "203.0.113.192/26"]

@@ -31,7 +31,7 @@ import torch
 import torch.nn as nn
 
 
-# --- the formulas ----------------------------------------------------------
+# the formulas
 
 
 def conv_out(i: int, k: int, s: int = 1, p: int = 0, d: int = 1) -> int:
@@ -114,7 +114,7 @@ def attention_score_bytes(batch: int, heads: int, seq: int, layers: int = 1, dty
     return batch * heads * seq * seq * layers * dtype_bytes
 
 
-# --- checks against torch --------------------------------------------------
+# checks against torch
 
 
 def check_conv(verbose: bool = False) -> int:

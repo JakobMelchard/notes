@@ -10,7 +10,7 @@ from optimize import (armijo, steepest_descent, gradient_descent_quadratic,
 RNG = np.random.default_rng(13)
 
 
-# -------------------------------------------------------------- Armijo
+# Armijo
 def test_armijo_returns_a_step_with_sufficient_descent():
     """[S4] (6.13)."""
     g = lambda x: float(x @ x)
@@ -38,7 +38,7 @@ def test_steepest_descent_finds_a_minimum():
     np.testing.assert_allclose(x, [1.0, -2.0], atol=1e-5)
 
 
-# -------------------------------------- gradient method on a quadratic
+# gradient method on a quadratic
 def test_gradient_descent_on_a_quadratic_has_the_predicted_rate():
     """[S4] sec. 6.8.1, Lem. 6.23: the error contracts by (kappa-1)/(kappa+1)."""
     for kappa in (10.0, 100.0):
@@ -63,7 +63,7 @@ def test_gradient_descent_reaches_the_exact_minimiser():
     np.testing.assert_allclose(x, np.linalg.solve(Q, -c), atol=1e-8)
 
 
-# --------------------------------------------------- globalised Newton
+# globalised Newton
 def test_globalized_newton_where_plain_newton_diverges():
     """[S4] Alg. 15 on arctan from x0 = 3."""
     f = lambda x: np.arctan(x)
@@ -96,7 +96,7 @@ def test_globalized_newton_keeps_quadratic_convergence_near_the_root():
     assert err[-1] < err[-2] ** 1.8                    # quadratic at the end
 
 
-# ------------------------------------------------------- Gauss-Newton
+# Gauss-Newton
 def _expfit():
     t = np.linspace(0, 2, 11)
     model = lambda p: p[0] * np.exp(p[1] * t)
@@ -151,7 +151,7 @@ def test_gauss_newton_reduces_to_newton_in_1d():
                                [1.5, 1.4166666666666667, 1.4142156862745097], atol=1e-12)
 
 
-# ------------------------------------------------------------- Broyden
+# Broyden
 def test_sherman_morrison():
     """[S4] (6.23)."""
     A = RNG.standard_normal((5, 5)) + 5 * np.eye(5)

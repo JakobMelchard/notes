@@ -53,7 +53,7 @@ int main(int argc, char **argv)
     double mine[NLOC], got[NLOC];
     for (int i = 0; i < NLOC; i++) mine[i] = 100.0 * rank + i;   /* rank*100 + i */
 
-    /* ---- 0. the error handler really is non-fatal ------------------------ */
+    /* 0. the error handler really is non-fatal */
     {
         MPI_File fh;
         int err = MPI_File_open(MPI_COMM_WORLD, "no/such/directory/x.bin",
@@ -71,7 +71,7 @@ int main(int argc, char **argv)
         }
     }
 
-    /* ---- 1. explicit offsets, collective --------------------------------- */
+    /* 1. explicit offsets, collective */
     {
         MPI_File fh;
         must(rank, "open(1)", MPI_File_open(MPI_COMM_WORLD, fname,
@@ -105,7 +105,7 @@ int main(int argc, char **argv)
                    (long long)fsize, size, NLOC);
     }
 
-    /* ---- 2. the same layout with a VIEW and no offset arithmetic ---------- */
+    /* 2. the same layout with a VIEW and no offset arithmetic */
     {
         MPI_File fh;
         must(rank, "open(2)", MPI_File_open(MPI_COMM_WORLD, fname,
@@ -123,7 +123,7 @@ int main(int argc, char **argv)
         must(rank, "close(2)", MPI_File_close(&fh));
     }
 
-    /* ---- 3. an interleaved view: the view decides the layout -------------- */
+    /* 3. an interleaved view: the view decides the layout */
     {
         /* filetype = one double every `size` doubles, i.e. a round-robin
            distribution.  Same call, completely different file layout. */

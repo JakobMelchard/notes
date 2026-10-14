@@ -22,7 +22,7 @@ from dp import floyd_warshall                                     # noqa: E402
 from greedy import kruskal                                        # noqa: E402
 
 
-# --- P1: the true/false block, in-scope items only (A01, A02, A04, A05) ------
+# P1: the true/false block, in-scope items only (A01, A02, A04, A05)
 def p1_true_false():
     """Four claims that 192.043's syllabus also covers, each settled by code."""
     out = {}
@@ -77,7 +77,7 @@ def _all_spanning_trees(nodes, edges):
             if is_spanning_tree(nodes, sub)]
 
 
-# --- P6: one Edmonds-Karp iteration on the paper's network (A06) -------------
+# P6: one Edmonds-Karp iteration on the paper's network (A06)
 # The network of the paper's "be the computer" question, read off its figure as
 # (tail, head, flow, capacity).  Conservation holds at every internal node and
 # |f| = 25 both out of s and into t, which is how the figure was checked.
@@ -135,7 +135,7 @@ def p6_edmonds_karp_one_iteration():
             "source side of the cut": sorted(map(str, source_side))}
 
 
-# --- P5: a greedy with an exchange argument (A03) ----------------------------
+# P5: a greedy with an exchange argument (A03)
 def pairing_feasible(pieces, helpers, budget, k):
     """Can k of the pieces be finished?  Restated in our own words:
 
@@ -187,7 +187,7 @@ def p5_greedy_exchange(seed=0, trials=300):
             "cost": "O(n log n) to sort, then O(log n) feasibility tests"}
 
 
-# --- P8: list scheduling is a 2-approximation (A07) --------------------------
+# P8: list scheduling is a 2-approximation (A07)
 def p8_load_balancing(seed=1, instances=40):
     """Greedy list scheduling never exceeds 2 OPT; LPT never exceeds 3/2 OPT.
 

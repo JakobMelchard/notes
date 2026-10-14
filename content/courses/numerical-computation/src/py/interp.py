@@ -10,7 +10,7 @@ The Neville scheme [S4 §1.2] and Hermite [S4 §1.7] are in neville.py.
 import numpy as np
 
 
-# ---------------------------------------------------------------- Lagrange
+# Lagrange
 def lagrange_basis(xs, j, t):
     """l_j(t) = prod_{m != j} (t - x_m)/(x_j - x_m)."""
     xs = np.asarray(xs, float)
@@ -53,7 +53,7 @@ def barycentric_eval(xs, ys, t):
     return out
 
 
-# ---------------------------------------------------------------- Newton
+# Newton
 def divided_differences(xs, ys):
     """Table column by column: f[x_i..x_{i+k}] = (f[x_{i+1}..] - f[x_i..]) / (x_{i+k} - x_i).
     Returns the coefficients c_k = f[x_0..x_k] of
@@ -88,7 +88,7 @@ def runge(x):
     return 1.0 / (1.0 + 25.0 * x * x)
 
 
-# ---------------------------------------------------------------- splines
+# splines
 def thomas(lower, diag, upper, rhs):
     """Tridiagonal solve in O(n) (no pivoting; fine for diagonally dominant)."""
     n = len(diag)
@@ -143,7 +143,7 @@ def spline_eval(spl, t):
         + (ys[i] / h - M[i] * h / 6) * a + (ys[i + 1] / h - M[i + 1] * h / 6) * b
 
 
-# ---------------------------------------------------------------- least squares
+# least squares
 def vandermonde(xs, deg):
     xs = np.asarray(xs, float)
     return np.array([xs ** k for k in range(deg + 1)]).T

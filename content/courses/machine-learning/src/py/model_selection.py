@@ -165,7 +165,7 @@ def validation_curve(est, name, values, X, y, scorer, k=5, rng=0):
     return np.array(tr_sc), np.array(va_sc)
 
 
-# ------------------------------------------------- statistical comparison
+# statistical comparison
 def paired_t_test(scores_a, scores_b):
     """Paired t-test over folds (same splits for both models). Returns (t, p two-sided).
     Caveat: folds overlap, so the variance is underestimated -> optimistic p."""

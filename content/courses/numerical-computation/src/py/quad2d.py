@@ -9,7 +9,7 @@ import numpy as np
 from quad import gauss_legendre
 
 
-# ------------------------------------------------------------------ square
+# square
 def tensor_square(f, n, rule="gauss"):
     """Q^2D(F) = sum_{i,j} w_i w_j F(x_i, x_j) on (0,1)^2,  [S4] (2.16).
 
@@ -39,7 +39,7 @@ def _rule_01(n, rule):
     raise ValueError(rule)
 
 
-# ---------------------------------------------------------------- triangle
+# triangle
 def barycentre_triangle(f):
     """One-point rule at the barycentre of T with weight |T| = 1/2.
 
@@ -74,7 +74,7 @@ def duffy_triangle(f, n, rule="gauss"):
     return float((W * (1.0 - X) * f(X, (1.0 - X) * Y)).sum())
 
 
-# -------------------------------------------------------------- exactness
+# exactness
 def monomial_integral_square(i, j):
     """int_{(0,1)^2} x^i y^j = 1/((i+1)(j+1))."""
     return 1.0 / ((i + 1) * (j + 1))

@@ -27,7 +27,7 @@ def subspace_angle(x, y):
     return float(np.sqrt(max(0.0, 1.0 - min(1.0, c) ** 2)))
 
 
-# ------------------------------------------------------- inverse iteration
+# inverse iteration
 def inverse_iteration(A, x0=None, iters=50, tol=1e-14, history=False):
     """Power iteration on A^{-1}: converges to the smallest |lambda|.
 
@@ -126,7 +126,7 @@ def eigen_residual_bound(A, x, lam=None, symmetric=None):
     return out
 
 
-# ---------------------------------------------------- orthogonal iteration
+# orthogonal iteration
 def orthogonal_iteration(A, k=None, iters=200, X0=None, history=False):
     """Power iteration on a k-dimensional subspace,  [S4] Alg. 21.
 
@@ -148,7 +148,7 @@ def orthogonal_iteration(A, k=None, iters=200, X0=None, history=False):
     return (Q, np.array(offs)) if history else Q
 
 
-# ------------------------------------------------- Hessenberg, shifted QR
+# Hessenberg, shifted QR
 def hessenberg(A, return_q=False):
     """Orthogonal similarity reduction to upper Hessenberg form, O(n^3).
 

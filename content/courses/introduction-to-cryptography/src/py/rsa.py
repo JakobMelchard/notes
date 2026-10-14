@@ -26,7 +26,7 @@ import rng
 from numtheory import crt, egcd, gen_prime, modexp, modinv
 
 
-# ------------------------------------------------------------- key gen
+# key gen
 def keygen(bits: int = 512, e: int = 65537) -> dict:
     """Pick primes p, q; n = pq; phi = (p-1)(q-1); d = e^{-1} mod phi.
     Requires gcd(e, phi) = 1."""
@@ -62,7 +62,7 @@ def decrypt_crt(priv: dict, c: int) -> int:
     return mq + priv["q"] * h
 
 
-# ------------------------------------------------------- malleability
+# malleability
 def malleability_demo(pub: dict, c: int, factor: int) -> int:
     """RSA is homomorphic: (m*factor)^e = m^e * factor^e, so multiplying the
     ciphertext by factor^e multiplies the plaintext by factor, all without
@@ -70,7 +70,7 @@ def malleability_demo(pub: dict, c: int, factor: int) -> int:
     return c * modexp(factor, pub["e"], pub["n"]) % pub["n"]
 
 
-# --------------------------------------------------------- small-e attack
+# small-e attack
 def small_e_attack(ciphertexts: list[int], moduli: list[int], e: int) -> int:
     """Hastad broadcast: the same m sent to e recipients with exponent e.
     CRT gives m^e mod (prod n_i); since m^e < prod n_i, an integer e-th root
@@ -99,7 +99,7 @@ def _iroot(x: int, k: int) -> int:
     return lo
 
 
-# ---------------------------------------------------- common modulus
+# common modulus
 def common_modulus_attack(n: int, e1: int, e2: int, c1: int, c2: int) -> int:
     """Same n, same m, two coprime exponents e1, e2. Bezout gives a, b with
     a*e1 + b*e2 = 1, then c1^a * c2^b = m^{a e1 + b e2} = m mod n."""
@@ -112,7 +112,7 @@ def common_modulus_attack(n: int, e1: int, e2: int, c1: int, c2: int) -> int:
     return r1 * r2 % n
 
 
-# ------------------------------------------------ shared prime factor
+# shared prime factor
 def shared_prime_attack(n1: int, n2: int, e1: int, e2: int) -> tuple[dict, dict]:
     """Two moduli generated with a faulty RNG share one prime.  gcd(N1, N2)
     is that prime -- a single Euclid run, no factoring -- and both private

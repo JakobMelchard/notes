@@ -9,7 +9,7 @@ Implements [S4 §1.2, 1.4, 1.6, 1.7]:
 import numpy as np
 
 
-# ------------------------------------------------------------ Neville scheme
+# Neville scheme
 def aitken_neville(xs, fs, t, count_ops=False):
     """p(t) for the polynomial interpolating (xs, fs), by [S4] Alg. 1.
 
@@ -47,7 +47,7 @@ def neville_tableau(xs, fs, t):
     return P
 
 
-# ---------------------------------------------------------- extrapolation
+# extrapolation
 def extrapolate_derivative(f, x0, hs, m=None):
     """Approximate f'(x0) by extrapolating D(h) = (f(x0+h) - f(x0))/h to h = 0.
 
@@ -65,7 +65,7 @@ def extrapolate_derivative(f, x0, hs, m=None):
     return T[:, m]
 
 
-# ------------------------------------------------- node polynomial, Lebesgue
+# node polynomial, Lebesgue
 def omega(xs, t):
     """omega_{n+1}(t) = prod_i (t - x_i), the node polynomial of [S4] Thm 1.15."""
     x = np.asarray(xs, float)
@@ -120,7 +120,7 @@ def chebyshev_lebesgue_bound(n):
     return 2.0 / np.pi * np.log(n + 1) + 1.0
 
 
-# --------------------------------------------------- Hermite interpolation
+# Hermite interpolation
 def _factorial(k):
     out = 1.0
     for i in range(2, k + 1):
@@ -175,7 +175,7 @@ def hermite(xs, derivs, t):
 
 
 if __name__ == "__main__":
-    # --- Neville, [S4] Ex. 1.3 / the F1 2022 exam item -------------------
+    # Neville, [S4] Ex. 1.3 / the F1 2022 exam item
     xs, fs = [0.0, 1.0, 2.0, 4.0], [1.0, 3.0, 2.0, 5.0]
     val, ops = aitken_neville(xs, fs, 3.0, count_ops=True)
     print(f"Neville p(3) = {val}  (expect 1.5)   ops = {ops}  ~ O(n^2)")
@@ -187,7 +187,7 @@ if __name__ == "__main__":
         _, o = aitken_neville(x, np.sin(x), 0.5, count_ops=True)
         print(f"  n={n:3d}  ops={o:6d}   ops/n^2 = {o / n ** 2:.2f}")
 
-    # --- extrapolation, [S4] Exercise 1.14 and Ex. 1.18 -----------------
+    # extrapolation, [S4] Exercise 1.14 and Ex. 1.18
     hs = 2.0 ** -np.arange(8)
     T = extrapolate_derivative(np.exp, 0.0, hs)
     print("\nextrapolating D(h) for f = exp at 0 (exact f'(0) = 1), errors:")
@@ -198,7 +198,7 @@ if __name__ == "__main__":
     for i in range(5):
         print("  " + "  ".join(f"{abs(T2[i, m]):8.2e}" for m in range(i + 1)))
 
-    # --- Lebesgue constants, [S4] Thm 1.24 ------------------------------
+    # Lebesgue constants, [S4] Thm 1.24
     print("\nLebesgue constants on [-1,1]:")
     print("   n   uniform      Chebyshev   (2/pi)ln(n+1)+1")
     for n in (5, 10, 15, 20):
@@ -206,13 +206,13 @@ if __name__ == "__main__":
         c = lebesgue_constant(np.cos((2 * np.arange(n + 1) + 1) * np.pi / (2 * n + 2)))
         print(f"  {n:3d}  {u:11.3f}  {c:9.3f}  {chebyshev_lebesgue_bound(n):9.3f}")
 
-    # --- node polynomial, [S4] Thm 1.21 ---------------------------------
+    # node polynomial, [S4] Thm 1.21
     print("\n||omega_{n+1}||_inf for Chebyshev nodes vs the closed form 2((b-a)/4)^{n+1}:")
     for n in (3, 6, 9):
         xc = np.cos((2 * np.arange(n + 1) + 1) * np.pi / (2 * n + 2))
         print(f"  n={n}: {omega_max(xc):.8e}  vs  {chebyshev_omega_max(n):.8e}")
 
-    # --- Hermite, the F3 2022 re-test item ------------------------------
+    # Hermite, the F3 2022 re-test item
     print("\nHermite: value + first derivative at 0 and 1 -> cubic, exact on cubics")
     g = lambda x: 2 * x ** 3 - x + 1
     gp = lambda x: 6 * x ** 2 - 1

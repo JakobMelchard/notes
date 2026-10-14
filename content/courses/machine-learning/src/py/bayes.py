@@ -13,7 +13,7 @@ import numpy as np
 from model_selection import BaseEstimator
 
 
-# ---------------------------------------------------------------- naive Bayes
+# naive Bayes
 class GaussianNB(BaseEstimator):
     """p(x|c) = prod_j N(x_j; mu_cj, sigma_cj^2); predict argmax_c log p(c) + sum_j log N."""
 

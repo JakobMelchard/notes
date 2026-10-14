@@ -27,7 +27,7 @@ def make_bars(n, seed=0, size=8):
     return torch.from_numpy(X.reshape(n, -1))
 
 
-# ---------------------------------------------------------------- VAE
+# VAE
 def kl_gauss(mu, logvar):
     """KL(N(mu, diag e^logvar) || N(0, I)) = 1/2 sum (mu^2 + sigma^2 - log sigma^2 - 1), per row."""
     return 0.5 * (mu ** 2 + logvar.exp() - logvar - 1).sum(-1)
@@ -83,7 +83,7 @@ def train_vae(steps=400, seed=0, n=2000, lr=3e-3, batch=128, beta=1.0):
     return model, hist
 
 
-# ---------------------------------------------------------------- GAN objective
+# GAN objective
 def gan_value(d_real, d_fake):
     """V(D, G) = E_data log D(x) + E_z log(1 - D(G(z))), from discriminator probabilities."""
     return float(np.mean(np.log(d_real)) + np.mean(np.log1p(-d_fake)))
@@ -151,7 +151,7 @@ def gan_steps(steps=20, seed=0, latent=4, batch=64):
     return hist
 
 
-# ---------------------------------------------------------------- diffusion forward process
+# diffusion forward process
 def alpha_bar(T=1000, beta1=1e-4, betaT=0.02):
     """Linear beta schedule; alpha_bar_t = prod_{s<=t} (1 - beta_s) [S29]."""
     return np.cumprod(1 - np.linspace(beta1, betaT, T))

@@ -163,7 +163,7 @@ int main(int argc, char **argv)
     int ok = 1;
     printf("simd_dot: intrinsics path %s\n", ISA ? ISA : "none (build with -march=native on x86)");
 
-    /* ---- 1. exactness on integer-valued data ------------------------------ */
+    /* 1. exactness on integer-valued data */
     long n = 1000003; /* odd: exercises every remainder loop */
     double *x = malloc(n * sizeof *x), *y = malloc(n * sizeof *y);
     int64_t exact = 0;
@@ -180,7 +180,7 @@ int main(int argc, char **argv)
     printf("  integer data, n=%ld: all variants = %lld exactly: %s\n", n, (long long)exact,
            ok ? "yes" : "NO");
 
-    /* ---- 2. rounding-only differences on random data ----------------------- */
+    /* 2. rounding-only differences on random data */
     srand(42);
     double absum = 0.0;
     for (long i = 0; i < n; i++) {
@@ -198,7 +198,7 @@ int main(int argc, char **argv)
     free(x);
     free(y);
 
-    /* ---- 3. timing: in-cache vs out-of-cache ------------------------------- */
+    /* 3. timing: in-cache vs out-of-cache */
     long sizes[2] = {2048, quick ? (1L << 22) : (1L << 24)};
     double sink = 0.0;
     for (int k = 0; k < 2; k++) {

@@ -29,7 +29,7 @@ def _scipy_reference(l):
                          directed=True, unweighted=False)
 
 
-# ------------------------------------------------------ correctness (task C)
+# correctness (task C)
 @pytest.mark.parametrize("n", [8, 16, 32])
 def test_floyd_warshall_agrees_with_scipy(n):
     l = random_graph(n, p=0.15, seed=n)
@@ -64,7 +64,7 @@ def test_unreachable_stays_unreachable():
     assert np.isinf(d[1, 0]) and np.isinf(d[2, 3]) and d[0, 1] == 1.0
 
 
-# ------------------------------------------------------- cost model (task A)
+# cost model (task A)
 @pytest.mark.parametrize("n", [8, 16, 32, 64])
 def test_the_number_of_squarings_is_within_the_log_bound(n):
     _, steps = shortest_paths_squaring(random_graph(n, p=0.08, seed=n))
@@ -90,7 +90,7 @@ def test_one_squaring_is_paths_of_at_most_two_edges():
     assert minplus_product(once, once)[0, 3] == 3.0
 
 
-# --------------------------------------------------------- blocking (task B)
+# blocking (task B)
 @pytest.mark.parametrize("block", [1, 4, 8, 32])
 def test_blocking_does_not_change_the_result(block):
     l = random_graph(24, p=0.2, seed=7)

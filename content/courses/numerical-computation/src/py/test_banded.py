@@ -23,7 +23,7 @@ def spd(n, seed=0, band=None):
     return A
 
 
-# ------------------------------------------------------------------ Crout
+# Crout
 def test_crout_matches_sweeping_lu():
     """[S4] Alg. 9 computes the same factors as [S4] Alg. 8, in a different order."""
     for n in (3, 5, 9):
@@ -61,7 +61,7 @@ def test_s2a_exam_lower_triangular_lu():
     np.testing.assert_allclose(U, np.diag([2.0, 3.0, 6.0]))
 
 
-# ----------------------------------------------------------------- banded
+# banded
 def test_bandwidths():
     A = np.diag(np.ones(6)) + np.diag(np.ones(5), 1) + np.diag(np.ones(4), -2)
     assert bandwidths(A) == (2, 1)
@@ -119,7 +119,7 @@ def test_tridiagonal_is_linear_in_n():
         assert 1.9 < counts[2 * n] / counts[n] < 2.1
 
 
-# --------------------------------------------------------------- Cholesky
+# Cholesky
 def test_banded_cholesky_keeps_bandwidth_and_matches_dense():
     """[S4] (4.10) and Rem. 4.15."""
     for p in (1, 3, 5):
@@ -161,7 +161,7 @@ def test_s2a_exam_cholesky():
     np.testing.assert_allclose(C, [[2.0, 0.0], [1.0, np.sqrt(3.0)]])
 
 
-# ---------------------------------------------------------------- skyline
+# skyline
 def s4_figure_45():
     """The SPD matrix of [S4] Fig. 4.5, rebuilt from its printed Cholesky factor."""
     L = np.array([[1., 0, 0, 0, 0, 0, 0],

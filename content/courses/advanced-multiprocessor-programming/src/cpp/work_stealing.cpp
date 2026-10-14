@@ -87,7 +87,7 @@ class ChaseLev {
     int64_t capacity() const { return array_.load()->cap; }
 };
 
-// ---------------------------------------------------------------- scheduler
+// scheduler
 struct Task { std::function<void()> f; std::atomic<bool> done{false}; };
 
 class Pool {

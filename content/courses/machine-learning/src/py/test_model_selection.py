@@ -62,7 +62,7 @@ def test_stat_tests():
     assert chi2 == pytest.approx((15 - 1) ** 2 / 15) and pv < 0.01   # b=15 (A right, B wrong), c=0
 
 
-# ---------------------------------------------- numbers quoted in notes 04 and 15
+# numbers quoted in notes 04 and 15
 def _note_data():
     return make_classification(300, 8, n_informative=4, random_state=0)
 

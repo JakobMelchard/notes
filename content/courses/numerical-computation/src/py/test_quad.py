@@ -90,7 +90,7 @@ def test_adaptive_simpson_cusp():
     assert nev2 < nev / 10 and abs(I2 - EXACT) < 1e-9        # smooth needs far fewer
 
 
-# ============ [S4] sec. 2.3, 2.5, 2.7: adaptivity, grading, weights ==========
+# [S4] sec. 2.3, 2.5, 2.7: adaptivity, grading, weights
 
 
 def test_s4_algorithm_5_adaptive_trapezoid():
