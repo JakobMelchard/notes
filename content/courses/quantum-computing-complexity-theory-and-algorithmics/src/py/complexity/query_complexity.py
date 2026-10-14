@@ -21,7 +21,7 @@ import math
 import numpy as np
 
 
-# ---------------------------------------------------------- deterministic D(f)
+# deterministic D(f)
 def decision_tree_depth(f, n):
     """D(f) = min over decision trees of max path length, by exhaustive minimax.
 
@@ -46,7 +46,7 @@ PARITY = lambda x: sum(x) % 2
 AND = lambda x: int(all(x))
 
 
-# ------------------------------------------------------------ phase oracle
+# phase oracle
 def phase_oracle(x):
     """Diagonal n x n matrix with entries (-1)^{x_i}."""
     return np.diag([(-1.0) ** b for b in x])
@@ -100,7 +100,7 @@ def deutsch_jozsa(truth_table):
     return "constant" if p0 > 0.5 else "balanced"
 
 
-# ---------------------------------------------------------------- Grover
+# Grover
 def grover_iterations(N, marked=1):
     """Round((pi/4) sqrt(N/marked) - 1/2): angle theta = asin(sqrt(marked/N)),
     after r iterations success probability is sin^2((2r+1) theta)."""
@@ -124,7 +124,7 @@ def grover_or(x, iterations=None):
     return r, float(sum(psi[i] ** 2 for i in range(N) if x[i]))
 
 
-# ------------------------------------------------------- polynomial method
+# polynomial method
 def multilinear_coefficients(values):
     """values[mask] = P(x) for every x in {0,1}^n (mask bit i = x_i).  Returns the
     coefficients c[S] of the unique multilinear polynomial sum_S c_S prod_{i in S} x_i

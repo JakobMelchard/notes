@@ -74,7 +74,7 @@ def mean_iou(pred, gt, K):
     return float(np.nanmean(ious)), ious
 
 
-# ---------------------------------------------------------------- torch versions and a U-Net
+# torch versions and a U-Net
 def dice_loss_torch(logits, mask, eps=1.0):
     K = logits.shape[1]
     p = logits.softmax(1)

@@ -58,7 +58,7 @@ int main(int argc, char **argv)
 
     if (rank == 0) printf("ring of %d processes, expected sum %ld\n", size, want);
 
-    /* --- 0. ordered blocking Send/Recv ---------------------------------- */
+    /* 0. ordered blocking Send/Recv */
     {
         /* Breaking the cycle needs exactly ONE rank to receive first; the usual
            "even sends, odd receives" rule is wrong for odd P, because rank 0 and
@@ -86,7 +86,7 @@ int main(int argc, char **argv)
         report(rank, "ordered Send/Recv", sum, want);
     }
 
-    /* --- 1. Sendrecv ------------------------------------------------------ */
+    /* 1. Sendrecv */
     {
         int snd = rank, rcv, sum = 0;
         for (int i = 0; i < size; i++) {
@@ -98,7 +98,7 @@ int main(int argc, char **argv)
         report(rank, "Sendrecv", sum, want);
     }
 
-    /* --- 2. Sendrecv_replace --------------------------------------------- */
+    /* 2. Sendrecv_replace */
     {
         int buf = rank, sum = 0;
         for (int i = 0; i < size; i++) {
@@ -109,7 +109,7 @@ int main(int argc, char **argv)
         report(rank, "Sendrecv_replace", sum, want);
     }
 
-    /* --- 3. Issend + Recv + Wait  (the course's solution) ----------------- */
+    /* 3. Issend + Recv + Wait  (the course's solution) */
     {
         int snd = rank, rcv, sum = 0;
         MPI_Request req;
@@ -126,7 +126,7 @@ int main(int argc, char **argv)
         report(rank, "Issend/Recv/Wait", sum, want);
     }
 
-    /* --- 4. Irecv + Issend + Waitall -------------------------------------- */
+    /* 4. Irecv + Issend + Waitall */
     {
         int snd = rank, rcv, sum = 0;
         MPI_Request req[2];
@@ -141,14 +141,14 @@ int main(int argc, char **argv)
         report(rank, "Irecv/Issend/Waitall", sum, want);
     }
 
-    /* --- 5. Allreduce: the whole loop in one call ------------------------- */
+    /* 5. Allreduce: the whole loop in one call */
     {
         int sum;
         MPI_Allreduce(&rank, &sum, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD);
         report(rank, "Allreduce", sum, want);
     }
 
-    /* --- 6. Scan (+ Bcast of the total) ----------------------------------- */
+    /* 6. Scan (+ Bcast of the total) */
     {
         int prefix;
         MPI_Scan(&rank, &prefix, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD);

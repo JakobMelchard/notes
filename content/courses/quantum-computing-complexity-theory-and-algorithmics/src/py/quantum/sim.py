@@ -19,7 +19,7 @@ fidelity, permutation_matrix.
 """
 import numpy as np
 
-# ---------------------------------------------------------------- gates
+# gates
 I = np.eye(2, dtype=complex)
 X = np.array([[0, 1], [1, 0]], dtype=complex)
 Y = np.array([[0, -1j], [1j, 0]], dtype=complex)
@@ -104,7 +104,7 @@ def fidelity(a, b):
     return float(abs(np.vdot(a, b)) ** 2)
 
 
-# ------------------------------------------------------------- register
+# register
 class Register:
     """n-qubit pure state, stored as a complex vector of length 2**n (see convention above)."""
 

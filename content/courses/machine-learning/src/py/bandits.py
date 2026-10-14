@@ -21,7 +21,7 @@ Run `python bandits.py` for the demo table of note 14.
 import numpy as np
 
 
-# ------------------------------------------------------------------ estimates
+# estimates
 def sample_average_update(q, n, reward):
     """Q_{n+1} = Q_n + (1/n)[R_n - Q_n]  ([S21] 2.4).  `n` counts this reward."""
     return q + (reward - q) / n
@@ -55,7 +55,7 @@ def ucb_select(q, counts, t, c=2.0):
     return int(np.argmax(np.asarray(q, float) + c * np.sqrt(np.log(t) / counts)))
 
 
-# ---------------------------------------------------------- the exam question
+# the exam question
 def bandit_random_action_analysis(actions, rewards, k=None, q_init=0.0, alpha=None):
     """Replay an epsilon-greedy bandit trace and classify each step.
 
@@ -103,7 +103,7 @@ def definitely_random_steps(actions, rewards, k=None, **kw):
             if s["verdict"] == "definite"]
 
 
-# ------------------------------------------------------------------- testbeds
+# testbeds
 class Bandit:
     """k-armed testbed: q*(a) ~ N(0,1), reward ~ N(q*(a), 1)  ([S21] 2.3).
 

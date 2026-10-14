@@ -15,7 +15,7 @@ import secrets
 
 P = 97
 
-# --- polynomials over F_p, coefficient lists low -> high ---------------------
+# polynomials over F_p, coefficient lists low -> high
 
 
 def _trim(a):
@@ -73,7 +73,7 @@ def lagrange(xs, ys):
     return out
 
 
-# --- circuit -> R1CS -----------------------------------------------------------
+# circuit -> R1CS
 # Variables z = (1, out, x, v1, v2); z[0] = 1, z[1..ELL] public, rest witness.
 VARS = ["one", "out", "x", "v1", "v2"]
 ELL = 1
@@ -113,7 +113,7 @@ def r1cs_satisfied(z, mats=None) -> bool:
     return all(dot(a, z) * dot(b, z) % P == dot(c, z) for a, b, c in zip(A, B, C))
 
 
-# --- R1CS -> QAP [S18 sec. 2.3] ------------------------------------------------
+# R1CS -> QAP [S18 sec. 2.3]
 
 def qap(mats=None):
     """Column i of A, B, C becomes u_i, v_i, w_i: interpolate over the points
@@ -144,7 +144,7 @@ def qap_quotient(z, Q=None):
     return pdivmod(padd(pmul(Az, Bz), pscale(Cz, -1)), t)
 
 
-# --- Groth16 equations in the clear [S18 sec. 3.2] -----------------------------
+# Groth16 equations in the clear [S18 sec. 3.2]
 
 def _rand_nonzero():
     return 1 + secrets.randbelow(P - 1)

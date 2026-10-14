@@ -17,7 +17,7 @@ import secrets
 from groups import MEDIUM, SchnorrGroup
 
 
-# --- Pedersen [S30], [S4 sec. 19.5 context] ---------------------------------
+# Pedersen [S30], [S4 sec. 19.5 context]
 
 def pedersen_setup(G: SchnorrGroup, label: str = "pedersen-h") -> int:
     return G.hash_to_group(label)
@@ -52,7 +52,7 @@ def hash_commit(m: bytes, r: bytes | None = None):
     return hashlib.sha256(r + m).digest(), r
 
 
-# --- vector Pedersen and the inner-product argument [S19 sec. 3] ------------
+# vector Pedersen and the inner-product argument [S19 sec. 3]
 
 def generators(G: SchnorrGroup, n: int, label: str) -> list[int]:
     return [G.hash_to_group(f"{label}-{i}") for i in range(n)]

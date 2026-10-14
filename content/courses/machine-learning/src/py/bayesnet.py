@@ -18,7 +18,7 @@ import itertools
 import numpy as np
 
 
-# ----------------------------------------------------------- Bayesian network
+# Bayesian network
 class BayesianNetwork:
     """Discrete BN.  nodes: {name: n_values}; parents: {name: [parent names]} (topological order);
     cpt[name]: dict mapping tuple(parent values) -> probability vector over the node's values."""
@@ -133,7 +133,7 @@ def alarm_network():
     return bn
 
 
-# ------------------------------------------- structure learning by local search
+# structure learning by local search
 # The course's "Case B: structure not known" [S14]: find a network that fits the
 # data and has low complexity by maximising  log P(D | M) - alpha * #M  over a
 # neighbourhood built by adding, removing or reversing a single arc.  Asked as a

@@ -113,7 +113,7 @@ def ctc_loss(log_probs: torch.Tensor, targets: list[list[int]], blank: int = 0) 
                         for n in range(log_probs.shape[1])])
 
 
-# --- the collapse rule, and brute force, for checking ----------------------
+# the collapse rule, and brute force, for checking
 
 
 def collapse(path: list[int], blank: int = 0) -> list[int]:

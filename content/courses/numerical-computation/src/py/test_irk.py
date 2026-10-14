@@ -11,7 +11,7 @@ from ode import euler, heun, rk4, stability_function
 ZS = [-0.7 + 0.3j, -2.0 + 0.0j, 0.4 - 1.1j, 1e-3 + 0j]
 
 
-# ------------------------------------------------------ stability functions
+# stability functions
 def test_stability_functions_match_s4_exercise_9_13():
     """[S4] Exercise 9.13."""
     for z in ZS:
@@ -48,7 +48,7 @@ def test_every_convergent_method_has_r_of_z_equal_one_plus_z_plus_o_z_squared():
         assert abs(R - (1 + z)) < 1e-11
 
 
-# ------------------------------------------------------------- A-stability
+# A-stability
 def test_explicit_methods_are_not_a_stable():
     """[S4] Exercise 9.15: R is a polynomial, hence unbounded as z -> -inf."""
     for A, b, _ in (butcher_explicit_euler(), butcher_heun(), butcher_rk4(),
@@ -76,7 +76,7 @@ def test_implicit_euler_is_l_stable_the_midpoint_rule_is_not():
     assert abs(stability_function_rational(A, b, -1e8 + 0j)) == pytest.approx(1.0, abs=1e-6)
 
 
-# --------------------------------------------------------- the theta scheme
+# the theta scheme
 @pytest.mark.parametrize("theta,order", [(0.0, 1), (1.0, 1), (0.25, 1), (0.75, 1),
                                          (0.5, 2)])
 def test_theta_scheme_order(theta, order):
@@ -100,7 +100,7 @@ def test_theta_zero_and_one_reproduce_the_euler_methods():
     np.testing.assert_allclose(np.ravel(ye), np.ravel(ref), atol=1e-10)
 
 
-# ------------------------------------------------------------- implicit RK
+# implicit RK
 def test_implicit_rk_with_the_implicit_euler_tableau():
     """[S4] Exercise 9.10."""
     f = lambda t, y: -2 * t * y
@@ -139,7 +139,7 @@ def test_rk4_reduces_to_simpsons_rule():
     assert float(np.ravel(ys)[-1]) == pytest.approx(simpson, abs=1e-14)
 
 
-# -------------------------------------------------- the stiff example 9.12
+# the stiff example 9.12
 def test_lambert_exact_solution_solves_the_ode():
     """[S4] Ex. 9.12: the printed solution really is the solution."""
     A, y0, exact = lambert_system()

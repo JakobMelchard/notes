@@ -126,7 +126,7 @@ class DBSCAN:
         return self
 
 
-# ----------------------------------------------------------------- evaluation
+# evaluation
 def silhouette_score(X, labels):
     """s_i = (b_i - a_i) / max(a_i, b_i): a = mean intra-cluster distance, b = mean distance to nearest other cluster."""
     X, labels = np.asarray(X, float), np.asarray(labels)

@@ -19,7 +19,7 @@ def nonsym(n, seed=0):
             + np.diag(-0.5 * np.ones(n - 1), -1) + 0.1 * r.standard_normal((n, n)))
 
 
-# --------------------------------------------------------------- Arnoldi
+# Arnoldi
 @pytest.mark.parametrize("n,m", [(10, 5), (20, 8), (30, 12)])
 def test_arnoldi_relation_and_orthonormality(n, m):
     """[S4] Alg. 28: A V_k = V_{k+1} Hbar_k with V orthonormal, Hbar Hessenberg."""
@@ -65,7 +65,7 @@ def test_arnoldi_accepts_a_matvec():
     np.testing.assert_allclose(H1, H2, atol=1e-12)
 
 
-# ----------------------------------------------------------------- GMRES
+# GMRES
 @pytest.mark.parametrize("n", [8, 20, 40])
 def test_gmres_solves_and_terminates_at_n(n):
     """[S4] (8.7): full GMRES is exact after at most n steps."""
@@ -129,7 +129,7 @@ def test_restarted_gmres_converges():
     assert res[-1] < 1e-9 * res[0]
 
 
-# ------------------------------------------------------------- the CG bound
+# the CG bound
 def test_cg_bound_is_an_upper_bound_on_the_poisson_problem():
     """[S4] Thm 8.7: ||e_l||_A <= 2 ((sqrt k -1)/(sqrt k +1))^l ||e_0||_A."""
     n = 60
@@ -176,7 +176,7 @@ def test_cg_beats_the_bound_on_a_clustered_spectrum():
     assert cg_polynomial_bound(100.0, 2) > 1e-1
 
 
-# ==================== [S4] §8: the basic iterative methods ====================
+# [S4] §8: the basic iterative methods
 
 
 def test_richardson_converges_when_scaled_and_diverges_otherwise():

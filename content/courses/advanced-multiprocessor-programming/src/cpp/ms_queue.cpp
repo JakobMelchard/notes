@@ -97,7 +97,7 @@ class MSQueue {
     }
 };
 
-// ---------------------------------------------------------------- checker
+// checker
 struct Op { bool enq; long val; uint64_t inv, res; };  // val: argument of enq, result of deq
 
 static bool linearisable(const std::vector<Op>& h) {

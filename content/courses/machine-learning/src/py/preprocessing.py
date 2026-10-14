@@ -149,7 +149,7 @@ def knn_impute(X, k=3):
     return out
 
 
-# ------------------------------------------------------------------- outliers
+# outliers
 def zscore_outliers(X, thresh=3.0):
     """Boolean mask of rows with any |z| > thresh."""
     Z = StandardScaler().fit_transform(X)
@@ -171,7 +171,7 @@ def winsorize(X, lower=1, upper=99):
     return np.clip(X, lo, hi)
 
 
-# ----------------------------------------------------------- feature selection
+# feature selection
 def variance_threshold(X, thresh=0.0):
     """Keep columns whose variance exceeds thresh (drops constant columns)."""
     return np.var(np.asarray(X, float), 0) > thresh
@@ -208,7 +208,7 @@ def mutual_information_discrete(x, y):
     return float(np.sum(joint[nz] * np.log(joint[nz] / (px @ py)[nz])))
 
 
-# ------------------------------------------------------------ imbalanced data
+# imbalanced data
 def random_oversample(X, y, rng=0):
     """Duplicate minority rows until all classes have the majority count."""
     rng = np.random.default_rng(rng)

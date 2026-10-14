@@ -78,7 +78,7 @@ def length_extension(hash_of_secret: bytes, orig_len: int, suffix: bytes) -> tup
     return state, glue
 
 
-# ------------------------------------------------------ SHA-256, FIPS 180-4
+# SHA-256, FIPS 180-4
 def _first_primes(n: int) -> list[int]:
     out, c = [], 2
     while len(out) < n:
@@ -149,7 +149,7 @@ def sha256_length_extension(digest: bytes, secret_len: int,
     return sha256(suffix, state, total + len(glue)), known + glue + suffix
 
 
-# ------------------------------------------------------------ birthday bound
+# birthday bound
 def birthday_attack(bits: int) -> tuple[bytes, bytes, int]:
     """Find two distinct inputs with the same `bits`-bit truncated SHA-256.
     Expected work ~ 2^{bits/2} by the birthday bound, vastly less than the

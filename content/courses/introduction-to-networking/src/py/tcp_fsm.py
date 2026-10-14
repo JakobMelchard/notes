@@ -104,7 +104,7 @@ class Endpoint:
         ep.iss, ep.snd_una, ep.snd_nxt, ep.rcv_nxt = snd_nxt - 1, snd_nxt, snd_nxt, rcv_nxt
         return ep
 
-    # ----------------------------------------------------------- bookkeeping
+    # bookkeeping
     def _go(self, event):
         table = TRANSITIONS if (self.state, event) in TRANSITIONS else RST_EDGES
         if (self.state, event) not in table:
@@ -123,7 +123,7 @@ class Endpoint:
         self.snd_nxt += seg.length
         return seg
 
-    # ----------------------------------------------------------- user calls
+    # user calls
     def open(self, passive):
         self.passive = passive
         if passive:
@@ -156,7 +156,7 @@ class Endpoint:
         self._go("Timeout=2MSL")
         return []
 
-    # ----------------------------------------------------------- arrivals
+    # arrivals
     def receive(self, seg, delay_ack=False, then_close=False):
         """Process one arriving segment, return the segments sent in reply.
         `delay_ack`: do not answer data with a bare ACK (the next segment

@@ -41,7 +41,7 @@ from sklearn.svm import SVC, SVR
 from sklearn.neural_network import MLPClassifier, MLPRegressor
 
 
-# ------------------------------------------------------------------- data
+# data
 def load(path, target):
     df = pd.read_csv(path)
     if target not in df.columns:
@@ -64,7 +64,7 @@ def make_preprocessor(X):
     ]), num, cat
 
 
-# ----------------------------------------------------------------- models
+# models
 def model_zoo(task, quick=False, seed=0):
     n_est = 50 if quick else 200
     if task == "classification":
@@ -111,7 +111,7 @@ def cv_splitter(task, k, seed=0):
     return StratifiedKFold(k, shuffle=True, random_state=seed) if task == "classification" else KFold(k, shuffle=True, random_state=seed)
 
 
-# ---------------------------------------------------------------- reporting
+# reporting
 def to_markdown(df, fmt="{:.3f}"):
     """Markdown table without the tabulate dependency."""
     fmt_cell = lambda v: fmt.format(v) if isinstance(v, (float, np.floating)) else str(v)
@@ -179,7 +179,7 @@ def tune_best(X, y, task, pre, model, grid, k, seed):
     return gs
 
 
-# --------------------------------------------------------------------- main
+# main
 def make_demo_csv(path, seed=0):
     from sklearn.datasets import make_classification
     X, y = make_classification(400, 6, n_informative=3, n_redundant=1, weights=[0.7, 0.3], random_state=seed)

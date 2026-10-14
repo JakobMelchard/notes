@@ -21,7 +21,7 @@ class Transcript:
     s: int  # response
 
 
-# --- Schnorr: R = {(y, x) : y = g^x} ----------------------------------------
+# Schnorr: R = {(y, x) : y = g^x}
 
 def schnorr_commit(G: SchnorrGroup, r: int | None = None):
     r = G.rand_scalar() if r is None else r
@@ -59,7 +59,7 @@ def schnorr_extract(G: SchnorrGroup, tr1: Transcript, tr2: Transcript) -> int:
     return (tr1.s - tr2.s) * pow(tr1.c - tr2.c, -1, G.q) % G.q
 
 
-# --- Fiat-Shamir ------------------------------------------------------------
+# Fiat-Shamir
 
 def fs_prove(G: SchnorrGroup, x: int, msg: str = "", strong: bool = True):
     """Non-interactive proof (or signature on msg): c = H(g, y, t, msg).
@@ -87,7 +87,7 @@ def weak_fs_forge(G: SchnorrGroup, msg: str = ""):
     return y, (t, s)
 
 
-# --- Chaum-Pedersen: R = {((u, v, w), x) : v = g^x, w = u^x} ------------------
+# Chaum-Pedersen: R = {((u, v, w), x) : v = g^x, w = u^x}
 
 def cp_prove(G: SchnorrGroup, x: int, u: int, c: int | None = None):
     r = G.rand_scalar()
@@ -102,7 +102,7 @@ def cp_check(G: SchnorrGroup, u: int, v: int, w: int, t, c: int, s: int) -> bool
             and G.exp(u, s) == G.mul(t2, G.exp(w, c)))
 
 
-# --- OR-proof: know log_g y0 OR log_g y1 [S4 sec. 19.7.2], [S29] ------------
+# OR-proof: know log_g y0 OR log_g y1 [S4 sec. 19.7.2], [S29]
 
 def or_prove(G: SchnorrGroup, ys: tuple[int, int], b: int, x: int,
              c: int | None = None, coins: tuple[int, int, int] | None = None):

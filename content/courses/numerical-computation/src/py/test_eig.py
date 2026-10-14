@@ -33,7 +33,7 @@ def test_rayleigh_quotient_and_angle():
     assert subspace_angle([1, 0, 0], [0, 1, 0]) == pytest.approx(1.0)
 
 
-# --------------------------------------------------------- the power method
+# the power method
 def test_power_method_rate_is_lambda2_over_lambda1():
     """[S4] Thm 7.1 and Thm 7.5."""
     w = np.array([1.0, 0.85, 0.4, 0.05])
@@ -69,7 +69,7 @@ def test_power_method_fails_when_the_two_largest_have_equal_modulus():
     assert not np.isclose(abs(seen[-1]), 1.0)             # never finds |lambda| = 1
 
 
-# ----------------------------------------------------- inverse iteration
+# inverse iteration
 def test_inverse_iteration_finds_the_smallest_eigenvalue():
     """[S4] Alg. 18, Rem. 7.6."""
     lam, x = inverse_iteration(A3)
@@ -124,7 +124,7 @@ def test_rayleigh_quotient_iteration_is_quadratic_in_general():
     assert np.min(np.abs(w - lam)) < 1e-8
 
 
-# --------------------------------------------------------- stopping criteria
+# stopping criteria
 def test_residual_bounds_for_a_symmetric_matrix():
     """[S4] Thm 7.10(ii) and (iii)."""
     A = sym(5, seed=2)
@@ -147,7 +147,7 @@ def test_residual_bound_needs_cond_T_for_a_nonsymmetric_matrix():
     assert d["distance"] > d["residual"]
 
 
-# ---------------------------------------------------- orthogonal iteration
+# orthogonal iteration
 def test_orthogonal_iteration_converges_to_block_triangular_form():
     """[S4] Alg. 21, Thm 7.12, Rem. 7.13.
 
@@ -176,7 +176,7 @@ def test_orthogonal_iteration_on_a_subspace():
     np.testing.assert_allclose(Q @ Q.T, dom @ dom.T, atol=1e-5)
 
 
-# ------------------------------------------------ Hessenberg and shifted QR
+# Hessenberg and shifted QR
 @pytest.mark.parametrize("n", [4, 6, 9])
 def test_hessenberg_is_a_similarity_transformation(n):
     """[S4] sec. 7.6.1."""

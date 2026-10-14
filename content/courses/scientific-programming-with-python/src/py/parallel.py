@@ -19,7 +19,7 @@ from multiprocessing import shared_memory
 import numpy as np
 
 
-# ---------------------------------------------------------------- workers
+# workers
 def pi_hits_python(args: tuple[int, int]) -> int:
     """Pure-Python inner loop: (n, seed) -> number of points inside the
     quarter disc.  Each task gets its own seed so streams are independent."""
@@ -48,7 +48,7 @@ def chunks(n_total: int, n_chunks: int, seed: int) -> list[tuple[int, int]]:
     return [(s, int(ss.generate_state(1)[0])) for s, ss in zip(sizes, seeds)]
 
 
-# ---------------------------------------------------------------- drivers
+# drivers
 def pi_serial(n: int, seed: int = 0, worker=pi_hits_python) -> float:
     return 4 * worker((n, seed)) / n
 
@@ -80,7 +80,7 @@ def pi_futures(n: int, workers: int, seed: int = 0, worker=pi_hits_python) -> fl
     return 4 * hits / n
 
 
-# ---------------------------------------------------------------- shared memory
+# shared memory
 def _square_slice(args):
     """Worker attaches to the shared block by name: no pickling of the data."""
     name, shape, lo, hi = args
@@ -108,7 +108,7 @@ def square_in_shared_memory(x: np.ndarray, workers: int) -> np.ndarray:
         shm.unlink()
 
 
-# ---------------------------------------------------------------- theory
+# theory
 def amdahl_speedup(parallel_fraction: float, n_workers: int) -> float:
     """S(n) = 1 / ((1 - p) + p / n); S(inf) = 1 / (1 - p)."""
     p = parallel_fraction

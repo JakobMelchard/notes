@@ -38,7 +38,7 @@ AES_POLY = 0x11B          # m(x) = x^8 + x^4 + x^3 + x + 1, FIPS 197 sec. 4.1
 AFFINE_C = 0x63           # the constant of FIPS 197 eq. (5.2)
 
 
-# ------------------------------------------------- GF(2^8), FIPS 197 sec. 4
+# GF(2^8), FIPS 197 sec. 4
 def xtime(a: int) -> int:
     """Multiplication by x, reducing mod m(x) (FIPS 197 sec. 4.2)."""
     a <<= 1
@@ -93,7 +93,7 @@ def aes_inv_sbox() -> list[int]:
     return inv
 
 
-# ------------------------------------------------- confusion and diffusion
+# confusion and diffusion
 def avalanche(encrypt, block: bytes, trials: int | None = None) -> float:
     """Average fraction of output bits that change when one input bit is
     flipped.  Shannon's diffusion requirement says this should sit at 1/2:
@@ -114,7 +114,7 @@ def avalanche(encrypt, block: bytes, trials: int | None = None) -> float:
     return total / (n * 8 * len(base))
 
 
-# --------------------------------------------------- a tiny keyed cipher
+# a tiny keyed cipher
 class ToyCipher:
     """Four-round Feistel on 8-byte blocks with a `key_bits`-bit key, so the
     key space can be searched exhaustively in a test.  Same shape as DES

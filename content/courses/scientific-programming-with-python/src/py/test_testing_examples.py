@@ -12,7 +12,7 @@ from numpy.testing import assert_allclose, assert_array_almost_equal_nulp, asser
 import testing_examples as te
 
 
-# ---------------------------------------------------------------- fixtures
+# fixtures
 @pytest.fixture
 def rng():
     """Fresh, seeded generator per test: reproducible AND independent."""
@@ -35,7 +35,7 @@ def config_file(tmp_path):
     return p
 
 
-# ---------------------------------------------------------------- basic assertions
+# basic assertions
 def test_quadratic_simple_roots():
     assert te.solve_quadratic(1, -3, 2) == (1.0, 2.0)
 
@@ -52,7 +52,7 @@ def test_stable_quadratic_avoids_cancellation():
     assert x1 == pytest.approx(-1e8, rel=1e-12) and x2 == pytest.approx(-1e-8, rel=1e-8)
 
 
-# ---------------------------------------------------------------- exceptions
+# exceptions
 @pytest.mark.parametrize("args, exc", [
     ((0, 1, 1), ValueError), ((1, 0, 1), ValueError)])
 def test_quadratic_invalid(args, exc):
@@ -70,7 +70,7 @@ def test_newton_non_convergence():
         te.newton(lambda x: x**2 + 1, lambda x: 2 * x, 0.5, max_iter=5)   # no real root
 
 
-# ---------------------------------------------------------------- parametrize
+# parametrize
 @pytest.mark.parametrize("n, expected_order", [(10, 2), (100, 2)])
 def test_trapezoid_is_second_order(n, expected_order):
     """Halving h must divide the error by ~2^order."""
@@ -91,7 +91,7 @@ def test_softmax_properties(z):
     assert s.sum() == pytest.approx(1.0) and (s >= 0).all() and np.isfinite(s).all()
 
 
-# ---------------------------------------------------------------- numpy helpers
+# numpy helpers
 def test_normalise_with_numpy_testing():
     v = te.normalise([3, 4])
     assert_allclose(v, [0.6, 0.8], rtol=1e-15)             # tolerance-based
@@ -110,7 +110,7 @@ def test_uses_module_fixture(spd_matrix):
     assert (w > 0).all()
 
 
-# ---------------------------------------------------------------- property-based idea
+# property-based idea
 def test_quadratic_roots_satisfy_vieta(rng):
     """Poor man's Hypothesis: many random inputs, check an invariant instead
     of a hard-coded answer.  (pip install hypothesis for the real thing.)"""
@@ -121,7 +121,7 @@ def test_quadratic_roots_satisfy_vieta(rng):
         assert sorted([r1, r2]) == pytest.approx(sorted([x1, x2]), abs=1e-8)
 
 
-# ---------------------------------------------------------------- fixtures for I/O, marks
+# fixtures for I/O, marks
 def test_read_config(config_file):
     assert te.read_config(config_file) == {"dt": 0.01, "T": 2.5}
 

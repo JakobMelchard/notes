@@ -25,7 +25,7 @@ def test_multinomial_and_bernoulli_nb():
     assert np.array_equal(bayes.BernoulliNB(1.0).fit(Xb, y).predict(Xb), sknb.BernoulliNB(alpha=1.0).fit(Xb, y).predict(Xb))
 
 
-# ------- the course's own hand-calculation convention for naive Bayes [S14] -------
+# the course's own hand-calculation convention for naive Bayes [S14]
 # The four-row table of [S14] "How to Predict a Class with Naive Bayes".
 S14_X = np.array([[True, "Small", False],
                   [False, "Medium", False],

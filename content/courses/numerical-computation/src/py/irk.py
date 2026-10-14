@@ -8,7 +8,7 @@ A-stability test, and the stiff system of [S4] Ex. 9.12.
 import numpy as np
 
 
-# --------------------------------------------------------- Butcher tableaux
+# Butcher tableaux
 def butcher_explicit_euler():
     """[S4] Exercise 9.5."""
     return np.array([[0.0]]), np.array([1.0]), np.array([0.0])
@@ -40,7 +40,7 @@ def butcher_theta(theta):
     return np.array([[float(theta)]]), np.array([1.0]), np.array([float(theta)])
 
 
-# ---------------------------------------------------------- the integrators
+# the integrators
 def theta_scheme(f, y0, t0, T, N, theta=0.5, fprime=None, newton_tol=1e-12):
     """y1 = y0 + h f(t0 + theta h, theta y1 + (1-theta) y0),  [S4] Ex. 9.11.
 
@@ -120,7 +120,7 @@ def implicit_rk(f, y0, t0, T, N, A, b, c, fprime=None, newton_tol=1e-12):
     return ts, out if d > 1 else out.ravel()
 
 
-# ------------------------------------------------------------- A-stability
+# A-stability
 def stability_function_rational(A, b, z):
     """R(z) = 1 + z b^T (I - z A)^{-1} 1,  the stability function of any RK method.
 
@@ -152,7 +152,7 @@ def is_a_stable(A, b, radius=200.0, samples=400, tol=1e-9):
     return True
 
 
-# ------------------------------------------------------ the stiff example
+# the stiff example
 def lambert_system():
     """The stiff initial value problem of [S4] Ex. 9.12.
 

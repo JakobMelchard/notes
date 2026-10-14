@@ -50,7 +50,7 @@ def margin_mse(s_pos: torch.Tensor, s_neg: torch.Tensor, t_pos: torch.Tensor, t_
     return F.mse_loss(s_pos - s_neg, t_pos - t_neg)
 
 
-# ---------------- nearest-neighbour search ----------------
+# nearest-neighbour search
 def brute_force(Q: np.ndarray, X: np.ndarray, k: int) -> np.ndarray:
     """Exact maximum inner product search, (nq, k) indices sorted by score."""
     S = Q @ X.T
@@ -126,7 +126,7 @@ def ann_recall(approx: np.ndarray, exact: np.ndarray) -> float:
     return float(np.mean([len(set(a) & set(e)) / len(e) for a, e in zip(approx, exact)]))
 
 
-# ---------------- training on the planted collection ----------------
+# training on the planted collection
 def encode_texts(model: BiEncoder, stoi: dict[str, int], analyze, texts: list[str]) -> np.ndarray:
     ids = [[stoi.get(t, OOV) for t in analyze(x)] or [OOV] for x in texts]
     L = max(map(len, ids))

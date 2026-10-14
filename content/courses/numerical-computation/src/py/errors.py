@@ -10,7 +10,7 @@ not in [S4] ([S12], [S13]).  Pure numpy; numpy.linalg only in the tests.
 import numpy as np
 
 
-# ---------------------------------------------------------------- floating point
+# floating point
 def machine_epsilon(dtype=np.float64):
     """Smallest eps with fl(1 + eps) > 1, found by halving.  Equals 2^-52 for
     float64 (numpy's finfo.eps); the unit round-off u = eps/2 bounds the
@@ -37,7 +37,7 @@ def rel_error(approx, exact):
     return np.abs(approx - exact) / np.abs(exact)
 
 
-# ---------------------------------------------------------------- summation
+# summation
 def naive_sum(x, dtype=np.float32):
     """Recursive summation: error bound (n-1) u sum|x_i|."""
     s = dtype(0)
@@ -66,7 +66,7 @@ def pairwise_sum(x, dtype=np.float32):
     return dtype(pairwise_sum(x[:m], dtype) + pairwise_sum(x[m:], dtype))
 
 
-# ---------------------------------------------------------------- cancellation
+# cancellation
 def quadratic_roots_naive(a, b, c):
     """x = (-b +- sqrt(b^2 - 4ac)) / 2a: cancellation when b^2 >> 4ac."""
     d = np.sqrt(b * b - 4 * a * c)
@@ -81,7 +81,7 @@ def quadratic_roots_stable(a, b, c):
     return q / a, c / q
 
 
-# ---------------------------------------------------------------- conditioning
+# conditioning
 def cond_scalar(f, x, h=None):
     """Relative condition number kappa = |x f'(x) / f(x)| of a scalar map,
     f' from a central difference."""
@@ -134,7 +134,7 @@ def hilbert(n):
     return 1.0 / (i[:, None] + i[None, :] - 1)
 
 
-# ---------------------------------------------------------------- error sources
+# error sources
 def error_sources_fd(f, df, x, hs):
     """Total error of the forward difference D_h f = (f(x+h) - f(x)) / h.
     Returns arrays (discretisation estimate ~ h |f''|/2 modelled by the exact
@@ -148,7 +148,7 @@ def error_sources_fd(f, df, x, hs):
 
 
 
-# ------------------------------------------ [S4] sec. 3.3: stability examples
+# [S4] sec. 3.3: stability examples
 def log1p_naive(x):
     """The unstable realisation of [S4] Ex. 3.5: x -> w := 1 + x -> log w.
 

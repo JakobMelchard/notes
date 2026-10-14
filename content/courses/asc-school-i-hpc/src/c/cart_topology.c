@@ -35,7 +35,7 @@ int main(int argc, char **argv)
     MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
     MPI_Comm_size(MPI_COMM_WORLD, &size);
 
-    /* ---- 1. MPI_Dims_create ---------------------------------------------- */
+    /* 1. MPI_Dims_create */
     {
         int d2[2] = {0, 0}, d3[3] = {0, 0, 0}, dfix[2] = {2, 0};
         MPI_Dims_create(size, 2, d2);
@@ -54,7 +54,7 @@ int main(int argc, char **argv)
                    size, d2[0], d2[1], size, d3[0], d3[1], d3[2]);
     }
 
-    /* ---- 2. the ring on a 1D periodic Cartesian communicator -------------- */
+    /* 2. the ring on a 1D periodic Cartesian communicator */
     MPI_Comm ring;
     int dims[1]    = {size};
     int periods[1] = {1};            /* periodic: the ring wraps */
@@ -91,7 +91,7 @@ int main(int argc, char **argv)
            world_rank, my_rank, sum, size * (size - 1) / 2);
     fflush(stdout);
 
-    /* ---- 3. a NON-periodic dimension gives MPI_PROC_NULL at the edges ----- */
+    /* 3. a NON-periodic dimension gives MPI_PROC_NULL at the edges */
     {
         MPI_Comm line;
         int d[1] = {size}, p[1] = {0};       /* not periodic */
@@ -111,7 +111,7 @@ int main(int argc, char **argv)
         MPI_Comm_free(&line);
     }
 
-    /* ---- 4. MPI_Cart_sub: rows of a 2D grid ------------------------------ */
+    /* 4. MPI_Cart_sub: rows of a 2D grid */
     {
         int d[2] = {0, 0}, p[2] = {0, 0};
         MPI_Dims_create(size, 2, d);

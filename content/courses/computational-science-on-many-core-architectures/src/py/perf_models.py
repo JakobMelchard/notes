@@ -16,7 +16,7 @@ import math
 from dataclasses import dataclass
 
 
-# --- scaling laws -----------------------------------------------------------
+# scaling laws
 
 def amdahl(f: float, p: float) -> float:
     """Fixed-size speedup; f = serial fraction of the 1-processor time."""
@@ -45,7 +45,7 @@ def offload_speedup(f_accel: float, kernel_speedup: float, transfer_fraction: fl
     return 1.0 / ((1.0 - f_accel) + f_accel / kernel_speedup + transfer_fraction)
 
 
-# --- latency, bandwidth, concurrency -----------------------------------------
+# latency, bandwidth, concurrency
 
 def little_bytes_in_flight(latency_s: float, bandwidth_Bps: float) -> float:
     """Little's law L = lambda W: bytes that must be outstanding to sustain
@@ -67,7 +67,7 @@ def effective_bandwidth(nbytes: float, alpha_s: float, beta_Bps: float) -> float
     return nbytes / alpha_beta_time(nbytes, alpha_s, beta_Bps)
 
 
-# --- CUDA occupancy -----------------------------------------------------------
+# CUDA occupancy
 
 @dataclass(frozen=True)
 class SMLimits:
@@ -103,7 +103,7 @@ def occupancy(lim: SMLimits, threads_per_block: int, regs_per_thread: int, smem_
     return blocks, blocks * warps_per_block / lim.max_warps, limiter
 
 
-# --- FPGA / hardware pipelines ------------------------------------------------
+# FPGA / hardware pipelines
 
 def pipeline_cycles(n_iter: int, depth: int, ii: int) -> int:
     """Cycles for n_iter loop iterations through a pipeline of `depth` stages
@@ -118,13 +118,13 @@ def accumulation_ii(adder_latency: int, partial_sums: int) -> int:
     return max(1, math.ceil(adder_latency / partial_sums))
 
 
-# --- energy -------------------------------------------------------------------
+# energy
 
 def pj_per_flop(watts: float, gflops: float) -> float:
     return watts / (gflops * 1e9) * 1e12
 
 
-# --- worked examples ------------------------------------------------------------
+# worked examples
 
 def main() -> None:
     print("Amdahl, f = 0.05:", ", ".join(f"S({p}) = {amdahl(0.05, p):.2f}" for p in (12, 132, 1024)),

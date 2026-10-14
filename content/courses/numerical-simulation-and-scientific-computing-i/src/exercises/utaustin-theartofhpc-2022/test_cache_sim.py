@@ -24,7 +24,7 @@ from cache_sim import (
 )
 
 
-# ------------------------------------------------------------- the simulator
+# the simulator
 def test_a_line_is_fetched_once_and_then_hits():
     """32-byte line, 8-byte words: one miss then three hits."""
     c = Cache(n_sets=8, assoc=1, line_bytes=32).run([0, 8, 16, 24])
@@ -48,7 +48,7 @@ def test_non_power_of_two_geometry_is_rejected():
         Cache(n_sets=3, assoc=1)
 
 
-# --------------------------------------------------------------------- E1
+# E1
 def test_e1_low_bits_make_every_access_a_conflict_miss():
     """3 arrays x 512 iterations, rows 64 KB apart: no access ever hits."""
     r = e1_index_bits()["low"]
@@ -71,7 +71,7 @@ def test_e1_high_bits_are_a_bad_rule_in_general():
     assert res["low"]["stream_resident_lines"] == 2048
 
 
-# --------------------------------------------------------------------- E2
+# E2
 def test_e2_direct_mapped_occupancy_matches_the_closed_form():
     """n(1 - (1-1/n)^n) = 20.41 for n = 32; 100 trials land within 0.5."""
     sweep = associativity_sweep()
@@ -99,7 +99,7 @@ def test_e2_a_single_trial_is_bounded_by_the_cache_size():
         assert 1 <= occupancy_trial(32, k, rng) <= 32
 
 
-# --------------------------------------------------------------------- E3
+# E3
 def test_e3_the_linear_sum_attains_the_minimum_miss_count():
     """One compulsory miss per line, four doubles per line: 0.25 per element."""
     r = e3_locality()["linear"]

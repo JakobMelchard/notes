@@ -105,7 +105,7 @@ def histogram_and_fit(outdir: Path) -> Path:
     return path
 
 
-# ---------------------------------------------------------------- pandas
+# pandas
 def make_measurements(n: int = 120, seed: int = 0) -> pd.DataFrame:
     """A DataFrame is a dict of column Series sharing an Index; columns are
     numpy arrays underneath (one dtype per column)."""

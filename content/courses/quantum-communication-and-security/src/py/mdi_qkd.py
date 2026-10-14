@@ -124,7 +124,7 @@ def gain_qber(basis: str, ma: float, mb: float, pd: float) -> tuple[float, float
     return q, err / q
 
 
-# ------------------------------------------------------------ Ma-Razavi closed forms [S11]
+# Ma-Razavi closed forms [S11]
 def mr_y11(eta_a, eta_b, pd):
     return (1 - pd) ** 2 * (eta_a * eta_b / 2 + (2 * eta_a + 2 * eta_b - 3 * eta_a * eta_b) * pd
                             + 4 * (1 - eta_a) * (1 - eta_b) * pd**2)

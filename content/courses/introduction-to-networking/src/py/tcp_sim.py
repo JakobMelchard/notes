@@ -50,7 +50,7 @@ class TCPSim:
         self.inflight_sent_at = {}
         self.verbose, self.phase = verbose, "slow start"
 
-    # ---------------------------------------------------------- bookkeeping
+    # bookkeeping
     def log(self, kind, msg):
         line = f"{self.now:7.3f}  {kind:<6} {msg}  [cwnd={self.cwnd // MSS} ssthresh={self.ssthresh // MSS} rto={self.rto:.2f} {self.phase}]"
         self.trace.append(line)
@@ -64,7 +64,7 @@ class TCPSim:
         self.timer_gen += 1
         self.schedule(self.rto, self.on_timeout, self.timer_gen)
 
-    # ---------------------------------------------------------- sender
+    # sender
     def send_allowed(self):
         window = min(self.cwnd, self.rwnd)
         while self.snd_nxt < self.isn + self.total and self.snd_nxt - self.snd_una + MSS <= window:
@@ -140,7 +140,7 @@ class TCPSim:
             self.srtt = 0.875 * self.srtt + 0.125 * r
         self.rto = max(0.2, self.srtt + max(0.01, 4 * self.rttvar))
 
-    # ---------------------------------------------------------- receiver
+    # receiver
     def on_receive(self, seq, seg_len):
         if seq == self.rcv_nxt:
             self.rcv_nxt += seg_len
@@ -151,7 +151,7 @@ class TCPSim:
             self.ooo.add(seq)                         # out of order: buffer, dup ACK
         self.schedule(self.link.delay, self.on_ack, self.rcv_nxt)   # cumulative ACK
 
-    # ---------------------------------------------------------- driver
+    # driver
     def run(self, max_time=120.0):
         self.send_allowed()
         while self.events and self.now < max_time:

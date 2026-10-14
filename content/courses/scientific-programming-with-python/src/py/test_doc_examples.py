@@ -42,7 +42,7 @@ def test_recorded_versions():
         )
 
 
-# --------------------------------------------------------------------- NumPy
+# NumPy
 def test_python_scalars_are_weak():
     """NEP 50: a Python scalar does not upcast the array.
 
@@ -143,7 +143,7 @@ def test_generator_spawn_gives_independent_streams():
     assert not np.allclose(a, b)
 
 
-# --------------------------------------------------------------------- SciPy
+# SciPy
 def test_interp1d_is_legacy_but_still_works():
     """SciPy marks interp1d legacy: "will no longer receive updates" — but emits
     no warning in 1.18, which is why note 03 §interpolate has to say so in prose.
@@ -173,7 +173,7 @@ def test_scipy_numbers_quoted_in_note_03():
     assert float(stats.norm(2, 0.5).ppf(0.975)) == pytest.approx(2.98, abs=5e-3)
 
 
-# -------------------------------------------------------------------- pandas
+# pandas
 def test_pandas3_chained_assignment_and_settingwithcopywarning():
     """pandas 3.0 removed SettingWithCopyWarning; CoW makes the subset a copy.
 
@@ -205,7 +205,7 @@ def test_pandas3_str_dtype_and_the_ddof_mismatch():
     assert np.std([1.0, 2.0, 3.0]) == pytest.approx(0.816496580927726)
 
 
-# ---------------------------------------------------------------- matplotlib
+# matplotlib
 def test_both_constrained_layout_spellings_work():
     """`layout="constrained"` is current; `constrained_layout=True` still works.
     Note 04 §1, §3.  matplotlib.org/3.11.2/users/explain/axes/constrainedlayout_guide.html
@@ -222,7 +222,7 @@ def test_both_constrained_layout_spellings_work():
     assert matplotlib.rcParams["image.cmap"] == "viridis"
 
 
-# ------------------------------------------------------------- numpy.testing
+# numpy.testing
 def test_assert_allclose_defaults():
     """rtol=1e-7, atol=0, so comparing against zero needs an explicit atol.
     Note 05 §5 and exam Q2.  numpy.org/doc/2.5/reference/generated/numpy.testing.assert_allclose.html
@@ -236,7 +236,7 @@ def test_assert_allclose_defaults():
     np.testing.assert_allclose(np.array([1e-12]), np.zeros(1), atol=1e-10)
 
 
-# ----------------------------------------------------------------------- PuLP
+# PuLP
 def test_pulp4_removed_what_3_3_deprecated():
     """PuLP 4.0 turned note 07 §7's three DeprecationWarnings into errors and
     dropped the bundled CBC.  Installed wheel's README (PuLP 4.0.0 METADATA);
@@ -269,7 +269,7 @@ def test_pulp_production_plan_matches_the_worked_example():
     assert r["duals"] == pytest.approx({"machine": 10.0, "labour": 20.0, "demand": 0.0})  # demand slack
 
 
-# ------------------------------------------------------------------- CPython
+# CPython
 def test_default_start_method_is_spawn_on_macos():
     """Note 08 §2: spawn on macOS/Windows, so workers must be importable.
     https://docs.python.org/3.12/library/multiprocessing.html

@@ -118,7 +118,7 @@ def rfft(x):
 
 
 
-# ---------------------------------------- [S4] sec. 1.9: the course's version
+# [S4] sec. 1.9: the course's version
 def fft_dif(y):
     """FFT by decimation in frequency -- [S4] Alg. 3, the form the course teaches.
 

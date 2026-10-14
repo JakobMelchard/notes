@@ -14,10 +14,8 @@ our own words; the published answers are quoted as bare numbers in
 Run `python3 mit602_transport.py` for a demo.
 """
 
-# --------------------------------------------------------------------------
 # The answers MIT published, keyed by problem.  Quoting a result is not
 # quoting the sheet: these are the numbers the solution PDF prints.
-# --------------------------------------------------------------------------
 PUBLISHED_ANSWERS = {
     ("t11", "1A"): 8.0,            # s, RTT across the 4-link chain
     ("t11", "1B"): 1 / 8,          # pkt/s, stop-and-wait
@@ -31,11 +29,9 @@ PUBLISHED_ANSWERS = {
 }
 
 
-# --------------------------------------------------------------------------
 # Tutorial 11 — reliable transport arithmetic
 # TISS topic: layer 4 (TCP/UDP), and "describe TCP behaviour given a scenario"
 # (practical-part wording, stated on TISS until 2026-09-2x, removed by 2026-09-27).
-# --------------------------------------------------------------------------
 def chain_rtt(links, per_link_time=1.0):
     """A packet and its acknowledgement each traverse every link once, and
     each link takes one transmission time."""

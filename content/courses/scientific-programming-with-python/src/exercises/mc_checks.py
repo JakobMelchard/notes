@@ -34,7 +34,7 @@ def _raises_ctx(exc: type[BaseException], fn) -> bool:
         return False
     return True
 
-# ------------------------------------------------------- 1. the language
+# 1. the language
 def _chk_tuple_augmented() -> str:
     t, exc = (1, [2]), None
     try:
@@ -63,7 +63,7 @@ def _chk_late_binding() -> str:
     return pick([f() for f in fs],
                 a=[0, 1, 2], b=[2, 2, 2], c=[0, 0, 0], d=[3, 3, 3])
 
-# ------------------------------------------------- 2. the NumPy/SciPy stack
+# 2. the NumPy/SciPy stack
 def _chk_arange_vs_linspace() -> str:
     got = (np.arange(0, 1, 0.25).size, np.linspace(0, 1, 5).size)
     return pick(got, a=(4, 5), b=(5, 5), c=(4, 4), d=(5, 4))
@@ -83,7 +83,7 @@ def _chk_solve_ivp_shape() -> str:
                     t_eval=np.linspace(0.0, 1.0, 7))
     return pick(sol.y.shape, a=(7, 2), b=(2, 7), c=(7,), d=(2,))
 
-# ------------------------------------------------ 3. data and plotting
+# 3. data and plotting
 def _agg_axes():
     """Matplotlib with the headless backend, as the tests need it."""
     import matplotlib
@@ -120,7 +120,7 @@ def _chk_groupby_transform() -> str:
     df = pd.DataFrame({"k": ["a", "a", "b"], "v": [1.0, 2.0, 3.0]})
     return pick(len(df.groupby("k")["v"].transform("mean")), a=2, b=3, c=1, d=6)
 
-# -------------------------------------------------------- 4. code testing
+# 4. code testing
 def _chk_approx_which_passes() -> str:
     import pytest
 
@@ -155,7 +155,7 @@ def _chk_raises_subclass() -> str:
         d=lambda: _raises_ctx(LookupError, lambda: boom(SystemExit(1))),
     )
 
-# ------------------------------------------------- 5. IPython and Jupyter
+# 5. IPython and Jupyter
 def _cell_magics() -> set[str]:
     from IPython.core.interactiveshell import InteractiveShell
 
@@ -184,7 +184,7 @@ def _chk_nbconvert_targets() -> str:
     return pick_true(a=lambda: "script" not in names, b=lambda: "html" not in names,
                      c=lambda: "pdf" not in names, d=lambda: "dataframe" not in names)
 
-# ---------------------------------------------------------- 6. optimisation
+# 6. optimisation
 def _chk_minimize_needs_jac() -> str:
     from scipy.optimize import minimize, rosen
 
@@ -215,7 +215,7 @@ def _chk_linprog_minimises() -> str:
     return pick_true(a=lambda: ok and abs(x) < 1e-9, b=lambda: ok and abs(x - 1) < 1e-9,
                      c=lambda: ok and abs(x + 1) < 1e-9, d=lambda: not ok)
 
-# ------------------------------------------------------ 7. parallel processing
+# 7. parallel processing
 def _chk_map_vs_imap() -> str:
     import multiprocessing as mp
 
@@ -262,7 +262,7 @@ def _chk_processes_do_not_share_globals() -> str:
                      c=lambda: after_processes == 1,
                      d=lambda: after_processes == 2 and after_threads == 0)
 
-# ------------------------------------------------------------- 8. interfaces
+# 8. interfaces
 def _chk_ctypes_needs_restype() -> str:
     import ctypes
     import ctypes.util

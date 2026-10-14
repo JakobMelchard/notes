@@ -42,7 +42,7 @@ def recv_msg(conn):
     return recv_exact(conn, n)
 
 
-# ---------------------------------------------------------------- TCP
+# TCP
 def tcp_server(host="127.0.0.1", port=0, stop_event=None, ready=None, transform=lambda b: b):
     """socket -> bind -> listen -> accept -> recv/send -> close.  Passing port 0
     lets the OS pick; the chosen port is published via `ready` (a dict)."""
@@ -81,7 +81,7 @@ def tcp_client(host, port, messages):
     return replies
 
 
-# ---------------------------------------------------------------- UDP
+# UDP
 def udp_server(host="127.0.0.1", port=0, stop_event=None, ready=None):
     """No connection: recvfrom tells us who sent it, sendto answers them."""
     with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as s:

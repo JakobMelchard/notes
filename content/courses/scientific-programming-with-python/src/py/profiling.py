@@ -18,7 +18,7 @@ from contextlib import contextmanager
 import numpy as np
 
 
-# ---------------------------------------------------------------- micro-benchmarks
+# micro-benchmarks
 def bench(stmt, number: int | None = None, repeat: int = 5, **ns) -> float:
     """Best-of-repeat seconds per call.  timeit disables GC, uses
     perf_counter and repeats; take the MIN (noise only adds time).
@@ -40,7 +40,7 @@ def sum_of_squares_variants(n: int) -> dict[str, float]:
     }
 
 
-# ---------------------------------------------------------------- profiling
+# profiling
 def profile(fn, *args, top: int = 10, sort: str = "cumulative") -> tuple[object, str]:
     """Deterministic profiler: hooks every Python call, so it inflates the
     cost of many tiny calls and sees numpy internals only as one C call.
@@ -65,7 +65,7 @@ def section(name: str, store: dict):
         store[name] = store.get(name, 0.0) + time.perf_counter() - t0
 
 
-# ---------------------------------------------------------------- an example to profile
+# an example to profile
 def has_duplicates_quadratic(xs: list[int]) -> bool:
     for i in range(len(xs)):
         for j in range(i + 1, len(xs)):
@@ -95,7 +95,7 @@ def simulate(n_steps: int, n_particles: int, rng: np.random.Generator) -> dict:
     return {"times": t, "mean_distance": float(mean_d)}
 
 
-# ---------------------------------------------------------------- memory
+# memory
 def memory_of(fn, *args) -> tuple[object, int]:
     """Peak bytes allocated by Python (numpy buffers included) during fn."""
     tracemalloc.start()

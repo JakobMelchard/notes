@@ -14,7 +14,7 @@ including the E26a-style MAE question.
 import numpy as np
 
 
-# ---------------------------------------------------------------- classification
+# classification
 def confusion_matrix(y_true, y_pred, labels=None):
     """C[i, j] = number of samples with true label i predicted as label j."""
     y_true, y_pred = np.asarray(y_true), np.asarray(y_pred)
@@ -115,7 +115,7 @@ def log_loss(y_true, proba, eps=1e-15):
     return float(-np.mean(np.log(proba[np.arange(len(y_true)), y_true])))
 
 
-# --------------------------------------------------------------------- regression
+# regression
 def mse(y_true, y_pred):
     return float(np.mean((np.asarray(y_true) - np.asarray(y_pred)) ** 2))
 

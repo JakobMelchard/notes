@@ -82,7 +82,7 @@ class InvertedIndex:
                 return f
         return 0
 
-    # ---------- boolean retrieval ----------
+    # boolean retrieval
     def boolean(self, query: str) -> list[str]:
         """Evaluate e.g. 'a AND (b OR NOT c)'; NOT binds tighter than AND, AND tighter than OR."""
         toks = re.findall(r"\(|\)|[A-Za-z0-9]+", query)
@@ -146,7 +146,7 @@ class InvertedIndex:
                 return p
         return []
 
-    # ---------- ranked retrieval ----------
+    # ranked retrieval
     def tfidf_weight(self, t: str, tf: int) -> float:
         return math.log(1 + tf) * math.log(self.N / self.df(t))
 

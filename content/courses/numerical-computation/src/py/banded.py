@@ -11,7 +11,7 @@ The fill-in and ordering material of [S4 §4.6] (CSE) is in ordering.py.
 import numpy as np
 
 
-# ------------------------------------------------------------------ Crout
+# Crout
 def crout_lu(A):
     """LU factorisation in Crout's ordering, [S4] Alg. 9.
 
@@ -44,7 +44,7 @@ def crout_lu_inplace(A):
     return a
 
 
-# ----------------------------------------------------------------- banded
+# banded
 def bandwidths(A, tol=0.0):
     """(p, q): lower and upper bandwidth, a_ik = 0 for i > k+p or k > i+q."""
     A = np.asarray(A, float)
@@ -124,7 +124,7 @@ def banded_cholesky(A, p=None):
     return C
 
 
-# ---------------------------------------------------------------- skyline
+# skyline
 def skyline_profile(A, tol=0.0):
     """(p_i, q_j) of [S4] (4.11): a_ij = 0 for j < i - p_i or i < j - q_j."""
     A = np.asarray(A, float)

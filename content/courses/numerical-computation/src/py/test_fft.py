@@ -66,7 +66,7 @@ def test_real_signal_tricks():
     np.testing.assert_allclose(rfft(x), np.fft.rfft(x), atol=1e-12)
 
 
-# ================= [S4] sec. 1.9: the course's own version ==================
+# [S4] sec. 1.9: the course's own version
 
 _RNG = np.random.default_rng(31)
 

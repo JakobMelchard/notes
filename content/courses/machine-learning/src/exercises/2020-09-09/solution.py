@@ -33,7 +33,7 @@ from knn import KNNClassifier                           # noqa: E402
 from metrics import precision_recall_f1                 # noqa: E402
 
 
-# --- Exercises 18 and 19: max pooling and convolution, 7x7 input, 3x3, stride 2 -
+# Exercises 18 and 19: max pooling and convolution, 7x7 input, 3x3, stride 2 -
 INPUT_7x7 = np.array([
     [1, 2, 0, 3, 1, 0, 2],
     [0, 5, 2, 1, 0, 8, 1],
@@ -72,7 +72,7 @@ def exercises_18_19_conv_and_pool():
     )
 
 
-# --- Exercise 20: naive Bayes recall, **with** Laplace correction ---------------
+# Exercise 20: naive Bayes recall, **with** Laplace correction
 TRAIN = np.array([
     ["sunny",    "hot",  "high",   "weak"],
     ["sunny",    "hot",  "high",   "strong"],
@@ -116,7 +116,7 @@ def exercise_20_naive_bayes_recall():
     )
 
 
-# --- The kNN "which order do the k values have?" question ----------------------
+# The kNN "which order do the k values have?" question
 def exercise_knn_boundary_smoothness():
     """Three kNN boundaries on the same data; put k1, k2, k3 in order.
 
@@ -137,7 +137,7 @@ def exercise_knn_boundary_smoothness():
                 monotone_in_k=errors[1] <= errors[5] <= errors[25])
 
 
-# --- The twelve true/false items the transcript recalls ------------------------
+# The twelve true/false items the transcript recalls
 def true_false_block():
     """Answers as the course marks them [S12]."""
     return {

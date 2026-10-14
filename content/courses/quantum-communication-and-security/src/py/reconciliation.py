@@ -89,7 +89,7 @@ def cascade(a: np.ndarray, b: np.ndarray, e_est: float, rng: np.random.Generator
     return b, leak
 
 
-# ------------------------------------------------------------------ Hamming(7,4) syndromes
+# Hamming(7,4) syndromes
 H74 = np.array([[(c >> r) & 1 for c in range(1, 8)] for r in range(3)], dtype=np.int8)
 
 
@@ -106,7 +106,7 @@ def hamming_reconcile(a: np.ndarray, b: np.ndarray) -> tuple[np.ndarray, int]:
     return b, 3 * (n // 7)
 
 
-# ------------------------------------------------------------------ verification
+# verification
 def verify_hash(a: np.ndarray, b: np.ndarray, t: int, rng: np.random.Generator) -> bool:
     """Compare t-bit random linear hashes. For a != b, Pr[equal] = 2^-t exactly."""
     m = rng.integers(0, 2, size=(t, len(a)), dtype=np.int8)

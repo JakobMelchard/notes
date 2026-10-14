@@ -129,7 +129,7 @@ def cg_polynomial_bound(kappa, ell):
     return 2.0 * r ** ell
 
 
-# ------------------------------- [S4] sec. 8: the other basic iterative methods
+# [S4] sec. 8: the other basic iterative methods
 def richardson(A, b, x0=None, omega=1.0, tol=1e-10, maxiter=10000, matvec=None):
     """x_{k+1} = x_k + omega (b - A x_k),  [S4] sec. 8.
 

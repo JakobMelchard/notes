@@ -41,7 +41,7 @@ class OAEPError(Exception):
     difference -- see the module docstring."""
 
 
-# ------------------------------------------------- sec. 4: data conversion
+# sec. 4: data conversion
 def i2osp(x: int, x_len: int) -> bytes:
     """Integer-to-Octet-String, RFC 8017 sec. 4.1.  Big-endian, fixed width."""
     if x < 0 or x >= 256 ** x_len:
@@ -54,7 +54,7 @@ def os2ip(octets: bytes) -> int:
     return int.from_bytes(octets, "big")
 
 
-# --------------------------------------------- sec. 5.1: RSA primitives
+# sec. 5.1: RSA primitives
 def rsaep(pub: dict, m: int) -> int:
     """RSAEP, RFC 8017 sec. 5.1.1.  Requires 0 <= m <= n-1."""
     n = pub["n"]
@@ -71,7 +71,7 @@ def rsadp(priv: dict, c: int) -> int:
     return pow(c, priv["d"], n)
 
 
-# ------------------------------------------ appendix B.2.1: MGF1
+# appendix B.2.1: MGF1
 def mgf1(mgf_seed: bytes, mask_len: int, hash_fn=hashlib.sha256) -> bytes:
     """MGF1, RFC 8017 appendix B.2.1.
 
@@ -93,7 +93,7 @@ def _xor(a: bytes, b: bytes) -> bytes:
     return bytes(x ^ y for x, y in zip(a, b))
 
 
-# ------------------------------------------- sec. 7.1.1: EME-OAEP encoding
+# sec. 7.1.1: EME-OAEP encoding
 def eme_oaep_encode(msg: bytes, k: int, label: bytes = b"",
                     hash_fn=hashlib.sha256, seed: bytes | None = None) -> bytes:
     """EME-OAEP encoding, RFC 8017 sec. 7.1.1 step 2.
@@ -156,7 +156,7 @@ def eme_oaep_decode(em: bytes, k: int, label: bytes = b"",
     return rest[i + 1:]
 
 
-# ------------------------------------------------- sec. 7.1: the schemes
+# sec. 7.1: the schemes
 def _modulus_len(n: int) -> int:
     """k = length in octets of the modulus (RFC 8017 sec. 7.1 notation)."""
     return (n.bit_length() + 7) // 8

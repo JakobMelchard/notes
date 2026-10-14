@@ -87,7 +87,7 @@ def test_damping_widens_basin():
     assert abs(x_damp[0]) < 1e-12
 
 
-# ================= [S4] chapter 6: the script's own examples =================
+# [S4] chapter 6: the script's own examples
 
 
 def test_s4_example_6_2_newton_for_sqrt_two():

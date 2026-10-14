@@ -28,7 +28,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..",
 from bandits import bandit_random_action_analysis, definitely_random_steps  # noqa: E402
 
 
-# --- Question 1: the k-armed bandit trace ---------------------------------------
+# Question 1: the k-armed bandit trace
 # "There were 5 actions and rewards (e.g. A1 = 2, R1 = 3, A2 = 1, R2 = -1, ...).
 #  You had to say at which time steps the action was definitely chosen randomly
 #  and at which it was possibly chosen randomly."  The paper's own numbers are
@@ -56,7 +56,7 @@ def question_1_bandit():
     )
 
 
-# --- Question 2: one step of gradient descent on the RSS ------------------------
+# Question 2: one step of gradient descent on the RSS
 # "Two features and one target (5 samples).  The coefficients w0, w1, w2 had to
 #  be calculated using the RSS as the metric; a learning rate a = 0.5 was given.
 #  When in the first step all w are 0, what will w1 be in the second step?"

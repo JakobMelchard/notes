@@ -27,7 +27,7 @@ import torch.nn as nn
 warnings.filterwarnings("ignore", message=".*quantize_per_tensor.*")
 
 
-# --- 1. number formats ------------------------------------------------------
+# 1. number formats
 
 
 def float_formats() -> dict[str, dict]:
@@ -55,7 +55,7 @@ def float_formats() -> dict[str, dict]:
     return out
 
 
-# --- 2. affine int8 quantisation -------------------------------------------
+# 2. affine int8 quantisation
 
 
 def quant_params(x: torch.Tensor, symmetric: bool = False, bits: int = 8) -> tuple[float, int]:

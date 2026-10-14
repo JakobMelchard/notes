@@ -33,7 +33,7 @@ class AriesDB:
         self.att = {}                                # txn -> lastLSN (normal operation)
         self.dpt = {}                                # page -> recLSN (normal operation)
 
-    # ---- log and buffer ---------------------------------------------------
+    # log and buffer
     def append(self, **rec):
         rec["lsn"] = len(self.log) + 1
         self.log.append(rec)
@@ -58,7 +58,7 @@ class AriesDB:
             self.disk[p] = tuple(self.buffer[p])
             self.dpt.pop(p, None)
 
-    # ---- normal operation -------------------------------------------------
+    # normal operation
     def update(self, t, p, value):
         lsn = self.append(type="update", txn=t, page=p, before=self.page(p)[0], after=value,
                           prev=self.att.get(t))
@@ -85,7 +85,7 @@ class AriesDB:
                 self.flush(p)
         return dict(self.disk), self.log[:self.flushed]
 
-    # ---- restart ----------------------------------------------------------
+    # restart
     def restart(self, max_clrs=None):
         att, dpt, start = {}, {}, 0
         for rec in self.log:                          # last complete checkpoint

@@ -17,7 +17,7 @@ from inet_checksum import (checksum, incremental_checksum_update, ones_sum, ones
 from subnet import network_info
 
 
-# --------------------------------------------------------------- RFC 1071
+# RFC 1071
 def test_internet_checksum_rfc1071_section3():
     """RFC 1071 section 3 works the one's-complement sum of 0001 f203 f4f5 f6f7
     four ways and prints every intermediate.  It prints sums, not a checksum:
@@ -40,7 +40,7 @@ def test_internet_checksum_rfc1071_section3():
     assert checksum(w) == 0x220D == (~0xDDF2) & 0xFFFF
 
 
-# --------------------------------------------------------------- RFC 1624
+# RFC 1624
 def test_incremental_update_rfc1624_section4():
     """RFC 1624 section 4: a 16-bit field m = 0x5555 changes to m' = 0x3285 and
     the one's-complement sum of every other header octet is 0xCD7A.
@@ -76,7 +76,7 @@ def test_incremental_update_matches_full_recomputation_over_a_ttl_decrement():
     assert updated == checksum(bytes(hdr))
 
 
-# --------------------------------------------------------------- RFC 4034
+# RFC 4034
 def test_dnssec_key_tag_and_ds_digest_rfc4034_section54():
     """RFC 4034 section 5.4 prints a DNSKEY for `dskey.example.com.` with
     "key id = 60485" and the matching DS record with SHA-1 digest
@@ -104,7 +104,7 @@ def test_dnssec_flag_257_is_the_secure_entry_point():
     assert "SEP" not in dnssec.describe_flags(256)
 
 
-# --------------------------------------------------------------- RFC 2328
+# RFC 2328
 def test_ospf_architectural_constants_rfc2328_appendix_b():
     a = ospf.ARCHITECTURAL
     assert a["LSRefreshTime"] == 30 * 60        # "30 minutes"
@@ -171,7 +171,7 @@ def test_ospf_database_only_accepts_newer_instances():
     assert len(db) == 1                                   # same identity, one entry
 
 
-# --------------------------------------------------------------- RFC 4271
+# RFC 4271
 def test_bgp_timer_defaults_rfc4271_section10():
     t = bgp_decision.TIMERS
     assert t["ConnectRetryTime"] == 120
@@ -252,7 +252,7 @@ def test_bgp_as_set_counts_as_one_as():
     assert bgp_decision.select([plain, aggregated]) is aggregated
 
 
-# --------------------------------------------------------------- RFC 3021, 5737, 6598
+# RFC 3021, 5737, 6598
 def test_rfc3021_point_to_point_31_bit_prefix():
     """RFC 3021 section 2.1: on a /31 the two addresses are both usable host
     addresses -- there is no network or broadcast address."""
@@ -271,7 +271,7 @@ def test_documentation_and_shared_address_space_are_reserved():
     assert ipaddress.ip_address("100.64.0.1") in cgnat
 
 
-# --------------------------------------------------------------- demos run
+# demos run
 def test_each_new_module_demo_runs(capsys):
     for module in (dnssec, ospf, bgp_decision):
         fn = getattr(module, "demo", None)

@@ -24,7 +24,7 @@ import ctypes.util
 import numpy as np
 from scipy.optimize import curve_fit, minimize
 
-# --------------------------------------------------------------- optimisation
+# optimisation
 # Task 1 (after SPL 2.7, exercise "A simple (?) quadratic function"): minimise a
 # quadratic whose Hessian is badly conditioned, with and without an analytic
 # gradient, and count the function evaluations each method needs.
@@ -134,7 +134,7 @@ def constrained_box(x0=(2.0, 2.0)) -> tuple[np.ndarray, float]:
     return r.x, float(r.fun)
 
 
-# ------------------------------------------------------------- interfacing
+# interfacing
 # Task 5 (after SPL 2.8, exercise "Ctypes"): call a C function from the system
 # maths library, and see what happens when the signature is left undeclared.
 # libm is used instead of a compiled example so nothing has to be built; the

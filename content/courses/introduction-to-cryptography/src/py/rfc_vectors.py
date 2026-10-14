@@ -57,7 +57,7 @@ def _hexdump(block: str) -> bytes:
     return bytes(out)
 
 
-# ------------------------------------------------------------ RFC 3526
+# RFC 3526
 def rfc3526_modp2048() -> int:
     """The 2048-bit MODP prime, sec. 3 ('Its hexadecimal value is: ...')."""
     body = _section(rfc_text(3526), "3.  2048-bit MODP Group", "4.  3072-bit")
@@ -65,7 +65,7 @@ def rfc3526_modp2048() -> int:
     return int("".join(hexpart.split()), 16)
 
 
-# ------------------------------------------------------------ RFC 5869
+# RFC 5869
 def rfc5869_cases() -> list[dict]:
     """The seven HKDF test cases of appendix A: hash name, IKM, salt (None
     when 'not provided'), info, L, PRK, OKM."""
@@ -88,7 +88,7 @@ def rfc5869_cases() -> list[dict]:
     return cases
 
 
-# ------------------------------------------------------------ RFC 6979
+# RFC 6979
 def rfc6979_dsa(bits: int) -> tuple[dict, list[dict]]:
     """Appendix A.2.1 (bits=1024) or A.2.2 (bits=2048): the key (p, q, g, x,
     y) and the ten signatures (hash, message, k, r, s)."""
@@ -109,7 +109,7 @@ def rfc6979_dsa(bits: int) -> tuple[dict, list[dict]]:
     return key, sigs
 
 
-# ------------------------------------------------------------ RFC 8439
+# RFC 8439
 def rfc8439_block_vector() -> dict:
     """Sec. 2.3.2: key, nonce, counter and the 64-byte serialized block."""
     body = _section(rfc_text(8439), "2.3.2.  Test Vector", "2.4.  The ChaCha20 Encryption")

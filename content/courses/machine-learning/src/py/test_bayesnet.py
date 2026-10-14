@@ -45,7 +45,7 @@ def test_parameter_estimation_recovers_cpts():
     assert np.allclose(est.cpt["A"][(0, 0)], bn.cpt["A"][(0, 0)], atol=0.01)
 
 
-# ------------------- structure learning by local search [S14] -------------------
+# structure learning by local search [S14]
 def test_score_penalises_complexity():
     bn = bayesnet.alarm_network()
     data = bn.sample(3000, rng=5)

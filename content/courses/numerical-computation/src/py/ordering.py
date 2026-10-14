@@ -11,7 +11,7 @@ from collections import deque
 import numpy as np
 
 
-# ----------------------------------------------- graphs, fill-in, ordering
+# graphs, fill-in, ordering
 def adjacency_graph(A, tol=0.0):
     """Neighbour lists of the (symmetrised) sparsity graph G(A)."""
     A = np.asarray(A, float)

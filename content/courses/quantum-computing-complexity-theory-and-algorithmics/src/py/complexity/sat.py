@@ -15,7 +15,7 @@ instances.  Every reduction is polynomial time and preserves yes/no answers.
 from itertools import combinations, product
 
 
-# ---------------------------------------------------------------- SAT solvers
+# SAT solvers
 def num_vars(cnf):
     return max((abs(l) for c in cnf for l in c), default=0)
 
@@ -71,7 +71,7 @@ def dpll(cnf, assignment=None):
     return None
 
 
-# --------------------------------------------------------------- SAT -> 3SAT
+# SAT -> 3SAT
 def sat_to_3sat(cnf):
     """Clause splitting.  Each clause (l1 ... lk), k > 3, becomes the chain
     (l1 l2 y1)(-y1 l3 y2)...(-y_{k-3} l_{k-1} l_k) with fresh y's; k < 3 clauses are
@@ -94,7 +94,7 @@ def sat_to_3sat(cnf):
     return out
 
 
-# --------------------------------------------------- 3SAT -> IS / VERTEX COVER
+# 3SAT -> IS / VERTEX COVER
 def three_sat_to_vertex_cover(cnf):
     """KT 8.4 / 8.2: one triangle per clause (vertices = literal occurrences),
     plus an edge between every pair of complementary occurrences.
@@ -138,7 +138,7 @@ def vertex_cover_exists(vertices, edges, k):
     return None
 
 
-# -------------------------------------------------- VERTEX COVER -> SUBSET SUM
+# VERTEX COVER -> SUBSET SUM
 def vertex_cover_to_subset_sum(vertices, edges, k):
     """KT 8.8: base-4 digits, one digit per edge plus a leading digit.
 

@@ -76,7 +76,7 @@ def test_seeded_encrypt_reproduces_vector_ciphertext():
     assert oaep.encrypt(PUB, bytes.fromhex(case["msg"]), seed=seed) == ct
 
 
-# ------------------------------------------------------------ MGF1, sec. B.2.1
+# MGF1, sec. B.2.1
 def test_mgf1_is_a_prefix_family():
     """T is built by concatenating Hash(seed || counter), so a shorter mask
     is a prefix of a longer one (RFC 8017 appendix B.2.1 step 4)."""
@@ -97,7 +97,7 @@ def test_i2osp_os2ip_roundtrip():
         oaep.i2osp(256, 1)
 
 
-# ------------------------------------------------------ encoding-level checks
+# encoding-level checks
 def test_encoded_message_layout():
     """EM = 0x00 || maskedSeed || maskedDB, length exactly k."""
     em = oaep.eme_oaep_encode(b"hi", 256, seed=b"\x00" * 32)
@@ -143,7 +143,7 @@ def test_oaep_is_not_multiplicatively_malleable():
         oaep.decrypt(PRIV, oaep.i2osp(mauled, 256))
 
 
-# ------------------------------------------------------ cross-check vs library
+# cross-check vs library
 def _library_key():
     pem = GROUP["privateKeyPem"].encode()
     return serialization.load_pem_private_key(pem, password=None)

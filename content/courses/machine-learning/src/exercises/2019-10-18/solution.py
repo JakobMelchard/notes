@@ -36,7 +36,7 @@ from metrics import confusion_matrix, precision_recall_f1   # noqa: E402
 from tree import DecisionTree                # noqa: E402
 
 
-# --- Exercise 7: 9 training points, 3 new points; 3-NN then naive Bayes -------
+# Exercise 7: 9 training points, 3 new points; 3-NN then naive Bayes
 # The paper's own table is not public; this one has the stated shape (9 + 3 rows,
 # mixed nominal attributes, binary target) so the method can be checked.
 TRAIN = np.array([
@@ -104,7 +104,7 @@ def exercise_7_knn_and_naive_bayes():
     )
 
 
-# --- Exercise 5: AdaBoost on three points and a stump --------------------------
+# Exercise 5: AdaBoost on three points and a stump
 def exercise_5_adaboost_stump():
     """x = 1, 3, 5 with labels -1, +1, -1; a stump can make one split.
 
@@ -138,7 +138,7 @@ def exercise_5_adaboost_stump():
     )
 
 
-# --- Exercise 6: support vectors and the SVM boundary of four points -----------
+# Exercise 6: support vectors and the SVM boundary of four points
 def exercise_6_support_vectors():
     """Two points per class in the plane: circle the support vectors, draw the
     boundary and give its slope."""
@@ -162,7 +162,7 @@ def exercise_6_support_vectors():
     )
 
 
-# --- Exercise 4: decision boundaries on two concentric rings -------------------
+# Exercise 4: decision boundaries on two concentric rings
 def exercise_4_decision_boundaries():
     """Which classifiers can separate two concentric rings?
 

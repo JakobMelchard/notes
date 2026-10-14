@@ -21,7 +21,7 @@ import math
 import rng
 
 
-# ---------------------------------------------------------------- basics
+# basics
 def egcd(a: int, b: int) -> tuple[int, int, int]:
     """Extended Euclid: returns (g, x, y) with a*x + b*y = g = gcd(a, b)."""
     x0, x1, y0, y1 = 1, 0, 0, 1
@@ -64,7 +64,7 @@ def crt(residues: list[int], moduli: list[int]) -> int:
     return x % n
 
 
-# ---------------------------------------------------------------- primes
+# primes
 def miller_rabin(n: int, rounds: int = 32) -> bool:
     """Probabilistic primality test. A composite passes one round with
     probability <= 1/4, so `rounds` rounds give error <= 4^{-rounds}."""
@@ -128,7 +128,7 @@ def euler_phi(n: int) -> int:
     return math.prod((p - 1) * p ** (k - 1) for p, k in factorize(n).items())
 
 
-# ---------------------------------------------------------------- groups
+# groups
 def order(g: int, p: int) -> int:
     """Order of g in Z_p^* for prime p: smallest d | p-1 with g^d = 1."""
     d = p - 1

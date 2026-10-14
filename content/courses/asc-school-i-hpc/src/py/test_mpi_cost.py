@@ -37,7 +37,7 @@ from mpi_cost import (
 NET = Network.from_latency_bandwidth(1.5, 12.0, 5.0)
 
 
-# --------------------------------------------------------------- point to point
+# point to point
 
 def test_network_units():
     """1.5 us and 12 GB/s in SI."""
@@ -81,7 +81,7 @@ def test_published_vsc3_pingpong_latency_ladder():
     assert 14.0 / intel["ib-edge"] > 9.0
 
 
-# ------------------------------------------------------------------ collectives
+# collectives
 
 @pytest.mark.parametrize("p", [2, 4, 8, 16, 64, 1024])
 def test_bcast_short_is_binomial_tree(p):
@@ -201,7 +201,7 @@ def test_removing_barriers_is_worth_something_measurable():
     assert per_iteration * 1e6 > 1.0        # > 1 s over 10^6 iterations
 
 
-# ----------------------------------------------------------------------- Amdahl
+# Amdahl
 
 def test_amdahl_convention_is_sequential_fraction():
     """f = 0 means perfect scaling; f = 1 means none.  If this test fails, the

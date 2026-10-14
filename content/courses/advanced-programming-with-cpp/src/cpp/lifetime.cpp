@@ -10,7 +10,7 @@
 #include <vector>
 #include "check.hpp"
 
-// --- classification [basic.types.general], [class.prop]
+// classification [basic.types.general], [class.prop]
 struct Pod { int id; double x, y; };                 // trivial + standard-layout + aggregate
 struct WithCtor { int v; WithCtor() : v(1) {} };     // user-provided default ctor: not trivial
 struct WithDtor { int v; ~WithDtor() {} };           // user-provided dtor: not trivially copyable
@@ -33,7 +33,7 @@ static_assert(std::is_implicit_lifetime_v<WithCtor>);    // trivial copy ctor + 
 static_assert(!std::is_implicit_lifetime_v<WithDtor>);   // user-provided dtor, not trivial
 #endif
 
-// --- a tracer that logs its lifetime events
+// a tracer that logs its lifetime events
 std::vector<std::string> events;
 struct Tracer {
     std::string name;

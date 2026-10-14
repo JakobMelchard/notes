@@ -18,7 +18,7 @@ def cheb(n, a=-1.0, b=1.0):
     return (a + b) / 2 + (b - a) / 2 * np.cos((2 * np.arange(n + 1) + 1) * np.pi / (2 * n + 2))
 
 
-# ------------------------------------------------------------ Neville
+# Neville
 def test_neville_matches_lagrange():
     for t in np.linspace(-1, 5, 25):
         assert aitken_neville(XS, YS, t) == pytest.approx(lagrange_eval(XS, YS, t), rel=1e-12)
@@ -64,7 +64,7 @@ def test_neville_tableau_column_m_holds_degree_m_polynomials():
             assert P[j, m] == pytest.approx(lagrange_eval(sub_x, sub_y, 3.0), rel=1e-12)
 
 
-# -------------------------------------------------------- extrapolation
+# extrapolation
 def test_extrapolation_column_rate_is_h_to_the_m_plus_one():
     """[S4] Thm 1.17: column m converges like h^{m+1} for smooth f."""
     hs = 2.0 ** -np.arange(10)
@@ -92,7 +92,7 @@ def test_extrapolation_stalls_for_non_smooth_data():
         assert rate.mean() == pytest.approx(0.5, abs=0.05)
 
 
-# ------------------------------------------ node polynomial and Lebesgue
+# node polynomial and Lebesgue
 @pytest.mark.parametrize("n", [1, 2, 3, 5, 8, 12])
 def test_chebyshev_node_polynomial_closed_form(n):
     """[S4] Thm 1.21: ||omega||_inf = 2 ((b-a)/4)^{n+1} for Chebyshev points."""
@@ -156,7 +156,7 @@ def test_best_approximation_numbers_of_s4_example_1_26():
     assert remez < icheb < taylor
 
 
-# ---------------------------------------------------------- Hermite
+# Hermite
 def test_hermite_reproduces_values_and_derivatives():
     """[S4] (1.22)."""
     f = lambda x: np.sin(x)

@@ -54,7 +54,7 @@ int main(int argc, char **argv)
     char fname[64];
     snprintf(fname, sizeof fname, "io_demo_%d.bin", size);
 
-    /* ---- process grid and my block ------------------------------------ */
+    /* process grid and my block */
     int dims[2] = {0, 0}, periods[2] = {0, 0}, coords[2];
     MPI_Dims_create(size, 2, dims);
     MPI_Comm cart;
@@ -70,7 +70,7 @@ int main(int argc, char **argv)
     for (int i = 0; i < ny; i++)
         for (int j = 0; j < nx; j++) blk[(size_t)i * nx + j] = (double)(y0 + i) * NX + (x0 + j);
 
-    /* ---- 1. collective write through a file view ----------------------- */
+    /* 1. collective write through a file view */
     MPI_Datatype filetype;
     int gsizes[2] = {NY, NX}, lsizes[2] = {ny, nx}, starts[2] = {y0, x0};
     MPI_Type_create_subarray(2, gsizes, lsizes, starts, MPI_ORDER_C, MPI_DOUBLE, &filetype);
@@ -110,7 +110,7 @@ int main(int argc, char **argv)
     CHECK(MPI_File_close(&fh));
     MPI_Type_free(&filetype);
 
-    /* ---- 2. read back with row blocks and explicit offsets ------------- */
+    /* 2. read back with row blocks and explicit offsets */
     int r0, nr;
     block_range(NY, size, rank, &r0, &nr);
     double *rows = malloc((size_t)nr * NX * sizeof *rows + 1);
@@ -130,7 +130,7 @@ int main(int argc, char **argv)
     long bad_total = 0;
     MPI_Allreduce(&bad, &bad_total, 1, MPI_LONG, MPI_SUM, MPI_COMM_WORLD);
 
-    /* ---- 3. serial re-read by rank 0 ----------------------------------- */
+    /* 3. serial re-read by rank 0 */
     int ok = bad_total == 0 && fsize == (MPI_Offset)NY * NX * (MPI_Offset)sizeof(double);
     if (rank == 0) {
         FILE *fp = fopen(fname, "rb");

@@ -22,7 +22,7 @@ except ImportError:  # pragma: no cover
     ILP_BACKEND = "milp"
 
 
-# ---------------------------------------------------------------- generic ILP
+# generic ILP
 def solve_ilp(c, A_ub, b_ub, bounds, integrality):
     """min c.x  s.t. A_ub x <= b_ub, bounds, x_i integer where integrality[i].
 
@@ -48,7 +48,7 @@ def solve_ilp(c, A_ub, b_ub, bounds, integrality):
     return float(res.fun), res.x
 
 
-# ------------------------------------------------------------- vertex cover
+# vertex cover
 def _vc_matrices(nodes, edges):
     """min sum x_v  s.t.  x_u + x_v >= 1  (as -x_u - x_v <= -1),  0<=x<=1."""
     idx = {v: i for i, v in enumerate(nodes)}
@@ -86,7 +86,7 @@ def integrality_gap(nodes, edges):
     return lp, ilp, ilp / lp
 
 
-# ----------------------------------------------------------------- max flow
+# max flow
 def max_flow_lp(nodes, edges, s, t):
     """max net flow out of s; conservation at internal nodes; 0 <= f_e <= c_e.
 
@@ -130,7 +130,7 @@ def min_cut_dual_lp(nodes, edges, s, t):
     return float(res.fun), {v for v in nodes if p[idx[v]] >= 0.5}
 
 
-# --------------------------------------------------------- branch and bound
+# branch and bound
 def branch_and_bound(c, A_ub, b_ub, bounds, integrality, tol=1e-6):
     """min c.x, A_ub x <= b_ub, with x_i integer where integrality[i].
 
@@ -162,7 +162,7 @@ def branch_and_bound(c, A_ub, b_ub, bounds, integrality, tol=1e-6):
     return best_val, best_x
 
 
-# ------------------------------------------------------------------ simplex
+# simplex
 def simplex(c, A, b, max_iter=1000):
     """max c.x  s.t.  A x <= b, x >= 0, with b >= 0 (origin feasible).
 

@@ -60,7 +60,7 @@ def _header(raw):
     return endian, magic == MAGIC_NSEC, snaplen, linktype
 
 
-# ---------------------------------------------------------------- synthetic trace
+# synthetic trace
 def synthetic_trace():
     """A tiny but realistic session: ARP resolve, TCP 3-way handshake, one
     HTTP-ish request and response, FIN/ACK teardown, and a DNS-like UDP

@@ -59,7 +59,7 @@ class MLP(BaseEstimator):
         self.batch_size, self.optimizer, self.momentum, self.l2, self.dropout = batch_size, optimizer, momentum, l2, dropout
         self.early_stopping, self.patience, self.rng = early_stopping, patience, rng
 
-    # -------------------------------------------------------------- setup
+    # setup
     def _init(self, d_in, d_out):
         r = np.random.default_rng(self.rng)
         sizes = [d_in, *self.hidden, d_out]
@@ -71,7 +71,7 @@ class MLP(BaseEstimator):
         self._v = [np.zeros_like(p) for p in self.W_ + self.b_]
         self._t = 0
 
-    # ------------------------------------------------------------ forward
+    # forward
     def _forward(self, X, train=False, rng=None):
         act, _ = ACTS[self.activation]
         A, cache = X, []
@@ -90,7 +90,7 @@ class MLP(BaseEstimator):
             A = A_new
         return A, cache
 
-    # ----------------------------------------------------------- backward
+    # backward
     def _backward(self, cache, Y):
         """dL/dZ_out = (P - Y)/n for softmax+CE and (F - y)/n for linear+MSE (up to constant);
         then dZ_{l} = (dZ_{l+1} W_{l+1}^T) * act'(Z_l), dW_l = A_{l-1}^T dZ_l, db_l = sum dZ_l."""
@@ -129,7 +129,7 @@ class MLP(BaseEstimator):
         data = -np.mean(np.sum(Y * np.log(P + 1e-12), 1)) if self.task == "classification" else 0.5 * np.mean((P - Y) ** 2)
         return float(data + self.l2 / (2 * len(X)) * sum(np.sum(W ** 2) for W in self.W_))
 
-    # ---------------------------------------------------------------- fit
+    # fit
     def fit(self, X, y, X_val=None, y_val=None):
         X, y = np.asarray(X, float), np.asarray(y)
         if self.task == "classification":

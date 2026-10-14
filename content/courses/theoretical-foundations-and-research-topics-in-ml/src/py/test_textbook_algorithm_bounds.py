@@ -26,7 +26,7 @@ import rademacher
 import svm
 
 
-# --- Rademacher: S10 Thm 3.7 (Massart), S10 Thm 5.10 (linear) ---------------
+# Rademacher: S10 Thm 3.7 (Massart), S10 Thm 5.10 (linear)
 
 def test_massart_bound_dominates_exact_rademacher_complexity():
     """S10 Thm 3.7: R_S(F) <= (r/n) sqrt(2 log|F|), r = max_f ||f|_S||_2.
@@ -91,7 +91,7 @@ def test_linear_class_rademacher_exact_bound_and_jensen_gap():
     assert exact_same == pytest.approx(0.798 * B / math.sqrt(n), rel=0.05)
 
 
-# --- Stability: S9 Cor. 13.6 and Cor. 13.9 ----------------------------------
+# Stability: S9 Cor. 13.6 and Cor. 13.9
 
 def test_rlm_stability_rate_and_its_optimal_lambda():
     """S9 Cor. 13.6: RLM with lambda||w||^2 is (2 rho^2 / (lambda m))-stable.
@@ -114,7 +114,7 @@ def test_rlm_stability_rate_and_its_optimal_lambda():
             float(np.min(excess(grid, rho, B, m))), rel=1e-6)
 
 
-# --- Ridge: note 07 Thm 7.9(c) ----------------------------------------------
+# Ridge: note 07 Thm 7.9(c)
 
 def test_ridge_bias_bound_lambda_over_four():
     """Note 07 Thm 7.9(c): ||(I - H_lam) X w*||^2 <= (lambda/4) ||w*||^2.
@@ -161,7 +161,7 @@ def test_ols_in_sample_excess_risk_is_sigma_squared_d():
     assert float(np.mean(vals)) == pytest.approx(sigma**2 * d, rel=0.06)
 
 
-# --- SVM: note 09 worked example, S10 Thm 5.4 -------------------------------
+# SVM: note 09 worked example, S10 Thm 5.4
 
 def test_svm_worked_example_matches_the_hand_computation():
     """Note 09's four-point example, solved by hand:

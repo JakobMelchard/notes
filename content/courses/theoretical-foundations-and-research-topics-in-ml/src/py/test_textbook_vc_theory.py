@@ -25,7 +25,7 @@ import rademacher
 import vc
 
 
-# --- Concentration: S9 Lemma 4.5, S9 Cor. 2.3 / Cor. 4.6 ---------------------
+# Concentration: S9 Lemma 4.5, S9 Cor. 2.3 / Cor. 4.6
 
 def test_hoeffding_dominates_exact_binomial_tail():
     """S9 Lemma 4.5: P(|mean - mu| > eps) <= 2 exp(-2 n eps^2).
@@ -74,7 +74,7 @@ def test_finite_class_sample_complexities_match_the_two_theorems():
     assert bigger - agnostic == pytest.approx(math.log(2) / (2 * eps**2), abs=1.0)
 
 
-# --- No-Free-Lunch: S9 Thm 5.1 ----------------------------------------------
+# No-Free-Lunch: S9 Thm 5.1
 
 def test_no_free_lunch_reverse_markov_constants():
     """S9 Thm 5.1 gives P(L_D(A(S)) >= 1/8) >= 1/7 from E[L_D(A(S))] >= 1/4.
@@ -96,7 +96,7 @@ def test_no_free_lunch_reverse_markov_constants():
         assert (z >= a).mean() >= reverse_markov(z.mean(), a) - 1e-9
 
 
-# --- Sauer-Shelah: S9 Lemma 6.10, S10 Thm 3.17, S10 Cor. 3.18 ---------------
+# Sauer-Shelah: S9 Lemma 6.10, S10 Thm 3.17, S10 Cor. 3.18
 
 def test_sauer_shelah_holds_and_is_tight_for_intervals():
     """S9 Lemma 6.10 / S10 Thm 3.17: tau_H(n) <= sum_{i<=d} C(n,i).
@@ -158,7 +158,7 @@ def test_vc_dimensions_of_the_standard_classes():
     assert vc.vc_dimension_estimate(vc.halfspace_labelings, vc.sample_plane, 5, 200, rng) == 3
 
 
-# --- The fundamental theorem: S9 Thm 6.8 ------------------------------------
+# The fundamental theorem: S9 Thm 6.8
 
 def test_fundamental_theorem_realisable_upper_bound_carries_the_log_one_over_eps():
     """S9 Thm 6.8 is ASYMMETRIC in the realisable case:

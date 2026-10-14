@@ -8,7 +8,7 @@ test_backprop_scratch.py [S11 ch. 6.5].
 import numpy as np
 
 
-# ---------------------------------------------------------------- scalar graph (exam style)
+# scalar graph (exam style)
 class Node:
     """A node of a scalar computational graph: op in {'input', 'add', 'mul', 'max'}."""
 
@@ -67,7 +67,7 @@ def exam_graph(x1, x2, x3, x4):
     return f, a
 
 
-# ---------------------------------------------------------------- 2-layer MLP
+# 2-layer MLP
 def init_mlp(d_in, d_hidden, n_classes, rng):
     """He initialisation for the ReLU layer, Xavier-like for the output layer [S19]."""
     return {"W1": rng.normal(0, np.sqrt(2 / d_in), (d_in, d_hidden)), "b1": np.zeros(d_hidden),
@@ -116,7 +116,7 @@ def train_mlp(X, y, d_hidden=32, lr=0.5, steps=300, seed=0):
     return P, losses
 
 
-# ---------------------------------------------------------------- convolution
+# convolution
 def conv2d_forward(x, w, b, stride=1, pad=0):
     """Cross-correlation, x [N,C,H,W], w [F,C,k,k], b [F] -> y [N,F,Ho,Wo] (im2col-free loops
     over kernel offsets: each offset is one strided slice times a C x F matrix)."""

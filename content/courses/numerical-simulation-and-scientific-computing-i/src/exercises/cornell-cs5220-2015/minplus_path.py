@@ -39,7 +39,7 @@ def random_graph(n: int, p: float = 0.05, seed: int = 20260922,
     return l
 
 
-# ----------------------------------------------------------------------- A
+# A
 def floyd_warshall(l: np.ndarray) -> np.ndarray:
     """O(n^3): n rank-1 relaxations, each O(n^2). One pass, no iteration."""
     d = l.copy()
@@ -101,7 +101,7 @@ def flop_counts(n: int) -> dict[str, float]:
             "ratio": float(steps)}
 
 
-# ----------------------------------------------------------------------- B
+# B
 def minplus_product_blocked(a: np.ndarray, b: np.ndarray, block: int = 32
                             ) -> np.ndarray:
     """The same product, tiled i/j/k -- the GEMM blocking argument unchanged.
@@ -142,7 +142,7 @@ def largest_block_for_cache(cache_bytes: int, itemsize: int = 8) -> int:
     return b
 
 
-# ----------------------------------------------------------------------- C
+# C
 def max_abs_diff(a: np.ndarray, b: np.ndarray) -> float:
     """Largest finite discrepancy; INF must line up with INF exactly."""
     both_inf = np.isinf(a) & np.isinf(b)

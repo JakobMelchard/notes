@@ -44,7 +44,7 @@ def test_render_is_readable_without_the_answer() -> None:
     assert ITEMS[0].why in ITEMS[0].render(with_answer=True)
 
 
-# ------------------------------------------------ the guard rails themselves
+# the guard rails themselves
 def test_pick_rejects_an_item_with_two_right_answers() -> None:
     with pytest.raises(AmbiguousItem):
         pick(3, a=3, b=3, c=1, d=2)

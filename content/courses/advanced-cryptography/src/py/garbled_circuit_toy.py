@@ -48,7 +48,7 @@ def _xor(a: bytes, b: bytes) -> bytes:
     return bytes(x ^ y for x, y in zip(a, b))
 
 
-# --- oblivious transfer [S4 sec. 11.6.1] -------------------------------------
+# oblivious transfer [S4 sec. 11.6.1]
 
 def ot_sender_1(G: SchnorrGroup):
     beta = G.rand_scalar()
@@ -83,7 +83,7 @@ def ot(msgs: list[bytes], i: int, G: SchnorrGroup = MEDIUM) -> bytes:
     return ot_receiver_2(G, alpha, v, i, ot_sender_2(G, beta, v, u, msgs))
 
 
-# --- Yao's garbled circuit [S12], [S13], [S4 sec. 23.3] ----------------------
+# Yao's garbled circuit [S12], [S13], [S4 sec. 23.3]
 
 def garble(circ):
     """Two random labels per wire (label[w][bit]); per gate a shuffled table of
@@ -130,7 +130,7 @@ def yao(circ, x: dict, y: dict) -> int:
     return evaluate(circ, tables, decode, inputs)               # Bob, then shares result
 
 
-# --- GMW with 1-out-of-4 OT [S11], [S7 sec. 4.5] ------------------------------
+# GMW with 1-out-of-4 OT [S11], [S7 sec. 4.5]
 
 def gmw_and(a1: int, b1: int, a2: int, b2: int) -> tuple[int, int]:
     """Shares (a1, b1) at P1, (a2, b2) at P2 of a = a1^a2, b = b1^b2.

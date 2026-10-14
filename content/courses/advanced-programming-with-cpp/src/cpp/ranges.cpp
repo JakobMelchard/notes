@@ -23,14 +23,14 @@ std::generator<long> fibonacci() { long a = 0, b = 1; for (;;) { co_yield a; a =
 namespace rg = std::ranges;
 namespace vw = std::views;
 
-// --- the iterator hierarchy, as C++20 concepts [iterator.concepts]
+// the iterator hierarchy, as C++20 concepts [iterator.concepts]
 static_assert(std::contiguous_iterator<std::vector<int>::iterator>);
 static_assert(std::random_access_iterator<std::deque<int>::iterator> && !std::contiguous_iterator<std::deque<int>::iterator>);
 static_assert(std::bidirectional_iterator<std::list<int>::iterator> && !std::random_access_iterator<std::list<int>::iterator>);
 static_assert(std::forward_iterator<std::forward_list<int>::iterator> && !std::bidirectional_iterator<std::forward_list<int>::iterator>);
 static_assert(std::input_iterator<std::istream_iterator<int>> && !std::forward_iterator<std::istream_iterator<int>>);
 
-// --- a singly linked list with a hand-written forward iterator
+// a singly linked list with a hand-written forward iterator
 template <class T> class SList {
     struct Node { T value; Node* next; };
     Node* head_ = nullptr;
@@ -68,7 +68,7 @@ static_assert(std::forward_iterator<SList<int>::iterator>);
 static_assert(rg::forward_range<const SList<int>>);
 static_assert(std::is_same_v<rg::range_reference_t<const SList<int>>, const int&>);
 
-// --- a sentinel: end is a different type, checked by a predicate (C-string style)
+// a sentinel: end is a different type, checked by a predicate (C-string style)
 struct Countdown {
     int from;
     struct It {

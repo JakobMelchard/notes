@@ -46,7 +46,7 @@ import torch.nn.functional as F
 from scipy.optimize import linear_sum_assignment
 
 
-# --- box geometry -----------------------------------------------------------
+# box geometry
 
 
 def box_area(b: torch.Tensor) -> torch.Tensor:
@@ -82,7 +82,7 @@ def generalized_iou(a: torch.Tensor, b: torch.Tensor) -> torch.Tensor:
     return iou - (enclosing - union) / enclosing
 
 
-# --- the matching -----------------------------------------------------------
+# the matching
 
 
 def matching_cost(pred_logits: torch.Tensor, pred_boxes: torch.Tensor,
@@ -135,7 +135,7 @@ def assignment_cost(cost: torch.Tensor, rows: torch.Tensor, cols: torch.Tensor) 
     return float(cost[rows, cols].sum())
 
 
-# --- the loss ---------------------------------------------------------------
+# the loss
 
 
 def set_criterion(pred_logits: torch.Tensor, pred_boxes: torch.Tensor,
@@ -169,7 +169,7 @@ def set_criterion(pred_logits: torch.Tensor, pred_boxes: torch.Tensor,
                    "pred_idx": pi, "tgt_idx": ti}
 
 
-# --- a runnable toy ---------------------------------------------------------
+# a runnable toy
 
 
 class TinyDetector(nn.Module):

@@ -20,7 +20,7 @@ IPPROTO_ICMP, IPPROTO_TCP, IPPROTO_UDP, IPPROTO_ICMPV6 = 1, 6, 17, 58
 TCP_FLAGS = ["FIN", "SYN", "RST", "PSH", "ACK", "URG", "ECE", "CWR"]  # bit 0..7
 
 
-# ---------------------------------------------------------------- helpers
+# helpers
 def mac_to_bytes(mac):
     return bytes(int(b, 16) for b in mac.split(":"))
 
@@ -37,7 +37,7 @@ def flags_from_str(s):
     return sum(1 << TCP_FLAGS.index(n) for n in s.split("|") if n)
 
 
-# ---------------------------------------------------------------- Ethernet II
+# Ethernet II
 def build_ethernet(dst, src, ethertype, payload=b""):
     return mac_to_bytes(dst) + mac_to_bytes(src) + struct.pack("!H", ethertype) + payload
 
@@ -54,7 +54,7 @@ def parse_ethernet(frame):
             "vlan": vlan, "payload": frame[off:]}
 
 
-# ---------------------------------------------------------------- ARP (Ethernet/IPv4)
+# ARP (Ethernet/IPv4)
 def build_arp(op, sha, spa, tha, tpa):
     """op 1 = request, 2 = reply.  htype 1 (Ethernet), ptype 0x0800, hlen 6, plen 4."""
     return (struct.pack("!HHBBH", 1, ETH_P_IP, 6, 4, op) + mac_to_bytes(sha)
@@ -73,7 +73,7 @@ def parse_arp(data):
             "tha": bytes_to_mac(tha), "tpa": str(ipaddress.IPv4Address(tpa))}
 
 
-# ---------------------------------------------------------------- IPv4
+# IPv4
 def build_ipv4(src, dst, proto, payload=b"", ttl=64, ident=0, flags=0, frag_off=0,
                tos=0, options=b""):
     """Header checksum is computed over the header only (payload excluded)."""
@@ -128,7 +128,7 @@ def reassemble_ipv4(fragments):
     return build_ipv4(h["src"], h["dst"], h["proto"], payload, ttl=h["ttl"], ident=h["id"])
 
 
-# ---------------------------------------------------------------- IPv6
+# IPv6
 def build_ipv6(src, dst, next_header, payload=b"", hop_limit=64, traffic_class=0,
                flow_label=0):
     vtf = (6 << 28) | (traffic_class << 20) | flow_label
@@ -145,7 +145,7 @@ def parse_ipv6(data):
             "dst": str(ipaddress.IPv6Address(data[24:40])), "payload": data[40:40 + plen]}
 
 
-# ---------------------------------------------------------------- pseudo header
+# pseudo header
 def pseudo_header(src, dst, proto, length):
     """Prepended to UDP/TCP for checksumming so a packet delivered to the
     wrong host/protocol fails the check.  IPv4: 12 bytes; IPv6: 40 bytes."""
@@ -155,7 +155,7 @@ def pseudo_header(src, dst, proto, length):
     return s.packed + d.packed + struct.pack("!IHBB", length, 0, 0, proto)
 
 
-# ---------------------------------------------------------------- UDP
+# UDP
 def build_udp(src, dst, sport, dport, payload=b""):
     length = 8 + len(payload)
     hdr = struct.pack("!HHHH", sport, dport, length, 0)
@@ -174,7 +174,7 @@ def parse_udp(data, src=None, dst=None):
     return out
 
 
-# ---------------------------------------------------------------- TCP
+# TCP
 def build_tcp(src, dst, sport, dport, seq, ack, flags, window=65535, payload=b"",
               options=b"", urgent=0):
     """flags may be an int bitmask or a string like 'SYN|ACK'."""
@@ -227,7 +227,7 @@ def tcp_option_mss(mss):
     return struct.pack("!BBH", 2, 4, mss)
 
 
-# ---------------------------------------------------------------- whole frame
+# whole frame
 def parse_frame(frame):
     """Decode Ethernet -> ARP / IPv4 / IPv6 -> UDP / TCP; returns a list of
     layer dicts, innermost last (what tshark prints as the protocol stack)."""

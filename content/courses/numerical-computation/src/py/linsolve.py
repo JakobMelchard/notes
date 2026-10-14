@@ -10,7 +10,7 @@ numpy.linalg inside the algorithms).
 import numpy as np
 
 
-# ---------------------------------------------------------------- triangular
+# triangular
 def forward_substitution(L, b, unit_diag=False):
     """Solve L y = b, L lower triangular.  O(n^2)."""
     n = len(b)
@@ -30,7 +30,7 @@ def back_substitution(U, y):
     return x
 
 
-# ---------------------------------------------------------------- direct
+# direct
 def gauss_elim(A, b):
     """Gaussian elimination with partial pivoting on the augmented matrix,
     then back substitution.  ~ n^3/3 flops for the elimination."""
@@ -127,7 +127,7 @@ def cholesky_solve(L, b):
     return back_substitution(L.T, y)
 
 
-# ---------------------------------------------------------------- iterative
+# iterative
 def jacobi(A, b, x0=None, tol=1e-10, maxiter=10_000):
     """x^{k+1} = D^{-1} (b - (L+U) x^k).  Converges if A strictly diagonally
     dominant (rho(D^{-1}(L+U)) < 1).  Returns (x, iterations, residual history)."""

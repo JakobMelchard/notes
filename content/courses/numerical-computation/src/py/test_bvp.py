@@ -57,7 +57,7 @@ def test_variational_solution_is_the_sensitivity():
     assert np.asarray(W)[-1, 0] == pytest.approx(np.sin(T), abs=1e-8)   # v = sin t
 
 
-# ------------------------------------ [S4] Ex. 9.17: the three boundary problems
+# [S4] Ex. 9.17: the three boundary problems
 def test_unique_case():
     s, ts, y = shooting(F, 0.0, 1.0, np.pi / 2, s0=0.0, f_y=FY, f_u=FU, N=800)
     assert s == pytest.approx(1.0, abs=1e-9)
@@ -95,7 +95,7 @@ def test_unsolvable_case_produces_a_meaningless_answer():
     assert abs(y2[-1] - y1[-1]) / eps < 1e-8            # d y(pi) / d s0 = sin(pi) = 0
 
 
-# ------------------------------------------------------------- nonlinear BVP
+# nonlinear BVP
 def test_nonlinear_bvp_against_the_exact_solution():
     """y'' = 2 y^3 on [1, 2], y(1) = 1, y(2) = 1/2 has the solution y = 1/t."""
     g = lambda t, y, u: 2.0 * y ** 3
@@ -143,7 +143,7 @@ def test_damped_problem_with_a_first_derivative_term():
     np.testing.assert_allclose(y, (1 + ts) * np.exp(-ts), atol=1e-8)
 
 
-# ----------------------------------------------------------- the sensitivity
+# the sensitivity
 def test_sensitivity_bound():
     """[S4] sec. 9.4: e^{L T}; for L = T = 10 that is ~2.7e43."""
     assert shooting_sensitivity(1.0, 1.0) == pytest.approx(np.e)
