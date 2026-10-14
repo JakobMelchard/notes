@@ -27,6 +27,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: scripts/notes.sh
+      # notes-src content is gitignored here and never reviewed in a PR, so gate the publish on it
+      - run: python3 scripts/check.py
       - run: npx quartz build
       - run: npm run drill
       - uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
