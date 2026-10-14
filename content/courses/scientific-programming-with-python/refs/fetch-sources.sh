@@ -62,10 +62,10 @@ Attribution, required by CC BY 4.0 if you reuse anything from either:
 
   Joakim Sundnes, "Introduction to Scientific Programming with Python",
   Simula SpringerBriefs on Computing 6, Springer Cham 2020,
-  doi:10.1007/978-3-030-50356-7 — CC BY 4.0.
+  doi:10.1007/978-3-030-50356-7, CC BY 4.0.
 
   The Scientific Python developers, "Scientific Python Lectures",
-  release 2024.1, https://lectures.scientific-python.org/ — CC BY 4.0.
+  release 2024.1, https://lectures.scientific-python.org/, CC BY 4.0.
 
 The library documentation this course actually rests on is NOT downloaded:
 it is cited at the exact version installed in the repo venv.  See SOURCES.md.
