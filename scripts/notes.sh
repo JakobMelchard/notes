@@ -5,7 +5,7 @@ set -eu
 dir=.notes
 url=https://github.com/JakobMelchard/notes-src.git
 if [ -d "$dir/.git" ]; then
-  # an older clone points at JakobMelchard/notes, which is now this repo
+  # make sure origin is notes-src
   git -C "$dir" remote set-url origin "$url"
   git -C "$dir" fetch -q --depth 1 origin "${1:-main}" && git -C "$dir" checkout -q FETCH_HEAD
 else

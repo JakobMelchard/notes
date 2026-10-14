@@ -35,7 +35,7 @@ get() {  # get <name> <url> [referer]
     fi
 }
 
-echo "== VoWi: the exam archive (S12-S16, S43) — the course's real syllabus =="
+echo "== VoWi: the exam archive (S12-S16, S43), the course's real syllabus =="
 V=https://vowi.fsinf.at/images
 R=https://vowi.fsinf.at/
 get S12-questions-previous-exams-answered-2024S.pdf \

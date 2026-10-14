@@ -29,7 +29,7 @@ get() {  # get <name> <url> [referer]
     fi
 }
 
-# S9 — UML. cs.huji.ac.il rejects a bare curl; the UA and referer above are
+# S9: UML. cs.huji.ac.il rejects a bare curl; the UA and referer above are
 # enough. If it ever returns an HTML error page instead of a PDF, open
 # https://www.cs.huji.ac.il/~shais/UnderstandingMachineLearning/copy.html
 # in a browser and save the file into vendor/ by hand.
@@ -37,17 +37,17 @@ get S9-shalev-shwartz-ben-david-understanding-machine-learning.pdf \
     'https://www.cs.huji.ac.il/~shais/UnderstandingMachineLearning/understanding-machine-learning-theory-algorithms.pdf' \
     'https://www.cs.huji.ac.il/~shais/UnderstandingMachineLearning/copy.html'
 
-# S10 — FoML. The book page links Dropbox; dl.dropboxusercontent.com serves the
+# S10: FoML. The book page links Dropbox; dl.dropboxusercontent.com serves the
 # file directly, while www.dropbox.com returns the viewer HTML.
 get S10-mohri-rostamizadeh-talwalkar-foundations-of-machine-learning-2e.pdf \
     'https://dl.dropboxusercontent.com/s/38p0j6ds5q9c8oe/10290.pdf'
 
-# S11 — Telgarsky's deep learning theory notes (optional, for note 10).
+# S11: Telgarsky's deep learning theory notes (optional, for note 10).
 # No licence statement; personal use only.
 get S11-telgarsky-deep-learning-theory.pdf \
     'https://mjt.cs.illinois.edu/dlt/index.pdf'
 
-# S12 — Bach, Learning Theory from First Principles (optional, notes 07-08).
+# S12: Bach, Learning Theory from First Principles (optional, notes 07-08).
 get S12-bach-learning-theory-from-first-principles.pdf \
     'https://www.di.ens.fr/~fbach/ltfp_book.pdf'
 

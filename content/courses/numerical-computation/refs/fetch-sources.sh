@@ -23,17 +23,17 @@ get() {  # get <name> <url> [referer]
     fi
 }
 
-# S4 — the course's own lecture notes. Everything else is optional.
+# S4: the course's own lecture notes. Everything else is optional.
 get S4-melenk-faustmann-numerical-computation-ws2324.pdf \
     'https://www.tuwien.at/index.php?eID=dumpFile&t=f&f=202609&token=57cfb2dfeef43abeefd966ce28dc8d35e3bff56e'
 
-# S17, S18 — free companions for the CG / GMRES chapter.
+# S17, S18: free companions for the CG / GMRES chapter.
 get S17-shewchuk-painless-conjugate-gradient.pdf \
     'https://www.cs.cmu.edu/~quake-papers/painless-conjugate-gradient.pdf'
 get S18-saad-iterative-methods-2nd.pdf \
     'https://www-users.cse.umn.edu/~saad/IterMethBook_2ndEd.pdf'
 
-# S10, S11 — past tests on VoWi. The wiki runs a proof-of-work bot gate, so
+# S10, S11: past tests on VoWi. The wiki runs a proof-of-work bot gate, so
 # these usually need a real browser; if curl returns an HTML page instead of a
 # PDF, open the URL in a browser and save it into vendor/ by hand.
 V=https://vowi.fsinf.at/images
