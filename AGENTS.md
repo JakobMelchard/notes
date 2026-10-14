@@ -8,7 +8,7 @@ rules apply to you.
 
 ## Layout
 
-Course layout, citations and flashcard format are in [CONTRIBUTING.md](CONTRIBUTING.md). `index.md`, `notes/` and `docs/` come from JakobMelchard/notes and are gitignored here, so a course-content PR touches only `refs/` and `src/`.
+Course layout, citations and flashcard format are in [CONTRIBUTING.md](CONTRIBUTING.md). `index.md`, `notes/` and `docs/` come from JakobMelchard/notes-src and are gitignored here, so a course-content PR touches only `refs/` and `src/`.
 
 The sources are the ground truth, the notes are derived. Never edit a note in a way its cited sources do not support.
 
