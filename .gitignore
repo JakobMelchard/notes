@@ -10,6 +10,7 @@ private/
 replit.nix
 .venv
 __pycache__/
+.pytest_cache/
 # from JakobMelchard/notes-src, copied in by scripts/notes.sh
 .notes/
 content/index.md

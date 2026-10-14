@@ -1,3 +1,7 @@
 public
 node_modules
 .quartz-cache
+# prose and vendored references, not formatted
+content
+templates
+LICENSE.md
