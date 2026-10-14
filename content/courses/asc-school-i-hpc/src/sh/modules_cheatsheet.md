@@ -1,4 +1,4 @@
-# Environment Modules on the ASC systems — cheatsheet
+# Environment Modules on the ASC systems: cheatsheet
 
 > The ASC systems run **Tcl Environment Modules**, not Lmod. There is no
 > `module spider`, no `ml`, no `(D)` default marker, no hierarchy, and no
@@ -15,15 +15,15 @@ session. Nothing is installed; the software is already under
 | Command | What |
 |---|---|
 | `module --help` | general help |
-| `module avail` | everything loadable — the tree is **flat**, so this is everything |
+| `module avail` | everything loadable: the tree is **flat**, so this is everything |
 | `module avail openmpi` | filter by name; names are **case sensitive** (`Matlab`, `Mathematica`) |
-| `module avail -t \| grep -i mpi` | terse output, greppable — this is the substitute for `module spider` |
+| `module avail -t \| grep -i mpi` | terse output, greppable: this is the substitute for `module spider` |
 | `module load <full name>` | load (synonym `module add`) |
 | `module load --auto <name>` | also load the dependencies |
 | `module list` / `module list -t` | what is loaded (flushed at logout) |
 | `module show <name>` | the modulefile: the paths it prepends. No need to load it first. |
 | `module rm <name>` / `module unload <name>` | remove |
-| `module purge` | remove everything — first line of every job script |
+| `module purge` | remove everything: first line of every job script |
 
 `export MODULES_AUTO_HANDLING=1` in `~/.bashrc` makes `--auto` the default
 (`=0` disables it) [S10] [S19]. But see the warning about `.bashrc` below.
@@ -63,7 +63,7 @@ Loading py-numpy/1.24.3-gcc-12.2.0-muackhh
 
 ## Compilers and MPI wrappers
 
-Shapes from the ASC compiling deck, which ASC itself marks **OUTDATED** — the
+Shapes from the ASC compiling deck, which ASC itself marks **OUTDATED**: the
 version strings and hashes in it are from Spack 0.19 and will not resolve today.
 Re-run `module avail` for the current names [S8] [S10].
 
@@ -125,7 +125,7 @@ spack find -l mpi                # the package manager's view; usually the same
 - Building on a `zen` login node and running on `zen2_0256_a40x2`
   (`-march=znver3` against Zen2 hardware) [S10].
 - Mixing a `gcc`-built library with an `intel`-built MPI. The module names make
-  the toolchain visible — use that.
+  the toolchain visible: use that.
 - Reaching for `module spider`, `ml` or `module save`. Lmod commands; not here.
 
 Source entries `S7`–`S19` are in

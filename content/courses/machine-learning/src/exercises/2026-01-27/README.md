@@ -1,4 +1,4 @@
-# Exam 27.01.2026 — label **E26a** (2025W main date)
+# Exam 27.01.2026: label **E26a** (2025W main date)
 
 Source: [S11], VoWi page `Exam 2026-01-27`. A student's transcript of **group
 B**, described here in our own words; the paper is not reproduced.
@@ -8,9 +8,9 @@ the format carefully:
 
 - **75 minutes**, three question **groups** (A/B/C) with different questions,
   entirely single- and multiple-choice.
-- **Section 1** — 13 true/false statements, **+2** correct, **−1** wrong.
-- **Section 2** — 4 calculations done by hand, **+3** correct, **−1.5** wrong.
-- **Section 3** — multiple choice with several correct answers; **+2 only if
+- **Section 1**: 13 true/false statements, **+2** correct, **−1** wrong.
+- **Section 2**: 4 calculations done by hand, **+3** correct, **−1.5** wrong.
+- **Section 3**: multiple choice with several correct answers; **+2 only if
   every correct box is ticked**, 0 otherwise.
 
 50 points in total. The student notes that "some of the questions were from
@@ -19,7 +19,7 @@ previous exams".
 ## What was asked
 
 **Section 1** (the item recalled): *the first model in gradient boosting is a
-zero rule model* — **true** [S12].
+zero rule model*: **true** [S12].
 
 **Section 2**, all four calculations:
 
@@ -49,7 +49,7 @@ The paper's tables are not public, so each calculation runs on data of the
 stated shape. Results:
 
 1. **MAE.** Predictions $(7, 7, 4, 10)$, residuals $(2, -1, 1, -2)$, so
-   $\text{MAE} = 6/4 = \mathbf{1.5}$ — while $\text{MSE} = 10/4 = 2.5$. Both
+   $\text{MAE} = 6/4 = \mathbf{1.5}$, while $\text{MSE} = 10/4 = 2.5$. Both
    1.5 and 2.5 appeared among E25b's options, so **the MSE is the trap**: read
    which metric is asked.
 2. **Bandit.** Maintaining $Q$ and $N$ from zero and comparing each action with
@@ -62,11 +62,11 @@ stated shape. Results:
    table, not just the winner.
 4. **Naive Bayes without Laplace.** Priors $4/7$ and $3/7$; the class $-$ has no
    training row with the new sample's first attribute value, so one factor is
-   **zero** and the entire likelihood of $-$ collapses — the prediction is $+$
+   **zero** and the entire likelihood of $-$ collapses: the prediction is $+$
    with posterior 1.0. That is the **zero-frequency problem**, and it is
    precisely why the paper has to say whether Laplace correction is used. The
    solution prints the smoothed result alongside for comparison ([S14]'s
-   convention: $+1$ on numerator *and* denominator — see
+   convention: $+1$ on numerator *and* denominator; see
    [note 09](../../../notes/09-bayes.md)).
 
 **Section 3** is stored as an explicit answer key, because all-or-nothing

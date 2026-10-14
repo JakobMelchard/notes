@@ -1,5 +1,5 @@
-"""CNP3 publishes no answer key [S35], so — unlike
-`../mit-6.02-2012/test_mit602_routing.py` — these tests cannot check
+"""CNP3 publishes no answer key [S35], so, unlike
+`../mit-6.02-2012/test_mit602_routing.py`, these tests cannot check
 against somebody else's number.  They check our answers against the
 *mechanism* instead: RFC 826's learn-from-every-frame rule [S13], RFC 4271
 §9.1.1's degree of preference [S9] with Gao & Rexford's export rule [S27], and
@@ -37,7 +37,7 @@ def test_every_switch_on_the_path_learns_the_source():
 
 
 def test_tables_are_a_side_effect_of_traffic_not_of_topology():
-    """A host that has never sent anything is unreachable without flooding —
+    """A host that has never sent anything is unreachable without flooding:
     the reason an idle host still gets frames flooded at it."""
     net = LearningSwitchNetwork(LINE_TOPOLOGY)
     net.send("A", "B")
@@ -77,7 +77,7 @@ def test_AS4_reaches_its_provider_directly_and_only_directly():
 def test_the_peer_path_beats_the_equally_long_provider_path():
     """The result worth remembering: AS4 has AS4-AS2-AS1 (via its provider)
     and AS4-AS3-AS1 (via its peer), both two hops.  Policy decides before
-    AS_PATH length is ever examined — RFC 4271 §9.1.1 before §9.1.2.2 [S9]."""
+    AS_PATH length is ever examined: RFC 4271 §9.1.1 before §9.1.2.2 [S9]."""
     kind, paths = best_path(CNP3_AS_GRAPH, "AS4", "AS1")
     assert (kind, paths) == ("peer", [["AS4", "AS3", "AS1"]])
     assert PREFERENCE["peer"] > PREFERENCE["provider"]
@@ -106,7 +106,7 @@ def test_hierarchy_replaces_a_table_entry_per_host_with_one_per_prefix():
 
 
 def test_a_hole_defeats_aggregation():
-    """Drop one of the four /26s and the rest no longer collapse — which is
+    """Drop one of the four /26s and the rest no longer collapse, which is
     what prefix deaggregation does to the global table [S21]."""
     cidrs = ["203.0.113.0/26", "203.0.113.128/26", "203.0.113.192/26"]
     assert aggregate(cidrs) == ["203.0.113.0/26", "203.0.113.128/25"]

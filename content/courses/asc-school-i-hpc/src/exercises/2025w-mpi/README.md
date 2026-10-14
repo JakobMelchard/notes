@@ -1,4 +1,4 @@
-# Block-3 hands-on labs — 17–20 November 2025 instance
+# Block-3 hands-on labs: 17–20 November 2025 instance
 
 The MPI block of 057.020 has nine hands-on labs, done during the four mornings
 alone or in pairs, in C, Fortran **or** Python (mpi4py), on the ASC JupyterHub
@@ -6,7 +6,7 @@ alone or in pairs, in C, Fortran **or** Python (mpi4py), on the ASC JupyterHub
 modalities refer to [S1], and they are the only assessed work in the course
 ([`../../../notes/00-exam-focus.md`](../../../notes/00-exam-focus.md)).
 
-The official skeletons and solutions are public — `git clone
+The official skeletons and solutions are public: `git clone
 https://gitlab.tuwien.ac.at/vsc-public/training/MPI`, or run
 [`../../../refs/fetch-sources.sh`](../../../refs/fetch-sources.sh), which puts
 them in `refs/cite-only/mpi/`. They are **not** copied here: the repository
@@ -40,9 +40,9 @@ accumulating. Every rank must end with
 
 $$\texttt{sum} = \sum_{r=0}^{P-1} r = \frac{P(P-1)}{2}$$
 
-— 1 for $P=2$, 6 for $P=4$, 28 for $P=8$. Lab 09 runs on the shared-memory
+That is 1 for $P=2$, 6 for $P=4$, 28 for $P=8$. Lab 09 runs on the shared-memory
 communicator, so its answer is $P_\text{sm}(P_\text{sm}-1)/2$ with
-$P_\text{sm}$ the ranks on *your node* — identical on one node, different across
+$P_\text{sm}$ the ranks on *your node*: identical on one node, different across
 nodes, which is the point of that lab.
 
 ## `ring_variants.c`
@@ -71,8 +71,8 @@ mpirun --oversubscribe -np 4 ../../c/deadlock --unsafe send-first        # hangs
 
 ### Why variant 0 is not "even ranks send first"
 
-The textbook fix for a *pairwise* exchange — even ranks send first, odd ranks
-receive first — is **wrong for a ring with an odd number of processes**: rank 0
+The textbook fix for a *pairwise* exchange (even ranks send first, odd ranks
+receive first) is **wrong for a ring with an odd number of processes**: rank 0
 and rank $P-1$ are then both even, both send first, and nothing in that cycle is
 receiving. A ring needs exactly one rank to invert the order. Rank $P-1$'s send
 matches rank 0's receive; rank $P-1$ then posts its own receive, which releases

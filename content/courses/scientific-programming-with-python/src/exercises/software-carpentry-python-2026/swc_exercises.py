@@ -5,7 +5,7 @@ per-axis NumPy summaries (02), assertions and test-first design (05).
 
 **Not this course's material.**  Source: Software Carpentry,
 *Programming with Python* (``swcarpentry/python-novice-inflammation``),
-https://swcarpentry.github.io/python-novice-inflammation/ — instructional
+https://swcarpentry.github.io/python-novice-inflammation/: instructional
 material CC BY 4.0, example code MIT, Copyright (c) The Carpentries.  See
 ``README.md`` in this directory and ``../../../refs/SOURCES.md`` [S42].  The
 tasks are **restated in our own words and reimplemented**; no text or code is
@@ -13,7 +13,7 @@ copied, and the lesson's ``inflammation-*.csv`` data files are replaced by
 generated arrays so the course suite does no file or network I/O.
 
 Covers TISS items: "Introduction to the Python programming language" and
-"Code testing" — the two that Aalto [S41] and the Scientific Python Lectures
+"Code testing": the two that Aalto [S41] and the Scientific Python Lectures
 [S39] leave thinnest.
 
 Run:  ../../../../../.venv/bin/python swc_exercises.py
@@ -41,7 +41,7 @@ def study_summary(data: np.ndarray) -> dict[str, object]:
 
     The whole exercise is one idea: `axis=0` collapses the patients and leaves
     one number per day, `axis=1` collapses the days and leaves one per patient.
-    Getting it backwards is silent — both are valid arrays.
+    Getting it backwards is silent: both are valid arrays.
     """
     return {
         "shape": data.shape,
@@ -63,7 +63,7 @@ def normalise_rectangle(rect: tuple[float, float, float, float]) -> tuple[float,
 
     Written the way the lesson argues for: a **precondition** on the input, the
     computation, then a **postcondition** on the result.  Assertions here mark
-    programmer errors; they are not input validation — see
+    programmer errors; they are not input validation: see
     ``assertions_are_stripped_under_O``.
     """
     assert len(rect) == 4, "a rectangle is four coordinates"
@@ -85,7 +85,7 @@ def normalise_rectangle(rect: tuple[float, float, float, float]) -> tuple[float,
 
 
 # Task 3 (after SWC "Defensive Programming", the test-driven-development
-# exercise): the intersection of a list of ranges.  Written test-first — the
+# exercise): the intersection of a list of ranges.  Written test-first: the
 # three cases in ``test_swc_exercises.py`` were fixed before this body was.
 
 
@@ -110,7 +110,7 @@ def exception_clause_order(fail: bool) -> list[str]:
     """Record the order in which try/except/else/finally bodies run.
 
     `else` runs only when the `try` body did *not* raise, and `finally` runs
-    either way — including on the way out through a `return`.  The MC form of
+    either way, including on the way out through a `return`.  The MC form of
     this is "which of these lines is printed".
     """
     log: list[str] = []
@@ -147,7 +147,7 @@ def assertions_are_stripped_under_O() -> dict[str, bool]:
     """`python -O` removes every `assert` and sets `__debug__` to False.
 
     So an assertion is a claim about your own code, checked while you develop
-    it.  A check on data that arrives from outside must `raise` instead — it has
+    it.  A check on data that arrives from outside must `raise` instead: it has
     to survive the optimised run.  Measured by running a child interpreter
     rather than asserted from memory.
     """

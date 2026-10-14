@@ -5,7 +5,7 @@ calling C, memory layout (note 09).
 
 **Not this course's material.**  Source: *Scientific Python Lectures*, release
 2024.1, the Scientific Python developers, https://lectures.scientific-python.org/,
-CC BY 4.0 — see ``README.md`` in this directory and ``../../../refs/SOURCES.md``
+CC BY 4.0: see ``README.md`` in this directory and ``../../../refs/SOURCES.md``
 [S39].  The tasks below are **restated in our own words and reimplemented**; no
 text or code is copied from the book.  Chapter 2.7 *Mathematical optimization*
 and chapter 2.8 *Interfacing with C* are the two that cover TISS subject items
@@ -31,7 +31,7 @@ from scipy.optimize import curve_fit, minimize
 
 
 def ill_conditioned(x: np.ndarray) -> float:
-    r"""$f(x,y) = \tfrac12 (x^2 + 100 y^2)$ — Hessian condition number 100."""
+    r"""$f(x,y) = \tfrac12 (x^2 + 100 y^2)$: Hessian condition number 100."""
     return 0.5 * (x[0] ** 2 + 100.0 * x[1] ** 2)
 
 
@@ -102,7 +102,7 @@ def curve_fit_needs_the_right_frequency(seed: int = 0) -> dict[float, float]:
 
     Least squares on a sinusoid is multi-modal in the frequency: start at the
     wrong omega and the optimiser walks into a local minimum and stays.  This is
-    why "formulate" is doing work in the TISS learning outcome — the model, the
+    why "formulate" is doing work in the TISS learning outcome: the model, the
     parameterisation and `p0` are the part you get marked on.
     """
     rng = np.random.default_rng(seed)
@@ -150,7 +150,7 @@ def undeclared_vs_declared(value: float = 4.0) -> tuple[object, float]:
 
     Undeclared, ctypes assumes the C signature ``int f(int)``: the double
     argument is passed in the wrong register class and the return value is
-    reinterpreted as an int.  There is no exception — only a wrong number.
+    reinterpreted as an int.  There is no exception: only a wrong number.
     """
     raw = libm().sqrt(ctypes.c_double(value))
 
@@ -166,8 +166,8 @@ def undeclared_vs_declared(value: float = 4.0) -> tuple[object, float]:
 def column_major_handoff(a: np.ndarray) -> dict[str, object]:
     """What a row-major array looks like to a column-major callee.
 
-    Fortran, Julia and LAPACK index column-first.  A transpose is free — it only
-    swaps the strides — so ``a.T`` is already F-contiguous and can be handed over
+    Fortran, Julia and LAPACK index column-first.  A transpose is free (it only
+    swaps the strides) so ``a.T`` is already F-contiguous and can be handed over
     without a copy; ``np.asfortranarray(a)`` copies and gives the *same* logical
     array in column-major order instead.
     """

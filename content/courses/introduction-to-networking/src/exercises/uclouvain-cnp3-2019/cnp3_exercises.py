@@ -5,7 +5,7 @@ Protocols and Practice** (CNP3), 3rd edition, Olivier Bonaventure, UCLouvain,
 This is **not** 191.030 material.  191.030 is new in 2026W and has no past
 paper or exercise sheet [S2].  CNP3 is an open textbook from another
 university, chosen because its exercise set is the closest free one to this
-course's TISS topic list — in particular it is the only free source found that
+course's TISS topic list: in particular it is the only free source found that
 treats **inter-domain routing policy** (path vector) as an exercise rather
 than as prose, and 191.030 names path vector explicitly [S1].
 
@@ -36,7 +36,7 @@ class LearningSwitchNetwork:
 
     Three rules, and no more: learn the source address on the port a frame
     arrived on; forward out the single port for a known destination; flood to
-    every other port for an unknown one.  There is no protocol here — the
+    every other port for an unknown one.  There is no protocol here: the
     tables are a side effect of traffic.
     """
 
@@ -140,7 +140,7 @@ def valley_free_routes(graph, origin):
 
     Export rule: a route learned from a **customer** (or originated here) goes
     to everybody; a route learned from a **peer or a provider** goes only to
-    customers.  That single rule is what makes paths valley-free — no route
+    customers.  That single rule is what makes paths valley-free: no route
     ever climbs to a provider twice.
 
     Returns {as: (preference-class, [tied best paths])}; a path starts at the

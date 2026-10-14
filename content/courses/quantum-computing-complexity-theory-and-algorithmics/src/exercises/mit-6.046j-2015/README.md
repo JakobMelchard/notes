@@ -1,4 +1,4 @@
-# MIT 6.046J *Design and Analysis of Algorithms*, Spring 2015 — final [S61]
+# MIT 6.046J *Design and Analysis of Algorithms*, Spring 2015: final [S61]
 
 > **Provenance.** This is **MIT's** examination paper, not TU Wien's, and not
 > 192.043's. 192.043 has no past paper in any year [S24]. Source: MIT
@@ -17,9 +17,9 @@ Solution: [`solution.py`](solution.py).
 Exam 1 on 11 December covers **A01–A08 plus B01–B05** and is three hours long
 [S1]. The A-half has, until now, had no practice material at all: the five
 existing exercise folders are all Egly's quantum sheets. 6.046J's final is a
-180-minute closed-book paper over exactly the second half of that syllabus —
+180-minute closed-book paper over exactly the second half of that syllabus:
 **greedy with exchange arguments, dynamic programming and shortest paths,
-max-flow/min-cut, linear programming, NP-completeness and approximation** —
+max-flow/min-cut, linear programming, NP-completeness and approximation**:
 which is lectures 10–17 of its own list [S61] and chapters 4–8 and 11 of
 Kleinberg & Tardos, the book both 192.043 and 192.219 set [S1, S5, S25].
 
@@ -50,12 +50,12 @@ Roughly half of it. **Do not study these for 192.043.**
   augmented balanced search trees (its Problems 2 and 3).
 - Amortised and competitive analysis.
 - Synchronous and asynchronous **distributed** algorithms (its Problem 9).
-- **Cryptography** — hash functions, encryption, Diffie–Hellman (several
+- **Cryptography**: hash functions, encryption, Diffie–Hellman (several
   true/false parts).
 - **Cache-oblivious** algorithms.
 - Fixed-parameter tractability. Interesting, but not on either syllabus.
 
-And the converse: 192.043 examines things 6.046J's final never touches —
+And the converse: 192.043 examines things 6.046J's final never touches:
 **graph traversal, connectivity, bipartiteness and topological order** (A02),
 **counting inversions and closest pair** (A04), **interval partitioning** (A03),
 and the whole of block B beyond one NP-hardness question.
@@ -86,12 +86,12 @@ and the whole of block B beyond one NP-hardness question.
 Two further in-scope questions are pure prose and are not in `solution.py`: an
 **NP-hardness proof by reduction from 3-dimensional matching** (the same skill as
 the 3SAT reduction in `../mit-18.404j-2020`, from a
-different source problem — worth writing out by hand), and a probability
+different source problem: worth writing out by hand), and a probability
 question on amplification by repetition, which is really B05.
 
 ## Answers
 
-1. (a) $\Theta(n^2)$ — master theorem case 3, the root dominates; there is no
+1. (a) $\Theta(n^2)$: master theorem case 3, the root dominates; there is no
    extra $\log n$. (b) $d^{(k)}_{uv}$ is the shortest $u\to v$ path whose
    **intermediate vertices all lie in $\{1,\dots,k\}$**, *not* the shortest path
    with at most $k$ edges. The worked graph separates the two readings: the true
@@ -103,7 +103,7 @@ question on amplification by repetition, which is really B05.
    they do not make the runner-up unique.
 
 2. Reading the figure gives a flow of value 25 (out of $s$ and into $t$, with
-   conservation at all seven internal nodes — `p6_edmonds_karp_one_iteration`
+   conservation at all seven internal nodes: `p6_edmonds_karp_one_iteration`
    asserts this, and it is how the figure was checked before anything was
    computed). BFS finds the four-edge augmenting path
    $s\to 3\to 2\to 5\to t$, whose third edge is the **backward** residual of
@@ -129,7 +129,7 @@ question on amplification by repetition, which is really B05.
    improves the bound to $3/2$. Measured against brute-force optima on 40 small
    instances: worst greedy ratio 1.28, worst LPT ratio 1.12. The bound is tight:
    with $m(m-1)$ unit jobs and one job of length $m$, greedy gets $2m-1$ against
-   an optimum of $m$ — for $m=4$ that is 7 against 4, a ratio of $1.75 = 2 - 1/m$.
+   an optimum of $m$: for $m=4$ that is 7 against 4, a ratio of $1.75 = 2 - 1/m$.
 
 ## The trap in this folder
 

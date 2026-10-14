@@ -6,7 +6,7 @@ parallel Monte Carlo (08).
 
 **Not this course's material.**  Source: Aalto Scientific Computing, *Python for
 Scientific Computing*, https://aaltoscicomp.github.io/python-for-scicomp/,
-licence "Creative Commons Attribution 4.0" (repository ``LICENSE``) — see
+licence "Creative Commons Attribution 4.0" (repository ``LICENSE``): see
 ``README.md`` in this directory and ``../../../refs/SOURCES.md`` [S41].  The
 tasks are **restated in our own words and reimplemented**; no text or code is
 copied, and the two exercises that need a downloaded dataset are replaced by
@@ -183,7 +183,7 @@ def pi_parallel(n: int = 400_000, workers: int = 2, seed: int = 7) -> float:
 
 
 def available_cpus() -> dict[str, int | None]:
-    """Where `Pool()` gets its default worker count — and why that is wrong on a
+    """Where `Pool()` gets its default worker count: and why that is wrong on a
     shared machine.
 
     `mp.cpu_count()` reports the *hardware*, not your allocation.  On a cluster

@@ -3,7 +3,7 @@
 **CC BY-NC-SA 4.0** [S34]: tutorial 11.  Routing is in `mit602_routing.py`.
 
 Stop-and-wait, sliding windows, the bandwidth-delay product, sequence-number
-wraparound and loss composition — the arithmetic behind 191.030's "describe TCP
+wraparound and loss composition: the arithmetic behind 191.030's "describe TCP
 behavior given a specific scenario" [S1] (stated on TISS until 2026-09-2x,
 removed by 2026-09-27), one layer of abstraction above `../../py/tcp_sim.py`.
 
@@ -29,7 +29,7 @@ PUBLISHED_ANSWERS = {
 }
 
 
-# Tutorial 11 — reliable transport arithmetic
+# Tutorial 11: reliable transport arithmetic
 # TISS topic: layer 4 (TCP/UDP), and "describe TCP behaviour given a scenario"
 # (practical-part wording, stated on TISS until 2026-09-2x, removed by 2026-09-27).
 def chain_rtt(links, per_link_time=1.0):

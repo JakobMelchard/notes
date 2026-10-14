@@ -1,4 +1,4 @@
-# Slurm on the ASC systems — cheatsheet
+# Slurm on the ASC systems: cheatsheet
 
 Site specifics come from the ASC user documentation [S19] and the lecturer's
 March-2026 decks [S9]; everything else is standard Slurm [S16]. Full write-up in
@@ -9,8 +9,8 @@ this file.
 
 > **Always give both `--qos` and `--partition`, and make them match.** [S9]
 
-They are usually spelled the same. Omit them and you get the defaults —
-`skylake_0096` for both on VSC-4, `zen3_0512` for both on VSC-5 [S19] — which is
+They are usually spelled the same. Omit them and you get the defaults:
+`skylake_0096` for both on VSC-4, `zen3_0512` for both on VSC-5 [S19], which is
 fine for a first test and wrong the moment you want memory, a GPU or the devel
 queue. A wrong pair shows up in `squeue` as `InvalidQoS`, `QoSNotAllowed` or
 `PartitionConfig` [S19].
@@ -113,7 +113,7 @@ alias sq='squeue -u $USER'
 - Giving `--partition` without `--qos`, or a mismatched pair: the job never starts [S9] [S19].
 - `--tasks-per-node=48` on VSC-5 or `=128` on VSC-4: 48 is Skylake, 128 is Zen3 [S19].
 - Writing thousands of small files, or any research data, into `$HOME`: 100 GB, strict, and a full `$HOME` breaks logins. Use `$DATA`, and `/local` or `/tmp` during the job [S19].
-- A `for` loop of `sbatch` calls, or thousands of one-minute jobs — package them [S9] [S19].
+- A `for` loop of `sbatch` calls, or thousands of one-minute jobs: package them [S9] [S19].
 - `&` without `wait` when filling a node with background tasks: the script exits and Slurm kills the children [S9].
 - `--time=72:00:00` when 2 h will do: no backfill, long wait, same core-hours charged [S9].
 - Loading different modules than the ones the binary was built with (`module list` in the job output helps).
@@ -121,12 +121,12 @@ alias sq='squeue -u $USER'
 
 ## Job reason codes worth recognising [S19]
 
-`Priority`, `Resources` — normal queueing. `PartitionTimeLimit` — your `--time`
-exceeds the QoS limit. `InvalidQoS`, `QoSNotAllowed`, `PartitionConfig` — the
+`Priority`, `Resources`: normal queueing. `PartitionTimeLimit`: your `--time`
+exceeds the QoS limit. `InvalidQoS`, `QoSNotAllowed`, `PartitionConfig`: the
 `--qos`/`--partition` pair is wrong. `QoSGrpCpuLimit`, `QoSGrpNodeLimit`,
-`QoSMaxNodePerUserLimit` — you or your project have hit a cap.
-`JpbArrayTaskLimit` *(sic, ASC's spelling)* — the array's `%n` throttle.
-`Dependency` — waiting for another job. `None` — so many jobs are waiting that
+`QoSMaxNodePerUserLimit`: you or your project have hit a cap.
+`JpbArrayTaskLimit` *(sic, ASC's spelling)*: the array's `%n` throttle.
+`Dependency`: waiting for another job. `None`: so many jobs are waiting that
 yours has not been given a priority yet.
 
 `squeue --start` gives an estimated start time that the documentation itself

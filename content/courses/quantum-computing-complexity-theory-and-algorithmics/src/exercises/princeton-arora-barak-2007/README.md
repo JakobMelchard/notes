@@ -1,10 +1,10 @@
-# Arora & Barak, *Computational Complexity: A Modern Approach* — free draft [S60]
+# Arora & Barak, *Computational Complexity: A Modern Approach*: free draft [S60]
 
 > **Provenance.** Sanjeev Arora and Boaz Barak, Princeton University. The
 > authors' free internet draft, dated January 2007, at
 > <https://theory.cs.princeton.edu/complexity/book.pdf> (retrieved 2026-09-22;
 > the published book is Cambridge University Press, 2009, ISBN
-> 978-0-521-42426-4). **Licence: none — the draft's title page says "Not to be
+> 978-0-521-42426-4). **Licence: none: the draft's title page says "Not to be
 > reproduced or distributed without the authors' permission".**
 > So this folder is **cite-only**: nothing is vendored, no exercise text is
 > copied, and every exercise below is one **we built ourselves** for a theorem
@@ -91,7 +91,7 @@ throughout. No free source found examines the RAM model; see the practice note.
    assignment and a stack of depth $n$; it never materialises the $2^n$ leaves.
 
 2. The smallest covering size, computed for $n=2\ldots12$: 1, 1, 2, 4, 6, 11,
-   19, 35, 63, 114, 209 — against $2^n/n$ = 2.0, 2.7, 4.0, 6.4, 10.7, 18.3,
+   19, 35, 63, 114, 209: against $2^n/n$ = 2.0, 2.7, 4.0, 6.4, 10.7, 18.3,
    32.0, 56.9, 102.4, 186.2, 341.3. The ratio settles near $0.6$, which is the
    $2^n/n$ of Shannon's bound with the constants of *this* encoding. The
    statement to carry into the exam is qualitative: **almost every Boolean
@@ -100,7 +100,7 @@ throughout. No free source found examines the RAM model; see the practice note.
 
 3. Take any $A\subseteq\mathbb N$, however uncomputable, and let
    $L=\{1^n: n\in A\}$. $L$ has exactly one string per input length, so the
-   circuit for length $n$ is the **constant** $[n\in A]$ — size 1. So P/poly
+   circuit for length $n$ is the **constant** $[n\in A]$: size 1. So P/poly
    contains undecidable languages, and non-uniformity, not power, is the whole
    difference between P and P/poly. This is the standard warning attached to
    Karp–Lipton (B04).
@@ -108,13 +108,13 @@ throughout. No free source found examines the RAM model; see the practice note.
 4. With $p=2/3$ and $n=6$, $t=39$ repetitions put the per-input error at
    $0.0155 < 2^{-6}$, so the union bound over 64 inputs is $0.992 < 1$ and a
    good advice string must exist. Sampling finds one in a couple of draws. The
-   proof is non-constructive — that is the point, and it is also why
+   proof is non-constructive: that is the point, and it is also why
    $\mathrm{BPP}\subseteq\mathrm{P/poly}$ says nothing about derandomising BPP.
 
 5. `pt4_path_sum` sums $8^4 = 4096$ paths per output string of a five-gate,
    three-qubit circuit and reproduces the statevector exactly. Each term needs
-   one path index and one running product, so the amplitude — and therefore the
-   acceptance probability — is computable in polynomial space.
+   one path index and one running product, so the amplitude (and therefore the
+   acceptance probability) is computable in polynomial space.
 
 ## The endianness check, done rather than assumed
 
