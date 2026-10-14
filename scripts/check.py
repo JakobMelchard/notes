@@ -20,6 +20,7 @@ PRIVACY = re.compile(
 PRIVACY_CS = re.compile(r"/Users/")
 CITE = re.compile(r"\[(S\d+[a-z]?\b[^\]]*)\]")
 SNUM = re.compile(r"\bS(\d+[a-z]?)\b")
+FENCE = re.compile(r"\s*(`{3,}|~{3,})")
 ENTRY = re.compile(r"^\s*(#+|[-*]|\d+\.)\s")
 
 
@@ -58,13 +59,18 @@ def main() -> int:
             if src not in cache:
                 cache[src] = defined(src) if src.exists() else set()
             known = cache[src]
-        fence = False
+        fence = ""
         for i, line in enumerate(md.read_text(encoding="utf-8").splitlines(), 1):
             loc = f"{md}:{i}"
             if PRIVACY.search(line) or PRIVACY_CS.search(line):
                 errors.append(f"{loc}: privacy: {line.strip()}")
-            if line.lstrip().startswith(("```", "~~~")):
-                fence = not fence
+            m = FENCE.match(line)
+            if m:
+                mark = m.group(1)
+                if not fence:
+                    fence = mark
+                elif mark[0] == fence[0] and len(mark) >= len(fence):
+                    fence = ""
             if fence:
                 continue
             for t in LINK.findall(line):
