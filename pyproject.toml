@@ -7,6 +7,9 @@ dependencies = [
   "pytest", "jupyter", "pulp", "cryptography", "torch", "torchvision", "sparse-ir; (sys_platform == 'linux' and platform_machine == 'x86_64') or (sys_platform == 'darwin' and platform_machine == 'arm64' and platform_release >= '24')",
 ]
 
+[dependency-groups]
+dev = ["mypy>=1.11", "ruff>=0.16"]
+
 [tool.uv]
 package = false
 
@@ -22,3 +25,19 @@ explicit = true
 [tool.uv.sources]
 torch = [{ index = "pytorch-cpu", marker = "sys_platform == 'linux'" }]
 torchvision = [{ index = "pytorch-cpu", marker = "sys_platform == 'linux'" }]
+
+# Lint and type the repo's own scripts; course code under content/ is study material.
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+extend-exclude = ["content", "templates"]
+force-exclude = true
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "W", "N", "SIM", "ANN"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+files = ["scripts"]
+mypy_path = ["scripts"]

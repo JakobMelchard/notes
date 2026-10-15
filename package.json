@@ -13,7 +13,7 @@
   },
   "scripts": {
     "quartz": "./quartz/bootstrap-cli.mjs",
-    "check": "tsc --noEmit && npx prettier . --check",
+    "check": "tsc --noEmit && tsc -p drill/tsconfig.sw.json && npx prettier . --check",
     "format": "npx prettier . --write",
     "test": "tsx --test",
     "drill": "tsx drill/build.ts"

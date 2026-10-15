@@ -45,7 +45,7 @@ def sources_of(md: Path) -> Path | None:
 
 def defined(sources: Path) -> set[str]:
     lines = sources.read_text(encoding="utf-8").splitlines()
-    return {n for l in lines if ENTRY.match(l) for n in SNUM.findall(l)}
+    return {n for line in lines if ENTRY.match(line) for n in SNUM.findall(line)}
 
 
 def main() -> int:
@@ -53,7 +53,8 @@ def main() -> int:
     ap.add_argument("root", nargs="?", default="content", type=Path)
     args = ap.parse_args()
 
-    errors, warnings = [], []
+    errors: list[str] = []
+    warnings: list[str] = []
     cache: dict[Path, set[str]] = {}
     for md in sorted(args.root.rglob("*.md")):
         src = sources_of(md)

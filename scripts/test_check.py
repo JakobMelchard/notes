@@ -1,10 +1,17 @@
 import sys
+from pathlib import Path
 
 import check
 import pytest
 
 
-def run(tmp_path, monkeypatch, capsys, text, name="page.md"):
+def run(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    capsys: pytest.CaptureFixture[str],
+    text: str,
+    name: str = "page.md",
+) -> tuple[int, str]:
     (tmp_path / name).write_text(text, encoding="utf-8")
     monkeypatch.setattr(sys, "argv", ["check.py", str(tmp_path)])
     code = check.main()
@@ -32,49 +39,59 @@ def run(tmp_path, monkeypatch, capsys, text, name="page.md"):
         "LILFEELZ",
     ],
 )
-def test_privacy_hit(tmp_path, monkeypatch, capsys, line):
+def test_privacy_hit(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str], line: str
+) -> None:
     code, out = run(tmp_path, monkeypatch, capsys, line + "\n")
     assert code == 1
     assert "privacy" in out
 
 
-@pytest.mark.parametrize(
-    "line", ["nothing personal", "registers", "a crash", "/users/lower", "Users"]
-)
-def test_privacy_miss(tmp_path, monkeypatch, capsys, line):
+@pytest.mark.parametrize("line", ["nothing personal", "registers", "a crash", "/users/lower", "Users"])
+def test_privacy_miss(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str], line: str
+) -> None:
     code, _ = run(tmp_path, monkeypatch, capsys, line + "\n")
     assert code == 0
 
 
-def test_privacy_inside_fence_still_fails(tmp_path, monkeypatch, capsys):
+def test_privacy_inside_fence_still_fails(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]
+) -> None:
     code, _ = run(tmp_path, monkeypatch, capsys, "```\nlilfeelz\n```\n")
     assert code == 1
 
 
-def test_broken_link_fails(tmp_path, monkeypatch, capsys):
+def test_broken_link_fails(tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]) -> None:
     code, out = run(tmp_path, monkeypatch, capsys, "[x](missing.md)\n")
     assert code == 1
     assert "broken link: missing.md" in out
 
 
-def test_valid_links_pass(tmp_path, monkeypatch, capsys):
+def test_valid_links_pass(tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]) -> None:
     (tmp_path / "other.md").write_text("", encoding="utf-8")
     text = "[a](other.md) [b](other) [c](#anchor) [d](https://x.org) [e](/other.md#h)\n"
     code, _ = run(tmp_path, monkeypatch, capsys, text)
     assert code == 0
 
 
-def test_broken_link_in_fence_is_ignored(tmp_path, monkeypatch, capsys):
+def test_broken_link_in_fence_is_ignored(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]
+) -> None:
     code, _ = run(tmp_path, monkeypatch, capsys, "```\n[x](missing.md)\n```\n")
     assert code == 0
 
 
-def test_broken_link_after_fence_fails(tmp_path, monkeypatch, capsys):
+def test_broken_link_after_fence_fails(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]
+) -> None:
     code, _ = run(tmp_path, monkeypatch, capsys, "```\ncode\n```\n[x](missing.md)\n")
     assert code == 1
 
 
-def test_inner_fence_does_not_close_outer(tmp_path, monkeypatch, capsys):
+def test_inner_fence_does_not_close_outer(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]
+) -> None:
     text = "````\n```\n[x](missing.md)\n````\n[y](missing.md)\n"
     code, out = run(tmp_path, monkeypatch, capsys, text)
     assert code == 1
@@ -82,7 +99,9 @@ def test_inner_fence_does_not_close_outer(tmp_path, monkeypatch, capsys):
     assert "page.md:5" in out
 
 
-def test_missing_source_only_warns(tmp_path, monkeypatch, capsys):
+def test_missing_source_only_warns(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]
+) -> None:
     course = tmp_path / "c"
     (course / "notes").mkdir(parents=True)
     (course / "refs").mkdir()
@@ -95,7 +114,9 @@ def test_missing_source_only_warns(tmp_path, monkeypatch, capsys):
     assert "warning" in out and "S2" in out and "S1 not" not in out
 
 
-def test_clean_tree_exits_zero(tmp_path, monkeypatch, capsys):
+def test_clean_tree_exits_zero(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]
+) -> None:
     code, out = run(tmp_path, monkeypatch, capsys, "# Title\n\ntext\n")
     assert code == 0
     assert "0 errors" in out

@@ -1,8 +1,9 @@
 // Serves the drill page offline. Network first, so a deploy shows up on the next load; the
 // cache answers only when the network fails.
 const CACHE = "drill"
+const sw = /** @type {ServiceWorkerGlobalScope} */ (/** @type {unknown} */ (self))
 
-self.addEventListener("install", (e) => {
+sw.addEventListener("install", (e) => {
   e.waitUntil(
     caches
       .open(CACHE)
@@ -10,7 +11,7 @@ self.addEventListener("install", (e) => {
   )
 })
 
-self.addEventListener("fetch", (e) => {
+sw.addEventListener("fetch", (e) => {
   if (e.request.method !== "GET") return
   e.respondWith(
     fetch(e.request)
