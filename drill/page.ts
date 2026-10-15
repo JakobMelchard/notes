@@ -59,6 +59,14 @@ function list() {
     )
     .join("")
   document.body.innerHTML = `<main class="decks"><header><h1>Decks</h1><span class="counts legend"><span class="pill due">due</span><span class="pill new">new</span></span></header><select id="course" aria-label="Course">${opts}</select><section>${row(sec, true)}${rows.map((n) => row(n)).join("")}</section><footer><button id="export">Export progress</button><label class="btn">Import progress<input id="import" type="file" accept="application/json" hidden></label></footer></main>`
+  // A deck opened from here gets its own entry, so Android back returns to this list.
+  document.querySelector("section")!.onclick = (e) => {
+    const a = (e.target as Element).closest("a")
+    if (!a || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return
+    e.preventDefault()
+    history.pushState("deck", "", a.href)
+    route()
+  }
   const select = document.getElementById("course") as HTMLSelectElement
   select.onchange = () => {
     want = select.value
@@ -88,6 +96,20 @@ function list() {
   }
 }
 
+// Back to the list by going back when the deck came from it, so the history does not fill
+// with decks that Android back then walks through.
+const up = () =>
+  document.querySelectorAll<HTMLAnchorElement>('a[href="#"]').forEach(
+    (a) =>
+      (a.onclick = (e) => {
+        if (history.state !== "deck" || !a.hasAttribute("href")) return
+        e.preventDefault()
+        history.back()
+        // a second tap before the list shows would go back past it
+        a.removeAttribute("href")
+      }),
+  )
+
 function review(prefix: string) {
   const now = Date.now()
   const p = new Progress(log)
@@ -97,6 +119,7 @@ function review(prefix: string) {
   const c = [...due, ...fresh][0]
   if (!c) {
     document.body.innerHTML = `${top}<main class="review"><div class="done"><p class="big">Nothing due</p><p>This deck is done for now.</p><a class="btn" href="#">Back to decks</a></div></main>`
+    up()
     return
   }
   const buttons = [1, 2, 3, 4]
@@ -106,6 +129,7 @@ function review(prefix: string) {
     })
     .join("")
   document.body.innerHTML = `${top}<main class="review"><article class="card" id="card"><div class="front">${c.front}</div><details id="ans"><summary class="bar"><span>Show answer</span></summary><div class="back">${c.back}</div></details><p class="src">${esc(c.path)}:${c.line}</p></article><div class="rate bar">${buttons}</div></main>`
+  up()
   const ans = document.getElementById("ans") as HTMLDetailsElement
   document.getElementById("card")!.onclick = (e) => {
     if (!ans.open && !(e.target as Element).closest("a, summary") && !getSelection()?.toString())
