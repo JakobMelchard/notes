@@ -4,6 +4,9 @@
 Fails (exit 1) on broken relative links and privacy matches.
 Citations [Sn] missing from the course's refs/SOURCES.md are warnings only.
 """
+
+from __future__ import annotations
+
 import argparse
 import re
 import sys
