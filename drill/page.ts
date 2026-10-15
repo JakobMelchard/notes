@@ -62,7 +62,7 @@ function list() {
   // A deck opened from here gets its own entry, so Android back returns to this list.
   document.querySelector("section")!.onclick = (e) => {
     const a = (e.target as Element).closest("a")
-    if (!a || e.ctrlKey || e.metaKey || e.shiftKey) return
+    if (!a || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return
     e.preventDefault()
     history.pushState("deck", "", a.href)
     route()
@@ -102,9 +102,11 @@ const up = () =>
   document.querySelectorAll<HTMLAnchorElement>('a[href="#"]').forEach(
     (a) =>
       (a.onclick = (e) => {
-        if (history.state !== "deck") return
+        if (history.state !== "deck" || !a.hasAttribute("href")) return
         e.preventDefault()
         history.back()
+        // a second tap before the list shows would go back past it
+        a.removeAttribute("href")
       }),
   )
 
