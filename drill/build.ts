@@ -1,5 +1,6 @@
 // Writes the drill page to public/drill/: cards.json from the notes under content/, the
-// bundled client, and KaTeX styles. Run after `quartz build`, which empties public/.
+// bundled client, the offline service worker, and KaTeX styles. Run after `quartz build`,
+// which empties public/.
 import { cpSync, mkdirSync, readdirSync, writeFileSync } from "node:fs"
 import { toHtml } from "hast-util-to-html"
 import rehypeKatex from "rehype-katex"
@@ -33,6 +34,7 @@ await build({
 })
 cpSync("drill/index.html", `${out}/index.html`)
 cpSync("drill/style.css", `${out}/style.css`)
+cpSync("drill/sw.js", `${out}/sw.js`)
 const katex = "node_modules/katex/dist"
 cpSync(`${katex}/katex.min.css`, `${out}/katex/katex.min.css`)
 for (const f of readdirSync(`${katex}/fonts`).filter((f) => f.endsWith(".woff2")))

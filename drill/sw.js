@@ -1,0 +1,26 @@
+// Serves the drill page offline. Network first, so a deploy shows up on the next load; the
+// cache answers only when the network fails.
+const CACHE = "drill"
+
+self.addEventListener("install", (e) => {
+  e.waitUntil(
+    caches
+      .open(CACHE)
+      .then((c) => c.addAll(["./", "page.js", "style.css", "katex/katex.min.css", "cards.json"])),
+  )
+})
+
+self.addEventListener("fetch", (e) => {
+  if (e.request.method !== "GET") return
+  e.respondWith(
+    fetch(e.request)
+      .then((r) => {
+        if (r.ok) {
+          const copy = r.clone()
+          e.waitUntil(caches.open(CACHE).then((c) => c.put(e.request, copy)))
+        }
+        return r
+      })
+      .catch(() => caches.match(e.request).then((r) => r ?? Response.error())),
+  )
+})

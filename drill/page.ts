@@ -143,6 +143,7 @@ addEventListener("keydown", (e) => {
   } else if (ans.open && "1234".includes(e.key))
     document.querySelector<HTMLButtonElement>(`.rate button[value="${e.key}"]`)?.click()
 })
+navigator.serviceWorker?.register("sw.js").catch(() => {})
 fetch("cards.json")
   .then((r) => r.json())
   .then((c: Card[]) => {
