@@ -15,10 +15,10 @@ self.addEventListener("fetch", (e) => {
   e.respondWith(
     fetch(e.request)
       .then((r) => {
-        if (r.ok) {
-          const copy = r.clone()
-          e.waitUntil(caches.open(CACHE).then((c) => c.put(e.request, copy)))
-        }
+        // a 404 or 5xx (say mid-deploy) falls back to the cached copy too
+        if (!r.ok) return caches.match(e.request).then((c) => c ?? r)
+        const copy = r.clone()
+        e.waitUntil(caches.open(CACHE).then((c) => c.put(e.request, copy)))
         return r
       })
       .catch(() => caches.match(e.request).then((r) => r ?? Response.error())),
