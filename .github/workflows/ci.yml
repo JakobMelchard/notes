@@ -12,7 +12,7 @@ jobs:
   ci:
     uses: JakobMelchard/.github/.github/workflows/node.yml@4258fca96cbd14e90054debed585f9cf8aad04f7 # v2.1.0
     with:
-      check-cmd: npx tsc --noEmit
+      check-cmd: npm run check
       lint-cmd: ""
 
   hooks:
