@@ -13,12 +13,12 @@ uv sync
 uv run pytest content/courses/<slug>/src -q
 ```
 
-| Path                                                 | Contents                                                                                                     |
-| ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| `content/courses/<slug>/refs/`, `src/`               | source register, vendored files, reference code                                                              |
-| `content/courses/<slug>/index.md`, `notes/`, `docs/` | from [JakobMelchard/notes-src](https://github.com/JakobMelchard/notes-src), gitignored here; edit them there |
-| `drill/`                                             | flashcard review of the `card` blocks in the notes                                                           |
-| `templates/course/`                                  | skeleton for a new course                                                                                    |
-| `scripts/`                                           | `notes.sh`, `check.py`                                                                                       |
+| Path                                                 | Contents                                                                                                                                                                   |
+| ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `content/courses/<slug>/refs/`, `src/`               | source register, vendored files, reference code                                                                                                                            |
+| `content/courses/<slug>/index.md`, `notes/`, `docs/` | from [JakobMelchard/notes-src](https://github.com/JakobMelchard/notes-src), which the maintainer's vault publishes to; gitignored here; report changes to them as an issue |
+| `drill/`                                             | flashcard review of the `card` blocks in the notes                                                                                                                         |
+| `templates/course/`                                  | skeleton for a new course                                                                                                                                                  |
+| `scripts/`                                           | `notes.sh`, `check.py`                                                                                                                                                     |
 
 Contributing: [CONTRIBUTING.md](CONTRIBUTING.md), [AGENTS.md](AGENTS.md). Licence: prose CC BY-SA 4.0, code MIT, see [LICENSE.md](LICENSE.md).
