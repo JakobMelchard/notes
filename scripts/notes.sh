@@ -1,5 +1,5 @@
 #!/bin/sh
-# Copies the published notes (JakobMelchard/notes-src, written from the vault on mimi) over content/.
+# Copies the published notes (JakobMelchard/notes-src, written from the private vault) over content/.
 # Usage: scripts/notes.sh [ref]
 set -eu
 dir=.notes
