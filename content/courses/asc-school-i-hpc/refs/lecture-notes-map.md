@@ -113,11 +113,11 @@ there with measured numbers [S23]:
 
 | topic | where it is | why not here |
 |---|---|---|
-| memory hierarchy, cache lines, roofline, measuring GB/s | [NSSC I note 01](../../numerical-simulation-and-scientific-computing-i/notes/01-computer-architectures.md) | this course only sketches a node; its own slide [S9] gives the latency ladder and stops |
-| loop order, blocking, compiler flags, benchmarking protocol | [NSSC I note 02](../../numerical-simulation-and-scientific-computing-i/notes/02-serial-optimisation.md) | out of scope for all three blocks |
-| OpenMP from the specification, races, false sharing, scheduling | [NSSC I note 07](../../numerical-simulation-and-scientific-computing-i/notes/07-shared-memory-parallel-computing.md) | ASC teaches OpenMP as a **separate** training event, not part of 057.020 [S5] |
-| Amdahl / Gustafson / Karp–Flatt derivations, strong vs weak scaling | [NSSC I note 07](../../numerical-simulation-and-scientific-computing-i/notes/07-shared-memory-parallel-computing.md) | note 16 states Amdahl in the lecturer's own form [S9] and links across |
-| git, Make/CMake, sanitizers, lldb | [NSSC I note 10](../../numerical-simulation-and-scientific-computing-i/notes/10-software-engineering-for-scientific-computing.md) | note 16 covers only MPI-specific debugging |
+| memory hierarchy, cache lines, roofline, measuring GB/s | [NSSC I note 01](../../nssc1/notes/01-computer-architectures.md) | this course only sketches a node; its own slide [S9] gives the latency ladder and stops |
+| loop order, blocking, compiler flags, benchmarking protocol | [NSSC I note 02](../../nssc1/notes/02-serial-optimisation.md) | out of scope for all three blocks |
+| OpenMP from the specification, races, false sharing, scheduling | [NSSC I note 07](../../nssc1/notes/07-shared-memory-parallel-computing.md) | ASC teaches OpenMP as a **separate** training event, not part of 057.020 [S5] |
+| Amdahl / Gustafson / Karp–Flatt derivations, strong vs weak scaling | [NSSC I note 07](../../nssc1/notes/07-shared-memory-parallel-computing.md) | note 16 states Amdahl in the lecturer's own form [S9] and links across |
+| git, Make/CMake, sanitizers, lldb | [NSSC I note 10](../../nssc1/notes/10-software-engineering-for-scientific-computing.md) | note 16 covers only MPI-specific debugging |
 
 Both courses need the same warning about conventions, so both state it: in the
 Amdahl formula used here, **$f$ is the sequential fraction**, following the
