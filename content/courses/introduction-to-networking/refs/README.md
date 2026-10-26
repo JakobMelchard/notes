@@ -10,7 +10,9 @@ notes cite it as `[S<n>]`.
 |---|---|
 | [`SOURCES.md`](SOURCES.md) | the source register (authoritative) |
 | [`standards-map.md`](standards-map.md) | RFC section → our note → our code, for all 52 vendored RFCs |
+| [`cnp3-map.md`](cnp3-map.md) | lecture topic → CNP3 section, and what to read where the book is thin |
 | `rfc/` | **52 RFCs, vendored**, plain text, 4.1 MB |
+| `book/` | **the CNP3 ebook, vendored** [S35], 413 pages, 7.3 MB, CC BY-SA 3.0, with `SHA256SUMS` |
 | [`rfc/SHA256SUMS`](rfc/SHA256SUMS) | checksums of all 52, so a changed file is visible |
 | [`fetch-sources.sh`](fetch-sources.sh) | re-fetches and verifies the RFCs; pulls the three cite-only papers into the git-ignored `vendor/` |
 | `vendor/` | created by the script, **git-ignored**, never committed |
@@ -43,6 +45,19 @@ TLP 5.0 §2.c is the reason for splitting the list: documents published before
 25 March 2015 stay under the policy in force when they were published, which is
 what the three older classes above record.
 
+**The one vendored book.** `book/CNP3-2021.pdf` is Olivier Bonaventure's
+*Computer Networking: Principles, Protocols and Practice*, 3rd edition
+(UCLouvain), under **CC BY-SA 3.0** [S35]. That licence permits distributing
+the unmodified work with attribution and a licence notice; share-alike attaches
+to adaptations, and a verbatim copy carried next to independent notes is not
+one. The file is byte-identical to the upstream release asset. It is here
+because the course publishes slides for lecture 1 and 2 only and names no
+textbook [S1], [S36], and because the two books lecture 1 did name as
+background reading are not free in full. Peterson and Davie 6th edition is free
+to read at <https://book.systemsapproach.org> but is not vendored: it covers
+neither DNSSEC nor Telnet, so it is a per-topic fallback rather than a second
+base text, and `cnp3-map.md` names the rows where it wins.
+
 So: **everything in `rfc/` is redistributable in full, unmodified, and is
 unmodified.** Nothing else is vendored — the papers in S26–S29 are under ACM or
 IEEE copyright with no redistribution notice, IEEE 802.1Q/802.3 (S30) are behind
@@ -57,9 +72,11 @@ cd refs                              # from the course folder
 ./fetch-sources.sh                   # re-fetch anything missing, then verify
 ./fetch-sources.sh --papers          # + the cite-only PDFs into ./vendor (git-ignored)
 (cd rfc && shasum -a 256 -c SHA256SUMS)   # the same check by hand
+(cd book && shasum -a 256 -c SHA256SUMS)  # the vendored ebook
 ```
 
-Last verified 2026-09-27: 52 of 52 `OK`, offline (`--verify` does no fetch).
+Last verified 2026-10-18: 52 of 52 RFCs and the ebook `OK`, offline
+(`--verify` does no fetch).
 
 ## What sourcing this course could *not* establish
 
@@ -103,5 +120,8 @@ RFCs print are reproduced by tests in
    order the TISS subject list gives them.
 3. [`standards-map.md`](standards-map.md) when a note cites a section and you
    want the text: it says which file and which section.
+4. [`cnp3-map.md`](cnp3-map.md) when a lecture topic has no slides and you want
+   a readable account of it: it says which CNP3 section, and when to read
+   something else instead.
 
 [S32]: https://trustee.ietf.org/documents/trust-legal-provisions/tlp-5/
