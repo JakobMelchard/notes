@@ -8,7 +8,7 @@ rules apply to you.
 
 ## Layout
 
-Course layout, citations and flashcard format are in [CONTRIBUTING.md](CONTRIBUTING.md). `index.md`, `notes/` and `docs/` come from JakobMelchard/notes-src and are gitignored here, so a course-content PR touches only `refs/` and `src/`. notes-src is pushed from the vault (`pages/tu/public/`) by notes-sync on mimi: edit notes and `docs/tiss.md` there, never in notes-src.
+Course layout, citations and flashcard format are in [CONTRIBUTING.md](CONTRIBUTING.md). `index.md`, `notes/` and `docs/` come from JakobMelchard/notes-src and are gitignored here, so a course-content PR touches only `refs/` and `src/`. notes-src is pushed from the vault (`pages/tu/public/`) by notes-sync on the vault host: edit notes and `docs/tiss.md` there, never in notes-src.
 
 The sources are the ground truth, the notes are derived. Never edit a note in a way its cited sources do not support.
 
