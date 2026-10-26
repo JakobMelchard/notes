@@ -51,9 +51,9 @@ Third-party files, vendored unmodified:
 | `*/refs/rfc/` (`advanced-cryptography`, `introduction-to-cryptography`, `introduction-to-networking`) | IETF RFCs (IETF Trust or Internet Society copyright), redistributed unmodified as the RFCs permit |
 | `*/refs/nist/` (`advanced-cryptography`, `introduction-to-cryptography`) | NIST publications, works of the US government |
 | `introduction-to-cryptography/refs/vectors/` | Wycheproof test vectors, Apache-2.0 (`LICENSE-Apache-2.0.txt`) |
-| `numerical-simulation-and-scientific-computing-i/refs/vendor/openmp-api-specification-5.2.pdf` | OpenMP ARB copyright, copied unmodified under the permission notice on its title page |
-| `numerical-simulation-and-scientific-computing-i/refs/vendor/hestenes-stiefel-1952-conjugate-gradients.pdf` | work of the US government (J. Res. NBS) |
-| `numerical-simulation-and-scientific-computing-i/refs/vendor/vtkCellType.h` | BSD-3-Clause, Ken Martin, Will Schroeder, Bill Lorensen (`LICENSE-VTK`) |
+| `nssc1/refs/vendor/openmp-api-specification-5.2.pdf` | OpenMP ARB copyright, copied unmodified under the permission notice on its title page |
+| `nssc1/refs/vendor/hestenes-stiefel-1952-conjugate-gradients.pdf` | work of the US government (J. Res. NBS) |
+| `nssc1/refs/vendor/vtkCellType.h` | BSD-3-Clause, Ken Martin, Will Schroeder, Bill Lorensen (`LICENSE-VTK`) |
 | `database-systems/refs/vendor/sqlite/`, `advanced-database-systems/refs/vendor/sqlite-lang_with.html` | SQLite documentation, public domain |
 | `advanced-database-systems/refs/vendor/pg18-*.html` | PostgreSQL documentation, PostgreSQL Licence (`LICENSE-PostgreSQL.txt`) |
 | `computational-science-on-many-core-architectures/refs/vendor/rupp-cpu-gpu-mic-comparison/` | Karl Rupp, CC BY 4.0 (`LICENSE.txt`) |
