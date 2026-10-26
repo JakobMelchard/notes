@@ -87,7 +87,7 @@ registered students (S1). No TUWEL material was used: TUWEL needs a login.
 
 | # | source | licence | used for |
 |---|---|---|---|
-| S22 | OpenMP ARB, *OpenMP API Specification 5.2*, 2021 | ARB copy permission; **vendored once**, in [`../../../ws2026/numerical-simulation-and-scientific-computing-i/refs/vendor/`](../../numerical-simulation-and-scientific-computing-i/refs/vendor/openmp-api-specification-5.2.pdf) | `target`, `teams`, `distribute`, `map`, `declare target` (note 05); basics are in NSSC I note 07 |
+| S22 | OpenMP ARB, *OpenMP API Specification 5.2*, 2021 | ARB copy permission; **vendored once**, in [`../../../ws2026/numerical-simulation-and-scientific-computing-i/refs/vendor/`](../../nssc1/refs/vendor/openmp-api-specification-5.2.pdf) | `target`, `teams`, `distribute`, `map`, `declare target` (note 05); basics are in NSSC I note 07 |
 | S23 | OpenACC-Standard.org, *The OpenACC API*, v3.3, Nov 2022 | "no part of this document may be reproduced ... without the express written permission"; **fetch** | `parallel`, `kernels`, `loop gang/worker/vector`, data clauses (note 05) |
 | S24 | Khronos, *The OpenCL Specification*, 3.0 unified | Khronos grants use and reproduction of the unmodified spec, no distribution grant; **fetch** | platform/context/queue/kernel model, work-items and work-groups (note 05) |
 | S25 | Khronos, *SYCL 2020 Specification*, revision 12 | as S24; **fetch** | queues, buffers/accessors vs USM, `nd_range`, single-source C++ (note 05) |
@@ -112,7 +112,7 @@ registered students (S1). No TUWEL material was used: TUWEL needs a login.
 | S34 | M. Horowitz, *Computing's energy problem (and what we can do about it)*, ISSCC 2014, pp. 10-14, doi:10.1109/ISSCC.2014.6757323 | **cite** | energy of an operation vs of moving its operands (note 07) |
 | S35 | Cerebras, *Chip* page (WSE-3), <https://www.cerebras.ai/chip> | **cite** | 900 000 cores, 4 trillion transistors, 46 225 mm$^2$, "250 petaflops" (AI precision) |
 | S36 | Apple, *Metal Shading Language Specification*, version 4.1 | **fetch** | "Metal does not support the double ... data types": no FP64 on the Apple GPU through Metal (note 07) |
-| S40 | This repo, NSSC I study folder, [`../../../ws2026/numerical-simulation-and-scientific-computing-i/notes/`](../../numerical-simulation-and-scientific-computing-i/notes/README.md) | ours | cross-links: note 01 (memory hierarchy, pointer-chase latency 87-109 ns on this Mac), 02 (serial optimisation, blocking), 07 (OpenMP basics, races, false sharing, Amdahl/Gustafson/Karp-Flatt) |
+| S40 | This repo, NSSC I study folder, [`../../../ws2026/numerical-simulation-and-scientific-computing-i/notes/`](../../nssc1/notes/README.md) | ours | cross-links: note 01 (memory hierarchy, pointer-chase latency 87-109 ns on this Mac), 02 (serial optimisation, blocking), 07 (OpenMP basics, races, false sharing, Amdahl/Gustafson/Karp-Flatt) |
 
 
 ## Unsourced statements

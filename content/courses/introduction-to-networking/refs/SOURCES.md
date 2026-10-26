@@ -7,16 +7,16 @@ re-check before an exam.
 
 **Vendoring policy.** Unlike most courses here, the primary sources of this one
 *are* freely redistributable, so they are vendored: 52 RFCs in
-`rfc/`, 4.1 MB of plain text, with a `SHA256SUMS` manifest. See
+`rfc/`, 4.1 MB of plain text, with a `SHA256SUMS` manifest, and since
+2026-10-18 the CNP3 ebook [S35] in `book/`, 413 pages under CC BY-SA 3.0. See
 [`README.md`](README.md) for the licence reasoning per RFC vintage. Everything
 else below is a live web page (cited) or a paper whose licence could not be
 established (cited, fetch command in [`fetch-sources.sh`](fetch-sources.sh)).
 No TUWEL material was fetched; TUWEL needs a login and is not ours to copy, and
 as of 2026-09-27 TISS links no TUWEL course for 191.030 at all.
-The **substitute practice sources** S33–S35 are free and two of them are
-licence-clear, but they are cited rather than vendored as well — the reasoning
-is in that section and in the `README.md` of each
-`../src/exercises/` directory.
+The **substitute practice sources** S33 and S34 are cited rather than vendored;
+S35's exercise files are too, while its ebook is vendored (see that section and
+the `README.md` of each `../src/exercises/` directory).
 
 **The one thing to internalise before reading further.** 191.030 is **new in
 2026W**, taught by a professor who **started at TU Wien on 1 March 2026** and
@@ -451,11 +451,21 @@ worked-out practice set built from it lives in
 the institution, course and year on its first line. A reader must never be able
 to mistake an MIT problem set for a TU Wien past paper.
 
-None of the three below is **vendored**. S33 was never downloadable; S34 and
-S35 are, but their copyleft terms (NC-SA and SA respectively) would attach to
-everything derived from a copy, and both live at stable URLs. So: cited,
-restated in our own words, attributed — reasoning per source in the
-`README.md` of each exercise directory.
+S33 and S34 are **not vendored**. S33 was never downloadable; S34 is, but its
+NC-SA term would attach to everything derived from a copy, and it lives at a
+stable URL. So: cited, restated in our own words, attributed, reasoning per
+source in the `README.md` of each exercise directory.
+
+**S35 changed on 2026-10-18.** The CNP3 ebook is now vendored in full as
+`book/CNP3-2021.pdf`, because the course turned out to publish slides for
+lecture 1 and 2 only and to name no textbook [S36], which left the notes with
+no readable secondary source. CC BY-SA 3.0 permits distributing the unmodified
+work with attribution and a licence notice, and share-alike attaches to
+adaptations, not to a verbatim copy carried alongside independent work. The
+file is byte-identical to the upstream release asset and the solutions in
+`../src/exercises/uclouvain-cnp3-2019/` stay our own words, so nothing here is
+an adaptation of it. Which section covers which lecture topic, and where the
+book fails the syllabus, is [`cnp3-map.md`](cnp3-map.md).
 
 ### S33 — MPI-INF / Saarland University, *Data Networks* (Feldmann & **Fiebig**) ★
 
@@ -527,7 +537,26 @@ restated in our own words, attributed — reasoning per source in the
 ### S35 — Olivier Bonaventure, *Computer Networking: Principles, Protocols and Practice* (CNP3), 3rd ed., UCLouvain
 
 - URLs: <https://github.com/cnp3/ebook> · <https://www.computer-networking.info>
-- Retrieved: 2026-09-22. Access: public, no login.
+- Retrieved: 2026-09-22 (exercise sources); **2026-10-18** the ebook itself.
+  Access: public, no login.
+- **Vendored in full**: `book/CNP3-2021.pdf`, 413 pages, 7.3 MB, release
+  `draft-3rd` asset `CNP3-2021.pdf`
+  (<https://github.com/cnp3/ebook/releases/download/draft-3rd/CNP3-2021.pdf>),
+  title page "Release 2021", dated 2021-12-21, sha256
+  `f0b0d9672bf96c9df45130a3251ebde31a4da141f5dd40d63a54c9221fdd3060`
+  (`book/SHA256SUMS`). Unmodified. Attribution as the licence requires:
+  *Computer Networking: Principles, Protocols and Practice*, 3rd edition, by
+  Olivier Bonaventure (UCLouvain), CC BY-SA 3.0
+  <https://creativecommons.org/licenses/by-sa/3.0/>.
+- **Why it is the chosen book.** The one free, licence-clear, single-file
+  source covering most of the syllabus. Measured against the topic list it is
+  the only free book found that treats DNSSEC (topic 22) and Telnet (topic 23)
+  at all, and its IPv6 and BGP chapters are deeper than either textbook named
+  in lecture 1 [S36]. Its 3rd edition is IPv6-first and **dropped the IPv4
+  addressing material**, so classful addressing, subnet masks and CIDR
+  arithmetic (topic 8) are effectively absent, as are multicast routing (topic
+  24), governance (topic 3) and Babel (topic 14). Those gaps and their
+  replacements are listed per topic in [`cnp3-map.md`](cnp3-map.md).
 - Licence: **CC BY-SA 3.0 Unported** per the repository `README.md`; the
   individual exercise files carry a per-file header naming **CC BY 3.0**. Both
   are recorded because they disagree; the stricter is assumed. Exercise files

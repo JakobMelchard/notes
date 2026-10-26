@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# Verify (and if necessary re-fetch) the vendored RFCs, and optionally download
-# the cite-only papers into ./vendor, which is git-ignored.  See README.md for
-# why the RFCs are vendored and the papers are not.
+# Verify (and if necessary re-fetch) the vendored RFCs and the CNP3 ebook, and
+# optionally download the cite-only papers into ./vendor, which is git-ignored.
+# See README.md for why the RFCs and the book are vendored and the papers not.
 #
 #   ./fetch-sources.sh --verify    checksums only, no network
 #   ./fetch-sources.sh             re-fetch anything missing or changed, verify
@@ -13,8 +13,11 @@ MODE="${1:-refetch}"
 
 RFCS=$(sed 's/.*  //; s/^rfc//; s/\.txt$//' rfc/SHA256SUMS)
 
+BOOK_URL='https://github.com/cnp3/ebook/releases/download/draft-3rd/CNP3-2021.pdf'
+
 verify() {
     (cd rfc && shasum -a 256 -c SHA256SUMS)
+    (cd book && shasum -a 256 -c SHA256SUMS)
 }
 
 refetch() {
@@ -27,6 +30,13 @@ refetch() {
         echo "fetch $out"
         curl -fsS -o "$out" "https://www.rfc-editor.org/rfc/rfc$n.txt"
     done
+}
+
+book() {  # S35, CC BY-SA 3.0, vendored in full
+    mkdir -p book
+    if [ -s book/CNP3-2021.pdf ]; then return; fi
+    echo "fetch book/CNP3-2021.pdf"
+    curl -fsSL -o book/CNP3-2021.pdf "$BOOK_URL"
 }
 
 papers() {
@@ -49,9 +59,10 @@ papers() {
 
 case "$MODE" in
     --verify) verify ;;
-    --papers) refetch; verify; papers ;;
-    *)        refetch; verify ;;
+    --papers) refetch; book; verify; papers ;;
+    *)        refetch; book; verify ;;
 esac
 
 echo
 echo "$(wc -l < rfc/SHA256SUMS | tr -d ' ') RFCs, $(du -sh rfc | cut -f1) in rfc/"
+echo "1 book, $(du -sh book | cut -f1) in book/"

@@ -116,8 +116,8 @@ own words.
 
 ### S15 - NSSC I notes 10 and 07
 
-- [`../../../ws2026/numerical-simulation-and-scientific-computing-i/notes/10-software-engineering-for-scientific-computing.md`](../../numerical-simulation-and-scientific-computing-i/notes/10-software-engineering-for-scientific-computing.md): git workflow, Make and CMake (with a verified CMake run), compiling and linking, lldb, sanitizers, testing, licences. Note 01 links there instead of repeating it.
-- [`../../../ws2026/numerical-simulation-and-scientific-computing-i/notes/07-shared-memory-parallel-computing.md`](../../numerical-simulation-and-scientific-computing-i/notes/07-shared-memory-parallel-computing.md): OpenMP, racy-counter losses (60-90 %) and false-sharing costs measured on the same machine. Note 14 cites its numbers instead of re-measuring.
+- [`../../../ws2026/numerical-simulation-and-scientific-computing-i/notes/10-software-engineering-for-scientific-computing.md`](../../nssc1/notes/10-software-engineering-for-scientific-computing.md): git workflow, Make and CMake (with a verified CMake run), compiling and linking, lldb, sanitizers, testing, licences. Note 01 links there instead of repeating it.
+- [`../../../ws2026/numerical-simulation-and-scientific-computing-i/notes/07-shared-memory-parallel-computing.md`](../../nssc1/notes/07-shared-memory-parallel-computing.md): OpenMP, racy-counter losses (60-90 %) and false-sharing costs measured on the same machine. Note 14 cites its numbers instead of re-measuring.
 
 ### S18 - search record: what public material exists (negative result)
 
