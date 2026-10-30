@@ -66,5 +66,5 @@ That is still the only *published* answer key for the protocol constants. For
 worked problems there is now a second one, from outside the course:
 `exercises/mit-6.02-2012/` reproduces the answers
 MIT printed for its own routing and transport tutorials, and
-[`../notes/12-substitute-practice-set.md`](../notes/12-substitute-practice-set.md)
+`../notes/12-substitute-practice-set.md`
 collects the whole practice set: 22 problems, each tagged with whose it is.

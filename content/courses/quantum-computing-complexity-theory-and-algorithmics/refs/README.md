@@ -61,7 +61,7 @@ from inside it — that is how S16–S20 were read here.)
 
 ## What this pass could and could not establish
 
-**Read this before [`../notes/00-exam-focus.md`](../notes/00-exam-focus.md).**
+**Read this before `../notes/00-exam-focus.md`.**
 
 192.043 is **new in its present form**: 2026W is the first run at 6.0 h / 10.0
 ECTS, merging the 7.0 ECTS 192.043 with the 3.0 ECTS preparation course 192.042,
@@ -113,13 +113,13 @@ matched the TISS bullet list — but **conventions and verification**:
 
 ## Reading order
 
-1. [`../notes/00-exam-focus.md`](../notes/00-exam-focus.md) — what is known and
+1. `../notes/00-exam-focus.md` — what is known and
    what is inferred about the two exams, and the real questions from the sibling
    courses.
 2. [`lecture-notes-map.md`](lecture-notes-map.md) — the block structure and the
    conventions table.
-3. [`../notes/README.md`](../notes/README.md) — the 22 topic notes, then
-   [`../notes/01-practice-set-substitute-sources.md`](../notes/01-practice-set-substitute-sources.md)
+3. `../notes/README.md` — the 22 topic notes, then
+   `../notes/01-practice-set-substitute-sources.md`
    for the practice set built from S59–S61.
 4. **[S31]** (de Wolf) for the C-series and B06, and **[S25]** (Kleinberg &
    Tardos) for the A-series: those are the two texts that carry the most weight

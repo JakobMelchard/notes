@@ -36,9 +36,9 @@ artefact people expect from OCW is, for this course, a tutorial.
 
 | 6.02 tutorial | 191.030 topic [S1] | our note |
 |---|---|---|
-| **8**: packet vs circuit switching, store-and-forward delay | Foundations: "basic concepts", layering, sources of delay | [01](../../../notes/01-foundations-and-governance.md) |
-| **10**: routing: distance-vector convergence, link-state, Dijkstra, routing loops | "Routing and Forwarding", "link-state … algorithms" | [06](../../../notes/06-forwarding-and-routing.md), [07](../../../notes/07-link-state-and-path-vector.md) |
-| **11**: reliable data transport: stop-and-wait, sliding window, RTT, bandwidth-delay product, sequence-number wraparound, loss composition | "Layer 4 (TCP/UDP)", and the practical part's "describe TCP behavior given a specific scenario" (stated on TISS until 2026-09-2x, removed by 2026-09-27) | [05](../../../notes/05-udp-and-tcp.md), [11](../../../notes/11-exercise-playbook.md) |
+| **8**: packet vs circuit switching, store-and-forward delay | Foundations: "basic concepts", layering, sources of delay | 01 |
+| **10**: routing: distance-vector convergence, link-state, Dijkstra, routing loops | "Routing and Forwarding", "link-state … algorithms" | 06, 07 |
+| **11**: reliable data transport: stop-and-wait, sliding window, RTT, bandwidth-delay product, sequence-number wraparound, loss composition | "Layer 4 (TCP/UDP)", and the practical part's "describe TCP behavior given a specific scenario" (stated on TISS until 2026-09-2x, removed by 2026-09-27) | 05, 11 |
 
 ## What it covers that 191.030 does not
 
@@ -62,7 +62,7 @@ Ethernet framing and ARP, IPv4 addressing and subnetting, IPv6 in any form,
 Internet governance, socket programming, protocol design. Those gaps are why a
 second source and a set of our own problems exist: see
 `../uclouvain-cnp3-2019/` and
-[`../../../notes/12-substitute-practice-set.md`](../../../notes/12-substitute-practice-set.md).
+`../../../notes/12-substitute-practice-set.md`.
 
 ## What is in this directory
 

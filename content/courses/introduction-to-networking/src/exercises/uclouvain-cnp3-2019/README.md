@@ -38,15 +38,15 @@ Its exercise files line up with the syllabus almost file for file:
 
 | CNP3 exercise file | 191.030 topic [S1] | our note | solved here? |
 |---|---|---|---|
-| `network.rst` (flat vs hierarchical addressing, port-forwarding tables) | Foundations, "Routing and Forwarding" | [02](../../../notes/02-ethernet-and-arp.md), [06](../../../notes/06-forwarding-and-routing.md) | **yes**: §1 and §3 below |
-| `routing-policies.rst` (inter-domain routing) | "path-vector algorithms" | [06](../../../notes/06-forwarding-and-routing.md), [07](../../../notes/07-link-state-and-path-vector.md) | **yes**: §2 below |
-| `lan.rst` (switch address tables) | "Layer 2 (Ethernet…)" | [02](../../../notes/02-ethernet-and-arp.md) | partly: the learning rule, not STP |
-| `routing-protocols.rst` (link state, distance vector) | "link-state … algorithms" | [07](../../../notes/07-link-state-and-path-vector.md) | covered by the MIT set instead |
-| `ipv6.rst` | "Layer 3 (… IPv6)" | [04](../../../notes/04-ipv6.md) | no: `../../py/subnet.py` already does this |
-| `transport.rst`, `tcp.rst`, `tcp-2.rst`, `reliability.rst` | "Layer 4 (TCP/UDP)" | [05](../../../notes/05-udp-and-tcp.md) | covered by the MIT set instead |
-| `dns.rst` | "DNS" | [08](../../../notes/08-dns-dnssec-telnet.md) | no: `../../py/dns.py` already does this |
-| `sockets.rst` | "Socket programming" | [10](../../../notes/10-protocol-design-and-sockets.md) | no: `../../py/sockets_echo.py` already does this |
-| `trace.rst` | the practical part's "describing packet traces" (TISS until 2026-09-2x, removed by 2026-09-27) | [11](../../../notes/11-exercise-playbook.md) | no: `../../py/pcap.py` already does this |
+| `network.rst` (flat vs hierarchical addressing, port-forwarding tables) | Foundations, "Routing and Forwarding" | 02, 06 | **yes**: §1 and §3 below |
+| `routing-policies.rst` (inter-domain routing) | "path-vector algorithms" | 06, 07 | **yes**: §2 below |
+| `lan.rst` (switch address tables) | "Layer 2 (Ethernet…)" | 02 | partly: the learning rule, not STP |
+| `routing-protocols.rst` (link state, distance vector) | "link-state … algorithms" | 07 | covered by the MIT set instead |
+| `ipv6.rst` | "Layer 3 (… IPv6)" | 04 | no: `../../py/subnet.py` already does this |
+| `transport.rst`, `tcp.rst`, `tcp-2.rst`, `reliability.rst` | "Layer 4 (TCP/UDP)" | 05 | covered by the MIT set instead |
+| `dns.rst` | "DNS" | 08 | no: `../../py/dns.py` already does this |
+| `sockets.rst` | "Socket programming" | 10 | no: `../../py/sockets_echo.py` already does this |
+| `trace.rst` | the practical part's "describing packet traces" (TISS until 2026-09-2x, removed by 2026-09-27) | 11 | no: `../../py/pcap.py` already does this |
 
 Only three exercise types are solved here, deliberately. Where this tree
 already has a better implementation of the same thing, the table says so
@@ -67,7 +67,7 @@ instead of duplicating it.
 
 **DNSSEC**, **Telnet**, **multicast routing**, and **Internet governance**:
 all four named by TISS [S1], none of them a CNP3 exercise. They are the gap that
-[`../../../notes/12-substitute-practice-set.md`](../../../notes/12-substitute-practice-set.md)
+`../../../notes/12-substitute-practice-set.md`
 fills with problems of our own, checked against the RFCs vendored in
 `../../../refs/rfc/`.
 

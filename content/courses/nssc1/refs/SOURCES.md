@@ -1,6 +1,6 @@
 # Sources - 360.242 Numerical Simulation and Scientific Computing I
 
-Register of every source used to write and verify [`../notes`](../notes/README.md)
+Register of every source used to write and verify `../notes`
 and [`../src`](../src/README.md). Notes cite these as `[S<n>]`. Retrieval dates
 are the day the page or file was fetched; TISS and VoWi pages change, so
 re-check before an exam.
@@ -118,7 +118,7 @@ map onto these.
 - Retrieved: 2026-09-22. Access: public.
 - This is the **only external link on the TISS page** [S1] and it is followed
   from the "Previous knowledge" field.
-- Used for: the prerequisite claim in [`../notes/README.md`](../notes/README.md).
+- Used for: the prerequisite claim in `../notes/README.md`.
   "Programming skills are part of the admission requirements for the master's
   programme CSE", so there is no introductory coding course; "The main
   programming languages you will need are C++ and Python"; the modules in which
@@ -545,7 +545,7 @@ map onto these.
 - Used for: the benchmarking protocol in note 02 (minimum of repeated runs, warm
   up, consume the result, compare against a bound), the false-sharing and
   ccNUMA/first-touch material in note 07, and the "balance" view of memory-bound
-  kernels. Named in [`../notes/README.md`](../notes/README.md) as the standard
+  kernels. Named in `../notes/README.md` as the standard
   companion for topics 1, 2 and 7 - with the caveat that **TISS names no
   literature at all** [S1], so this is our choice, not the course's.
 
@@ -617,7 +617,7 @@ map onto these.
 - Used for **one thing only**, and it is a remark about source quality rather
   than a fact: [S8] takes its Apple-silicon cache figures "From Wikipedia", and
   note 01 points that out as the reason its own table is read from `sysctl`
-  [S34] instead. Cited in [`../notes/01-computer-architectures.md`](../notes/01-computer-architectures.md).
+  [S34] instead. Cited in `../notes/01-computer-architectures.md`.
 
 ---
 
@@ -627,7 +627,7 @@ map onto these.
 exercise sheet [S1] [S4], so there is no model answer to work from and nothing
 to practise on. The sources below are **substitutes**: free, licence-clear
 teaching material for the *same subject* from elsewhere, used to build the
-practice set in [`../notes/11-practice-set.md`](../notes/11-practice-set.md) and
+practice set in `../notes/11-practice-set.md` and
 the solutions in [`../src/exercises/`](../src/exercises/README.md).
 
 **The rule they are used under.** Nothing from them is presented as 360.242
@@ -763,10 +763,10 @@ not finite differences, and nothing in it is evidence about the 360.242 exam
   summarise in their own words. The exercise hand-ins are graded group work and
   are not solved here.
 - Used for: the grading, exercise and exam rules and the four-part schedule in
-  [`../notes/00-exam-focus.md`](../notes/00-exam-focus.md) and
+  `../notes/00-exam-focus.md` and
   [`lecture-notes-map.md`](lecture-notes-map.md), the TISS-against-TUWEL table
   in [`../docs/tiss.md`](../docs/tiss.md), and the 2026W section and cards of
-  [`../notes/10-software-engineering-for-scientific-computing.md`](../notes/10-software-engineering-for-scientific-computing.md).
+  `../notes/10-software-engineering-for-scientific-computing.md`.
   Where it disagrees with an inference in these notes, S45 wins.
 
 ---

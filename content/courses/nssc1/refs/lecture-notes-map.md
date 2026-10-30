@@ -9,20 +9,20 @@ one note each, in TISS's order. The notes are numbered to match.
 
 | # | TISS topic [S1] | our note | primary sources | our code |
 |---|---|---|---|---|
-| 1 | Computer Architectures | [01](../notes/01-computer-architectures.md) | [S8] *Caches*, *Pipelining*; [S16] roofline; [S17] STREAM; [S18]; [S34] the host | `cpp/cache_bench.cpp` |
-| 2 | Serial Optimization | [02](../notes/02-serial-optimisation.md) | [S8] *Caches* §matmul; [S31]; [S37] clang flags; [S35] | `cpp/matmul_opt.cpp` |
-| 3 | Numerical Derivatives and Integrals | [03](../notes/03-numerical-derivatives-and-integrals.md) | [S25] Fornberg; [S23] §1 | `py/fd_poisson.py`, `py/fdstencil.py` |
-| 4 | Finite Difference Discretization | [04](../notes/04-finite-difference-discretisation.md) | [S23] LeVeque; [S24] Lax–Richtmyer, CFL | `cpp/fd_poisson1d.cpp`, `cpp/heat2d.cpp`, `py/heat2d.py` |
-| 5 | Numerical Linear Algebra | [05](../notes/05-numerical-linear-algebra.md) | [S22] Saad; [S15] Hestenes & Stiefel | `cpp/csr.cpp`, `py/csr.py` |
-| 6 | Random Number Generation and Monte Carlo Methods | [06](../notes/06-random-numbers-and-monte-carlo.md) | [S26] MT; [S27] Marsaglia; [S28] Park–Miller; [S29] Hull–Dobell; [S30] Box–Muller; [S14] C++ test vectors | `cpp/rng_mc.cpp`, `py/montecarlo.py`, `py/lattice.py`, `py/test_lattice.py` |
-| 7 | Shared Memory Parallel Computing | [07](../notes/07-shared-memory-parallel-computing.md) | **[S11] the OpenMP spec**; [S8] *Parallelization*; [S19]/[S20]/[S21] | `cpp/omp_examples.cpp`, `cpp/threads_cpp.cpp`, `py/scaling.py` |
-| 8 | Algorithmic Complexity and Data Structures | [08](../notes/08-algorithmic-complexity-and-data-structures.md) | [S14] container complexity requirements | `cpp/containers_bench.cpp` |
-| 9 | Mesh Generation and Visualiziation *(sic)* | [09](../notes/09-mesh-generation-and-visualisation.md) | **[S12]/[S13] the VTK format**; [S32] Delaunay; [S33] Gmsh | `cpp/vtk_writer.cpp`, `py/delaunay.py`, `py/vtk_check.py` |
-| 10 | Software Engineering Principles for Scientific Computing | [10](../notes/10-software-engineering-for-scientific-computing.md) | [S36] CMake; [S37]/[S38] sanitizers; [S39] pybind11; [S40] git; [S41] licences | `cpp/CMakeLists.txt`, `sh/*.sh` |
+| 1 | Computer Architectures | 01 | [S8] *Caches*, *Pipelining*; [S16] roofline; [S17] STREAM; [S18]; [S34] the host | `cpp/cache_bench.cpp` |
+| 2 | Serial Optimization | 02 | [S8] *Caches* §matmul; [S31]; [S37] clang flags; [S35] | `cpp/matmul_opt.cpp` |
+| 3 | Numerical Derivatives and Integrals | 03 | [S25] Fornberg; [S23] §1 | `py/fd_poisson.py`, `py/fdstencil.py` |
+| 4 | Finite Difference Discretization | 04 | [S23] LeVeque; [S24] Lax–Richtmyer, CFL | `cpp/fd_poisson1d.cpp`, `cpp/heat2d.cpp`, `py/heat2d.py` |
+| 5 | Numerical Linear Algebra | 05 | [S22] Saad; [S15] Hestenes & Stiefel | `cpp/csr.cpp`, `py/csr.py` |
+| 6 | Random Number Generation and Monte Carlo Methods | 06 | [S26] MT; [S27] Marsaglia; [S28] Park–Miller; [S29] Hull–Dobell; [S30] Box–Muller; [S14] C++ test vectors | `cpp/rng_mc.cpp`, `py/montecarlo.py`, `py/lattice.py`, `py/test_lattice.py` |
+| 7 | Shared Memory Parallel Computing | 07 | **[S11] the OpenMP spec**; [S8] *Parallelization*; [S19]/[S20]/[S21] | `cpp/omp_examples.cpp`, `cpp/threads_cpp.cpp`, `py/scaling.py` |
+| 8 | Algorithmic Complexity and Data Structures | 08 | [S14] container complexity requirements | `cpp/containers_bench.cpp` |
+| 9 | Mesh Generation and Visualiziation *(sic)* | 09 | **[S12]/[S13] the VTK format**; [S32] Delaunay; [S33] Gmsh | `cpp/vtk_writer.cpp`, `py/delaunay.py`, `py/vtk_check.py` |
+| 10 | Software Engineering Principles for Scientific Computing | 10 | [S36] CMake; [S37]/[S38] sanitizers; [S39] pybind11; [S40] git; [S41] licences | `cpp/CMakeLists.txt`, `sh/*.sh` |
 
-Plus [00-exam-focus.md](../notes/00-exam-focus.md), which is about the exam
+Plus 00-exam-focus.md, which is about the exam
 rather than a topic, and
-[11-practice-set.md](../notes/11-practice-set.md), which is 24 exam-shaped
+11-practice-set.md, which is 24 exam-shaped
 problems drawn from **substitute** sources - [S8], [S43] and [S44] - because
 this course sets none of its own. Its last table names the topics for which no
 free practice material exists at all: **6, 9 and 10**.
@@ -114,5 +114,5 @@ notes act on:
 - **"Discussion of case studies"** (Teaching methods, [S1]). No case study is
   public. Nothing in the notes is written to it.
 - **"Written and oral"** (Mode of examination, [S1]) while the Exams table lists
-  only *written* sittings. See [00-exam-focus.md](../notes/00-exam-focus.md);
+  only *written* sittings. See 00-exam-focus.md;
   this discrepancy is in TISS itself and is not resolved anywhere public.

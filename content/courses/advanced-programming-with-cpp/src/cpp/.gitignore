@@ -1,6 +1,0 @@
-bin/
-bin-*/
-build/
-*.o
-*.pcm
-*.dSYM/

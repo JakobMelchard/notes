@@ -13,22 +13,22 @@ functions [S11]; Fuchsbauer gives the rest [S9].
 
 | # | Lecture (slide title) | Given by | K&L | Our note | Our code |
 |---|---|---|---|---|---|
-| — | (exam guide, not a lecture) | — | — | [00](../notes/00-exam-focus.md) | — |
-| 1 | Admin, introduction, historical ciphers | Fuchsbauer | 1.2, 1.4 (and 1.3) | [01](../notes/01-historical-ciphers.md) | `classical.py` |
-| 2 | Modern cryptography, the one-time pad | Fuchsbauer | 2 | [02](../notes/02-perfect-secrecy.md) | `otp.py`, `classical.py` |
-| 3 | Block ciphers | Andreeva | 7.2 | [03](../notes/03-block-ciphers.md) | `block_ciphers.py`, `private_key.py` |
-| 4 | Stream ciphers and computational security | Fuchsbauer | 7.1, 3.1 | [04](../notes/04-computational-security.md) | `prg.py` |
-| 5 | Pseudorandomness, proofs by reduction | Fuchsbauer | 3.3.1-3.3.3 | [05](../notes/05-pseudorandomness.md) | `prg.py` |
-| 6 | PRFs, CPA-secure encryption | Fuchsbauer | 3.4.2, 3.5.1, 3.5.2 | [06](../notes/06-private-key-encryption.md) | `private_key.py` |
-| 7 | Modes of operation, CCA | Fuchsbauer | 3.6.3, 5.1 | [06](../notes/06-private-key-encryption.md) | `private_key.py` |
-| 8 | Authentication, MACs, AE, secure sessions | Fuchsbauer | 4, 5.2, 5.4 | [07](../notes/07-macs-and-ae.md) | `mac.py` |
-| 9 | Hash functions | Andreeva | 6, 6.2, 6.3, 6.6.2, 7.3 | [08](../notes/08-hash-functions.md) | `hashing.py` |
-| 10 | Number-theoretic background | Fuchsbauer | 9.1.2, 9.1.3 | [09](../notes/09-number-theory.md) | `numtheory.py` |
-| 11 | DLog, public-key cryptography | Fuchsbauer | 10, 11, 12 | [09](../notes/09-number-theory.md), [10](../notes/10-key-exchange-pke.md) | `numtheory.py`, `dh.py`, `elgamal.py` |
-| 12 | DHIES, RSA encryption, digital signatures | Fuchsbauer | 12.3, 12.4.2, 12.5, 13 | [10](../notes/10-key-exchange-pke.md), [11](../notes/11-digital-signatures.md) | `elgamal.py`, `rsa.py`, `oaep.py` |
-| 13 | RSA-FDH, Schnorr, DSA, PKI | Fuchsbauer | 13.4, 13.5, 13.6 | [11](../notes/11-digital-signatures.md), [12](../notes/12-tls-and-pki.md) | `signatures.py` |
-| 13a | SSL/TLS, outro | Fuchsbauer | 13.7 | [12](../notes/12-tls-and-pki.md) | — |
-| — | (synthesis, not a lecture) | — | — | [13](../notes/13-proof-toolkit.md) | all |
+| — | (exam guide, not a lecture) | — | — | 00 | — |
+| 1 | Admin, introduction, historical ciphers | Fuchsbauer | 1.2, 1.4 (and 1.3) | 01 | `classical.py` |
+| 2 | Modern cryptography, the one-time pad | Fuchsbauer | 2 | 02 | `otp.py`, `classical.py` |
+| 3 | Block ciphers | Andreeva | 7.2 | 03 | `block_ciphers.py`, `private_key.py` |
+| 4 | Stream ciphers and computational security | Fuchsbauer | 7.1, 3.1 | 04 | `prg.py` |
+| 5 | Pseudorandomness, proofs by reduction | Fuchsbauer | 3.3.1-3.3.3 | 05 | `prg.py` |
+| 6 | PRFs, CPA-secure encryption | Fuchsbauer | 3.4.2, 3.5.1, 3.5.2 | 06 | `private_key.py` |
+| 7 | Modes of operation, CCA | Fuchsbauer | 3.6.3, 5.1 | 06 | `private_key.py` |
+| 8 | Authentication, MACs, AE, secure sessions | Fuchsbauer | 4, 5.2, 5.4 | 07 | `mac.py` |
+| 9 | Hash functions | Andreeva | 6, 6.2, 6.3, 6.6.2, 7.3 | 08 | `hashing.py` |
+| 10 | Number-theoretic background | Fuchsbauer | 9.1.2, 9.1.3 | 09 | `numtheory.py` |
+| 11 | DLog, public-key cryptography | Fuchsbauer | 10, 11, 12 | 09, 10 | `numtheory.py`, `dh.py`, `elgamal.py` |
+| 12 | DHIES, RSA encryption, digital signatures | Fuchsbauer | 12.3, 12.4.2, 12.5, 13 | 10, 11 | `elgamal.py`, `rsa.py`, `oaep.py` |
+| 13 | RSA-FDH, Schnorr, DSA, PKI | Fuchsbauer | 13.4, 13.5, 13.6 | 11, 12 | `signatures.py` |
+| 13a | SSL/TLS, outro | Fuchsbauer | 13.7 | 12 | — |
+| — | (synthesis, not a lecture) | — | — | 13 | all |
 
 Lecture 1's deck header names K&L 1.2 and 1.4 [S8]; the historical ciphers
 themselves are sec. 1.3 in the 3rd edition's table of contents [S53]. Every

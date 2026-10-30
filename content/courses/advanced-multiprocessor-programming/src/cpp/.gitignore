@@ -1,4 +1,0 @@
-# Build output of the Makefile; never tracked.
-bin/
-bin-tsan/
-*.dSYM/

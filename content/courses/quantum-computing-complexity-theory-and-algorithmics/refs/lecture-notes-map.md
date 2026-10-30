@@ -71,9 +71,9 @@ and Tardos [S25]):
 
 | deck [S62] | sessions | note |
 |---|---|---|
-| Warm-Up (chapter 1): stable matching, five representative problems, polynomial time, asymptotic order of growth, common running times | 01.10, 05.10 | [A01](../notes/A01-asymptotics-and-recurrences.md) |
-| Chapter 2: graph basics, representations, paths and trees, BFS, DFS, connected components, bipartiteness, strong connectivity, DAGs and topological order | 07.10 | [A02](../notes/A02-graphs.md) |
-| Chapter 3: interval scheduling and partitioning, priority queues and binary heaps, Dijkstra, MST (cut and cycle property, Prim, Kruskal), minimising lateness, greedy proof strategies | 09.10 | [A03](../notes/A03-greedy.md) |
+| Warm-Up (chapter 1): stable matching, five representative problems, polynomial time, asymptotic order of growth, common running times | 01.10, 05.10 | A01 |
+| Chapter 2: graph basics, representations, paths and trees, BFS, DFS, connected components, bipartiteness, strong connectivity, DAGs and topological order | 07.10 | A02 |
+| Chapter 3: interval scheduling and partitioning, priority queues and binary heaps, Dijkstra, MST (cut and cycle property, Prim, Kruskal), minimising lateness, greedy proof strategies | 09.10 | A03 |
 
 Note the numbering shift: the TUWEL decks call graphs "chapter 2" and greedy
 "chapter 3" (Kleinberg and Tardos chapters 3 and 4), because the warm-up deck
@@ -126,25 +126,25 @@ solvers…") [S1], so somebody teaches it — presumably Egly.
 
 | K&T ch. | topic, as the two syllabi name it [S1, S5] | note | code |
 |---|---|---|---|
-| 2 | O-notation, asymptotic order of growth; running-time analysis | [A01](../notes/A01-asymptotics-and-recurrences.md) | `src/py/algorithmics/divide_conquer.py` (Master-theorem checks) |
-| 3 | graphs: **data structures for graphs** [S5], connectivity, traversal, bipartiteness, topological ordering | [A02](../notes/A02-graphs.md) | `src/py/algorithmics/graphs.py`, `src/cpp/dijkstra.cpp` |
-| 4 | greedy: interval scheduling, **interval partitioning** [S5], **priority queues** [S5], MST | [A03](../notes/A03-greedy.md) | `src/py/algorithmics/greedy.py`, `src/cpp/kruskal.cpp` |
-| 5 | divide and conquer: **merge sort** [S5], recurrences, counting inversions, closest pair | [A04](../notes/A04-divide-and-conquer.md) | `src/py/algorithmics/divide_conquer.py` |
-| 6 | DP: weighted interval scheduling, knapsack, shortest path | [A05](../notes/A05-dynamic-programming.md) | `src/py/algorithmics/dp.py`, `src/cpp/knapsack.cpp` |
-| 7 | network flow: Ford–Fulkerson, **the MaxFlow–MinCut theorem** [S5], applications | [A06](../notes/A06-network-flow.md) | `src/py/algorithmics/flow.py`, `src/cpp/edmonds_karp.cpp` |
-| 11 | approximation (new in 2025W [S2, S3]) | [A07](../notes/A07-approximation.md) | `src/py/algorithmics/approx.py` |
-| 11.6 | LP vs ILP | [A08](../notes/A08-lp-vs-ilp.md) | `src/py/algorithmics/lp_ilp.py` |
+| 2 | O-notation, asymptotic order of growth; running-time analysis | A01 | `src/py/algorithmics/divide_conquer.py` (Master-theorem checks) |
+| 3 | graphs: **data structures for graphs** [S5], connectivity, traversal, bipartiteness, topological ordering | A02 | `src/py/algorithmics/graphs.py`, `src/cpp/dijkstra.cpp` |
+| 4 | greedy: interval scheduling, **interval partitioning** [S5], **priority queues** [S5], MST | A03 | `src/py/algorithmics/greedy.py`, `src/cpp/kruskal.cpp` |
+| 5 | divide and conquer: **merge sort** [S5], recurrences, counting inversions, closest pair | A04 | `src/py/algorithmics/divide_conquer.py` |
+| 6 | DP: weighted interval scheduling, knapsack, shortest path | A05 | `src/py/algorithmics/dp.py`, `src/cpp/knapsack.cpp` |
+| 7 | network flow: Ford–Fulkerson, **the MaxFlow–MinCut theorem** [S5], applications | A06 | `src/py/algorithmics/flow.py`, `src/cpp/edmonds_karp.cpp` |
+| 11 | approximation (new in 2025W [S2, S3]) | A07 | `src/py/algorithmics/approx.py` |
+| 11.6 | LP vs ILP | A08 | `src/py/algorithmics/lp_ilp.py` |
 
 ### Block B — Complexity theory (Pichler's order [S14], Papadimitriou [S26])
 
 | Pichler's heading [S14] / TISS bullet [S1] | note | code |
 |---|---|---|
-| Turing machines, complexity classes; **random access machines** [S4]; problem reductions; Cook–Levin; more NP-completeness | [B01](../notes/B01-models-and-np-completeness.md) | `src/py/complexity/sat.py` |
-| The class PSPACE; EXPTIME; **the polynomial hierarchy** [S5, S7, S14] | [B02](../notes/B02-pspace-and-exptime.md) | — |
-| Logarithmic space: L, NL | [B03](../notes/B03-inside-p-l-and-nl.md) | `src/py/complexity/reachability.py` |
-| "inside the class P … parallelizable problems" [S7] = circuit classes NC/AC, P/poly | [B04](../notes/B04-circuit-complexity.md) | — |
-| Probabilistic classes BPP, PP | [B05](../notes/B05-probabilistic-classes.md) | `src/py/complexity/bpp_amplify.py` |
-| Uniform boolean and quantum circuits; extended Church–Turing thesis; BQP; QMA; quantum query complexity | [B06](../notes/B06-quantum-complexity.md) | `src/py/complexity/query_complexity.py` |
+| Turing machines, complexity classes; **random access machines** [S4]; problem reductions; Cook–Levin; more NP-completeness | B01 | `src/py/complexity/sat.py` |
+| The class PSPACE; EXPTIME; **the polynomial hierarchy** [S5, S7, S14] | B02 | — |
+| Logarithmic space: L, NL | B03 | `src/py/complexity/reachability.py` |
+| "inside the class P … parallelizable problems" [S7] = circuit classes NC/AC, P/poly | B04 | — |
+| Probabilistic classes BPP, PP | B05 | `src/py/complexity/bpp_amplify.py` |
+| Uniform boolean and quantum circuits; extended Church–Turing thesis; BQP; QMA; quantum query complexity | B06 | `src/py/complexity/query_complexity.py` |
 
 Pichler's own list also contains **fixed-parameter tractability** and
 **applications (database theory, abduction)** [S14]; neither is on the 192.043
@@ -155,19 +155,19 @@ than the TISS bullet list, FPT is the first thing that would appear.
 
 | lecture section [S20] | note | code | sheet exercises [S16, S17] |
 |---|---|---|---|
-| 0 Introduction: qubit, entanglement, **noise — gate infidelity and decoherence** | [C01](../notes/C01-qubits-gates-and-measurement.md) | `src/py/quantum/sim.py` | — |
+| 0 Introduction: qubit, entanglement, **noise — gate infidelity and decoherence** | C01 | `src/py/quantum/sim.py` | — |
 | 1 Principles of QM I: classes of operators, bra–ket | C01 | `sim.py` | Sheet 1 Ex. 2–8 |
 | 2 Principles of QM II & gates: four postulates, registers, NOT/H/phase/T/rotation/CNOT/SWAP, universality | C01 | `sim.py` | Sheet 1 Ex. 9–10; Sheet 3 Ex. 3–5 |
-| 3 Preparatory concepts: multi-controlled gates and **Gray code**, reversibility and garbage, **phase kickback** | [C02](../notes/C02-programming-techniques-and-reversible-computation.md) | `sim.py` | Sheet 2 Ex. 2; PE 1, PE 2 |
-| 4 Algorithms I: **superdense coding**, teleportation, Deutsch, Deutsch–Jozsa, Bernstein–Vazirani | [C03](../notes/C03-deutsch-jozsa-bernstein-vazirani-teleportation.md) | `deutsch_jozsa.py`, `bernstein_vazirani.py`, `teleport.py` | Sheet 2 Ex. 1, 4, 5 |
-| 5 Algorithms II: Grover, Simon | [C04](../notes/C04-grover.md), [C05](../notes/C05-simon.md) | `grover.py`, `simon.py` | Sheet 3 Ex. 1–2; Sheet 4 Ex. 1; PE 3 |
-| 6 Algorithms III: QFT, QPE | [C06](../notes/C06-qft-phase-estimation-order-finding.md) | `qft.py`, `phase_estimation.py` | Sheet 4 Ex. 2–4 |
-| 7 Algorithms IV: Shor | [C07](../notes/C07-shor.md) | `shor.py`, `order_finding.py` | — |
-| (not in 192.036/192.070; on the 192.043 list [S1], material in 194.027 [S22]) | [C08](../notes/C08-variational-and-hybrid-algorithms.md) | `vqe.py`, `qaoa.py` | HQCS assignment 2 |
+| 3 Preparatory concepts: multi-controlled gates and **Gray code**, reversibility and garbage, **phase kickback** | C02 | `sim.py` | Sheet 2 Ex. 2; PE 1, PE 2 |
+| 4 Algorithms I: **superdense coding**, teleportation, Deutsch, Deutsch–Jozsa, Bernstein–Vazirani | C03 | `deutsch_jozsa.py`, `bernstein_vazirani.py`, `teleport.py` | Sheet 2 Ex. 1, 4, 5 |
+| 5 Algorithms II: Grover, Simon | C04, C05 | `grover.py`, `simon.py` | Sheet 3 Ex. 1–2; Sheet 4 Ex. 1; PE 3 |
+| 6 Algorithms III: QFT, QPE | C06 | `qft.py`, `phase_estimation.py` | Sheet 4 Ex. 2–4 |
+| 7 Algorithms IV: Shor | C07 | `shor.py`, `order_finding.py` | — |
+| (not in 192.036/192.070; on the 192.043 list [S1], material in 194.027 [S22]) | C08 | `vqe.py`, `qaoa.py` | HQCS assignment 2 |
 
 ## Conventions the course uses, and where they are fixed
 
-These are the silent killers. All of them are stated in [C01](../notes/C01-qubits-gates-and-measurement.md).
+These are the silent killers. All of them are stated in C01.
 
 | convention | the course's version | source |
 |---|---|---|

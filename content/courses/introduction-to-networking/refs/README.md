@@ -80,7 +80,7 @@ Last verified 2026-10-18: 52 of 52 RFCs and the ebook `OK`, offline
 
 ## What sourcing this course could *not* establish
 
-Read this before [`../notes/00-exam-focus.md`](../notes/00-exam-focus.md).
+Read this before `../notes/00-exam-focus.md`.
 
 191.030 is **new in 2026W** [S1]. Tobias Fiebig took up the Computer Networks
 chair at TU Wien on **1 March 2026** [S5] and 191.030 is his only lecture here
@@ -114,9 +114,9 @@ RFCs print are reproduced by tests in
 
 ## Reading order
 
-1. [`../notes/00-exam-focus.md`](../notes/00-exam-focus.md) — what is known and
+1. `../notes/00-exam-focus.md` — what is known and
    what is guessed about the examination, and how much weight to give each.
-2. [`../notes/README.md`](../notes/README.md) — the eleven topic notes in the
+2. `../notes/README.md` — the eleven topic notes in the
    order the TISS subject list gives them.
 3. [`standards-map.md`](standards-map.md) when a note cites a section and you
    want the text: it says which file and which section.
