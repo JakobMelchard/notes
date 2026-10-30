@@ -121,7 +121,7 @@ what the course does *not* cover. The notes were reordered to follow it.
   subject list omits), the reported grading formula `%G = 0.5*%E + 0.5*%U`
   "W23+", the previous formula `0.4*%E + 0.6*(%U*5/4 - 25%)` with a 50% floor in
   each part, and the student reports digested into
-  `../notes/00-exam-focus.md` — including "WS25:
+  the exam-focus note (no longer published) — including "WS25:
   they changed the exam from just one final to one midterm + one final", and
   "WS2025: the general exercise mode is now only about how many exercises you
   check" (no more `Tafelleistung` deductions).
@@ -190,7 +190,7 @@ what the course does *not* cover. The notes were reordered to follow it.
   Also used for: lecture 11's NIST key-length table (identical to S27 Table 2),
   the factorization-record table (1991: 330 bits … 2020: 829 bits), and
   lecture 13a's TLS 1.3 handshake and record-layer diagrams, which
-  `../notes/12-tls-and-pki.md` is built from.
+  note 12 (TLS and PKI, no longer published) is built from.
 
 ### S9 — Georg Fuchsbauer, personal homepage
 
@@ -257,7 +257,7 @@ what the course does *not* cover. The notes were reordered to follow it.
 - URL: <https://vowi.fsinf.at/images/f/f2/TU_Wien-Introduction_to_Cryptography_VU_%28Fuchsbauer%29_-_Exam1_2023W.pdf>
 - Retrieved: 2026-09-22 (browser; text extracted with pdf.js in the page).
   **Student upload of an exam paper. Cite-only, not vendored, not reproduced.**
-- Used for: `../notes/00-exam-focus.md` — the paper's
+- Used for: the exam-focus note (no longer published) — the paper's
   shape (12 true/false at ±1 with a floor of 0, then five multi-part questions),
   and five topics the notes or code were missing: RSA moduli **sharing a prime
   factor** (`src/py/rsa.py::shared_prime_attack`), the NIST key-length comparison
@@ -333,7 +333,7 @@ what the course does *not* cover. The notes were reordered to follow it.
 - URL: <https://www.rfc-editor.org/rfc/rfc8446.txt> · vendored at [`rfc/rfc8446.txt`](rfc/rfc8446.txt)
 - Retrieved: 2026-09-22. Licence: IETF Trust, BCP 78 / TLP 5.0 — redistributable
   in full and unmodified.
-- Used for: `../notes/12-tls-and-pki.md`. The
+- Used for: note 12 (TLS and PKI, no longer published). The
   handshake message flow (sec. 2), the key schedule and HKDF-Expand-Label
   (sec. 7.1), the record layer (sec. 5), the mandatory AEAD ciphersuites
   (sec. 9.1), and the removal of static-RSA key transport, which is why TLS 1.3
@@ -803,7 +803,7 @@ None is vendored. *Comparability* says how close each is to what 192.125 teaches
   excerpts. The notes summarise in their own words.
 - Used for: the 2026W lecture order and exam rules in
   [`lecture-notes-map.md`](lecture-notes-map.md) and
-  `../notes/00-exam-focus.md`, and the 2026W
+  the exam-focus note (no longer published), and the 2026W
   sections of notes 01-03. Where the 2026W decks differ from S7/S8, S58 wins
   for this term.
 
@@ -816,7 +816,7 @@ None is vendored. *Comparability* says how close each is to what 192.125 teaches
 - Retrieved: 2026-10-09. **Licence: all rights reserved. Not vendored,
   cite-only.** Summarised in our own words.
 - Used for: the hand-in rules and sheet 1/2 deadlines in
-  `../notes/00-exam-focus.md`.
+  the exam-focus note (no longer published).
 
 ---
 
@@ -849,7 +849,7 @@ TISS pages, VoWi and IACR ePrint also in a browser).
    the grade in 2025W, 20 % plus the exam threshold in the 2026-09-28 record)
    live in TUWEL, which needs a login and was not touched. Where the notes give
    homework-style problems beyond assignments 1-2, they are ours, and
-   `../notes/00-exam-focus.md` says so.
+   the exam-focus note (no longer published) says so.
 2. **The next midterm has no direct precedent but one.** Midterms began in
    2025W [S5, S3], so S13 is the *only* midterm paper in existence. It is a
    sample of one.

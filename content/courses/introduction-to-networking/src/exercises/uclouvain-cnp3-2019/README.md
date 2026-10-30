@@ -67,7 +67,7 @@ instead of duplicating it.
 
 **DNSSEC**, **Telnet**, **multicast routing**, and **Internet governance**:
 all four named by TISS [S1], none of them a CNP3 exercise. They are the gap that
-`../../../notes/12-substitute-practice-set.md`
+note 12 (substitute practice set, no longer published)
 fills with problems of our own, checked against the RFCs vendored in
 `../../../refs/rfc/`.
 

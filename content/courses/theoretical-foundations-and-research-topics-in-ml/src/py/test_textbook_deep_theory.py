@@ -3,7 +3,7 @@
 Covers note 10. This file exists as its own unit because every factual error
 the 2026-09-22 source-verification pass found was in note 10, where the claims
 rest on research papers rather than on the two textbooks -- notes 01-09 came
-through clean. See ../../notes/CHANGELOG.md.
+through clean. See the notes changelog (no longer published).
 
 Part of the textbook-verification suite (see ../README.md). Each test hard-codes
 the expression as the source states it and compares it against an independently

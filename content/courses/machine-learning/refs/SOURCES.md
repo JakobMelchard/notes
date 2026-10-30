@@ -49,7 +49,7 @@ ML security** are all examined and were all missing from the notes.
   literature (**"No lecture notes are available."**), ECTS breakdown
   (13 classes 26 h / 2 presentation classes 8 h / assignments 46.5 h / exam 32 h).
   Diffed against [`../docs/tiss.md`](../docs/tiss.md); see
-  `../notes/CHANGELOG.md`.
+  the notes changelog (no longer published).
 
 ### S2 — TISS course page, 184.702, 2025W (previous winter offering)
 
@@ -246,7 +246,7 @@ attached to most of them. Retrieved 2026-09-22.
   $\log P(D\mid M) - \alpha\,\#M$ by hill climbing over add/remove/reverse-arc
   neighbourhoods), and *How to do AdaBoost*. It also pins down the course's
   **non-standard Laplace convention** — see the correction table in
-  `../notes/CHANGELOG.md`.
+  the notes changelog (no longer published).
 
 ### S43 — VoWi file: `Fragenkatalog 2019S.docx` — the older question catalogue ★
 

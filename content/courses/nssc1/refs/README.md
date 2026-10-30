@@ -22,7 +22,7 @@ The course has **no public script and no public past paper**: TISS says "No
 lecture notes are available" for every offering 2019W-2026W and the VoWi page is
 empty. So there is no single document to read cover to cover. Instead:
 
-1. `../notes/00-exam-focus.md`: what the exam
+1. the exam-focus note (no longer published): what the exam
    format actually is, what is known and what is guessed, and why; plus the
    2026-09-27 logistics (registration closes 08.10.2026 15:00 [S1]).
 2. **[S8]**, <https://jschoeberl.github.io/IntroSC/intro.html> - the "Performance"

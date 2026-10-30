@@ -62,7 +62,7 @@ Ethernet framing and ARP, IPv4 addressing and subnetting, IPv6 in any form,
 Internet governance, socket programming, protocol design. Those gaps are why a
 second source and a set of our own problems exist: see
 `../uclouvain-cnp3-2019/` and
-`../../../notes/12-substitute-practice-set.md`.
+note 12 (substitute practice set, no longer published).
 
 ## What is in this directory
 

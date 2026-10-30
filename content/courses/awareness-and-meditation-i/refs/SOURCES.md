@@ -38,7 +38,7 @@ algorithm, no formula and no code. The pass therefore collected what the course
   examination: Immanent", "Literature: No lecture notes are available." and
   "TUWEL course available from: 01.10.2026 00:00." Diffed against S2–S4; the
   diff is in [`../docs/tiss.md`](../docs/tiss.md) and
-  `../notes/CHANGELOG.md`.
+  the notes changelog (no longer published).
 
 The dated slots S1 lists for 2026W, all in **Theresianumgasse HS 1 – MWB**:
 
