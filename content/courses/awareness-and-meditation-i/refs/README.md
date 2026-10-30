@@ -63,5 +63,5 @@ requirement traced to [`SOURCES.md`](SOURCES.md).
    predecessor 194.139.
 3. [`SOURCES.md`](SOURCES.md) when you want the wording of a rule rather than the
    summary of it.
-4. `../notes/CHANGELOG.md` — what this pass established
+4. the notes changelog (no longer published) — what this pass established
    and corrected.

@@ -42,7 +42,7 @@ to copy: since 2026-10-09 the TUWEL course is read for facts and cited as
   and the two internal contradictions recorded in `../docs/tiss.md` §Discrepancies.
 - The German `objective` field of the API record names **decoherence and
   elementary error-correction strategies**; the English one does not, and
-  neither appears in the English subject list. See `../notes/00-exam-focus.md`.
+  neither appears in the English subject list. See the exam-focus note (no longer published).
 
 ### S2 — TISS course page, 192.043, 2025W
 
@@ -128,7 +128,7 @@ to copy: since 2026-10-09 the TUWEL course is read for facts and cited as
   class P to study parallelizable problems**."
 - Used for: Pichler's own authoritative topic list and ordering for the
   complexity third of 192.043, and as the justification for the polynomial
-  hierarchy and NC/circuit material in `../notes/B02`, `B03`, `B04`. Its dates
+  hierarchy and NC/circuit material in notes B02, B03 and B04 (no longer published). Its dates
   (Tue 09:00–11:00 Gödel, Wed 13:00–15:00 Zemanek) do **not** coincide with
   192.043's, so this is a separate course, not a co-taught block.
 
@@ -295,7 +295,7 @@ extracted with pdf.js from inside the page.
 
 - URL: `https://vowi.fsinf.at/images/d/da/TU_Wien-Einf%C3%BChrung_in_Quantencomputing_VU_%28Egly%29_-_Ged%C3%A4chtnisprotokoll_exercise_test_qci.pdf`
 - Retrieved: 2026-09-22. Access: public. One page, three questions, student-written.
-- Used for: **real exam-style questions** (see `../notes/00-exam-focus.md`):
+- Used for: **real exam-style questions** (see the exam-focus note (no longer published)):
   prove $(T\circ S)^* = S^*\circ T^*$ from the defining property of the adjoint;
   count models of the sheet-2 formula *without enumerating* and build an
   uncomputed circuit for it; construct and *prove correct* a gate array
@@ -398,7 +398,7 @@ extracted with pdf.js from inside the page.
 - Access: public.
 - Used for: the **central negative result**. There is no student page, no
   Gedächtnisprotokoll and no past paper for 192.043 itself. Everything in
-  `../notes/00-exam-focus.md` is therefore inferred from the sibling courses and
+  the exam-focus note (no longer published) is therefore inferred from the sibling courses and
   is marked as such.
 
 ## Textbooks named on the TISS page
@@ -744,7 +744,7 @@ close the practice gap for the **algorithmics and complexity** thirds. They are
 not this course's material and must never be presented as it. Each carries its
 institution, course code, year, licence and retrieval date; each has a folder
 under `../src/exercises/` whose README repeats them; and the practice note
-`../notes/01-practice-set-substitute-sources.md`
+note 01 (practice set substitute sources, no longer published)
 tags every problem with the source it came from or marks it as ours.
 
 The selection rule was: **the thinnest blocks first**. Block C had five exercise
@@ -850,7 +850,7 @@ Recorded because the reasons are the useful part.
   IBM Quantum Learning" and "may contain errors". Worse for this course, it is
   written in **Qiskit's little-endian qubit order**, the exact reverse of Egly's
   [S16, S17, S20]. Borrowing its exercises would teach the wrong matrices, which
-  is the trap `../notes/00-exam-focus.md` already
+  is the trap the exam-focus note (no longer published) already
   documents. Not used.
 - **Preskill, Ph219/CS219 (Caltech)** and **Aaronson's lecture notes** [S27].
   Both free, both with problem sets, both excellent — and both aimed at the
@@ -882,7 +882,7 @@ Recorded because the reasons are the useful part.
   slides or pages is copied into this wiki beyond names of topics; the notes
   summarise in their own words.
 - Used for: the grading scheme, exercise format and exam lengths in
-  `../notes/00-exam-focus.md`, the 2026W schedule
+  the exam-focus note (no longer published), the 2026W schedule
   and block order in [`lecture-notes-map.md`](lecture-notes-map.md), the
   TISS-against-TUWEL comparison in [`../docs/tiss.md`](../docs/tiss.md), and the
   2026W lecture sections and cards of notes A01-A03. Where it disagrees with an
@@ -901,7 +901,7 @@ Recorded because the reasons are the useful part.
   genuinely unknown** [S13]. Update 2026-10-09: the algorithmics decks are
   Chen's [S62]; the other blocks have no material yet.
 - ~~**The grading split of 192.043.**~~ Resolved 2026-10-09 by the
-  organization slides [S62]: see `../notes/00-exam-focus.md`.
+  organization slides [S62]: see the exam-focus note (no longer published).
   TISS itself still says only "Exercises + written exam" [S1].
 - **Any past paper of 192.043**, in any year [S24].
 - ~~**The lecture-by-lecture schedule.**~~ Resolved 2026-10-09: TUWEL has a
@@ -917,4 +917,4 @@ Recorded because the reasons are the useful part.
   the German learning outcome mentions it [S1]; no sibling course teaches it
   [S20]. Free material is abundant [S30, S31] and deliberately not turned into a
   practice set. See
-  `../notes/01-practice-set-substitute-sources.md`.
+  note 01 (practice set substitute sources, no longer published).

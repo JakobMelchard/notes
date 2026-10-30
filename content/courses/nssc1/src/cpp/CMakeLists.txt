@@ -1,7 +1,7 @@
 # 360.242 NSSC I -- CMake build, the alternative to the hand-written Makefile.
 #
 # This file is the worked example for note 10. It was written with CMake
-# installed and every line of it was executed; see ../../notes/CHANGELOG.md for
+# installed and every line of it was executed; see the notes changelog (no longer published) for
 # the two defects that exposed in the note's original snippet. Verified with
 # CMake 4.4.3 and AppleClang 21.0.0 on arm64-apple-darwin25.6.0; re-run on
 # 2026-09-27 (OpenMP 5.1 found via OpenMP_ROOT, ctest 10/10).

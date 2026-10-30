@@ -82,7 +82,7 @@ algorithms guarantee.
 sheet. This course publishes none; assignments live in TUWEL, which needs a
 login. Rather than invent exercises and label them with a term, the slot is taken
 by the tests above, which reproduce *published* results. See
-`../notes/CHANGELOG.md`.
+the notes changelog (no longer published).
 
 ### Module tests
 

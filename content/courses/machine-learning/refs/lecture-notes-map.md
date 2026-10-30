@@ -65,7 +65,7 @@ learning, AutoML/metalearning and ML security** — are examined, several of the
 in *every recent paper*: the three-section papers of 2024–2026 devote most of
 their calculation section to a $k$-armed bandit, a convolution or a pooling
 operation, and 1R [S11, S12]. Four new notes and three new modules close that
-gap; see `../notes/CHANGELOG.md`.
+gap; see the notes changelog (no longer published).
 
 ## Scope boundary against the sibling course
 

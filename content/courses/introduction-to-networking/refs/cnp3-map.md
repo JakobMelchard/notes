@@ -81,7 +81,7 @@ The book is not the lecturer's. Fiebig stated that Kurose and Ross was an
 inspiration whose "order, content and depth differ", with "significant
 additional material" [S36], and CNP3 is not even that book. It is a substitute
 for missing slides on *how the protocols work*, never evidence of *what will be
-examined*: for that, read `../notes/00-exam-focus.md` and nothing else here.
+examined*: for that, read the exam-focus note (no longer published) and nothing else here.
 
 Topics on the lecture list that no free textbook in this folder covers at all:
 internet governance (topic 3), Babel (topic 14), RPKI and IRR as Wagner teaches

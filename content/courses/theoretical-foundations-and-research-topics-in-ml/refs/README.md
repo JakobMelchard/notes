@@ -81,7 +81,7 @@ theorem, and a half-remembered constant is worse than no constant. Every number
 in `SOURCES.md` was read out of the retrieved PDF on 2026-09-22, but **S9 and
 S10 are both revised in place by their authors**, so if a locator does not match
 your copy, trust your copy and update
-`../notes/CHANGELOG.md`.
+the notes changelog (no longer published).
 
 Two traps worth naming, because both books are usually misquoted on them:
 

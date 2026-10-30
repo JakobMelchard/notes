@@ -126,7 +126,7 @@ Code: [`../src/notebooks/tour.ipynb`](../src/notebooks/tour.ipynb).
 | 5 | `root` methods; `brentq` bracketing vs `newton` | `.../scipy.optimize.root.html`, `.../brentq.html` |
 | 6 | `linprog` default `method="highs"`; `milp` integrality | `.../linprog.html`, `.../milp.html`, HiGHS [S24] |
 | 7 | PuLP modelling API, `lpSum`, `prob.add_variable_dict`, duals via `.pi` | PuLP docs [S23]; PuLP 4.0.0 signatures read from the installed package |
-| 7 | **PuLP 4.0 removed `LpVariable(name,…)`, `prob.constraints` as a dict, `PULP_CBC_CMD`, `LpStatus` and the bundled CBC** (3.3 had deprecated the first three) | installed wheel's README (`pulp-4.0.0.dist-info/METADATA`) and execution; `test_doc_examples.py::test_pulp4_removed_what_3_3_deprecated`; see `../notes/CHANGELOG.md` |
+| 7 | **PuLP 4.0 removed `LpVariable(name,…)`, `prob.constraints` as a dict, `PULP_CBC_CMD`, `LpStatus` and the bundled CBC** (3.3 had deprecated the first three) | installed wheel's README (`pulp-4.0.0.dist-info/METADATA`) and execution; `test_doc_examples.py::test_pulp4_removed_what_3_3_deprecated`; see the notes changelog (no longer published) |
 | 7 | without a PuLP solver, the model is solved by SciPy's HiGHS | `.../linprog.html`, `.../milp.html`, HiGHS [S24]; `optimisation.solve_pulp` |
 | 7 | CBC does branch-and-cut; not bundled with PuLP since 4.0 | COIN-OR CBC [S25] |
 

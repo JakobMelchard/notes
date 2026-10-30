@@ -56,7 +56,7 @@ ones quoted in the notes, and a module docstring naming the algorithms and the
 | `diff.py` | 12 | `forward_diff`, `backward_diff`, `central_diff`, `second_diff`, `fd_weights`, `optimal_h`, `richardson`, `gradient_fd` |
 
 **Bold** modules and functions were added in the 2026-09-22 source pass; see
-`../notes/CHANGELOG.md`.
+the notes changelog (no longer published).
 
 `test_code_pointers.py` checks that every code pointer in `../notes`,
 `../refs/lecture-notes-map.md` and this file (`module.function`, the

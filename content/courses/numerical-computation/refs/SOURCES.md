@@ -23,7 +23,7 @@ No TUWEL material was fetched; TUWEL requires a login and is not ours to copy.
   (Faustmann, Bringmann, E101), ECTS (6.0), dates, group registration, examination
   modalities ("Short tests, Collaboration in exercise, final overall test"),
   literature ("There will be lecture notes in TUWEL!"). Diffed against
-  [`../docs/tiss.md`](../docs/tiss.md); see `../notes/CHANGELOG.md`.
+  [`../docs/tiss.md`](../docs/tiss.md); see the notes changelog (no longer published).
 - State on 2026-09-27: Gruppe A Tue 10:00-11:00, Sem.R. DA grün 03 A, from
   13.10. Gruppe C moved to Tue 10:00-11:00 (DA04G10), Gruppe B Tue 11:00-12:00.
   Lectures Tue 08:00-10:00 FH HS 3 (06.10-26.01; held 27.10 and 03.11, not

@@ -40,7 +40,7 @@ uv run python src/exercises/2026-01-27/solution.py   # prints, then check()s
 | `exercise_template.py` | scikit-learn pipeline for the assignments: CSV → `ColumnTransformer` → CV comparison of 8 models → table, box plot, confusion matrix/residuals, learning curve, permutation importance, grid search; `--demo` generates data, no arguments runs a quick demo into a temporary directory | 17 | end-to-end run on synthetic data; the dummy baseline scores the majority-class share |
 
 **Bold** modules and entries were added or extended in the 2026-09-22 source
-pass; see `../notes/CHANGELOG.md`.
+pass; see the notes changelog (no longer published).
 
 `test_note_pointers.py` holds the suite together: every backticked name in a
 note's `## Code` section must resolve to a real function, class or attribute of
