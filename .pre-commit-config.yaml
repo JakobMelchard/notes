@@ -29,7 +29,7 @@ repos:
         files: ^scripts/
         pass_filenames: false
         stages: [pre-push]
-  - repo: https://github.com/JakobMelchard/.githooks
-    rev: v1.0.1
+  - repo: https://github.com/JakobMelchard/.github
+    rev: hooks-v2.1.0
     hooks:
       - id: conventional-commit
