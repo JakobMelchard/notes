@@ -24,7 +24,7 @@ teaches no other lecture here [S1, S4, S5]. There is no previous offering, no
 VoWi page, no past paper, no public slide deck, no script. Every statement in
 these notes about *what will be examined* is therefore an inference from the
 TISS page and from what the lecturer works on — and is marked as such in
-[`../notes/00-exam-focus.md`](../notes/00-exam-focus.md). Every statement about
+`../notes/00-exam-focus.md`. Every statement about
 *how a protocol works* is, by contrast, traceable to a vendored RFC.
 
 ## Course-authoritative
@@ -431,10 +431,10 @@ flagged in the note where it is used.
   extraction sit in the git-ignored `vendor/slides/` (fetch with the three URLs
   above). Notes paraphrase and cite them.
 - Used for: the "What lecture 1 stated" section of
-  [`../notes/00-exam-focus.md`](../notes/00-exam-focus.md) (exam rules, team,
+  `../notes/00-exam-focus.md` (exam rules, team,
   literature, scope exclusions, lecture-by-lecture topics) and the history,
   access-network, structure and registry additions to
-  [`../notes/01-foundations-and-governance.md`](../notes/01-foundations-and-governance.md).
+  `../notes/01-foundations-and-governance.md`.
   It is the first lecturer-authored source and supersedes inference wherever
   the two disagree. It also supports S33's guess about the A4 sheet.
 
@@ -445,7 +445,7 @@ no model of what its exam looks like. This section registers the free,
 licence-clear material from *elsewhere* that stands in for one, and the
 worked-out practice set built from it lives in
 `../src/exercises/` and
-[`../notes/12-substitute-practice-set.md`](../notes/12-substitute-practice-set.md).
+`../notes/12-substitute-practice-set.md`.
 
 **None of it is 191.030's.** Every directory, note section and problem carries
 the institution, course and year on its first line. A reader must never be able
@@ -488,7 +488,7 @@ book fails the syllabus, is [`cnp3-map.md`](cnp3-map.md).
   networking course.
 - **Outcome of the lead: his teaching material is still not public**, which
   confirms rather than contradicts [S5] and
-  [`../notes/00-exam-focus.md`](../notes/00-exam-focus.md). What *is* public is
+  `../notes/00-exam-focus.md`. What *is* public is
   the course record, and it is worth having:
 
   | fact | why it matters here |

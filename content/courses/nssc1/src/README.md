@@ -62,7 +62,7 @@ Results these reproduce, in the same spirit as the table above:
 | `test_taskmanager_matmul.py::test_cpp_assertions_pass` | a CAS lock that does not lose any of 80 000 non-atomic increments, and a task-parallel matmul bit-identical to the naive triple loop |
 
 The problems built on top of these are in
-[`../notes/11-practice-set.md`](../notes/11-practice-set.md), which also names
+`../notes/11-practice-set.md`, which also names
 the TISS topics for which **no** free practice material exists.
 
 ## cpp/ (C++17, `clang++ -std=c++17 -O2 -Wall -Wextra`)

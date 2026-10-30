@@ -4,7 +4,7 @@ version = "0.1.0"
 requires-python = ">=3.12,<3.13"
 dependencies = [
   "numpy", "scipy", "matplotlib", "scikit-learn", "pandas", "sympy", "networkx",
-  "pytest", "jupyter", "pulp", "cryptography", "torch", "torchvision", "sparse-ir; (sys_platform == 'linux' and platform_machine == 'x86_64') or (sys_platform == 'darwin' and platform_machine == 'arm64' and platform_release >= '24')",
+  "pytest", "jupyter", "pulp", "cryptography",
 ]
 
 [dependency-groups]
@@ -15,16 +15,6 @@ package = false
 
 [tool.pytest.ini_options]
 python_files = ["test_*.py"]
-
-# CPU-only torch on Linux (CI): avoids several GB of CUDA wheels.
-[[tool.uv.index]]
-name = "pytorch-cpu"
-url = "https://download.pytorch.org/whl/cpu"
-explicit = true
-
-[tool.uv.sources]
-torch = [{ index = "pytorch-cpu", marker = "sys_platform == 'linux'" }]
-torchvision = [{ index = "pytorch-cpu", marker = "sys_platform == 'linux'" }]
 
 # Lint and type the repo's own scripts; course code under content/ is study material.
 [tool.ruff]

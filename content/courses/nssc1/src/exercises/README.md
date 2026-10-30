@@ -3,7 +3,7 @@
 **360.242 publishes no exercise sheet and no past paper.** TISS says *"No lecture
 notes are available."* in every offering from 2019W to 2026W [S1] [S2] [S3], and
 the VoWi page is empty - 0 Materialien [S4]. See
-[`../../notes/00-exam-focus.md`](../../notes/00-exam-focus.md).
+`../../notes/00-exam-focus.md`.
 
 So there is nothing here that came from this course. Every directory is
 **another course's or another author's material**, and every one of them says so
@@ -29,7 +29,7 @@ that no reader can mistake a restatement for the original or the original for a
 360.242 question.
 
 The problems these directories feed into are collected in
-[`../../notes/11-practice-set.md`](../../notes/11-practice-set.md), which also
+`../../notes/11-practice-set.md`, which also
 records the TISS topics for which **no** good free practice material was found.
 
 ## Run everything

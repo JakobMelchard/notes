@@ -744,7 +744,7 @@ close the practice gap for the **algorithmics and complexity** thirds. They are
 not this course's material and must never be presented as it. Each carries its
 institution, course code, year, licence and retrieval date; each has a folder
 under `../src/exercises/` whose README repeats them; and the practice note
-[`../notes/01-practice-set-substitute-sources.md`](../notes/01-practice-set-substitute-sources.md)
+`../notes/01-practice-set-substitute-sources.md`
 tags every problem with the source it came from or marks it as ours.
 
 The selection rule was: **the thinnest blocks first**. Block C had five exercise
@@ -850,7 +850,7 @@ Recorded because the reasons are the useful part.
   IBM Quantum Learning" and "may contain errors". Worse for this course, it is
   written in **Qiskit's little-endian qubit order**, the exact reverse of Egly's
   [S16, S17, S20]. Borrowing its exercises would teach the wrong matrices, which
-  is the trap [`../notes/00-exam-focus.md`](../notes/00-exam-focus.md) already
+  is the trap `../notes/00-exam-focus.md` already
   documents. Not used.
 - **Preskill, Ph219/CS219 (Caltech)** and **Aaronson's lecture notes** [S27].
   Both free, both with problem sets, both excellent — and both aimed at the
@@ -882,7 +882,7 @@ Recorded because the reasons are the useful part.
   slides or pages is copied into this wiki beyond names of topics; the notes
   summarise in their own words.
 - Used for: the grading scheme, exercise format and exam lengths in
-  [`../notes/00-exam-focus.md`](../notes/00-exam-focus.md), the 2026W schedule
+  `../notes/00-exam-focus.md`, the 2026W schedule
   and block order in [`lecture-notes-map.md`](lecture-notes-map.md), the
   TISS-against-TUWEL comparison in [`../docs/tiss.md`](../docs/tiss.md), and the
   2026W lecture sections and cards of notes A01-A03. Where it disagrees with an
@@ -901,7 +901,7 @@ Recorded because the reasons are the useful part.
   genuinely unknown** [S13]. Update 2026-10-09: the algorithmics decks are
   Chen's [S62]; the other blocks have no material yet.
 - ~~**The grading split of 192.043.**~~ Resolved 2026-10-09 by the
-  organization slides [S62]: see [`../notes/00-exam-focus.md`](../notes/00-exam-focus.md).
+  organization slides [S62]: see `../notes/00-exam-focus.md`.
   TISS itself still says only "Exercises + written exam" [S1].
 - **Any past paper of 192.043**, in any year [S24].
 - ~~**The lecture-by-lecture schedule.**~~ Resolved 2026-10-09: TUWEL has a
@@ -917,4 +917,4 @@ Recorded because the reasons are the useful part.
   the German learning outcome mentions it [S1]; no sibling course teaches it
   [S20]. Free material is abundant [S30, S31] and deliberately not turned into a
   practice set. See
-  [`../notes/01-practice-set-substitute-sources.md`](../notes/01-practice-set-substitute-sources.md).
+  `../notes/01-practice-set-substitute-sources.md`.

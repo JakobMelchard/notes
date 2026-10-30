@@ -61,7 +61,7 @@ licence requires. It is unmodified.
   download command in `fetch-sources.sh`.
 - **Every past paper and sample solution** [S12-S17] — student uploads of exam
   papers. Cited; the questions are described in our own words in
-  [`../notes/00-exam-focus.md`](../notes/00-exam-focus.md) and never reproduced.
+  `../notes/00-exam-focus.md` and never reproduced.
 - **Katz-Lindell** [S10] — a commercial textbook. VoWi hosts scanned PDFs of the
   2nd and 3rd editions; they were **not downloaded** and `fetch-sources.sh` does
   not offer to.
@@ -84,7 +84,7 @@ cd ws2026/introduction-to-cryptography/refs    # from the qist repo root
 
 ## What sourcing this course could *not* establish
 
-Read this before [`../notes/00-exam-focus.md`](../notes/00-exam-focus.md).
+Read this before `../notes/00-exam-focus.md`.
 
 192.125 has run since at least 2021W. It is taken in **2026W**, the current
 offering: lectures Thursdays 01.10.2026 to 21.01.2027, **midterm Wed
@@ -141,11 +141,11 @@ print are reproduced by tests:
 
 ## Reading order
 
-1. [`../notes/00-exam-focus.md`](../notes/00-exam-focus.md) — what four past
+1. `../notes/00-exam-focus.md` — what four past
    papers actually asked, and how much of it is known versus inferred.
 2. [`lecture-notes-map.md`](lecture-notes-map.md) — the lecture order, which is
    also the note order.
-3. [`../notes/README.md`](../notes/README.md) — the thirteen topic notes.
+3. `../notes/README.md` — the thirteen topic notes.
 
 [S37]: https://trustee.ietf.org/documents/trust-legal-provisions/tlp-5/
 [S38]: https://www.nist.gov/open/copyright-fair-use-and-licensing-statements-srd-data-software-and-technical-series-publications

@@ -1,7 +1,7 @@
 # Reference implementations: 192.125 Introduction to Cryptography
 
 **Educational toy cryptography.** Every module is a teaching prototype for the
-security definitions, constructions, and attacks in the [notes](../notes/README.md).
+security definitions, constructions, and attacks in the notes.
 Parameters are small so attacks finish in milliseconds; nothing here is
 constant-time or hardened. Each file says so in its header.
 

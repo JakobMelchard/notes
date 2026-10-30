@@ -48,17 +48,12 @@ Third-party files, vendored unmodified:
 
 | path | licence |
 |---|---|
-| `*/refs/rfc/` (`advanced-cryptography`, `introduction-to-cryptography`, `introduction-to-networking`) | IETF RFCs (IETF Trust or Internet Society copyright), redistributed unmodified as the RFCs permit |
-| `*/refs/nist/` (`advanced-cryptography`, `introduction-to-cryptography`) | NIST publications, works of the US government |
+| `*/refs/rfc/` (`introduction-to-cryptography`, `introduction-to-networking`) | IETF RFCs (IETF Trust or Internet Society copyright), redistributed unmodified as the RFCs permit |
+| `introduction-to-cryptography/refs/nist/` | NIST publications, works of the US government |
 | `introduction-to-cryptography/refs/vectors/` | Wycheproof test vectors, Apache-2.0 (`LICENSE-Apache-2.0.txt`) |
 | `nssc1/refs/vendor/openmp-api-specification-5.2.pdf` | OpenMP ARB copyright, copied unmodified under the permission notice on its title page |
 | `nssc1/refs/vendor/hestenes-stiefel-1952-conjugate-gradients.pdf` | work of the US government (J. Res. NBS) |
 | `nssc1/refs/vendor/vtkCellType.h` | BSD-3-Clause, Ken Martin, Will Schroeder, Bill Lorensen (`LICENSE-VTK`) |
-| `database-systems/refs/vendor/sqlite/`, `advanced-database-systems/refs/vendor/sqlite-lang_with.html` | SQLite documentation, public domain |
-| `advanced-database-systems/refs/vendor/pg18-*.html` | PostgreSQL documentation, PostgreSQL Licence (`LICENSE-PostgreSQL.txt`) |
-| `computational-science-on-many-core-architectures/refs/vendor/rupp-cpu-gpu-mic-comparison/` | Karl Rupp, CC BY 4.0 (`LICENSE.txt`) |
-| `asc-school-i-hpc/refs/vendor/asc-*.md` | ASC Research Center, TU Wien (VSC training slide sources), CC BY-SA 4.0 (`LICENSE-CC-BY-SA-4.0.txt`) |
-| `asc-school-i-hpc/refs/vendor/mpi-5.0-standard.pdf` | University of Tennessee copyright, copied unmodified under the MPI Forum permission notice on page ii |
 
 Material adapted from MIT OpenCourseWare, licensed **CC BY-NC-SA 4.0**
 (non-commercial), prose and code alike:
@@ -66,10 +61,8 @@ Material adapted from MIT OpenCourseWare, licensed **CC BY-NC-SA 4.0**
 | path | adapted from |
 |---|---|
 | `introduction-to-networking/src/exercises/mit-6.02-2012/` | MIT 6.02 *Introduction to EECS II*, Fall 2012, MIT OpenCourseWare |
-| `introduction-to-networking/notes/12-substitute-practice-set.md` | the same, plus CC BY-SA 3.0 material from UCLouvain CNP3 |
 | `quantum-computing-complexity-theory-and-algorithmics/src/exercises/mit-18.404j-2020/` | MIT 18.404J *Theory of Computation*, Michael Sipser, Fall 2020, MIT OpenCourseWare |
 | `quantum-computing-complexity-theory-and-algorithmics/src/exercises/mit-6.046j-2015/` | MIT 6.046J *Design and Analysis of Algorithms*, Erik Demaine, Srini Devadas, Nancy Lynch, Spring 2015, MIT OpenCourseWare |
-| `quantum-computing-complexity-theory-and-algorithmics/notes/01-practice-set-substitute-sources.md` | the two MIT courses above |
 
 MIT OpenCourseWare material is used under
 <https://ocw.mit.edu/terms/> and

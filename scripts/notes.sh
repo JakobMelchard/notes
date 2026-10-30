@@ -14,6 +14,6 @@ fi
 # only the paths notes-src owns (see .gitignore); --delete drops notes removed upstream, and the
 # excluded tracked refs/ and src/ are left alone
 rsync -a --delete \
-  --include /index.md --include /courses/ --include '/courses/*/' --include '/courses/*/index.md' \
+  --include /index.md --include /courses/ --include '/courses/*/' --include '/courses/*/index.md' --include '/courses/*/verified-cards.md' \
   --include '/courses/*/notes/***' --include '/courses/*/docs/***' --exclude '*' \
   "$dir"/ content/

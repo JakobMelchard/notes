@@ -26,7 +26,7 @@ which also pins the numbers MIT published: Edmonds–Karp reaching a flow of 26,
 and the tight $2-\frac1m$ load-balancing family.
 
 The practice set that pulls the three folders together is
-[`../../notes/01-practice-set-substitute-sources.md`](../../notes/01-practice-set-substitute-sources.md).
+`../../notes/01-practice-set-substitute-sources.md`.
 
 ## Running them
 

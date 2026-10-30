@@ -15,5 +15,6 @@ __pycache__/
 .notes/
 content/index.md
 content/courses/*/index.md
+content/courses/*/verified-cards.md
 content/courses/*/notes/
 content/courses/*/docs/

@@ -31,13 +31,13 @@ vendoring is in those READMEs.
 
 The condensed practice set that pulls both sources together, adds problems of
 our own for the topics neither covers, and tags every problem with its origin
-is [`../../notes/12-substitute-practice-set.md`](../../notes/12-substitute-practice-set.md).
+is `../../notes/12-substitute-practice-set.md`.
 
 ## When the real sheets appear
 
 The five exercises will be released during the semester, after lectures 7, 9,
 16, 19 and 22 [S1], which
-[`../../notes/00-exam-focus.md`](../../notes/00-exam-focus.md) works out to
+`../../notes/00-exam-focus.md` works out to
 roughly 09.11.2026, 16.11.2026, 07.12.2026, 11.01.2027 and 18.01.2027. Where
 they will be published is open: TISS links no TUWEL course for 191.030
 (re-read 2026-09-27). Wherever they appear, **course material is not ours to
@@ -55,7 +55,7 @@ your own solution beside it, as the other courses do. Do not paste the sheet.
    constants this course is likely to ask about (OSPF's appendices, RFC 4271
    §10, RFC 6298's rounding rule) it is arguably better than a past paper,
    because a standard does not misremember.
-2. **[`../../notes/11-exercise-playbook.md`](../../notes/11-exercise-playbook.md)**:
+2. **`../../notes/11-exercise-playbook.md`**:
    the procedure for each of the three task types TISS named ("describing
    packet traces received", "deriving a topology based on provided
    information", "describe TCP behavior given a specific scenario" [S1];
