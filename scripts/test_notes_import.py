@@ -41,6 +41,7 @@ def test_imports_content_branch_without_overwriting_reference_code(tmp_path: Pat
     assert implementation.read_text() == "retained reference code\n"
     assert not (site / "content/private.md").exists()
     assert not (site / "content/courses/demo/src/private.py").exists()
+    assert (site / "content/courses/demo/notes/topic.md").read_text() == "public topic\n"
     (source / "courses/demo/notes/topic.md").unlink()
     git(source, "add", ".")
     git(source, "commit", "-qm", "remove exported note")

@@ -4,6 +4,10 @@ Corrections, new sources, new notes and new courses are welcome. The canonical p
 
 ## Propose a change
 
+For new notes, course proposals and prose corrections, open an issue with the proposed draft or outline, course identifier and source links. The maintainer applies accepted prose in the private authoring vault and exports it to the public content branch.
+
+The pull-request steps below apply to site code, source registers and reference implementations.
+
 1. Fork the repository and create a branch: `git switch -c fix/crypto-note-05`.
 2. Make the change, preview it, run the checks (below).
 3. Open a pull request against `main` and fill in the template.
