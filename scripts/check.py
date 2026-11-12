@@ -25,6 +25,7 @@ CITE = re.compile(r"\[(S\d+[a-z]?\b[^\]]*)\]")
 SNUM = re.compile(r"\bS(\d+[a-z]?)\b")
 FENCE = re.compile(r"\s*(`{3,}|~{3,})")
 ENTRY = re.compile(r"^\s*(#+|[-*]|\d+\.)\s")
+ROW = re.compile(r"^\s*\|\s*\**S(\d+[a-z]?)\b")
 
 
 def link_ok(md: Path, target: str, root: Path) -> bool:
@@ -45,7 +46,9 @@ def sources_of(md: Path) -> Path | None:
 
 def defined(sources: Path) -> set[str]:
     lines = sources.read_text(encoding="utf-8").splitlines()
-    return {n for line in lines if ENTRY.match(line) for n in SNUM.findall(line)}
+    ids = {n for line in lines if ENTRY.match(line) for n in SNUM.findall(line)}
+    # A table registers only the id in its first cell; later cells may cite other sources.
+    return ids | {m[1] for line in lines if (m := ROW.match(line))}
 
 
 def main() -> int:

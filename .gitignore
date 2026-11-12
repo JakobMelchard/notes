@@ -11,7 +11,7 @@ replit.nix
 .venv
 __pycache__/
 .pytest_cache/
-# from JakobMelchard/notes-src, copied in by scripts/notes.sh
+# Generated public content branch, imported by scripts/notes.sh
 .notes/
 content/index.md
 content/courses/*/index.md
