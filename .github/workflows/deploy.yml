@@ -16,24 +16,27 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+    defaults:
+      run:
+        working-directory: .site
     steps:
-      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
-        with:
-          persist-credentials: false
-          fetch-depth: 0 # git dates for CreatedModifiedDate
+      - name: Fetch canonical public site source
+        working-directory: ${{ github.workspace }}
+        run: git clone --branch main --single-branch https://codeberg.org/lilfeelz/notes.git .site
       - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
         with:
-          node-version-file: .node-version
+          node-version-file: .site/.node-version
           cache: npm
+          cache-dependency-path: .site/package-lock.json
       - run: npm ci
       - run: scripts/notes.sh
-      # notes-src content is gitignored here and never reviewed in a PR, so gate the publish on it
+      # Exported prose is gitignored here, so validate the imported content before publishing.
       - run: python3 scripts/check.py
       - run: npx quartz build
       - run: npm run drill
       - uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
         with:
-          path: public
+          path: .site/public
 
   deploy:
     needs: build

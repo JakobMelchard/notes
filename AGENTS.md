@@ -8,7 +8,7 @@ rules apply to you.
 
 ## Layout
 
-Course layout, citations and flashcard format are in [CONTRIBUTING.md](CONTRIBUTING.md). `index.md`, `notes/` and `docs/` come from JakobMelchard/notes-src and are gitignored here, so a course-content PR touches only `refs/` and `src/`. notes-src is pushed from the vault (`pages/tu/public/`) by notes-sync on the vault host: edit notes and `docs/tiss.md` there, never in notes-src.
+Course layout, citations and flashcard format are in CONTRIBUTING.md. Site code, refs/ and src/ are owned by the main branch of Codeberg lilfeelz/notes. Public index.md, notes/, docs/ and verified-cards.md are generated into its content branch from ~/Notes/public/tu in the private Forgejo notes-src vault. Edit prose there, never in a generated build copy or content branch. No private course material or vault history may be published. GitHub retains the Pages bridge and existing review work during the hosting migration; deployment fetches Codeberg main. Transfer future accepted site changes to the Codeberg primary rather than editing a second main branch.
 
 The sources are the ground truth, the notes are derived. Never edit a note in a way its cited sources do not support.
 

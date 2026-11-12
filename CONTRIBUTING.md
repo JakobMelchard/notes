@@ -1,7 +1,6 @@
 # Contributing
 
-Corrections, new sources, new notes and new courses are welcome. Everything
-goes through a pull request.
+Corrections, new sources, new notes and new courses are welcome. The canonical public repository is https://codeberg.org/lilfeelz/notes. Site code and reference implementations go through a pull request; prose corrections are applied in the private source vault and exported to the content branch. Report prose corrections as an issue rather than editing a generated build copy.
 
 ## Propose a change
 
