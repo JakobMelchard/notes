@@ -1,9 +1,12 @@
 # Contributing
 
-Corrections, new sources, new notes and new courses are welcome. Everything
-goes through a pull request.
+Corrections, new sources, new notes and new courses are welcome. The canonical public repository is https://codeberg.org/lilfeelz/notes. Site code and reference implementations go through a pull request; prose corrections are applied in the private source vault and exported to the content branch. Report prose corrections as an issue rather than editing a generated build copy.
 
 ## Propose a change
+
+For new notes, course proposals and prose corrections, open an issue with the proposed draft or outline, course identifier and source links. The maintainer applies accepted prose in the private authoring vault and exports it to the public content branch.
+
+The pull-request steps below apply to site code, source registers and reference implementations.
 
 1. Fork the repository and create a branch: `git switch -c fix/crypto-note-05`.
 2. Make the change, preview it, run the checks (below).

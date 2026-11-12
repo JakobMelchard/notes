@@ -114,6 +114,24 @@ def test_missing_source_only_warns(
     assert "warning" in out and "S2" in out and "S1 not" not in out
 
 
+def test_table_sources_are_defined(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]
+) -> None:
+    course = tmp_path / "c"
+    (course / "notes").mkdir(parents=True)
+    (course / "refs").mkdir()
+    (course / "refs" / "SOURCES.md").write_text(
+        "| Id | Source |\n|---|---|\n| **S13** | W. Hoeffding, see S3 |\n| S14a | other |\n",
+        encoding="utf-8",
+    )
+    (course / "notes" / "n.md").write_text("claim [S13], [S14a] and [S3]\n", encoding="utf-8")
+    monkeypatch.setattr(sys, "argv", ["check.py", str(tmp_path)])
+    code = check.main()
+    out = capsys.readouterr().out
+    assert code == 0
+    assert "S13 not" not in out and "S14a not" not in out and "S3 not" in out
+
+
 def test_clean_tree_exits_zero(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]
 ) -> None:
