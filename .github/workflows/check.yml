@@ -20,6 +20,8 @@ jobs:
   py:
     uses: JakobMelchard/.github/.github/workflows/python.yml@baeda3e262210ce1619b843985fe9ceb84f92199 # v2.8.2
     with:
+      # System python: numpy temporary elision (asserted by test_profiling) does not fire on the setup-python build.
+      install-cmd: uv sync --all-extras --python /usr/bin/python3
       lint-cmd: ruff check && uv run ruff format --check && uv run mypy && shellcheck --severity=warning scripts/*.sh scripts/ci/*.sh
       test-cmd: >-
         pytest scripts -q -p no:cacheprovider
