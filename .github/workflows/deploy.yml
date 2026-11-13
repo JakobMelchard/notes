@@ -5,7 +5,7 @@ on:
     branches: [main]
   workflow_dispatch:
   repository_dispatch:
-    types: [notes-published]
+    types: [notes-published, notes-src]
 
 permissions: {}
 
@@ -25,7 +25,7 @@ jobs:
       - name: Fetch canonical public site source
         working-directory: ${{ github.workspace }}
         run: git clone --branch main --single-branch https://codeberg.org/lilfeelz/notes.git .site
-      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version-file: .site/.node-version
           cache: npm
