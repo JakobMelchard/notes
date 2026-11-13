@@ -29,6 +29,7 @@ jobs:
         && scripts/ci/course-pytest.sh
         && scripts/ci/course-shell-tests.sh
         && scripts/ci/llvm.sh
+        && export PATH="$HOME/bin:$PATH"
         && STDLIB=-stdlib=libc++ scripts/ci/course-make.sh
 
   # Stable names for the required status checks `check` and `tests` in the main ruleset.
