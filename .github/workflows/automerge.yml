@@ -8,7 +8,7 @@ permissions: {}
 
 jobs:
   automerge:
-    uses: JakobMelchard/.github/.github/workflows/automerge.yml@531b4dcb30293e6219d67e312e164cc262a69955 # v2.3.1
+    uses: JakobMelchard/.github/.github/workflows/automerge.yml@baeda3e262210ce1619b843985fe9ceb84f92199 # v2.8.2
     permissions:
       contents: read
       checks: read
