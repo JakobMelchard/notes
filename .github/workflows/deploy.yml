@@ -5,7 +5,7 @@ on:
     branches: [main]
   workflow_dispatch:
   repository_dispatch:
-    types: [notes-published, notes-src]
+    types: [notes-published]
 
 permissions: {}
 
