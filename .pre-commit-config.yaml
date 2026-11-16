@@ -8,7 +8,7 @@ repos:
     hooks:
       - id: gitleaks
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.16.9
+    rev: v0.17.5
     hooks:
       - id: ruff-check
       - id: ruff-format
@@ -30,6 +30,6 @@ repos:
         pass_filenames: false
         stages: [pre-push]
   - repo: https://github.com/JakobMelchard/.github
-    rev: hooks-v2.1.0
+    rev: hooks-v2.2.0
     hooks:
       - id: conventional-commit
