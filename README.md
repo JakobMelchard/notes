@@ -1,30 +1,41 @@
 # Public study wiki
 
-Study notes, source registers, TISS transcriptions and tested reference code for TU Wien master courses (CSE, QIST), built from public sources only. Read it at https://docs.melchard.org/notes/.
+Study notes, source registers and tested reference code for TU Wien master courses,
+built from public sources only. Read it at <https://docs.melchard.org/notes/>.
+
+Canonical repository: <https://codeberg.org/lilfeelz/notes>. This repository serves the
+GitHub Pages build; site code and source registers are reviewed there.
+
+## Preview
 
 ```sh
 npm ci
-scripts/notes.sh              # import the Codeberg content branch
-npx quartz build --serve      # preview at http://localhost:8080
-npm run drill                 # flashcard page into public/drill/, after quartz build
+scripts/notes.sh              # fetch the public content branch
+npx quartz build --serve      # http://localhost:8080
+```
+
+## Checks
+
+```sh
 python3 scripts/check.py      # links, privacy, citations
 npm test
 uv sync
 uv run pytest content/courses/<slug>/src -q
 ```
 
-| Path                                                 | Contents                                                                                                                                                                                                          |
-| ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `content/courses/<slug>/refs/`, `src/`               | source register, vendored files, reference code                                                                                                                                                                   |
-| `content/courses/<slug>/index.md`, `notes/`, `docs/` | generated from the private authoring vault into this repository’s [content branch](https://codeberg.org/lilfeelz/notes/src/branch/content); gitignored in the site checkout; report prose corrections as an issue |
-| `drill/`                                             | flashcard review of the `card` blocks in the notes                                                                                                                                                                |
-| `templates/course/`                                  | skeleton for a new course                                                                                                                                                                                         |
-| `scripts/`                                           | `notes.sh`, `check.py`                                                                                                                                                                                            |
+## Layout
 
-Contributing: [CONTRIBUTING.md](CONTRIBUTING.md), [AGENTS.md](AGENTS.md). Licence: prose CC BY-SA 4.0, code MIT, see [LICENSE.md](LICENSE.md).
+| Path | Contents |
+|---|---|
+| `content/courses/<slug>/refs/`, `src/` | source register, vendored files, reference code |
+| `content/courses/<slug>/index.md`, `notes/`, `docs/` | published course prose, generated into the content branch |
+| `drill/` | flashcard review of the `card` blocks in the notes |
+| `templates/course/` | skeleton for a new course |
+| `scripts/` | `notes.sh`, `check.py` |
 
-## Ownership and publishing
+## Contributing
 
-Canonical public repository: https://codeberg.org/lilfeelz/notes. The main branch owns the site, reference code and source registers. The content branch owns only the generated public prose tree; its editable source is public/tu in the maintainer’s private Forgejo notes-src vault. Private notebooks and course artifacts are never imported.
+Corrections, new sources and new courses are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
+Prose corrections are applied upstream and published in the next build.
 
-GitHub JakobMelchard/notes is retained as the Pages build bridge and to preserve existing reviews during migration. Its deployment workflow fetches site code from Codeberg main, so the GitHub checkout is not another editable source. The legacy GitHub notes-src repository is no longer the authoring source. Prose changes are exported to Codeberg and then request a Pages build; site-code changes follow review before the bridge is updated. Public course URL slugs remain stable.
+Licence: prose CC BY-SA 4.0, code MIT, see [LICENSE.md](LICENSE.md).
